@@ -11,6 +11,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 h1, .instructions, h3 { font-family: Arial, sans-serif; }
+.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 20px; }
 .editor {
   max-width: 850px; margin: 0 auto 25px; background: white;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -20,7 +21,7 @@ h1, .instructions, h3 { font-family: Arial, sans-serif; }
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
 }
 label { display: block; font: 13px Arial, sans-serif; font-weight: bold; }
-input {
+input, select {
   display: block; width: 100%; margin-top: 5px; padding: 10px;
   border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
 }
@@ -70,9 +71,9 @@ input {
 .cover {
   position: relative;
   width: fit-content;
-  padding: 14px 20px;
+  padding: 18px 25px 22px 25px;
   background: #fffdfc;
-  border: 4.5px double #a52c51;
+  border: 5px double #a52c51;
   overflow: hidden;
 }
 .inside {
@@ -81,8 +82,8 @@ input {
 }
 
 .logo-area {
-  position: absolute; top: 12px; left: 12px;
-  width: 55px; height: 55px; display: flex;
+  position: absolute; top: 6px; left: 12px;
+  width: 78px; height: 78px; display: flex;
   align-items: flex-start; justify-content: flex-start;
   z-index: 2;
 }
@@ -93,24 +94,24 @@ input {
 
 .heading-area {
   text-align: center;
-  padding-left: 60px;
+  padding-left: 82px;
   margin-top: 2px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 .main-title {
   color: #c00000;
-  font-size: 22px; line-height: 1.05;
+  font-size: 26px; line-height: 1.1;
   font-weight: bold; white-space: nowrap; letter-spacing: .5px;
 }
 .academic {
-  margin-top: 4px; color: #285c9d;
-  font-size: 14px; font-weight: bold; line-height: 1.25;
+  margin-top: 6px; color: #285c9d;
+  font-size: 16px; font-weight: bold; line-height: 1.3;
   white-space: nowrap;
 }
 
 .details {
   color: #4e852c;
-  font-size: 13px; font-weight: bold; line-height: 1.6;
+  font-size: 15px; font-weight: bold; line-height: 1.75;
 }
 .details p {
   margin: 0;
@@ -118,13 +119,13 @@ input {
   align-items: baseline;
   white-space: nowrap;
 }
-.details .label-text { width: 120px; display: inline-block; }
+.details .label-text { width: 130px; display: inline-block; }
 .details .colon { width: 25px; text-align: center; display: inline-block; }
 
 /* Print Styles for Multi-page A4 */
 @page { 
   size: A4 portrait; 
-  margin: 6mm 8mm; 
+  margin: 2mm 5mm; 
 }
 
 @media print {
@@ -135,8 +136,8 @@ input {
 
   .a4-page {
     width: 100% !important;
-    height: 284mm !important;
-    padding: 0 !important;
+    height: 293mm !important;
+    padding: 3mm 0 5mm 0 !important;
     box-shadow: none !important;
     display: flex !important;
     flex-direction: column !important;
@@ -146,29 +147,50 @@ input {
     break-after: page !important;
   }
 
-  .cover {
+  /* 2 Covers per Page Styling */
+  .grid-2 .cover {
+    box-sizing: border-box !important;
+    width: fit-content !important;
+    background: #fffdfc !important;
+    border: 5px double #a52c51 !important;
+    padding: 24px 35px 28px 35px !important;
+    print-color-adjust: exact; 
+    -webkit-print-color-adjust: exact;
+  }
+  .grid-2 .main-title { font-size: 24pt !important; color: #c00000 !important; }
+  .grid-2 .academic { font-size: 14pt !important; }
+  .grid-2 .details { font-size: 13pt !important; line-height: 1.85 !important; }
+  .grid-2 .logo-area { width: 90px !important; height: 90px !important; top: 8px !important; left: 16px !important; }
+  .grid-2 .heading-area { padding-left: 95px !important; margin-bottom: 20px !important; }
+  .grid-2 .details .label-text { width: 140px !important; }
+
+  /* 3 Covers per Page Styling - Maximize vertical distribution to increase gap */
+  .grid-3 .cover {
     box-sizing: border-box !important;
     width: fit-content !important;
     background: #fffdfc !important;
     border: 4.5px double #a52c51 !important;
-    padding: 14px 20px !important;
+    padding: 15px 25px 16px 25px !important;
     print-color-adjust: exact; 
     -webkit-print-color-adjust: exact;
   }
+  .grid-3 .main-title { font-size: 20pt !important; color: #c00000 !important; }
+  .grid-3 .academic { font-size: 12.5pt !important; }
+  .grid-3 .details { font-size: 11.5pt !important; line-height: 1.65 !important; }
+  .grid-3 .logo-area { width: 72px !important; height: 72px !important; top: 6px !important; left: 12px !important; }
+  .grid-3 .heading-area { padding-left: 78px !important; margin-bottom: 12px !important; }
+  .grid-3 .details .label-text { width: 125px !important; }
 
-  .main-title { font-size: 18pt !important; color: #c00000 !important; }
-  .academic { font-size: 11.5pt !important; }
-  .details { font-size: 10.5pt !important; line-height: 1.6 !important; }
-  .logo-area { width: 55px !important; height: 55px !important; top: 12px !important; left: 12px !important; }
-  .heading-area { padding-left: 60px !important; margin-bottom: 12px !important; }
-  .details .label-text { width: 110px !important; }
+  /* Fallbacks */
+  .grid-1 .cover { padding: 30px !important; }
+  .grid-4 .cover { padding: 10px !important; }
 }
 </style>
 </head>
 <body>
 
 <h1>BAU Batch Practical Cover Generator</h1>
-<p class="instructions">Enter all the informations.</p>
+<p class="instructions">Enter all the information below:</p>
 
 <section class="editor">
   <h2>1. Common Course Details</h2>
@@ -180,6 +202,12 @@ input {
     <label>Session<input id="session" value="2025-2026"></label>
     <label>Degree / Level / Semester<input id="degree" value="B.Sc. (Hons.) Level-1, Semester-1"></label>
     <label>Academic period<input id="period" value="(January-June/26)"></label>
+    <label>Covers per A4 Page
+      <select id="copyCount">
+        <option value="2">2 Covers per Page (Bigger Size)</option>
+        <option value="3" selected>3 Covers per Page (Standard)</option>
+      </select>
+    </label>
   </div>
 
   <div class="student-section">
@@ -279,11 +307,12 @@ function buildCoverHTML(info, student) {
 function renderAllCovers() {
   const container = document.getElementById("previewContainer");
   const info = getCommonData();
+  const perPage = parseInt(document.getElementById("copyCount").value);
   container.innerHTML = "";
 
-  for (let i = 0; i < students.length; i += 3) {
-    const pageChunk = students.slice(i, i + 3);
-    let pageHTML = `<div class="a4-page">`;
+  for (let i = 0; i < students.length; i += perPage) {
+    const pageChunk = students.slice(i, i + perPage);
+    let pageHTML = `<div class="a4-page grid-${perPage}">`;
     pageChunk.forEach(student => {
       pageHTML += buildCoverHTML(info, student);
     });
@@ -295,6 +324,8 @@ function renderAllCovers() {
 ["courseNo", "courseTitle", "group", "section", "session", "degree", "period"].forEach(id => {
   document.getElementById(id).addEventListener("input", renderAllCovers);
 });
+
+document.getElementById("copyCount").addEventListener("change", renderAllCovers);
 
 renderStudentInputs();
 renderAllCovers();
