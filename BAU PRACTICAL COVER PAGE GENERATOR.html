@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BAU Batch Practical Cover Generator</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 20px; background: #f0f2f5; color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+}
+h1, .instructions, h3 { font-family: Arial, sans-serif; }
+.editor {
+  max-width: 850px; margin: 0 auto 25px; background: white;
+  padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.editor h2 { font: 20px Arial, sans-serif; margin-top: 0; color: #176b42; }
+.form-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+}
+label { display: block; font: 13px Arial, sans-serif; font-weight: bold; }
+input {
+  display: block; width: 100%; margin-top: 5px; padding: 10px;
+  border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
+}
+
+/* Student List Inputs */
+.student-section {
+  margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd;
+}
+.student-row {
+  display: flex; gap: 10px; margin-bottom: 10px; align-items: center;
+}
+.student-row input { margin-top: 0; }
+.btn-remove {
+  background: #d9534f; color: white; border: 0; padding: 10px 14px;
+  border-radius: 5px; cursor: pointer; font-weight: bold;
+}
+.btn-add {
+  background: #0275d8; color: white; border: 0; padding: 10px 18px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 5px;
+}
+.btn-print {
+  width: 100%; margin-top: 20px; padding: 14px; border: 0;
+  border-radius: 6px; background: #176b42; color: white;
+  font-size: 16px; font-weight: bold; cursor: pointer;
+}
+
+/* Preview Area */
+#previewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.a4-page {
+  background: white;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.cover {
+  position: relative;
+  width: fit-content;
+  padding: 14px 20px;
+  background: #fffdfc;
+  border: 4.5px double #a52c51;
+  overflow: hidden;
+}
+.inside {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-area {
+  position: absolute; top: 12px; left: 12px;
+  width: 55px; height: 55px; display: flex;
+  align-items: flex-start; justify-content: flex-start;
+  z-index: 2;
+}
+.logo-area img {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; object-position: top left;
+}
+
+.heading-area {
+  text-align: center;
+  padding-left: 60px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+.main-title {
+  color: #c00000;
+  font-size: 22px; line-height: 1.05;
+  font-weight: bold; white-space: nowrap; letter-spacing: .5px;
+}
+.academic {
+  margin-top: 4px; color: #285c9d;
+  font-size: 14px; font-weight: bold; line-height: 1.25;
+  white-space: nowrap;
+}
+
+.details {
+  color: #4e852c;
+  font-size: 13px; font-weight: bold; line-height: 1.6;
+}
+.details p {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.details .label-text { width: 120px; display: inline-block; }
+.details .colon { width: 25px; text-align: center; display: inline-block; }
+
+/* Print Styles for Multi-page A4 */
+@page { 
+  size: A4 portrait; 
+  margin: 6mm 8mm; 
+}
+
+@media print {
+  body { margin: 0; padding: 0; background: white; }
+  .editor, h1, .instructions { display: none !important; }
+  
+  #previewContainer { gap: 0 !important; }
+
+  .a4-page {
+    width: 100% !important;
+    height: 284mm !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .cover {
+    box-sizing: border-box !important;
+    width: fit-content !important;
+    background: #fffdfc !important;
+    border: 4.5px double #a52c51 !important;
+    padding: 14px 20px !important;
+    print-color-adjust: exact; 
+    -webkit-print-color-adjust: exact;
+  }
+
+  .main-title { font-size: 18pt !important; color: #c00000 !important; }
+  .academic { font-size: 11.5pt !important; }
+  .details { font-size: 10.5pt !important; line-height: 1.6 !important; }
+  .logo-area { width: 55px !important; height: 55px !important; top: 12px !important; left: 12px !important; }
+  .heading-area { padding-left: 60px !important; margin-bottom: 12px !important; }
+  .details .label-text { width: 110px !important; }
+}
+</style>
+</head>
+<body>
+
+<h1>BAU Batch Practical Cover Generator</h1>
+<p class="instructions">Sobar jonno common info gulo upore dao, ebong niche ID & Reg no enter koro.</p>
+
+<section class="editor">
+  <h2>1. Common Course Details</h2>
+  <div class="form-grid">
+    <label>Course No.<input id="courseNo" value="ACHEM 1122"></label>
+    <label>Course Title<input id="courseTitle" value="Physical and Organic Chemistry"></label>
+    <label>Group<input id="group" value="VI"></label>
+    <label>Section<input id="section" value="B"></label>
+    <label>Session<input id="session" value="2025-2026"></label>
+    <label>Degree / Level / Semester<input id="degree" value="B.Sc. (Hons.) Level-1, Semester-1"></label>
+    <label>Academic period<input id="period" value="(January-June/26)"></label>
+  </div>
+
+  <div class="student-section">
+    <h2>2. Students List (ID & Reg)</h2>
+    <div id="studentInputs">
+      <!-- Dynamic Rows -->
+    </div>
+    <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
+  </div>
+
+  <button type="button" class="btn-print" onclick="window.print()">Print All Pages / Save PDF</button>
+</section>
+
+<div id="previewContainer">
+  <!-- Dynamic A4 Pages will be rendered here -->
+</div>
+
+<script>
+let students = [
+  { id: "2602149", reg: "61046" },
+  { id: "2602150", reg: "61047" },
+  { id: "2602151", reg: "61048" },
+  { id: "2602152", reg: "61049" }
+];
+
+function renderStudentInputs() {
+  const container = document.getElementById("studentInputs");
+  container.innerHTML = "";
+  students.forEach((std, index) => {
+    container.innerHTML += `
+      <div class="student-row">
+        <input type="text" placeholder="ID No." value="${std.id}" oninput="updateStudentData(${index}, 'id', this.value)">
+        <input type="text" placeholder="Reg. No." value="${std.reg}" oninput="updateStudentData(${index}, 'reg', this.value)">
+        ${students.length > 1 ? `<button class="btn-remove" onclick="removeStudentRow(${index})">X</button>` : ''}
+      </div>
+    `;
+  });
+}
+
+function addStudentRow() {
+  students.push({ id: "", reg: "" });
+  renderStudentInputs();
+  renderAllCovers();
+}
+
+function removeStudentRow(index) {
+  students.splice(index, 1);
+  renderStudentInputs();
+  renderAllCovers();
+}
+
+function updateStudentData(index, field, value) {
+  students[index][field] = value;
+  renderAllCovers();
+}
+
+function getCommonData() {
+  return {
+    courseNo: document.getElementById("courseNo").value.trim() || " ",
+    courseTitle: document.getElementById("courseTitle").value.trim() || " ",
+    group: document.getElementById("group").value.trim() || " ",
+    section: document.getElementById("section").value.trim() || " ",
+    session: document.getElementById("session").value.trim() || " ",
+    degree: document.getElementById("degree").value.trim() || " ",
+    period: document.getElementById("period").value.trim() || " "
+  };
+}
+
+function buildCoverHTML(info, student) {
+  return `
+    <div class="cover">
+      <div class="inside">
+        <div class="logo-area">
+          <img alt="BAU logo" src="bau-logo.png">
+        </div>
+        <div class="heading-area">
+          <div class="main-title">PRACTICAL NOTEBOOK</div>
+          <div class="academic">
+            <div>${info.degree}</div>
+            <div>${info.period}</div>
+          </div>
+        </div>
+        <div class="details">
+          <p><span class="label-text">Course No.</span><span class="colon">:</span><span class="value">${info.courseNo}</span></p>
+          <p><span class="label-text">Course Title</span><span class="colon">:</span><span class="value">${info.courseTitle}</span></p>
+          <p><span class="label-text">ID No.</span><span class="colon">:</span><span class="value">${student.id || " "}</span></p>
+          <p><span class="label-text">Reg. No.</span><span class="colon">:</span><span class="value">${student.reg || " "}</span></p>
+          <p><span class="label-text">Group</span><span class="colon">:</span><span class="value">${info.group}</span></p>
+          <p><span class="label-text">Section</span><span class="colon">:</span><span class="value">${info.section}</span></p>
+          <p><span class="label-text">Session</span><span class="colon">:</span><span class="value">${info.session}</span></p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAllCovers() {
+  const container = document.getElementById("previewContainer");
+  const info = getCommonData();
+  container.innerHTML = "";
+
+  for (let i = 0; i < students.length; i += 3) {
+    const pageChunk = students.slice(i, i + 3);
+    let pageHTML = `<div class="a4-page">`;
+    pageChunk.forEach(student => {
+      pageHTML += buildCoverHTML(info, student);
+    });
+    pageHTML += `</div>`;
+    container.innerHTML += pageHTML;
+  }
+}
+
+["courseNo", "courseTitle", "group", "section", "session", "degree", "period"].forEach(id => {
+  document.getElementById(id).addEventListener("input", renderAllCovers);
+});
+
+renderStudentInputs();
+renderAllCovers();
+</script>
+
+</body>
+</html>
