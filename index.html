@@ -3,15 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BAU Batch Practical Cover Generator</title>
+<title>Physical and Organic Chemistry cover page - Made by M.Asif</title>
 <style>
 * { box-sizing: border-box; }
 body {
-  margin: 0; padding: 20px; background: #f0f2f5; color: #222;
+  margin: 0; padding: 20px; background: #e9ecef; color: #222;
   font-family: Georgia, "Times New Roman", serif;
 }
 h1, .instructions, h3 { font-family: Arial, sans-serif; }
-.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 20px; }
+h1 { margin-bottom: 8px; color: #176b42; }
+
+/* Developer Credit Badge */
+.dev-badge {
+  display: inline-block;
+  background: #ffffff;
+  border-left: 4px solid #176b42;
+  padding: 9px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font: 13.5px Arial, sans-serif;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
+}
+.dev-badge .author-name { color: #176b42; }
+.dev-badge .heart { color: #e63946; }
+
+.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 18px; }
 .editor {
   max-width: 850px; margin: 0 auto 25px; background: white;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -21,12 +39,180 @@ h1, .instructions, h3 { font-family: Arial, sans-serif; }
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
 }
 label { display: block; font: 13px Arial, sans-serif; font-weight: bold; }
-input, select {
+input[type="text"], input[type="number"], select, textarea {
   display: block; width: 100%; margin-top: 5px; padding: 10px;
   border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
 }
 
-/* Student List Inputs */
+/* Auto-save status bar */
+.save-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f8f5;
+  border: 1px solid #c3e6cb;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font: 12.5px Arial, sans-serif;
+  color: #155724;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.btn-clear-storage {
+  background: #dc3545;
+  color: white;
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font: 11.5px Arial, sans-serif;
+  font-weight: bold;
+}
+.btn-clear-storage:hover { background: #c82333; }
+
+/* Advanced Edit Mode Toggle & Panel */
+.adv-toggle-wrap {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn-adv-toggle {
+  background: #343a40;
+  color: white;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 13.5px Arial, sans-serif;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-adv-toggle:hover { background: #23272b; }
+.btn-adv-toggle.active { background: #a52c51; }
+
+.tuner-section {
+  display: none;
+  margin-top: 15px;
+  padding: 18px;
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+}
+.tuner-section.open { display: block; }
+.tuner-section h3 {
+  font-size: 17px;
+  margin: 0 0 6px 0;
+  color: #176b42;
+}
+.tuner-note {
+  font: 13px Arial, sans-serif;
+  color: #555;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+.tuner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 720px) {
+  .tuner-grid { grid-template-columns: 1fr; }
+}
+.tuner-box {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+.tuner-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.tuner-box-header h4 {
+  margin: 0;
+  font: 14px Arial, sans-serif;
+  color: #a52c51;
+}
+.btn-mini-reset {
+  background: #e9ecef;
+  color: #333;
+  border: 1px solid #ced4da;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font: 11px Arial, sans-serif;
+  font-weight: bold;
+}
+.btn-mini-reset:hover { background: #dee2e6; color: #000; }
+.tuner-box .box-desc {
+  font: 11.5px Arial, sans-serif;
+  color: #666;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Stepper Controls (- [Slider] +) */
+.control-item { margin-bottom: 11px; }
+.control-header {
+  display: flex;
+  justify-content: space-between;
+  font: 12px Arial, sans-serif;
+  color: #333;
+  margin-bottom: 4px;
+}
+.control-header strong { color: #176b42; }
+.stepper-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-step {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc;
+  background: #f1f3f5;
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+.btn-step:hover { background: #e2e6ea; }
+.btn-step:active { background: #176b42; color: white; border-color: #176b42; }
+.stepper-row input[type="range"] { flex: 1; padding: 0; margin: 0; cursor: pointer; }
+
+.btn-reset {
+  background: #6c757d;
+  color: white;
+  border: 0;
+  padding: 9px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font: 12.5px Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 14px;
+}
+.btn-reset:hover { background: #5a6268; }
+
+/* Student List Inputs, Tick Mark Options & Remove All */
 .student-section {
   margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd;
 }
@@ -38,80 +224,265 @@ input, select {
   background: #d9534f; color: white; border: 0; padding: 10px 14px;
   border-radius: 5px; cursor: pointer; font-weight: bold;
 }
-.btn-add {
-  background: #0275d8; color: white; border: 0; padding: 10px 18px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 5px;
+
+.student-bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
 }
+.btn-group-left {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn-add {
+  background: #0275d8; color: white; border: 0; padding: 10px 16px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13.5px;
+}
+.btn-add:hover { background: #025aa5; }
+
+.btn-remove-all {
+  background: #dc3545; color: white; border: 0; padding: 10px 16px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13.5px;
+}
+.btn-remove-all:hover { background: #b02a37; }
+
+/* Tick Mark Checkboxes for Bulk & Loop */
+.checkbox-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.check-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #f8f9fa;
+  border: 1.5px solid #ced4da;
+  padding: 8px 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 13.5px Arial, sans-serif;
+  font-weight: bold;
+  color: #333;
+  user-select: none;
+}
+.check-option:hover {
+  background: #e9ecef;
+}
+.check-option input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #176b42;
+}
+
+.tool-drawer {
+  display: none;
+  margin-top: 12px;
+  padding: 15px;
+  border-radius: 8px;
+}
+.tool-drawer.open { display: block; }
+
+.bulk-box {
+  background: #f8f5ff;
+  border: 1.5px solid #d6c8f5;
+}
+.loop-box {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+}
+
+.tool-drawer p {
+  margin: 0 0 10px 0;
+  font: 12.5px Arial, sans-serif;
+  color: #444;
+  line-height: 1.45;
+}
+.bulk-box textarea {
+  font-family: monospace;
+  font-size: 13.5px;
+  min-height: 105px;
+  resize: vertical;
+}
+.loop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .loop-grid { grid-template-columns: 1fr; }
+}
+.drawer-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.btn-drawer-append {
+  background: #176b42; color: white; border: 0; padding: 8px 14px;
+  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold;
+}
+.btn-drawer-replace {
+  background: #d9534f; color: white; border: 0; padding: 8px 14px;
+  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold;
+}
+
 .btn-print {
   width: 100%; margin-top: 20px; padding: 14px; border: 0;
   border-radius: 6px; background: #176b42; color: white;
   font-size: 16px; font-weight: bold; cursor: pointer;
 }
+.btn-print:hover { background: #125634; }
 
-/* Preview Area */
+/* True A4 Web Preview Wrapper & Container */
 #previewContainer {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  align-items: center;
-}
-
-.a4-page {
-  background: white;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 24px;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  overflow: hidden;
+}
+
+.page-scale-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Exact A4 Sheet Dimensions */
+.a4-page {
+  position: relative;
+  width: 210mm;
+  height: 293mm;
+  background: white;
+  padding: 5mm 8mm 5mm 6mm;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform-origin: top center;
+  flex-shrink: 0;
+}
+
+/* Last Page Bottom-Right Vertical Signature (Heart upright!) */
+.pdf-footer-credit {
+  position: absolute;
+  bottom: 4mm;
+  right: 2.5mm;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font: 8.5pt Arial, sans-serif;
+  font-weight: bold;
+  color: #444;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.pdf-footer-credit .heart {
+  display: inline-block;
+  transform: rotate(90deg);
+  color: #e63946;
+  font-size: 9pt;
+  line-height: 1;
 }
 
 .cover {
   position: relative;
   width: fit-content;
-  padding: 18px 25px 22px 25px;
   background: #fffdfc;
-  border: 5px double #a52c51;
   overflow: hidden;
 }
+
+/* Outline / Border Options */
+.border-red-double {
+  border-style: double !important;
+  border-color: #a52c51 !important;
+}
+.border-red-inner {
+  border-style: double !important;
+  border-color: #a52c51 !important;
+  outline: 1.5px solid #a52c51 !important;
+  outline-offset: -9px !important;
+}
+.border-green-double {
+  border-style: double !important;
+  border-color: #176b42 !important;
+}
+.border-red-solid {
+  border-style: solid !important;
+  border-color: #a52c51 !important;
+}
+
+/* Proportional Watermark */
+.watermark {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+.watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
 .inside {
+  position: relative;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
 .logo-area {
-  position: absolute; top: 6px; left: 12px;
-  width: 78px; height: 78px; display: flex;
-  align-items: flex-start; justify-content: flex-start;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   z-index: 2;
 }
 .logo-area img {
-  display: block; width: 100%; height: 100%;
-  object-fit: contain; object-position: top left;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
 }
 
 .heading-area {
   text-align: center;
-  padding-left: 82px;
   margin-top: 2px;
-  margin-bottom: 18px;
 }
 .main-title {
   color: #c00000;
-  font-size: 26px; line-height: 1.1;
-  font-weight: bold; white-space: nowrap; letter-spacing: .5px;
+  line-height: 1.1;
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: .5px;
 }
 .academic {
-  margin-top: 6px; color: #285c9d;
-  font-size: 16px; font-weight: bold; line-height: 1.3;
+  margin-top: 6px;
+  color: #285c9d;
+  font-weight: bold;
+  line-height: 1.3;
   white-space: nowrap;
 }
 
 .details {
   color: #4e852c;
-  font-size: 15px; font-weight: bold; line-height: 1.75;
+  font-weight: bold;
 }
 .details p {
   margin: 0;
@@ -119,8 +490,25 @@ input, select {
   align-items: baseline;
   white-space: nowrap;
 }
-.details .label-text { width: 130px; display: inline-block; }
-.details .colon { width: 25px; text-align: center; display: inline-block; }
+.details .label-text { display: inline-block; }
+.details .colon { width: 28px; text-align: center; display: inline-block; }
+
+/* Base Typography per Grid */
+.grid-1 { justify-content: center; }
+.grid-1 .main-title { font-size: 29pt; }
+.grid-1 .academic { font-size: 17.5pt; }
+.grid-1 .details { font-size: 16pt; line-height: 1.9; }
+.grid-1 .details .label-text { width: 165px; }
+
+.grid-2 .main-title { font-size: 25pt; }
+.grid-2 .academic { font-size: 15pt; }
+.grid-2 .details { font-size: 14pt; line-height: 1.8; }
+.grid-2 .details .label-text { width: 150px; }
+
+.grid-3 .main-title { font-size: 21.5pt; }
+.grid-3 .academic { font-size: 13.5pt; }
+.grid-3 .details { font-size: 12.5pt; line-height: 1.65; }
+.grid-3 .details .label-text { width: 135px; }
 
 /* Print Styles for Multi-page A4 */
 @page { 
@@ -130,84 +518,242 @@ input, select {
 
 @media print {
   body { margin: 0; padding: 0; background: white; }
-  .editor, h1, .instructions { display: none !important; }
+  .editor, h1, .dev-badge, .instructions { display: none !important; }
   
-  #previewContainer { gap: 0 !important; }
+  #previewContainer { gap: 0 !important; display: block !important; }
+  .page-scale-wrapper { height: auto !important; display: block !important; }
 
   .a4-page {
     width: 100% !important;
     height: 293mm !important;
-    padding: 3mm 0 5mm 0 !important;
+    padding: 3mm 6mm 5mm 0 !important;
     box-shadow: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    border: none !important;
+    transform: none !important;
     page-break-after: always !important;
     break-after: page !important;
   }
 
-  /* 2 Covers per Page Styling */
-  .grid-2 .cover {
-    box-sizing: border-box !important;
-    width: fit-content !important;
-    background: #fffdfc !important;
-    border: 5px double #a52c51 !important;
-    padding: 24px 35px 28px 35px !important;
+  .cover {
     print-color-adjust: exact; 
     -webkit-print-color-adjust: exact;
   }
-  .grid-2 .main-title { font-size: 24pt !important; color: #c00000 !important; }
-  .grid-2 .academic { font-size: 14pt !important; }
-  .grid-2 .details { font-size: 13pt !important; line-height: 1.85 !important; }
-  .grid-2 .logo-area { width: 90px !important; height: 90px !important; top: 8px !important; left: 16px !important; }
-  .grid-2 .heading-area { padding-left: 95px !important; margin-bottom: 20px !important; }
-  .grid-2 .details .label-text { width: 140px !important; }
 
-  /* 3 Covers per Page Styling - Maximize vertical distribution to increase gap */
-  .grid-3 .cover {
-    box-sizing: border-box !important;
-    width: fit-content !important;
-    background: #fffdfc !important;
-    border: 4.5px double #a52c51 !important;
-    padding: 15px 25px 16px 25px !important;
-    print-color-adjust: exact; 
+  .pdf-footer-credit {
+    bottom: 3mm !important;
+    right: 1mm !important;
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
-  .grid-3 .main-title { font-size: 20pt !important; color: #c00000 !important; }
-  .grid-3 .academic { font-size: 12.5pt !important; }
-  .grid-3 .details { font-size: 11.5pt !important; line-height: 1.65 !important; }
-  .grid-3 .logo-area { width: 72px !important; height: 72px !important; top: 6px !important; left: 12px !important; }
-  .grid-3 .heading-area { padding-left: 78px !important; margin-bottom: 12px !important; }
-  .grid-3 .details .label-text { width: 125px !important; }
-
-  /* Fallbacks */
-  .grid-1 .cover { padding: 30px !important; }
-  .grid-4 .cover { padding: 10px !important; }
 }
 </style>
 </head>
 <body>
 
 <h1>BAU Batch Practical Cover Generator</h1>
-<p class="instructions">Enter all the information below:</p>
+<div class="dev-badge">
+  Developed by <span class="heart">❤️</span> <span class="author-name">Mohammad Asif</span> &bull; BAU 65th Batch &bull; Faculty of Agriculture &bull; Session: 2025-2026
+</div>
+<p class="instructions">Enter and edit all the information below:</p>
 
 <section class="editor">
+  <div class="save-bar">
+    <span>💾 <strong>Auto-Save Active:</strong> Your course details & student list are saved automatically in this browser.</span>
+    <button type="button" class="btn-clear-storage" onclick="clearSavedData()">Reset Saved Data</button>
+  </div>
+
   <h2>1. Common Course Details</h2>
   <div class="form-grid">
-    <label>Course No.<input id="courseNo" value="ACHEM 1122"></label>
-    <label>Course Title<input id="courseTitle" value="Physical and Organic Chemistry"></label>
-    <label>Group<input id="group" value="VI"></label>
-    <label>Section<input id="section" value="B"></label>
-    <label>Session<input id="session" value="2025-2026"></label>
-    <label>Degree / Level / Semester<input id="degree" value="B.Sc. (Hons.) Level-1, Semester-1"></label>
-    <label>Academic period<input id="period" value="(January-June/26)"></label>
+    <label>Course No.<input type="text" id="courseNo" value="ACHEM 1122"></label>
+    <label>Course Title<input type="text" id="courseTitle" value="Physical and Organic Chemistry"></label>
+    <label>Group<input type="text" id="group" value="VI"></label>
+    <label>Section<input type="text" id="section" value="B"></label>
+    <label>Session<input type="text" id="session" value="2025-2026"></label>
+    <label>Degree / Level / Semester<input type="text" id="degree" value="B.Sc. Ag. (Hons.) Level-1, Semester-1"></label>
+    <label>Academic period<input type="text" id="period" value="(January-June/26)"></label>
     <label>Covers per A4 Page
       <select id="copyCount">
-        <option value="2">2 Covers per Page (Bigger Size)</option>
+        <option value="1">1 Cover per Page (Single)</option>
+        <option value="2">2 Covers per Page (Medium)</option>
         <option value="3" selected>3 Covers per Page (Standard)</option>
       </select>
     </label>
+    <label>Border / Outline Style
+      <select id="borderStyle">
+        <option value="border-red-inner" selected>Double Border + Inner Outline</option>
+        <option value="border-red-double">Classic Red Double Border</option>
+        <option value="border-green-double">Classic Green Double Border</option>
+        <option value="border-red-solid">Solid Red Border</option>
+      </select>
+    </label>
+    <label>Center Watermark
+      <select id="watermarkToggle">
+        <option value="yes" selected>Yes (Show Watermark)</option>
+        <option value="no">No (Hide Watermark)</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Advanced Edit Mode Toggle -->
+  <div class="adv-toggle-wrap">
+    <button type="button" class="btn-adv-toggle" id="advToggleBtn" onclick="toggleAdvancedMode()">
+      ⚙️ Advanced Edit Mode: OFF
+    </button>
+    <span style="font: 12px Arial, sans-serif; color: #666;">Click to customize logo size, position, cover width & outline</span>
+  </div>
+
+  <!-- Advanced Edit Mode Panel -->
+  <div class="tuner-section" id="advancedPanel">
+    <h3>Advanced Layout & Logo Customization</h3>
+    <p class="tuner-note">Use the <strong>-</strong> and <strong>+</strong> buttons (or drag sliders) to fine-tune the logo size, position, cover box width, and border thickness in real time.</p>
+    
+    <div class="tuner-grid">
+      <!-- Top-Left Logo Controls -->
+      <div class="tuner-box">
+        <div class="tuner-box-header">
+          <h4>Top-Left Logo</h4>
+          <button type="button" class="btn-mini-reset" onclick="resetSection('topLogo')">Reset</button>
+        </div>
+        <p class="box-desc">Change top-left logo size, position & header spacing</p>
+
+        <div class="control-item">
+          <div class="control-header"><span>Logo Size (px)</span><strong id="val_tlSize">88px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('tlSize', -2)">-</button>
+            <input type="range" id="tlSize" min="40" max="150" step="2" value="88">
+            <button type="button" class="btn-step" onclick="stepControl('tlSize', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Vertical Position (Top)</span><strong id="val_tlTop">0px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('tlTop', -2)">-</button>
+            <input type="range" id="tlTop" min="-20" max="40" step="2" value="0">
+            <button type="button" class="btn-step" onclick="stepControl('tlTop', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Horizontal Position (Left)</span><strong id="val_tlLeft">8px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('tlLeft', -2)">-</button>
+            <input type="range" id="tlLeft" min="-10" max="60" step="2" value="8">
+            <button type="button" class="btn-step" onclick="stepControl('tlLeft', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Header Left Spacing</span><strong id="val_headPad">98px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('headPad', -2)">-</button>
+            <input type="range" id="headPad" min="50" max="170" step="2" value="98">
+            <button type="button" class="btn-step" onclick="stepControl('headPad', 2)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Watermark Controls -->
+      <div class="tuner-box">
+        <div class="tuner-box-header">
+          <h4>Center Watermark Logo</h4>
+          <button type="button" class="btn-mini-reset" onclick="resetSection('watermark')">Reset</button>
+        </div>
+        <p class="box-desc">Change watermark width, height, position & opacity</p>
+
+        <div class="control-item">
+          <div class="control-header"><span>Watermark Width</span><strong id="val_wmWidth">240px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('wmWidth', -4)">-</button>
+            <input type="range" id="wmWidth" min="100" max="480" step="4" value="240">
+            <button type="button" class="btn-step" onclick="stepControl('wmWidth', 4)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Watermark Height</span><strong id="val_wmHeight">240px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('wmHeight', -4)">-</button>
+            <input type="range" id="wmHeight" min="100" max="420" step="4" value="240">
+            <button type="button" class="btn-step" onclick="stepControl('wmHeight', 4)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Vertical Position (Top %)</span><strong id="val_wmTop">66%</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('wmTop', -1)">-</button>
+            <input type="range" id="wmTop" min="30" max="85" step="1" value="66">
+            <button type="button" class="btn-step" onclick="stepControl('wmTop', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Horizontal Position (Left %)</span><strong id="val_wmLeft">50%</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('wmLeft', -1)">-</button>
+            <input type="range" id="wmLeft" min="20" max="80" step="1" value="50">
+            <button type="button" class="btn-step" onclick="stepControl('wmLeft', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Watermark Opacity</span><strong id="val_wmOpacity">0.12</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('wmOpacity', -0.02)">-</button>
+            <input type="range" id="wmOpacity" min="0.04" max="0.36" step="0.02" value="0.12">
+            <button type="button" class="btn-step" onclick="stepControl('wmOpacity', 0.02)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cover Box & Outline Controls -->
+      <div class="tuner-box">
+        <div class="tuner-box-header">
+          <h4>Cover Box & Outline</h4>
+          <button type="button" class="btn-mini-reset" onclick="resetSection('outline')">Reset</button>
+        </div>
+        <p class="box-desc">Change cover width, inner padding & border thickness</p>
+
+        <div class="control-item">
+          <div class="control-header"><span>Cover Box Width (mm)</span><strong id="val_boxWidth">148mm</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('boxWidth', -2)">-</button>
+            <input type="range" id="boxWidth" min="120" max="196" step="2" value="148">
+            <button type="button" class="btn-step" onclick="stepControl('boxWidth', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Top & Bottom Padding</span><strong id="val_padY">16px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('padY', -2)">-</button>
+            <input type="range" id="padY" min="6" max="46" step="2" value="16">
+            <button type="button" class="btn-step" onclick="stepControl('padY', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Left & Right Padding</span><strong id="val_padX">26px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('padX', -2)">-</button>
+            <input type="range" id="padX" min="10" max="60" step="2" value="26">
+            <button type="button" class="btn-step" onclick="stepControl('padX', 2)">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <div class="control-header"><span>Outline / Border Thickness</span><strong id="val_borderW">5px</strong></div>
+          <div class="stepper-row">
+            <button type="button" class="btn-step" onclick="stepControl('borderW', -0.5)">-</button>
+            <input type="range" id="borderW" min="1" max="12" step="0.5" value="5">
+            <button type="button" class="btn-step" onclick="stepControl('borderW', 0.5)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn-reset" onclick="resetTuner()">Overall Reset (Restore All Defaults)</button>
   </div>
 
   <div class="student-section">
@@ -215,10 +761,57 @@ input, select {
     <div id="studentInputs">
       <!-- Dynamic Rows -->
     </div>
-    <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
+
+    <div class="student-bottom-controls">
+      <div class="btn-group-left">
+        <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
+        <button type="button" class="btn-remove-all" onclick="removeAllStudents()">🗑️ Remove All</button>
+      </div>
+
+      <!-- Tick Mark Options for Bulk & Loop -->
+      <div class="checkbox-group">
+        <label class="check-option">
+          <input type="checkbox" id="chkBulk" onchange="toggleCheckDrawer('chkBulk', 'bulkPasteBox')">
+          <span>Bulk Paste</span>
+        </label>
+        <label class="check-option">
+          <input type="checkbox" id="chkLoop" onchange="toggleCheckDrawer('chkLoop', 'loopGenBox')">
+          <span>Loop (+1)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Option A: Smart Bulk Paste Box -->
+    <div class="tool-drawer bulk-box" id="bulkPasteBox">
+      <p><strong>Bulk Paste (Numerical ID & Reg):</strong> Paste numbers separated by comma, space, or new line. Extra spaces & empty lines are ignored automatically.<br>
+      Supported formats:<br>
+      <code>2602149,61046 2602150,61047 2602151,61048</code><br>
+      or line-by-line:<br>
+      <code>2602149,61046</code><br>
+      <code>2602150,61047</code></p>
+      <textarea id="bulkTextarea" placeholder="2602149,61046 2602150,61047&#10;2602151,61048"></textarea>
+      <div class="drawer-btn-row">
+        <button type="button" class="btn-drawer-append" onclick="processBulkPaste(false)">Append to Current List</button>
+        <button type="button" class="btn-drawer-replace" onclick="processBulkPaste(true)">Replace Entire List</button>
+      </div>
+    </div>
+
+    <!-- Option B: Auto Sequence / Loop Generator -->
+    <div class="tool-drawer loop-box" id="loopGenBox">
+      <p><strong>Loop Generator (+1 Sequence):</strong> Enter Start ID, Start Reg. No., and how many consecutive covers you want to generate (+1 each step).</p>
+      <div class="loop-grid">
+        <label>Start ID No.<input type="text" id="loopStartId" placeholder="e.g. 2602149"></label>
+        <label>Start Reg. No.<input type="text" id="loopStartReg" placeholder="e.g. 61046"></label>
+        <label>How Many (Count)<input type="number" id="loopCount" min="1" max="200" value="10"></label>
+      </div>
+      <div class="drawer-btn-row">
+        <button type="button" class="btn-drawer-append" onclick="processLoopGenerator(false)">Generate & Append</button>
+        <button type="button" class="btn-drawer-replace" onclick="processLoopGenerator(true)">Generate & Replace List</button>
+      </div>
+    </div>
   </div>
 
-  <button type="button" class="btn-print" onclick="window.print()">Print All Pages / Save PDF</button>
+  <button type="button" class="btn-print" onclick="printPDF()">Print PDF / Download PDF</button>
 </section>
 
 <div id="previewContainer">
@@ -226,12 +819,244 @@ input, select {
 </div>
 
 <script>
-let students = [
-  { id: "2602149", reg: "61046" },
-  { id: "2602150", reg: "61047" },
-  { id: "2602151", reg: "61048" },
-  { id: "2602152", reg: "61049" }
+const STORAGE_KEY = "bau_practical_cover_v2";
+
+/* Only 1 sample entry by default */
+const defaultStudents = [
+  { id: "2602149", reg: "61046" }
 ];
+
+let students = JSON.parse(JSON.stringify(defaultStudents));
+
+/* Refined Default Presets for Single (1), Medium (2), and Standard (3) per Page */
+const presetsByCount = {
+  1: { tlSize: 108, tlTop: -2, tlLeft: 6, headPad: 116, wmWidth: 332, wmHeight: 332, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 164, padY: 32, padX: 36, borderW: 5 },
+  2: { tlSize: 96,  tlTop: -2, tlLeft: 6, headPad: 104, wmWidth: 284, wmHeight: 284, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 158, padY: 24, padX: 30, borderW: 5 },
+  3: { tlSize: 88,  tlTop: 0,  tlLeft: 8, headPad: 98,  wmWidth: 240, wmHeight: 240, wmTop: 66, wmLeft: 50, wmOpacity: 0.12, boxWidth: 148, padY: 16, padX: 26, borderW: 5 }
+};
+
+const sectionKeys = {
+  topLogo: ["tlSize", "tlTop", "tlLeft", "headPad"],
+  watermark: ["wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity"],
+  outline: ["boxWidth", "padY", "padX", "borderW"]
+};
+
+const commonFieldIds = ["courseNo", "courseTitle", "group", "section", "session", "degree", "period", "copyCount", "borderStyle", "watermarkToggle"];
+const tunerFieldIds = ["tlSize", "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity", "boxWidth", "padY", "padX", "borderW"];
+
+/* LocalStorage Auto-Save & Load */
+function saveStateToStorage() {
+  try {
+    const fields = {};
+    [...commonFieldIds, ...tunerFieldIds].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    const payload = { fields, students };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch (e) {}
+}
+
+function loadStateFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.fields) {
+      Object.keys(data.fields).forEach(id => {
+        const el = document.getElementById(id);
+        if (el && data.fields[id] !== undefined) {
+          el.value = data.fields[id];
+        }
+      });
+    }
+    if (Array.isArray(data.students) && data.students.length > 0) {
+      students = data.students;
+    }
+  } catch (e) {}
+}
+
+function clearSavedData() {
+  if (!confirm("Reset all saved course details, layout settings, and student list back to default?")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+
+function toggleAdvancedMode() {
+  const panel = document.getElementById("advancedPanel");
+  const btn = document.getElementById("advToggleBtn");
+  const isOpen = panel.classList.toggle("open");
+  btn.classList.toggle("active", isOpen);
+  btn.innerHTML = isOpen ? "⚙️ Advanced Edit Mode: ON" : "⚙️ Advanced Edit Mode: OFF";
+}
+
+function toggleCheckDrawer(checkboxId, drawerId) {
+  const chk = document.getElementById(checkboxId);
+  const drawer = document.getElementById(drawerId);
+  if (!chk || !drawer) return;
+  if (chk.checked) {
+    drawer.classList.add("open");
+  } else {
+    drawer.classList.remove("open");
+  }
+}
+
+/* Remove All Students */
+function removeAllStudents() {
+  students = [{ id: "", reg: "" }];
+  renderStudentInputs();
+  renderAllCovers();
+}
+
+/* Smart Numerical Bulk Paste (handles id,reg space id,reg OR id,reg enter id,reg, ignores extra spaces/newlines) */
+function processBulkPaste(replaceExisting) {
+  const rawText = document.getElementById("bulkTextarea").value;
+  const numbers = rawText.match(/\d+/g);
+
+  if (!numbers || numbers.length < 2) {
+    alert("Please enter valid numerical ID and Registration pairs (e.g. 2602149,61046 2602150,61047).");
+    return;
+  }
+
+  const parsed = [];
+  for (let i = 0; i < numbers.length; i += 2) {
+    const idVal = numbers[i];
+    const regVal = numbers[i + 1] !== undefined ? numbers[i + 1] : "";
+    parsed.push({ id: idVal, reg: regVal });
+  }
+
+  if (replaceExisting) {
+    students = parsed;
+  } else {
+    // If current list only has one completely blank row, replace it cleanly
+    if (students.length === 1 && !students[0].id.trim() && !students[0].reg.trim()) {
+      students = parsed;
+    } else {
+      students = students.concat(parsed);
+    }
+  }
+
+  document.getElementById("bulkTextarea").value = "";
+  document.getElementById("chkBulk").checked = false;
+  document.getElementById("bulkPasteBox").classList.remove("open");
+  renderStudentInputs();
+  renderAllCovers();
+}
+
+/* Auto Sequence (+1 Loop) Generator */
+function processLoopGenerator(replaceExisting) {
+  const startIdRaw = document.getElementById("loopStartId").value.trim();
+  const startRegRaw = document.getElementById("loopStartReg").value.trim();
+  const count = parseInt(document.getElementById("loopCount").value, 10);
+
+  if (!/^\d+$/.test(startIdRaw) || !/^\d+$/.test(startRegRaw)) {
+    alert("Start ID and Start Reg. No. must contain numbers only.");
+    return;
+  }
+  if (isNaN(count) || count < 1 || count > 200) {
+    alert("Please enter a valid count between 1 and 200.");
+    return;
+  }
+
+  const idLen = startIdRaw.length;
+  const regLen = startRegRaw.length;
+  const startIdNum = BigInt(startIdRaw);
+  const startRegNum = BigInt(startRegRaw);
+
+  const generated = [];
+  for (let i = 0; i < count; i++) {
+    const nextId = (startIdNum + BigInt(i)).toString().padStart(idLen, "0");
+    const nextReg = (startRegNum + BigInt(i)).toString().padStart(regLen, "0");
+    generated.push({ id: nextId, reg: nextReg });
+  }
+
+  if (replaceExisting) {
+    students = generated;
+  } else {
+    if (students.length === 1 && !students[0].id.trim() && !students[0].reg.trim()) {
+      students = generated;
+    } else {
+      students = students.concat(generated);
+    }
+  }
+
+  document.getElementById("chkLoop").checked = false;
+  document.getElementById("loopGenBox").classList.remove("open");
+  renderStudentInputs();
+  renderAllCovers();
+}
+
+function stepControl(id, delta) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const min = parseFloat(el.min);
+  const max = parseFloat(el.max);
+  const current = parseFloat(el.value);
+  let next = Math.round((current + delta) * 100) / 100;
+  if (next < min) next = min;
+  if (next > max) next = max;
+  el.value = next;
+  renderAllCovers();
+}
+
+function applyPreset(count) {
+  const p = presetsByCount[count] || presetsByCount[3];
+  Object.keys(p).forEach(key => {
+    const el = document.getElementById(key);
+    if (el) el.value = p[key];
+  });
+}
+
+function resetSection(sectionName) {
+  const count = parseInt(document.getElementById("copyCount").value);
+  const p = presetsByCount[count] || presetsByCount[3];
+  const keys = sectionKeys[sectionName] || [];
+  keys.forEach(key => {
+    const el = document.getElementById(key);
+    if (el && p[key] !== undefined) el.value = p[key];
+  });
+  renderAllCovers();
+}
+
+function resetTuner() {
+  const count = parseInt(document.getElementById("copyCount").value);
+  applyPreset(count);
+  renderAllCovers();
+}
+
+function getTunerValues() {
+  const vals = {
+    tlSize: document.getElementById("tlSize").value,
+    tlTop: document.getElementById("tlTop").value,
+    tlLeft: document.getElementById("tlLeft").value,
+    headPad: document.getElementById("headPad").value,
+    wmWidth: document.getElementById("wmWidth").value,
+    wmHeight: document.getElementById("wmHeight").value,
+    wmTop: document.getElementById("wmTop").value,
+    wmLeft: document.getElementById("wmLeft").value,
+    wmOpacity: document.getElementById("wmOpacity").value,
+    boxWidth: document.getElementById("boxWidth").value,
+    padY: document.getElementById("padY").value,
+    padX: document.getElementById("padX").value,
+    borderW: document.getElementById("borderW").value
+  };
+
+  document.getElementById("val_tlSize").textContent = `${vals.tlSize}px`;
+  document.getElementById("val_tlTop").textContent = `${vals.tlTop}px`;
+  document.getElementById("val_tlLeft").textContent = `${vals.tlLeft}px`;
+  document.getElementById("val_headPad").textContent = `${vals.headPad}px`;
+  document.getElementById("val_wmWidth").textContent = `${vals.wmWidth}px`;
+  document.getElementById("val_wmHeight").textContent = `${vals.wmHeight}px`;
+  document.getElementById("val_wmTop").textContent = `${vals.wmTop}%`;
+  document.getElementById("val_wmLeft").textContent = `${vals.wmLeft}%`;
+  document.getElementById("val_wmOpacity").textContent = vals.wmOpacity;
+  document.getElementById("val_boxWidth").textContent = `${vals.boxWidth}mm`;
+  document.getElementById("val_padY").textContent = `${vals.padY}px`;
+  document.getElementById("val_padX").textContent = `${vals.padX}px`;
+  document.getElementById("val_borderW").textContent = `${vals.borderW}px`;
+
+  return vals;
+}
 
 function renderStudentInputs() {
   const container = document.getElementById("studentInputs");
@@ -272,18 +1097,29 @@ function getCommonData() {
     section: document.getElementById("section").value.trim() || " ",
     session: document.getElementById("session").value.trim() || " ",
     degree: document.getElementById("degree").value.trim() || " ",
-    period: document.getElementById("period").value.trim() || " "
+    period: document.getElementById("period").value.trim() || " ",
+    borderClass: document.getElementById("borderStyle").value,
+    showWatermark: document.getElementById("watermarkToggle").value === "yes"
   };
 }
 
-function buildCoverHTML(info, student) {
+function buildCoverHTML(info, student, t) {
+  const watermarkHTML = info.showWatermark
+    ? `<div class="watermark" style="width:${t.wmWidth}px; height:${t.wmHeight}px; top:${t.wmTop}%; left:${t.wmLeft}%; opacity:${t.wmOpacity};"><img alt="" src="bau-logo.png"></div>`
+    : ``;
+
+  const coverStyle = `min-width:${t.boxWidth}mm; padding:${t.padY}px ${t.padX}px; border-width:${t.borderW}px;`;
+  const logoStyle = `width:${t.tlSize}px; height:${t.tlSize}px; top:${t.tlTop}px; left:${t.tlLeft}px;`;
+  const headingStyle = `padding-left:${t.headPad}px; margin-bottom:${Math.max(10, Math.round(t.padY * 0.8))}px;`;
+
   return `
-    <div class="cover">
+    <div class="cover ${info.borderClass}" style="${coverStyle}">
+      ${watermarkHTML}
       <div class="inside">
-        <div class="logo-area">
+        <div class="logo-area" style="${logoStyle}">
           <img alt="BAU logo" src="bau-logo.png">
         </div>
-        <div class="heading-area">
+        <div class="heading-area" style="${headingStyle}">
           <div class="main-title">PRACTICAL NOTEBOOK</div>
           <div class="academic">
             <div>${info.degree}</div>
@@ -304,29 +1140,80 @@ function buildCoverHTML(info, student) {
   `;
 }
 
+function updateDocumentTitle() {
+  const titleVal = document.getElementById("courseTitle").value.trim() || "Practical";
+  document.title = `${titleVal} cover page - Made by M.Asif`;
+}
+
+function scalePreviewPages() {
+  const wrappers = document.querySelectorAll(".page-scale-wrapper");
+  const availableWidth = Math.min(window.innerWidth - 40, 850);
+  wrappers.forEach(wrapper => {
+    const page = wrapper.querySelector(".a4-page");
+    if (!page) return;
+    page.style.transform = "none";
+    const pageWidth = page.offsetWidth;
+    const pageHeight = page.offsetHeight;
+    if (availableWidth < pageWidth) {
+      const scale = availableWidth / pageWidth;
+      page.style.transform = `scale(${scale})`;
+      wrapper.style.height = `${pageHeight * scale}px`;
+    } else {
+      wrapper.style.height = `${pageHeight}px`;
+    }
+  });
+}
+
 function renderAllCovers() {
+  saveStateToStorage();
+  updateDocumentTitle();
   const container = document.getElementById("previewContainer");
   const info = getCommonData();
+  const tuner = getTunerValues();
   const perPage = parseInt(document.getElementById("copyCount").value);
   container.innerHTML = "";
 
   for (let i = 0; i < students.length; i += perPage) {
     const pageChunk = students.slice(i, i + perPage);
-    let pageHTML = `<div class="a4-page grid-${perPage}">`;
+    const isLastPage = (i + perPage >= students.length);
+    let pageHTML = `<div class="page-scale-wrapper"><div class="a4-page grid-${perPage}">`;
     pageChunk.forEach(student => {
-      pageHTML += buildCoverHTML(info, student);
+      pageHTML += buildCoverHTML(info, student, tuner);
     });
-    pageHTML += `</div>`;
+    if (isLastPage) {
+      pageHTML += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">❤️</span><span>Mohammad Asif</span></div>`;
+    }
+    pageHTML += `</div></div>`;
     container.innerHTML += pageHTML;
   }
+  scalePreviewPages();
+}
+
+function printPDF() {
+  updateDocumentTitle();
+  window.print();
 }
 
 ["courseNo", "courseTitle", "group", "section", "session", "degree", "period"].forEach(id => {
   document.getElementById(id).addEventListener("input", renderAllCovers);
 });
 
-document.getElementById("copyCount").addEventListener("change", renderAllCovers);
+tunerFieldIds.forEach(id => {
+  document.getElementById(id).addEventListener("input", renderAllCovers);
+});
 
+document.getElementById("copyCount").addEventListener("change", () => {
+  const count = parseInt(document.getElementById("copyCount").value);
+  applyPreset(count);
+  renderAllCovers();
+});
+
+document.getElementById("borderStyle").addEventListener("change", renderAllCovers);
+document.getElementById("watermarkToggle").addEventListener("change", renderAllCovers);
+window.addEventListener("resize", scalePreviewPages);
+
+/* Initialize App with Saved Data */
+loadStateFromStorage();
 renderStudentInputs();
 renderAllCovers();
 </script>
