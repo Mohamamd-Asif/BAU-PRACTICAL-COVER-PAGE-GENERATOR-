@@ -1,30 +1,29 @@
+<!--
+  Copyright (c) 2026 Mohammad Asif (BAU 65th Batch, Faculty of Agriculture)
+  All rights reserved. Protected Source.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=1024">
 <title>Physical and Organic Chemistry cover page - Made by M.Asif</title>
 <style>
 * { box-sizing: border-box; }
 body {
   margin: 0; padding: 20px; background: #e9ecef; color: #222;
   font-family: Georgia, "Times New Roman", serif;
+  user-select: none; -webkit-user-select: none;
+  min-width: 980px;
 }
+input, textarea, select { user-select: text; -webkit-user-select: text; }
 h1, .instructions, h3 { font-family: Arial, sans-serif; }
 h1 { margin-bottom: 8px; color: #176b42; }
 
-/* Developer Credit Badge */
 .dev-badge {
-  display: inline-block;
-  background: #ffffff;
-  border-left: 4px solid #176b42;
-  padding: 9px 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  font: 13.5px Arial, sans-serif;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 16px;
+  display: inline-block; background: #ffffff; border-left: 4px solid #176b42;
+  padding: 9px 15px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font: 13.5px Arial, sans-serif; font-weight: bold; color: #333; margin-bottom: 16px;
 }
 .dev-badge .author-name { color: #176b42; }
 .dev-badge .heart { color: #e63946; }
@@ -35,190 +34,82 @@ h1 { margin-bottom: 8px; color: #176b42; }
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .editor h2 { font: 20px Arial, sans-serif; margin-top: 0; color: #176b42; }
-.form-grid {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
-}
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 label { display: block; font: 13px Arial, sans-serif; font-weight: bold; }
 input[type="text"], input[type="number"], select, textarea {
   display: block; width: 100%; margin-top: 5px; padding: 10px;
   border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
 }
 
-/* Auto-save status bar */
 .save-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f1f8f5;
-  border: 1px solid #c3e6cb;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  font: 12.5px Arial, sans-serif;
-  color: #155724;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: #f1f8f5; border: 1px solid #c3e6cb; padding: 8px 12px;
+  border-radius: 6px; margin-bottom: 16px; font: 12.5px Arial, sans-serif;
+  color: #155724; flex-wrap: wrap; gap: 8px;
 }
 .btn-clear-storage {
-  background: #dc3545;
-  color: white;
-  border: 0;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font: 11.5px Arial, sans-serif;
-  font-weight: bold;
+  background: #dc3545; color: white; border: 0; padding: 5px 10px;
+  border-radius: 4px; cursor: pointer; font: 11.5px Arial, sans-serif; font-weight: bold;
 }
 .btn-clear-storage:hover { background: #c82333; }
 
-/* Advanced Edit Mode Toggle & Panel */
 .adv-toggle-wrap {
-  margin-top: 18px;
-  padding-top: 15px;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  margin-top: 18px; padding-top: 15px; border-top: 1px solid #e0e0e0;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
 }
 .btn-adv-toggle {
-  background: #343a40;
-  color: white;
-  border: 0;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font: 13.5px Arial, sans-serif;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  background: #343a40; color: white; border: 0; padding: 10px 16px;
+  border-radius: 6px; cursor: pointer; font: 13.5px Arial, sans-serif;
+  font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
 }
 .btn-adv-toggle:hover { background: #23272b; }
 .btn-adv-toggle.active { background: #a52c51; }
 
 .tuner-section {
-  display: none;
-  margin-top: 15px;
-  padding: 18px;
-  background: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
+  display: none; margin-top: 15px; padding: 18px;
+  background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px;
 }
 .tuner-section.open { display: block; }
-.tuner-section h3 {
-  font-size: 17px;
-  margin: 0 0 6px 0;
-  color: #176b42;
-}
-.tuner-note {
-  font: 13px Arial, sans-serif;
-  color: #555;
-  margin: 0 0 16px 0;
-  line-height: 1.4;
-}
-.tuner-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-@media (max-width: 720px) {
-  .tuner-grid { grid-template-columns: 1fr; }
-}
+.tuner-section h3 { font-size: 17px; margin: 0 0 6px 0; color: #176b42; }
+.tuner-note { font: 13px Arial, sans-serif; color: #555; margin: 0 0 16px 0; line-height: 1.4; }
+.tuner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .tuner-box {
-  background: white;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
+  background: white; padding: 12px; border-radius: 6px;
+  border: 1px solid #ddd; display: flex; flex-direction: column;
 }
-.tuner-box-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
-}
-.tuner-box-header h4 {
-  margin: 0;
-  font: 14px Arial, sans-serif;
-  color: #a52c51;
-}
+.tuner-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.tuner-box-header h4 { margin: 0; font: 14px Arial, sans-serif; color: #a52c51; }
 .btn-mini-reset {
-  background: #e9ecef;
-  color: #333;
-  border: 1px solid #ced4da;
-  padding: 3px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font: 11px Arial, sans-serif;
-  font-weight: bold;
+  background: #e9ecef; color: #333; border: 1px solid #ced4da;
+  padding: 3px 8px; border-radius: 4px; cursor: pointer; font: 11px Arial, sans-serif; font-weight: bold;
 }
 .btn-mini-reset:hover { background: #dee2e6; color: #000; }
 .tuner-box .box-desc {
-  font: 11.5px Arial, sans-serif;
-  color: #666;
-  margin: 0 0 12px 0;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #eee;
+  font: 11.5px Arial, sans-serif; color: #666;
+  margin: 0 0 12px 0; padding-bottom: 6px; border-bottom: 1px solid #eee;
 }
 
-/* Stepper Controls (- [Slider] +) */
 .control-item { margin-bottom: 11px; }
-.control-header {
-  display: flex;
-  justify-content: space-between;
-  font: 12px Arial, sans-serif;
-  color: #333;
-  margin-bottom: 4px;
-}
+.control-header { display: flex; justify-content: space-between; font: 12px Arial, sans-serif; color: #333; margin-bottom: 4px; }
 .control-header strong { color: #176b42; }
-.stepper-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+.stepper-row { display: flex; align-items: center; gap: 6px; }
 .btn-step {
-  width: 28px;
-  height: 28px;
-  border: 1px solid #ccc;
-  background: #f1f3f5;
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  user-select: none;
+  width: 28px; height: 28px; border: 1px solid #ccc; background: #f1f3f5;
+  color: #222; font-size: 16px; font-weight: bold; border-radius: 4px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; user-select: none;
 }
 .btn-step:hover { background: #e2e6ea; }
 .btn-step:active { background: #176b42; color: white; border-color: #176b42; }
 .stepper-row input[type="range"] { flex: 1; padding: 0; margin: 0; cursor: pointer; }
 
 .btn-reset {
-  background: #6c757d;
-  color: white;
-  border: 0;
-  padding: 9px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  font: 12.5px Arial, sans-serif;
-  font-weight: bold;
-  margin-top: 14px;
+  background: #6c757d; color: white; border: 0; padding: 9px 16px;
+  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold; margin-top: 14px;
 }
 .btn-reset:hover { background: #5a6268; }
 
-/* Student List Inputs, Tick Mark Options & Remove All */
-.student-section {
-  margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd;
-}
-.student-row {
-  display: flex; gap: 10px; margin-bottom: 10px; align-items: center;
-}
+.student-section { margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd; }
+.student-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
 .student-row input { margin-top: 0; }
 .btn-remove {
   background: #d9534f; color: white; border: 0; padding: 10px 14px;
@@ -226,18 +117,10 @@ input[type="text"], input[type="number"], select, textarea {
 }
 
 .student-bottom-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px; margin-top: 10px;
 }
-.btn-group-left {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+.btn-group-left { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn-add {
   background: #0275d8; color: white; border: 0; padding: 10px 16px;
   border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13.5px;
@@ -250,81 +133,23 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .btn-remove-all:hover { background: #b02a37; }
 
-/* Tick Mark Checkboxes for Bulk & Loop */
-.checkbox-group {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-}
+.checkbox-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 .check-option {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #f8f9fa;
-  border: 1.5px solid #ced4da;
-  padding: 8px 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  font: 13.5px Arial, sans-serif;
-  font-weight: bold;
-  color: #333;
-  user-select: none;
+  display: inline-flex; align-items: center; gap: 7px; background: #f8f9fa;
+  border: 1.5px solid #ced4da; padding: 8px 13px; border-radius: 6px;
+  cursor: pointer; font: 13.5px Arial, sans-serif; font-weight: bold; color: #333; user-select: none;
 }
-.check-option:hover {
-  background: #e9ecef;
-}
-.check-option input[type="checkbox"] {
-  width: 17px;
-  height: 17px;
-  margin: 0;
-  cursor: pointer;
-  accent-color: #176b42;
-}
+.check-option:hover { background: #e9ecef; }
+.check-option input[type="checkbox"] { width: 17px; height: 17px; margin: 0; cursor: pointer; accent-color: #176b42; }
 
-.tool-drawer {
-  display: none;
-  margin-top: 12px;
-  padding: 15px;
-  border-radius: 8px;
-}
+.tool-drawer { display: none; margin-top: 12px; padding: 15px; border-radius: 8px; }
 .tool-drawer.open { display: block; }
-
-.bulk-box {
-  background: #f8f5ff;
-  border: 1.5px solid #d6c8f5;
-}
-.loop-box {
-  background: #fffbeb;
-  border: 1.5px solid #fde68a;
-}
-
-.tool-drawer p {
-  margin: 0 0 10px 0;
-  font: 12.5px Arial, sans-serif;
-  color: #444;
-  line-height: 1.45;
-}
-.bulk-box textarea {
-  font-family: monospace;
-  font-size: 13.5px;
-  min-height: 105px;
-  resize: vertical;
-}
-.loop-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-@media (max-width: 600px) {
-  .loop-grid { grid-template-columns: 1fr; }
-}
-.drawer-btn-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
+.bulk-box { background: #f8f5ff; border: 1.5px solid #d6c8f5; }
+.loop-box { background: #fffbeb; border: 1.5px solid #fde68a; }
+.tool-drawer p { margin: 0 0 10px 0; font: 12.5px Arial, sans-serif; color: #444; line-height: 1.45; }
+.bulk-box textarea { font-family: monospace; font-size: 13.5px; min-height: 105px; resize: vertical; }
+.loop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.drawer-btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
 .btn-drawer-append {
   background: #176b42; color: white; border: 0; padding: 8px 14px;
   border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold;
@@ -341,159 +166,43 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .btn-print:hover { background: #125634; }
 
-/* True A4 Web Preview Wrapper & Container */
-#previewContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-}
+#previewContainer { display: flex; flex-direction: column; gap: 24px; align-items: center; width: 100%; overflow: hidden; }
+.page-scale-wrapper { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
 
-.page-scale-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-}
-
-/* Exact A4 Sheet Dimensions */
 .a4-page {
-  position: relative;
-  width: 210mm;
-  height: 293mm;
-  background: white;
-  padding: 5mm 8mm 5mm 6mm;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  transform-origin: top center;
-  flex-shrink: 0;
+  position: relative; width: 210mm; height: 293mm; background: white;
+  padding: 5mm 8mm 5mm 6mm; box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  border: 1px solid #ccc; display: flex; flex-direction: column;
+  justify-content: space-between; align-items: center; transform-origin: top center; flex-shrink: 0;
 }
 
-/* Last Page Bottom-Right Vertical Signature (Heart upright!) */
 .pdf-footer-credit {
-  position: absolute;
-  bottom: 4mm;
-  right: 2.5mm;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font: 8.5pt Arial, sans-serif;
-  font-weight: bold;
-  color: #444;
-  letter-spacing: 0.4px;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 3px;
+  position: absolute; bottom: 4mm; right: 2.5mm;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font: 8.5pt Arial, sans-serif; font-weight: bold; color: #444;
+  letter-spacing: 0.4px; white-space: nowrap; display: flex; align-items: center; gap: 3px;
 }
-.pdf-footer-credit .heart {
-  display: inline-block;
-  transform: rotate(90deg);
-  color: #e63946;
-  font-size: 9pt;
-  line-height: 1;
-}
+.pdf-footer-credit .heart { display: inline-block; transform: rotate(90deg); color: #e63946; font-size: 9pt; line-height: 1; }
 
-.cover {
-  position: relative;
-  width: fit-content;
-  background: #fffdfc;
-  overflow: hidden;
-}
+.cover { position: relative; width: fit-content; background: #fffdfc; overflow: hidden; }
+.border-red-double { border-style: double !important; border-color: #a52c51 !important; }
+.border-red-inner { border-style: double !important; border-color: #a52c51 !important; outline: 1.5px solid #a52c51 !important; outline-offset: -9px !important; }
+.border-green-double { border-style: double !important; border-color: #176b42 !important; }
+.border-red-solid { border-style: solid !important; border-color: #a52c51 !important; }
 
-/* Outline / Border Options */
-.border-red-double {
-  border-style: double !important;
-  border-color: #a52c51 !important;
-}
-.border-red-inner {
-  border-style: double !important;
-  border-color: #a52c51 !important;
-  outline: 1.5px solid #a52c51 !important;
-  outline-offset: -9px !important;
-}
-.border-green-double {
-  border-style: double !important;
-  border-color: #176b42 !important;
-}
-.border-red-solid {
-  border-style: solid !important;
-  border-color: #a52c51 !important;
-}
-
-/* Proportional Watermark */
-.watermark {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 1;
-}
-.watermark img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-
-.inside {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-}
-
-.logo-area {
-  position: absolute;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  z-index: 2;
-}
-.logo-area img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top left;
-}
-
-.heading-area {
-  text-align: center;
-  margin-top: 2px;
-}
-.main-title {
-  color: #c00000;
-  line-height: 1.1;
-  font-weight: bold;
-  white-space: nowrap;
-  letter-spacing: .5px;
-}
-.academic {
-  margin-top: 6px;
-  color: #285c9d;
-  font-weight: bold;
-  line-height: 1.3;
-  white-space: nowrap;
-}
-
-.details {
-  color: #4e852c;
-  font-weight: bold;
-}
-.details p {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
+.watermark { position: absolute; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
+.watermark img { width: 100%; height: 100%; object-fit: fill; }
+.inside { position: relative; display: flex; flex-direction: column; z-index: 2; }
+.logo-area { position: absolute; display: flex; align-items: flex-start; justify-content: flex-start; z-index: 2; }
+.logo-area img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: top left; }
+.heading-area { text-align: center; margin-top: 2px; }
+.main-title { color: #c00000; line-height: 1.1; font-weight: bold; white-space: nowrap; letter-spacing: .5px; }
+.academic { margin-top: 6px; color: #285c9d; font-weight: bold; line-height: 1.3; white-space: nowrap; }
+.details { color: #4e852c; font-weight: bold; }
+.details p { margin: 0; display: flex; align-items: baseline; white-space: nowrap; }
 .details .label-text { display: inline-block; }
 .details .colon { width: 28px; text-align: center; display: inline-block; }
 
-/* Base Typography per Grid */
 .grid-1 { justify-content: center; }
 .grid-1 .main-title { font-size: 29pt; }
 .grid-1 .academic { font-size: 17.5pt; }
@@ -510,713 +219,337 @@ input[type="text"], input[type="number"], select, textarea {
 .grid-3 .details { font-size: 12.5pt; line-height: 1.65; }
 .grid-3 .details .label-text { width: 135px; }
 
-/* Print Styles for Multi-page A4 */
-@page { 
-  size: A4 portrait; 
-  margin: 2mm 5mm; 
-}
-
+@page { size: A4 portrait; margin: 2mm 5mm; }
 @media print {
-  body { margin: 0; padding: 0; background: white; }
+  body { margin: 0; padding: 0; background: white; min-width: auto !important; }
   .editor, h1, .dev-badge, .instructions { display: none !important; }
-  
   #previewContainer { gap: 0 !important; display: block !important; }
   .page-scale-wrapper { height: auto !important; display: block !important; }
-
   .a4-page {
-    width: 100% !important;
-    height: 293mm !important;
-    padding: 3mm 6mm 5mm 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    transform: none !important;
-    page-break-after: always !important;
-    break-after: page !important;
+    width: 100% !important; height: 293mm !important; padding: 3mm 6mm 5mm 0 !important;
+    box-shadow: none !important; border: none !important; transform: none !important;
+    page-break-after: always !important; break-after: page !important;
   }
-
-  .cover {
-    print-color-adjust: exact; 
-    -webkit-print-color-adjust: exact;
-  }
-
-  .pdf-footer-credit {
-    bottom: 3mm !important;
-    right: 1mm !important;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+  .cover { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .pdf-footer-credit { bottom: 3mm !important; right: 1mm !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
 </style>
 </head>
 <body>
-
-<h1>BAU Batch Practical Cover Generator</h1>
-<div class="dev-badge">
-  Developed by <span class="heart">❤️</span> <span class="author-name">Mohammad Asif</span> &bull; BAU 65th Batch &bull; Faculty of Agriculture &bull; Session: 2025-2026
-</div>
-<p class="instructions">Enter and edit all the information below:</p>
-
-<section class="editor">
-  <div class="save-bar">
-    <span>💾 <strong>Auto-Save Active:</strong> Your course details & student list are saved automatically in this browser.</span>
-    <button type="button" class="btn-clear-storage" onclick="clearSavedData()">Reset Saved Data</button>
-  </div>
-
-  <h2>1. Common Course Details</h2>
-  <div class="form-grid">
-    <label>Course No.<input type="text" id="courseNo" value="ACHEM 1122"></label>
-    <label>Course Title<input type="text" id="courseTitle" value="Physical and Organic Chemistry"></label>
-    <label>Group<input type="text" id="group" value="VI"></label>
-    <label>Section<input type="text" id="section" value="B"></label>
-    <label>Session<input type="text" id="session" value="2025-2026"></label>
-    <label>Degree / Level / Semester<input type="text" id="degree" value="B.Sc. Ag. (Hons.) Level-1, Semester-1"></label>
-    <label>Academic period<input type="text" id="period" value="(January-June/26)"></label>
-    <label>Covers per A4 Page
-      <select id="copyCount">
-        <option value="1">1 Cover per Page (Single)</option>
-        <option value="2">2 Covers per Page (Medium)</option>
-        <option value="3" selected>3 Covers per Page (Standard)</option>
-      </select>
-    </label>
-    <label>Border / Outline Style
-      <select id="borderStyle">
-        <option value="border-red-inner" selected>Double Border + Inner Outline</option>
-        <option value="border-red-double">Classic Red Double Border</option>
-        <option value="border-green-double">Classic Green Double Border</option>
-        <option value="border-red-solid">Solid Red Border</option>
-      </select>
-    </label>
-    <label>Center Watermark
-      <select id="watermarkToggle">
-        <option value="yes" selected>Yes (Show Watermark)</option>
-        <option value="no">No (Hide Watermark)</option>
-      </select>
-    </label>
-  </div>
-
-  <!-- Advanced Edit Mode Toggle -->
-  <div class="adv-toggle-wrap">
-    <button type="button" class="btn-adv-toggle" id="advToggleBtn" onclick="toggleAdvancedMode()">
-      ⚙️ Advanced Edit Mode: OFF
-    </button>
-    <span style="font: 12px Arial, sans-serif; color: #666;">Click to customize logo size, position, cover width & outline</span>
-  </div>
-
-  <!-- Advanced Edit Mode Panel -->
-  <div class="tuner-section" id="advancedPanel">
-    <h3>Advanced Layout & Logo Customization</h3>
-    <p class="tuner-note">Use the <strong>-</strong> and <strong>+</strong> buttons (or drag sliders) to fine-tune the logo size, position, cover box width, and border thickness in real time.</p>
-    
-    <div class="tuner-grid">
-      <!-- Top-Left Logo Controls -->
-      <div class="tuner-box">
-        <div class="tuner-box-header">
-          <h4>Top-Left Logo</h4>
-          <button type="button" class="btn-mini-reset" onclick="resetSection('topLogo')">Reset</button>
-        </div>
-        <p class="box-desc">Change top-left logo size, position & header spacing</p>
-
-        <div class="control-item">
-          <div class="control-header"><span>Logo Size (px)</span><strong id="val_tlSize">88px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('tlSize', -2)">-</button>
-            <input type="range" id="tlSize" min="40" max="150" step="2" value="88">
-            <button type="button" class="btn-step" onclick="stepControl('tlSize', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Vertical Position (Top)</span><strong id="val_tlTop">0px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('tlTop', -2)">-</button>
-            <input type="range" id="tlTop" min="-20" max="40" step="2" value="0">
-            <button type="button" class="btn-step" onclick="stepControl('tlTop', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Horizontal Position (Left)</span><strong id="val_tlLeft">8px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('tlLeft', -2)">-</button>
-            <input type="range" id="tlLeft" min="-10" max="60" step="2" value="8">
-            <button type="button" class="btn-step" onclick="stepControl('tlLeft', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Header Left Spacing</span><strong id="val_headPad">98px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('headPad', -2)">-</button>
-            <input type="range" id="headPad" min="50" max="170" step="2" value="98">
-            <button type="button" class="btn-step" onclick="stepControl('headPad', 2)">+</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Center Watermark Controls -->
-      <div class="tuner-box">
-        <div class="tuner-box-header">
-          <h4>Center Watermark Logo</h4>
-          <button type="button" class="btn-mini-reset" onclick="resetSection('watermark')">Reset</button>
-        </div>
-        <p class="box-desc">Change watermark width, height, position & opacity</p>
-
-        <div class="control-item">
-          <div class="control-header"><span>Watermark Width</span><strong id="val_wmWidth">240px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('wmWidth', -4)">-</button>
-            <input type="range" id="wmWidth" min="100" max="480" step="4" value="240">
-            <button type="button" class="btn-step" onclick="stepControl('wmWidth', 4)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Watermark Height</span><strong id="val_wmHeight">240px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('wmHeight', -4)">-</button>
-            <input type="range" id="wmHeight" min="100" max="420" step="4" value="240">
-            <button type="button" class="btn-step" onclick="stepControl('wmHeight', 4)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Vertical Position (Top %)</span><strong id="val_wmTop">66%</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('wmTop', -1)">-</button>
-            <input type="range" id="wmTop" min="30" max="85" step="1" value="66">
-            <button type="button" class="btn-step" onclick="stepControl('wmTop', 1)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Horizontal Position (Left %)</span><strong id="val_wmLeft">50%</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('wmLeft', -1)">-</button>
-            <input type="range" id="wmLeft" min="20" max="80" step="1" value="50">
-            <button type="button" class="btn-step" onclick="stepControl('wmLeft', 1)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Watermark Opacity</span><strong id="val_wmOpacity">0.12</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('wmOpacity', -0.02)">-</button>
-            <input type="range" id="wmOpacity" min="0.04" max="0.36" step="0.02" value="0.12">
-            <button type="button" class="btn-step" onclick="stepControl('wmOpacity', 0.02)">+</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cover Box & Outline Controls -->
-      <div class="tuner-box">
-        <div class="tuner-box-header">
-          <h4>Cover Box & Outline</h4>
-          <button type="button" class="btn-mini-reset" onclick="resetSection('outline')">Reset</button>
-        </div>
-        <p class="box-desc">Change cover width, inner padding & border thickness</p>
-
-        <div class="control-item">
-          <div class="control-header"><span>Cover Box Width (mm)</span><strong id="val_boxWidth">148mm</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('boxWidth', -2)">-</button>
-            <input type="range" id="boxWidth" min="120" max="196" step="2" value="148">
-            <button type="button" class="btn-step" onclick="stepControl('boxWidth', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Top & Bottom Padding</span><strong id="val_padY">16px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('padY', -2)">-</button>
-            <input type="range" id="padY" min="6" max="46" step="2" value="16">
-            <button type="button" class="btn-step" onclick="stepControl('padY', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Left & Right Padding</span><strong id="val_padX">26px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('padX', -2)">-</button>
-            <input type="range" id="padX" min="10" max="60" step="2" value="26">
-            <button type="button" class="btn-step" onclick="stepControl('padX', 2)">+</button>
-          </div>
-        </div>
-
-        <div class="control-item">
-          <div class="control-header"><span>Outline / Border Thickness</span><strong id="val_borderW">5px</strong></div>
-          <div class="stepper-row">
-            <button type="button" class="btn-step" onclick="stepControl('borderW', -0.5)">-</button>
-            <input type="range" id="borderW" min="1" max="12" step="0.5" value="5">
-            <button type="button" class="btn-step" onclick="stepControl('borderW', 0.5)">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button type="button" class="btn-reset" onclick="resetTuner()">Overall Reset (Restore All Defaults)</button>
-  </div>
-
-  <div class="student-section">
-    <h2>2. Students List (ID & Reg)</h2>
-    <div id="studentInputs">
-      <!-- Dynamic Rows -->
-    </div>
-
-    <div class="student-bottom-controls">
-      <div class="btn-group-left">
-        <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
-        <button type="button" class="btn-remove-all" onclick="removeAllStudents()">🗑️ Remove All</button>
-      </div>
-
-      <!-- Tick Mark Options for Bulk & Loop -->
-      <div class="checkbox-group">
-        <label class="check-option">
-          <input type="checkbox" id="chkBulk" onchange="toggleCheckDrawer('chkBulk', 'bulkPasteBox')">
-          <span>Bulk Paste</span>
-        </label>
-        <label class="check-option">
-          <input type="checkbox" id="chkLoop" onchange="toggleCheckDrawer('chkLoop', 'loopGenBox')">
-          <span>Loop (+1)</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Option A: Smart Bulk Paste Box -->
-    <div class="tool-drawer bulk-box" id="bulkPasteBox">
-      <p><strong>Bulk Paste (Numerical ID & Reg):</strong> Paste numbers separated by comma, space, or new line. Extra spaces & empty lines are ignored automatically.<br>
-      Supported formats:<br>
-      <code>2602149,61046 2602150,61047 2602151,61048</code><br>
-      or line-by-line:<br>
-      <code>2602149,61046</code><br>
-      <code>2602150,61047</code></p>
-      <textarea id="bulkTextarea" placeholder="2602149,61046 2602150,61047&#10;2602151,61048"></textarea>
-      <div class="drawer-btn-row">
-        <button type="button" class="btn-drawer-append" onclick="processBulkPaste(false)">Append to Current List</button>
-        <button type="button" class="btn-drawer-replace" onclick="processBulkPaste(true)">Replace Entire List</button>
-      </div>
-    </div>
-
-    <!-- Option B: Auto Sequence / Loop Generator -->
-    <div class="tool-drawer loop-box" id="loopGenBox">
-      <p><strong>Loop Generator (+1 Sequence):</strong> Enter Start ID, Start Reg. No., and how many consecutive covers you want to generate (+1 each step).</p>
-      <div class="loop-grid">
-        <label>Start ID No.<input type="text" id="loopStartId" placeholder="e.g. 2602149"></label>
-        <label>Start Reg. No.<input type="text" id="loopStartReg" placeholder="e.g. 61046"></label>
-        <label>How Many (Count)<input type="number" id="loopCount" min="1" max="200" value="10"></label>
-      </div>
-      <div class="drawer-btn-row">
-        <button type="button" class="btn-drawer-append" onclick="processLoopGenerator(false)">Generate & Append</button>
-        <button type="button" class="btn-drawer-replace" onclick="processLoopGenerator(true)">Generate & Replace List</button>
-      </div>
-    </div>
-  </div>
-
-  <button type="button" class="btn-print" onclick="printPDF()">Print PDF / Download PDF</button>
-</section>
-
-<div id="previewContainer">
-  <!-- Dynamic A4 Pages will be rendered here -->
-</div>
-
+<div id="__app_root"></div>
 <script>
-const STORAGE_KEY = "bau_practical_cover_v2";
+(function(_0xW, _0xD){
+  "use strict";
+  const _0xBlk = function(_0xE){ _0xE.preventDefault(); return false; };
+  _0xD.addEventListener("contextmenu", _0xBlk);
+  _0xD.addEventListener("dragstart", _0xBlk);
+  _0xD.addEventListener("keydown", function(_0xE){
+    const _0xK = _0xE.keyCode || _0xE.which;
+    if (_0xK === 123 ||
+       ((_0xE.ctrlKey || _0xE.metaKey) && _0xE.shiftKey && (_0xK === 73 || _0xK === 74 || _0xK === 67 || _0xK === 75)) ||
+       ((_0xE.ctrlKey || _0xE.metaKey) && (_0xK === 85 || _0xK === 83))) {
+      _0xE.preventDefault();
+      _0xE.stopPropagation();
+      return false;
+    }
+  }, true);
 
-/* Only 1 sample entry by default */
-const defaultStudents = [
-  { id: "2602149", reg: "61046" }
-];
+  setInterval(function(){
+    const _0xT0 = performance.now();
+    (function(){}).constructor("debugger")();
+    if (performance.now() - _0xT0 > 120) {
+      _0xD.body.innerHTML = "<h2 style='font-family:Arial;color:#c00000;text-align:center;margin-top:80px;'>Protected Source: Developer Inspection is Restricted.</h2>";
+    }
+  }, 1500);
 
-let students = JSON.parse(JSON.stringify(defaultStudents));
+  const _0xB64 = "PGgxPkJBVSBCYXRjaCBQcmFjdGljYWwgQ292ZXIgR2VuZXJhdG9yPC9oMT4KPGRpdiBjbGFzcz0iZGV2LWJhZGdlIj4KICBEZXZlbG9wZWQgYnkgPHNwYW4gY2xhc3M9ImhlYXJ0Ij7in6Q8L3NwYW4+IDxzcGFuIGNsYXNzPSJhdXRob3ItbmFtZSI+TW9oYW1tYWQgQXNpZjwvc3Bhbj4gJmJ1bGw7IEJBVSA2NXRoIEJhdGNoICZidWxsOyBGYWN1bHR5IG9mIEFncmljdWx0dXJlICZidWxsOyBTZXNzaW9uOiAyMDI1LTIwMjYKPC9kaXY+CjxwIGNsYXNzPSJpbnN0cnVjdGlvbnMiPkVudGVyIGFuZCBlZGl0IGFsbCB0aGUgaW5mb3JtYXRpb24gYmVsb3c6PC9wPgoKPHNlY3Rpb24gY2xhc3M9ImVkaXRvciI+CiAgPGRpdiBjbGFzcz0ic2F2ZS1iYXIiPgogICAgPHNwYW4+8J+SviA8c3Ryb25nPkF1dG8tU2F2ZSBBY3RpdmU6PC9zdHJvbmc+IFlvdXIgY291cnNlIGRldGFpbHMgJiBzdHVkZW50IGxpc3QgYXJlIHNhdmVkIGF1dG9tYXRpY2FsbHkgaW4gdGhpcyBicm93c2VyLjwvc3Bhbj4KICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWNsZWFyLXN0b3JhZ2UiIG9uY2xpY2s9ImNsZWFyU2F2ZWREYXRhKCkiPlJlc2V0IFNhdmVkIERhdGE8L2J1dHRvbj4KICA8L2Rpdj4KCiAgPGgyPjEuIENvbW1vbiBDb3Vyc2UgRGV0YWlsczwvaDI+CiAgPGRpdiBjbGFzcz0iZm9ybS1ncmlkIj4KICAgIDxsYWJlbD5Db3Vyc2UgTm8uPGlucHV0IHR5cGU9InRleHQiIGlkPSJjb3Vyc2VObyIgdmFsdWU9IkFDSEVNIDExMjIiPjwvbGFiZWw+CiAgICA8bGFiZWw+Q291cnNlIFRpdGxlPGlucHV0IHR5cGU9InRleHQiIGlkPSJjb3Vyc2VUaXRsZSIgdmFsdWU9IlBoeXNpY2FsIGFuZCBPcmdhbmljIENoZW1pc3RyeSI+PC9sYWJlbD4KICAgIDxsYWJlbD5Hcm91cDxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0iZ3JvdXAiIHZhbHVlPSJWSSI+PC9sYWJlbD4KICAgIDxsYWJlbD5TZWN0aW9uPGlucHV0IHR5cGU9InRleHQiIGlkPSJzZWN0aW9uIiB2YWx1ZT0iQiI+PC9sYWJlbD4KICAgIDxsYWJlbD5TZXNzaW9uPGlucHV0IHR5cGU9InRleHQiIGlkPSJzZXNzaW9uIiB2YWx1ZT0iMjAyNS0yMDI2Ij48L2xhYmVsPgogICAgPGxhYmVsPkRlZ3JlZSAvIExldmVsIC8gU2VtZXN0ZXI8aW5wdXQgdHlwZT0idGV4dCIgaWQ9ImRlZ3JlZSIgdmFsdWU9IkIuU2MuIEFnLiAoSG9ucy4pIExldmVsLTEsIFNlbWVzdGVyLTEiPjwvbGFiZWw+CiAgICA8bGFiZWw+QWNhZGVtaWMgcGVyaW9kPGlucHV0IHR5cGU9InRleHQiIGlkPSJwZXJpb2QiIHZhbHVlPSIoSmFudWFyeS1KdW5lLzI2KSI+PC9sYWJlbD4KICAgIDxsYWJlbD5Db3ZlcnMgcGVyIEE0IFBhZ2UKICAgICAgPHNlbGVjdCBpZD0iY29weUNvdW50Ij4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIxIj4xIENvdmVyIHBlciBQYWdlIChTaW5nbGUpPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMiI+MiBDb3ZlcnMgcGVyIFBhZ2UgKE1lZGl1bSk8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIzIiBzZWxlY3RlZD4zIENvdmVycyBwZXIgUGFnZSAoU3RhbmRhcmQpPC9vcHRpb24+CiAgICAgIDwvc2VsZWN0PgogICAgPC9sYWJlbD4KICAgIDxsYWJlbD5Cb3JkZXIgLyBPdXRsaW5lIFN0eWxlCiAgICAgIDxzZWxlY3QgaWQ9ImJvcmRlclN0eWxlIj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSJib3JkZXItcmVkLWlubmVyIiBzZWxlY3RlZD5Eb3VibGUgQm9yZGVyICsgSW5uZXIgT3V0bGluZTwvb3B0aW9uPgogICAgICAgIDxvcHRpb24gdmFsdWU9ImJvcmRlci1yZWQtZG91YmxlIj5DbGFzc2ljIFJlZCBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLWdyZWVuLWRvdWJsZSI+Q2xhc3NpYyBHcmVlbiBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLXJlZC1zb2xpZCI+U29saWQgUmVkIEJvcmRlcjwvb3B0aW9uPgogICAgICA8L3NlbGVjdD4KICAgIDwvbGFiZWw+CiAgICA8bGFiZWw+Q2VudGVyIFdhdGVybWFyawogICAgICA8c2VsZWN0IGlkPSJ3YXRlcm1hcmtUb2dnbGUiPgogICAgICAgIDxvcHRpb24gdmFsdWU9InllcyIgc2VsZWN0ZWQ+WWVzIChTaG93IFdhdGVybWFyayk8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSJubyI+Tm8gKEhpZGUgV2F0ZXJtYXJrKTwvb3B0aW9uPgogICAgICA8L3NlbGVjdD4KICAgIDwvbGFiZWw+CiAgPC9kaXY+CgogIDxkaXYgY2xhc3M9ImFkdi10b2dnbGUtd3JhcCI+CiAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1hZHYtdG9nZ2xlIiBpZD0iYWR2VG9nZ2xlQnRuIiBvbmNsaWNrPSJ0b2dnbGVBZHZhbmNlZE1vZGUoKSI+CiAgICAgIOKal++4jyBBZHZhbmNlZCBFZGl0IE1vZGU6IE9GRgogICAgPC9idXR0b24+CiAgICA8c3BhbiBzdHlsZT0iZm9udDogMTJweCBBcmlhbCwgc2Fucy1zZXJpZjsgY29sb3I6ICM2NjY7Ij5DbGljayB0byBjdXN0b21pemUgbG9nbyBzaXplLCBwb3NpdGlvbiwgY292ZXIgd2lkdGggJiBvdXRsaW5lPC9zcGFuPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJ0dW5lci1zZWN0aW9uIiBpZD0iYWR2YW5jZWRQYW5lbCI+CiAgICA8aDM+QWR2YW5jZWQgTGF5b3V0ICYgTG9nbyBDdXN0b21pemF0aW9uPC9oMz4KICAgIDxwIGNsYXNzPSJ0dW5lci1ub3RlIj5Vc2UgdGhlIDxzdHJvbmc+LTwvc3Ryb25nPiBhbmQgPHN0cm9uZz4rPC9zdHJvbmc+IGJ1dHRvbnMgKG9yIGRyYWcgc2xpZGVycykgdG8gZmluZS10dW5lIHRoZSBsb2dvIHNpemUsIHBvc2l0aW9uLCBjb3ZlciBib3ggd2lkdGgsIGFuZCBib3JkZXIgdGhpY2tuZXNzIGluIHJlYWwgdGltZS48L3A+CiAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ncmlkIj4KICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+VG9wLUxlZnQgTG9nbzwvaDQ+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tbWluaS1yZXNldCIgb25jbGljaz0icmVzZXRTZWN0aW9uKCd0b3BMb2dvJykiPlJlc2V0PC9idXR0b24+PC9kaXY+CiAgICAgICAgPHAgY2xhc3M9ImJveC1kZXNjIj5DaGFuZ2UgdG9wLWxlZnQgbG9nbyBzaXplLCBwb3NpdGlvbiAmIGhlYWRlciBzcGFjaW5nPC9wPgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkxvZ28gU2l6ZSAocHgpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF90bFNpemUiPjg4cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsU2l6ZScsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsU2l6ZSIgbWluPSI0MCIgbWF4PSIxNTAiIHN0ZXA9IjIiIHZhbHVlPSI4OCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsU2l6ZScsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+VmVydGljYWwgUG9zaXRpb24gKFRvcCk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3RsVG9wIj4wcHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0idGxUb3AiIG1pbj0iLTIwIiBtYXg9IjQwIiBzdGVwPSIyIiB2YWx1ZT0iMCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0KTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfdGxMZWZ0Ij44cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsTGVmdCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsTGVmdCIgbWluPSItMTAiIG1heD0iNjAiIHN0ZXA9IjIiIHZhbHVlPSI4Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxMZWZ0JywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5IZWFkZXIgTGVmdCBTcGFjaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9oZWFkUGFkIj45OHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdoZWFkUGFkJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iaGVhZFBhZCIgbWluPSI1MCIgbWF4PSIxNzAiIHN0ZXA9IjIiIHZhbHVlPSI5OCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ2hlYWRQYWQnLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+Q2VudGVyIFdhdGVybWFyayBMb2dvPC9oND48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1taW5pLXJlc2V0IiBvbmNsaWNrPSJyZXNldFNlY3Rpb24oJ3dhdGVybWFyaycpIj5SZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIHdhdGVybWFyayB3aWR0aCwgaGVpZ2h0LCBwb3NpdGlvbiAmIG9wYWNpdHk8L3A+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+V2F0ZXJtYXJrIFdpZHRoPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bVdpZHRoIj4yNDBweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21XaWR0aCcsIC00KSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtV2lkdGgiIG1pbj0iMTAwIiBtYXg9IjQ4MCIgc3RlcD0iNCIgdmFsdWU9IjI0MCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtV2lkdGgnLCA0KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPldhdGVybWFyayBIZWlnaHQ8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtSGVpZ2h0Ij4yNDBweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21IZWlnaHQnLCAtNCkiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJ3bUhlaWdodCIgbWluPSIxMDAiIG1heD0iNDIwIiBzdGVwPSI0IiB2YWx1ZT0iMjQwIj48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21IZWlnaHQnLCA0KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPlZlcnRpY2FsIFBvc2l0aW9uIChUb3AgJSk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtVG9wIj42NiU8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21Ub3AiIG1pbj0iMzAiIG1heD0iODUiIHN0ZXA9IjEiIHZhbHVlPSI2NiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgMSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0ICUpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bUxlZnQiPjUwJTwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21MZWZ0JywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21MZWZ0IiBtaW49IjIwIiBtYXg9IjgwIiBzdGVwPSIxIiB2YWx1ZT0iNTAiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUxlZnQnLCAxKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPldhdGVybWFyayBPcGFjaXR5PC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bU9wYWNpdHkiPjAuMTI8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtT3BhY2l0eScsIC0wLjAyKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtT3BhY2l0eSIgbWluPSIwLjA0IiBtYXg9IjAuMzYiIHN0ZXA9IjAuMDIiIHZhbHVlPSIwLjEyIj48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21PcGFjaXR5JywgMC4wMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveCI+CiAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94LWhlYWRlciI+PGg0PkNvdmVyIEJveCAmIE91dGxpbmU8L2g0PjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLW1pbmktcmVzZXQiIG9uY2xpY2s9InJlc2V0U2VjdGlvbignb3V0bGluZScpIj5SZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIGNvdmVyIHdpZHRoLCBpbm5lciBwYWRkaW5nICYgYm9yZGVyIHRoaWNrbmVzczwvcD4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Db3ZlciBCb3ggV2lkdGggKG1tKTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfYm94V2lkdGgiPjE0OG1tPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImJveFdpZHRoIiBtaW49IjEyMCIgbWF4PSIxOTYiIHN0ZXA9IjIiIHZhbHVlPSIxNDgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+VG9wICYgQm90dG9tIFBhZGRpbmc8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3BhZFkiPjE2cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3BhZFknLCAtMikiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJwYWRZIiBtaW49IjYiIG1heD0iNDYiIHN0ZXA9IjIiIHZhbHVlPSIxNiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3BhZFknLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkxlZnQgJiBSaWdodCBQYWRkaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9wYWRYIj4yNnB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdwYWRYJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0icGFkWCIgbWluPSIxMCIgbWF4PSI2MCIgc3RlcD0iMiIgdmFsdWU9IjI2Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+T3V0bGluZSAvIEJvcmRlciBUaGlja25lc3M8L3NwYW4+PHN0cm9uZyBpZD0idmFsX2JvcmRlclciPjVweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIC0wLjUpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iYm9yZGVyVyIgbWluPSIxIiBtYXg9IjEyIiBzdGVwPSIwLjUiIHZhbHVlPSI1Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIDAuNSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXJlc2V0IiBvbmNsaWNrPSJyZXNldFR1bmVyKCkiPk92ZXJhbGwgUmVzZXQgKFJlc3RvcmUgQWxsIERlZmF1bHRzKTwvYnV0dG9uPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJzdHVkZW50LXNlY3Rpb24iPgogICAgPGgyPjIuIFN0dWRlbnRzIExpc3QgKElEICYgUmVnKTwvaDI+CiAgICA8ZGl2IGlkPSJzdHVkZW50SW5wdXRzIj48L2Rpdj4KICAgIDxkaXYgY2xhc3M9InN0dWRlbnQtYm90dG9tLWNvbnRyb2xzIj4KICAgICAgPGRpdiBjbGFzcz0iYnRuLWdyb3VwLWxlZnQiPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWFkZCIgb25jbGljaz0iYWRkU3R1ZGVudFJvdygpIj4rIEFkZCBTdHVkZW50PC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcmVtb3ZlLWFsbCIgb25jbGljaz0icmVtb3ZlQWxsU3R1ZGVudHMoKSI+8J+Xke+4jyBSZW1vdmUgQWxsPC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJjaGVja2JveC1ncm91cCI+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24iPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0J1bGsiIG9uY2hhbmdlPSJ0b2dnbGVDaGVja0RyYXdlciknY2hrQnVsaycsICdidWxrUGFzdGVCb3gnKSI+PHNwYW4+QnVsayBQYXN0ZTwvc3Bhbj48L2xhYmVsPgogICAgICAgIDxsYWJlbCBjbGFzcz0iY2hlY2stb3B0aW9uIj48aW5wdXQgdHlwZT0iY2hlY2tib3giIGlkPSJjaGtMb29wIiBvbmNoYW5nZT0idG9nZ2xlQ2hlY2tEcmF3ZXIoJ2Noa0xvb3AnLCAnbG9vcEdlbkJveCcpIj48c3Bhbj5Mb29wICgrMSk8L3NwYW4+PC9sYWJlbD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBidWxrLWJveCIgaWQ9ImJ1bGtQYXN0ZUJveCI+CiAgICAgIDxwPjxzdHJvbmc+QnVsayBQYXN0ZSAoTnVtZXJpY2FsIElEICYgUmVnKTo8L3N0cm9uZz4gUGFzc2UgbnVtYmVycyBzZXBhcmF0ZWQgYnkgY29tbWEsIHNwYWNlLCBvciBuZXcgbGluZS4gRXh0cmEgc3BhY2VzICYgZW1wdHkgbGluZXMgYXJlIGlnbm9yZWQgYXV0b21hdGljYWxseS48YnI+U3VwcG9ydGVkIGZvcm1hdHM6PGJyPjxjb2RlPjI2MDIxNDksNjEwNDYgMjYwMjE1MCw2MTA0NyAyNjAyMTUxLDYxMDQ4PC9jb2RlPjxicj5vciBsaW5lLWJ5LWxpbmU6PGJyPjxjb2RlPjI2MDIxNDksNjEwNDY8L2NvZGU+PGJyPjxjb2RlPjI2MDIxNTAsNjEwNDc8L2NvZGU+PC9wPgogICAgICA8dGV4dGFyZWEgaWQ9ImJ1bGtUZXh0YXJlYSIgcGxhY2Vob2xkZXI9IjI2MDIxNDksNjEwNDYgMjYwMjE1MCw2MTA0NyYjMTA7MjYwMjE1MSw2MTA0OCI+PC90ZXh0YXJlYT4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NCdWxrUGFzdGUoZmFsc2UpIj5BcHBlbmQgdG8gQ3VycmVudCBMaXN0PC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tZHJhd2VyLXJlcGxhY2UiIG9uY2xpY2s9InByb2Nlc3NCdWxrUGFzdGUodHJ1ZSkiPlJlcGxhY2UgRW50aXJlIExpc3Q8L2J1dHRvbj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBsb29wLWJveCIgaWQ9Imxvb3BHZW5Cb3giPgogICAgICA8cD48c3Ryb25nPkxvb3AgR2VuZXJhdG9yICgrMSBTZXF1ZW5jZSk6PC9zdHJvbmc+IEVudGVyIFN0YXJ0IElELCBTdGFydCBSZWcuIE5vLiwgYW5kIGhvdyBtYW55IGNvbnNlY3V0aXZlIGNvdmVycyB5b3Ugd2FudCB0byBnZW5lcmF0ZSAoKzEgZWFjaCBzdGVwKS48L3A+CiAgICAgIDxkaXYgY2xhc3M9Imxvb3AtZ3JpZCI+CiAgICAgICAgPGxhYmVsPlN0YXJ0IElEIE5vLjxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0ibG9vcFN0YXJ0SWQiIHBsYWNlaG9sZGVyPSJlLmcuIDI2MDIxNDkiPjwvbGFiZWw+CiAgICAgICAgPGxhYmVsPlN0YXJ0IFJlZy4gTm8uPGlucHV0IHR5cGU9InRleHQiIGlkPSJsb29wU3RhcnRSZWciIHBsYWNlaG9sZGVyPSJlLmcuIDYxMDQ2Ij48L2xhYmVsPgogICAgICAgIDxsYWJlbD5Ib3cgTWFueSAoQ291bnQpPGlucHV0IHR5cGU9Im51bWJlciIgaWQ9Imxvb3BDb3VudCIgbWluPSIxIiBtYXg9IjIwMCIgdmFsdWU9IjEwIj48L2xhYmVsPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NMb29wR2VuZXJhdG9yKGZhbHNlKSI+R2VuZXJhdGUgJiBBcHBlbmQ8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItcmVwbGFjZSIgb25jbGljaz0icHJvY2Vzc0xvb3BHZW5lcmF0b3IodHJ1ZSkiPkdlbmVyYXRlICYgUmVwbGFjZSBMaXN0PC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+CgogIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXByaW50IiBvbmNsaWNrPSJwcmludFBERigpIj5QcmludCBQREYgLyBEb3dubG9hZCBQREY8L2J1dHRvbj4KPC9zZWN0aW9uPgoKPGRpdiBpZD0icHJldmlld0NvbnRhaW5lciI+PC9kaXY+";
+  const _0xBin = atob(_0xB64);
+  const _0xArr = new Uint8Array(_0xBin.length);
+  for (let _0xI = 0; _0xI < _0xBin.length; _0xI++) _0xArr[_0xI] = _0xBin.charCodeAt(_0xI);
+  _0xD.getElementById("__app_root").innerHTML = new TextDecoder("utf-8").decode(_0xArr);
 
-/* Refined Default Presets for Single (1), Medium (2), and Standard (3) per Page */
-const presetsByCount = {
-  1: { tlSize: 108, tlTop: -2, tlLeft: 6, headPad: 116, wmWidth: 332, wmHeight: 332, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 164, padY: 32, padX: 36, borderW: 5 },
-  2: { tlSize: 96,  tlTop: -2, tlLeft: 6, headPad: 104, wmWidth: 284, wmHeight: 284, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 158, padY: 24, padX: 30, borderW: 5 },
-  3: { tlSize: 88,  tlTop: 0,  tlLeft: 8, headPad: 98,  wmWidth: 240, wmHeight: 240, wmTop: 66, wmLeft: 50, wmOpacity: 0.12, boxWidth: 148, padY: 16, padX: 26, borderW: 5 }
-};
+  const _0x1a2b = [
+    "bau_practical_cover_v2", "2602149", "61046", "courseNo", "courseTitle", "group",
+    "section", "session", "degree", "period", "copyCount", "borderStyle", "watermarkToggle",
+    "tlSize", "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft",
+    "wmOpacity", "boxWidth", "padY", "padX", "borderW", "getElementById", "value",
+    "stringify", "setItem", "getItem", "parse", "isArray", "length", "confirm",
+    "Reset all saved course details, layout settings, and student list back to default?",
+    "removeItem", "reload", "advancedPanel", "advToggleBtn", "classList", "toggle",
+    "open", "active", "innerHTML", "⚙️ Advanced Edit Mode: ON", "⚙️ Advanced Edit Mode: OFF",
+    "checked", "add", "remove", "bulkTextarea", "match", "alert",
+    "Please enter valid numerical ID and Registration pairs (e.g. 2602149,61046 2602150,61047).",
+    "trim", "concat", "chkBulk", "bulkPasteBox", "loopStartId", "loopStartReg", "loopCount",
+    "test", "Start ID and Start Reg. No. must contain numbers only.",
+    "Please enter a valid count between 1 and 200.", "padStart", "chkLoop", "loopGenBox",
+    "min", "max", "keys", "forEach", "val_", "textContent", "px", "%", "mm",
+    "studentInputs", "splice", " ", "yes", "previewContainer", "title",
+    " cover page - Made by M.Asif", "Practical", "querySelectorAll", ".page-scale-wrapper",
+    "innerWidth", ".a4-page", "style", "transform", "none", "offsetWidth", "offsetHeight",
+    "height", "print", "input", "addEventListener", "change", "resize"
+  ];
 
-const sectionKeys = {
-  topLogo: ["tlSize", "tlTop", "tlLeft", "headPad"],
-  watermark: ["wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity"],
-  outline: ["boxWidth", "padY", "padX", "borderW"]
-};
+  const _0xSK = _0x1a2b[0];
+  const _0xDS = [{ id: _0x1a2b[1], reg: _0x1a2b[2] }];
+  let _0xST = JSON[_0x1a2b[31]](JSON[_0x1a2b[28]](_0xDS));
 
-const commonFieldIds = ["courseNo", "courseTitle", "group", "section", "session", "degree", "period", "copyCount", "borderStyle", "watermarkToggle"];
-const tunerFieldIds = ["tlSize", "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity", "boxWidth", "padY", "padX", "borderW"];
+  const _0xPR = {
+    1: { tlSize: 108, tlTop: -2, tlLeft: 6, headPad: 116, wmWidth: 332, wmHeight: 332, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 164, padY: 32, padX: 36, borderW: 5 },
+    2: { tlSize: 96,  tlTop: -2, tlLeft: 6, headPad: 104, wmWidth: 284, wmHeight: 284, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 158, padY: 24, padX: 30, borderW: 5 },
+    3: { tlSize: 88,  tlTop: 0,  tlLeft: 8, headPad: 98,  wmWidth: 240, wmHeight: 240, wmTop: 66, wmLeft: 50, wmOpacity: 0.12, boxWidth: 148, padY: 16, padX: 26, borderW: 5 }
+  };
 
-/* LocalStorage Auto-Save & Load */
-function saveStateToStorage() {
-  try {
-    const fields = {};
-    [...commonFieldIds, ...tunerFieldIds].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) fields[id] = el.value;
-    });
-    const payload = { fields, students };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  } catch (e) {}
-}
+  const _0xSEC = {
+    topLogo: [_0x1a2b[13], _0x1a2b[14], _0x1a2b[15], _0x1a2b[16]],
+    watermark: [_0x1a2b[17], _0x1a2b[18], _0x1a2b[19], _0x1a2b[20], _0x1a2b[21]],
+    outline: [_0x1a2b[22], _0x1a2b[23], _0x1a2b[24], _0x1a2b[25]]
+  };
 
-function loadStateFromStorage() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
-    const data = JSON.parse(raw);
-    if (data.fields) {
-      Object.keys(data.fields).forEach(id => {
-        const el = document.getElementById(id);
-        if (el && data.fields[id] !== undefined) {
-          el.value = data.fields[id];
-        }
+  const _0xCF = [_0x1a2b[3], _0x1a2b[4], _0x1a2b[5], _0x1a2b[6], _0x1a2b[7], _0x1a2b[8], _0x1a2b[9], _0x1a2b[10], _0x1a2b[11], _0x1a2b[12]];
+  const _0xTF = [_0x1a2b[13], _0x1a2b[14], _0x1a2b[15], _0x1a2b[16], _0x1a2b[17], _0x1a2b[18], _0x1a2b[19], _0x1a2b[20], _0x1a2b[21], _0x1a2b[22], _0x1a2b[23], _0x1a2b[24], _0x1a2b[25]];
+
+  function _0xSave() {
+    try {
+      const _0xf = {};
+      [..._0xCF, ..._0xTF][_0x1a2b[70]](_0xi => {
+        const _0xe = _0xD[_0x1a2b[26]](_0xi);
+        if (_0xe) _0xf[_0xi] = _0xe[_0x1a2b[27]];
+      });
+      localStorage[_0x1a2b[29]](_0xSK, JSON[_0x1a2b[28]]({ fields: _0xf, students: _0xST }));
+    } catch (_0xe) {}
+  }
+
+  function _0xLoad() {
+    try {
+      const _0xr = localStorage[_0x1a2b[30]](_0xSK);
+      if (!_0xr) return;
+      const _0xd = JSON[_0x1a2b[31]](_0xr);
+      if (_0xd.fields) {
+        Object[_0x1a2b[69]](_0xd.fields)[_0x1a2b[70]](_0xi => {
+          const _0xe = _0xD[_0x1a2b[26]](_0xi);
+          if (_0xe && _0xd.fields[_0xi] !== undefined) _0xe[_0x1a2b[27]] = _0xd.fields[_0xi];
+        });
+      }
+      if (Array[_0x1a2b[32]](_0xd.students) && _0xd.students[_0x1a2b[33]] > 0) _0xST = _0xd.students;
+    } catch (_0xe) {}
+  }
+
+  _0xW.clearSavedData = function() {
+    if (!_0xW[_0x1a2b[34]](_0x1a2b[35])) return;
+    localStorage[_0x1a2b[36]](_0xSK);
+    location[_0x1a2b[37]]();
+  };
+
+  _0xW.toggleAdvancedMode = function() {
+    const _0xp = _0xD[_0x1a2b[26]](_0x1a2b[38]);
+    const _0xb = _0xD[_0x1a2b[26]](_0x1a2b[39]);
+    const _0xo = _0xp[_0x1a2b[40]][_0x1a2b[41]](_0x1a2b[42]);
+    _0xb[_0x1a2b[40]][_0x1a2b[41]](_0x1a2b[43], _0xo);
+    _0xb[_0x1a2b[44]] = _0xo ? _0x1a2b[45] : _0x1a2b[46];
+  };
+
+  _0xW.toggleCheckDrawer = function(_0xcId, _0xdId) {
+    const _0xc = _0xD[_0x1a2b[26]](_0xcId);
+    const _0xd = _0xD[_0x1a2b[26]](_0xdId);
+    if (!_0xc || !_0xd) return;
+    if (_0xc[_0x1a2b[47]]) _0xd[_0x1a2b[40]][_0x1a2b[48]](_0x1a2b[42]);
+    else _0xd[_0x1a2b[40]][_0x1a2b[49]](_0x1a2b[42]);
+  };
+
+  _0xW.removeAllStudents = function() {
+    _0xST = [{ id: "", reg: "" }];
+    _0xRenderInputs();
+    _0xRenderAll();
+  };
+
+  _0xW.processBulkPaste = function(_0xrep) {
+    const _0xraw = _0xD[_0x1a2b[26]](_0x1a2b[50])[_0x1a2b[27]];
+    const _0xnum = _0xraw[_0x1a2b[51]](/\d+/g);
+    if (!_0xnum || _0xnum[_0x1a2b[33]] < 2) { _0xW[_0x1a2b[52]](_0x1a2b[53]); return; }
+    const _0xprs = [];
+    for (let _0xi = 0; _0xi < _0xnum[_0x1a2b[33]]; _0xi += 2) {
+      _0xprs.push({ id: _0xnum[_0xi], reg: _0xnum[_0xi + 1] !== undefined ? _0xnum[_0xi + 1] : "" });
+    }
+    if (_0xrep) _0xST = _0xprs;
+    else if (_0xST[_0x1a2b[33]] === 1 && !_0xST[0].id[_0x1a2b[54]]() && !_0xST[0].reg[_0x1a2b[54]]()) _0xST = _0xprs;
+    else _0xST = _0xST[_0x1a2b[55]](_0xprs);
+    _0xD[_0x1a2b[26]](_0x1a2b[50])[_0x1a2b[27]] = "";
+    _0xD[_0x1a2b[26]](_0x1a2b[56])[_0x1a2b[47]] = false;
+    _0xD[_0x1a2b[26]](_0x1a2b[57])[_0x1a2b[40]][_0x1a2b[49]](_0x1a2b[42]);
+    _0xRenderInputs();
+    _0xRenderAll();
+  };
+
+  _0xW.processLoopGenerator = function(_0xrep) {
+    const _0xsId = _0xD[_0x1a2b[26]](_0x1a2b[58])[_0x1a2b[27]][_0x1a2b[54]]();
+    const _0xsRg = _0xD[_0x1a2b[26]](_0x1a2b[59])[_0x1a2b[27]][_0x1a2b[54]]();
+    const _0xcnt = parseInt(_0xD[_0x1a2b[26]](_0x1a2b[60])[_0x1a2b[27]], 10);
+    if (!/^\d+$/[_0x1a2b[61]](_0xsId) || !/^\d+$/[_0x1a2b[61]](_0xsRg)) { _0xW[_0x1a2b[52]](_0x1a2b[62]); return; }
+    if (isNaN(_0xcnt) || _0xcnt < 1 || _0xcnt > 200) { _0xW[_0x1a2b[52]](_0x1a2b[63]); return; }
+    const _0xidL = _0xsId[_0x1a2b[33]], _0xrgL = _0xsRg[_0x1a2b[33]];
+    const _0xidN = BigInt(_0xsId), _0xrgN = BigInt(_0xsRg);
+    const _0xgen = [];
+    for (let _0xi = 0; _0xi < _0xcnt; _0xi++) {
+      _0xgen.push({
+        id: (_0xidN + BigInt(_0xi)).toString()[_0x1a2b[64]](_0xidL, "0"),
+        reg: (_0xrgN + BigInt(_0xi)).toString()[_0x1a2b[64]](_0xrgL, "0")
       });
     }
-    if (Array.isArray(data.students) && data.students.length > 0) {
-      students = data.students;
-    }
-  } catch (e) {}
-}
-
-function clearSavedData() {
-  if (!confirm("Reset all saved course details, layout settings, and student list back to default?")) return;
-  localStorage.removeItem(STORAGE_KEY);
-  location.reload();
-}
-
-function toggleAdvancedMode() {
-  const panel = document.getElementById("advancedPanel");
-  const btn = document.getElementById("advToggleBtn");
-  const isOpen = panel.classList.toggle("open");
-  btn.classList.toggle("active", isOpen);
-  btn.innerHTML = isOpen ? "⚙️ Advanced Edit Mode: ON" : "⚙️ Advanced Edit Mode: OFF";
-}
-
-function toggleCheckDrawer(checkboxId, drawerId) {
-  const chk = document.getElementById(checkboxId);
-  const drawer = document.getElementById(drawerId);
-  if (!chk || !drawer) return;
-  if (chk.checked) {
-    drawer.classList.add("open");
-  } else {
-    drawer.classList.remove("open");
-  }
-}
-
-/* Remove All Students */
-function removeAllStudents() {
-  students = [{ id: "", reg: "" }];
-  renderStudentInputs();
-  renderAllCovers();
-}
-
-/* Smart Numerical Bulk Paste (handles id,reg space id,reg OR id,reg enter id,reg, ignores extra spaces/newlines) */
-function processBulkPaste(replaceExisting) {
-  const rawText = document.getElementById("bulkTextarea").value;
-  const numbers = rawText.match(/\d+/g);
-
-  if (!numbers || numbers.length < 2) {
-    alert("Please enter valid numerical ID and Registration pairs (e.g. 2602149,61046 2602150,61047).");
-    return;
-  }
-
-  const parsed = [];
-  for (let i = 0; i < numbers.length; i += 2) {
-    const idVal = numbers[i];
-    const regVal = numbers[i + 1] !== undefined ? numbers[i + 1] : "";
-    parsed.push({ id: idVal, reg: regVal });
-  }
-
-  if (replaceExisting) {
-    students = parsed;
-  } else {
-    // If current list only has one completely blank row, replace it cleanly
-    if (students.length === 1 && !students[0].id.trim() && !students[0].reg.trim()) {
-      students = parsed;
-    } else {
-      students = students.concat(parsed);
-    }
-  }
-
-  document.getElementById("bulkTextarea").value = "";
-  document.getElementById("chkBulk").checked = false;
-  document.getElementById("bulkPasteBox").classList.remove("open");
-  renderStudentInputs();
-  renderAllCovers();
-}
-
-/* Auto Sequence (+1 Loop) Generator */
-function processLoopGenerator(replaceExisting) {
-  const startIdRaw = document.getElementById("loopStartId").value.trim();
-  const startRegRaw = document.getElementById("loopStartReg").value.trim();
-  const count = parseInt(document.getElementById("loopCount").value, 10);
-
-  if (!/^\d+$/.test(startIdRaw) || !/^\d+$/.test(startRegRaw)) {
-    alert("Start ID and Start Reg. No. must contain numbers only.");
-    return;
-  }
-  if (isNaN(count) || count < 1 || count > 200) {
-    alert("Please enter a valid count between 1 and 200.");
-    return;
-  }
-
-  const idLen = startIdRaw.length;
-  const regLen = startRegRaw.length;
-  const startIdNum = BigInt(startIdRaw);
-  const startRegNum = BigInt(startRegRaw);
-
-  const generated = [];
-  for (let i = 0; i < count; i++) {
-    const nextId = (startIdNum + BigInt(i)).toString().padStart(idLen, "0");
-    const nextReg = (startRegNum + BigInt(i)).toString().padStart(regLen, "0");
-    generated.push({ id: nextId, reg: nextReg });
-  }
-
-  if (replaceExisting) {
-    students = generated;
-  } else {
-    if (students.length === 1 && !students[0].id.trim() && !students[0].reg.trim()) {
-      students = generated;
-    } else {
-      students = students.concat(generated);
-    }
-  }
-
-  document.getElementById("chkLoop").checked = false;
-  document.getElementById("loopGenBox").classList.remove("open");
-  renderStudentInputs();
-  renderAllCovers();
-}
-
-function stepControl(id, delta) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const min = parseFloat(el.min);
-  const max = parseFloat(el.max);
-  const current = parseFloat(el.value);
-  let next = Math.round((current + delta) * 100) / 100;
-  if (next < min) next = min;
-  if (next > max) next = max;
-  el.value = next;
-  renderAllCovers();
-}
-
-function applyPreset(count) {
-  const p = presetsByCount[count] || presetsByCount[3];
-  Object.keys(p).forEach(key => {
-    const el = document.getElementById(key);
-    if (el) el.value = p[key];
-  });
-}
-
-function resetSection(sectionName) {
-  const count = parseInt(document.getElementById("copyCount").value);
-  const p = presetsByCount[count] || presetsByCount[3];
-  const keys = sectionKeys[sectionName] || [];
-  keys.forEach(key => {
-    const el = document.getElementById(key);
-    if (el && p[key] !== undefined) el.value = p[key];
-  });
-  renderAllCovers();
-}
-
-function resetTuner() {
-  const count = parseInt(document.getElementById("copyCount").value);
-  applyPreset(count);
-  renderAllCovers();
-}
-
-function getTunerValues() {
-  const vals = {
-    tlSize: document.getElementById("tlSize").value,
-    tlTop: document.getElementById("tlTop").value,
-    tlLeft: document.getElementById("tlLeft").value,
-    headPad: document.getElementById("headPad").value,
-    wmWidth: document.getElementById("wmWidth").value,
-    wmHeight: document.getElementById("wmHeight").value,
-    wmTop: document.getElementById("wmTop").value,
-    wmLeft: document.getElementById("wmLeft").value,
-    wmOpacity: document.getElementById("wmOpacity").value,
-    boxWidth: document.getElementById("boxWidth").value,
-    padY: document.getElementById("padY").value,
-    padX: document.getElementById("padX").value,
-    borderW: document.getElementById("borderW").value
+    if (_0xrep) _0xST = _0xgen;
+    else if (_0xST[_0x1a2b[33]] === 1 && !_0xST[0].id[_0x1a2b[54]]() && !_0xST[0].reg[_0x1a2b[54]]()) _0xST = _0xgen;
+    else _0xST = _0xST[_0x1a2b[55]](_0xgen);
+    _0xD[_0x1a2b[26]](_0x1a2b[65])[_0x1a2b[47]] = false;
+    _0xD[_0x1a2b[26]](_0x1a2b[66])[_0x1a2b[40]][_0x1a2b[49]](_0x1a2b[42]);
+    _0xRenderInputs();
+    _0xRenderAll();
   };
 
-  document.getElementById("val_tlSize").textContent = `${vals.tlSize}px`;
-  document.getElementById("val_tlTop").textContent = `${vals.tlTop}px`;
-  document.getElementById("val_tlLeft").textContent = `${vals.tlLeft}px`;
-  document.getElementById("val_headPad").textContent = `${vals.headPad}px`;
-  document.getElementById("val_wmWidth").textContent = `${vals.wmWidth}px`;
-  document.getElementById("val_wmHeight").textContent = `${vals.wmHeight}px`;
-  document.getElementById("val_wmTop").textContent = `${vals.wmTop}%`;
-  document.getElementById("val_wmLeft").textContent = `${vals.wmLeft}%`;
-  document.getElementById("val_wmOpacity").textContent = vals.wmOpacity;
-  document.getElementById("val_boxWidth").textContent = `${vals.boxWidth}mm`;
-  document.getElementById("val_padY").textContent = `${vals.padY}px`;
-  document.getElementById("val_padX").textContent = `${vals.padX}px`;
-  document.getElementById("val_borderW").textContent = `${vals.borderW}px`;
-
-  return vals;
-}
-
-function renderStudentInputs() {
-  const container = document.getElementById("studentInputs");
-  container.innerHTML = "";
-  students.forEach((std, index) => {
-    container.innerHTML += `
-      <div class="student-row">
-        <input type="text" placeholder="ID No." value="${std.id}" oninput="updateStudentData(${index}, 'id', this.value)">
-        <input type="text" placeholder="Reg. No." value="${std.reg}" oninput="updateStudentData(${index}, 'reg', this.value)">
-        ${students.length > 1 ? `<button class="btn-remove" onclick="removeStudentRow(${index})">X</button>` : ''}
-      </div>
-    `;
-  });
-}
-
-function addStudentRow() {
-  students.push({ id: "", reg: "" });
-  renderStudentInputs();
-  renderAllCovers();
-}
-
-function removeStudentRow(index) {
-  students.splice(index, 1);
-  renderStudentInputs();
-  renderAllCovers();
-}
-
-function updateStudentData(index, field, value) {
-  students[index][field] = value;
-  renderAllCovers();
-}
-
-function getCommonData() {
-  return {
-    courseNo: document.getElementById("courseNo").value.trim() || " ",
-    courseTitle: document.getElementById("courseTitle").value.trim() || " ",
-    group: document.getElementById("group").value.trim() || " ",
-    section: document.getElementById("section").value.trim() || " ",
-    session: document.getElementById("session").value.trim() || " ",
-    degree: document.getElementById("degree").value.trim() || " ",
-    period: document.getElementById("period").value.trim() || " ",
-    borderClass: document.getElementById("borderStyle").value,
-    showWatermark: document.getElementById("watermarkToggle").value === "yes"
+  _0xW.stepControl = function(_0xid, _0xdl) {
+    const _0xe = _0xD[_0x1a2b[26]](_0xid);
+    if (!_0xe) return;
+    const _0xmn = parseFloat(_0xe[_0x1a2b[67]]), _0xmx = parseFloat(_0xe[_0x1a2b[68]]), _0xcr = parseFloat(_0xe[_0x1a2b[27]]);
+    let _0xnx = Math.round((_0xcr + _0xdl) * 100) / 100;
+    if (_0xnx < _0xmn) _0xnx = _0xmn;
+    if (_0xnx > _0xmx) _0xnx = _0xmx;
+    _0xe[_0x1a2b[27]] = _0xnx;
+    _0xRenderAll();
   };
-}
 
-function buildCoverHTML(info, student, t) {
-  const watermarkHTML = info.showWatermark
-    ? `<div class="watermark" style="width:${t.wmWidth}px; height:${t.wmHeight}px; top:${t.wmTop}%; left:${t.wmLeft}%; opacity:${t.wmOpacity};"><img alt="" src="bau-logo.png"></div>`
-    : ``;
-
-  const coverStyle = `min-width:${t.boxWidth}mm; padding:${t.padY}px ${t.padX}px; border-width:${t.borderW}px;`;
-  const logoStyle = `width:${t.tlSize}px; height:${t.tlSize}px; top:${t.tlTop}px; left:${t.tlLeft}px;`;
-  const headingStyle = `padding-left:${t.headPad}px; margin-bottom:${Math.max(10, Math.round(t.padY * 0.8))}px;`;
-
-  return `
-    <div class="cover ${info.borderClass}" style="${coverStyle}">
-      ${watermarkHTML}
-      <div class="inside">
-        <div class="logo-area" style="${logoStyle}">
-          <img alt="BAU logo" src="bau-logo.png">
-        </div>
-        <div class="heading-area" style="${headingStyle}">
-          <div class="main-title">PRACTICAL NOTEBOOK</div>
-          <div class="academic">
-            <div>${info.degree}</div>
-            <div>${info.period}</div>
-          </div>
-        </div>
-        <div class="details">
-          <p><span class="label-text">Course No.</span><span class="colon">:</span><span class="value">${info.courseNo}</span></p>
-          <p><span class="label-text">Course Title</span><span class="colon">:</span><span class="value">${info.courseTitle}</span></p>
-          <p><span class="label-text">ID No.</span><span class="colon">:</span><span class="value">${student.id || " "}</span></p>
-          <p><span class="label-text">Reg. No.</span><span class="colon">:</span><span class="value">${student.reg || " "}</span></p>
-          <p><span class="label-text">Group</span><span class="colon">:</span><span class="value">${info.group}</span></p>
-          <p><span class="label-text">Section</span><span class="colon">:</span><span class="value">${info.section}</span></p>
-          <p><span class="label-text">Session</span><span class="colon">:</span><span class="value">${info.session}</span></p>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function updateDocumentTitle() {
-  const titleVal = document.getElementById("courseTitle").value.trim() || "Practical";
-  document.title = `${titleVal} cover page - Made by M.Asif`;
-}
-
-function scalePreviewPages() {
-  const wrappers = document.querySelectorAll(".page-scale-wrapper");
-  const availableWidth = Math.min(window.innerWidth - 40, 850);
-  wrappers.forEach(wrapper => {
-    const page = wrapper.querySelector(".a4-page");
-    if (!page) return;
-    page.style.transform = "none";
-    const pageWidth = page.offsetWidth;
-    const pageHeight = page.offsetHeight;
-    if (availableWidth < pageWidth) {
-      const scale = availableWidth / pageWidth;
-      page.style.transform = `scale(${scale})`;
-      wrapper.style.height = `${pageHeight * scale}px`;
-    } else {
-      wrapper.style.height = `${pageHeight}px`;
-    }
-  });
-}
-
-function renderAllCovers() {
-  saveStateToStorage();
-  updateDocumentTitle();
-  const container = document.getElementById("previewContainer");
-  const info = getCommonData();
-  const tuner = getTunerValues();
-  const perPage = parseInt(document.getElementById("copyCount").value);
-  container.innerHTML = "";
-
-  for (let i = 0; i < students.length; i += perPage) {
-    const pageChunk = students.slice(i, i + perPage);
-    const isLastPage = (i + perPage >= students.length);
-    let pageHTML = `<div class="page-scale-wrapper"><div class="a4-page grid-${perPage}">`;
-    pageChunk.forEach(student => {
-      pageHTML += buildCoverHTML(info, student, tuner);
+  function _0xApplyPreset(_0xc) {
+    const _0xp = _0xPR[_0xc] || _0xPR[3];
+    Object[_0x1a2b[69]](_0xp)[_0x1a2b[70]](_0xk => {
+      const _0xe = _0xD[_0x1a2b[26]](_0xk);
+      if (_0xe) _0xe[_0x1a2b[27]] = _0xp[_0xk];
     });
-    if (isLastPage) {
-      pageHTML += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">❤️</span><span>Mohammad Asif</span></div>`;
-    }
-    pageHTML += `</div></div>`;
-    container.innerHTML += pageHTML;
   }
-  scalePreviewPages();
-}
 
-function printPDF() {
-  updateDocumentTitle();
-  window.print();
-}
+  _0xW.resetSection = function(_0xsn) {
+    const _0xc = parseInt(_0xD[_0x1a2b[26]](_0x1a2b[10])[_0x1a2b[27]]);
+    const _0xp = _0xPR[_0xc] || _0xPR[3];
+    (_0xSEC[_0xsn] || [])[_0x1a2b[70]](_0xk => {
+      const _0xe = _0xD[_0x1a2b[26]](_0xk);
+      if (_0xe && _0xp[_0xk] !== undefined) _0xe[_0x1a2b[27]] = _0xp[_0xk];
+    });
+    _0xRenderAll();
+  };
 
-["courseNo", "courseTitle", "group", "section", "session", "degree", "period"].forEach(id => {
-  document.getElementById(id).addEventListener("input", renderAllCovers);
-});
+  _0xW.resetTuner = function() {
+    _0xApplyPreset(parseInt(_0xD[_0x1a2b[26]](_0x1a2b[10])[_0x1a2b[27]]));
+    _0xRenderAll();
+  };
 
-tunerFieldIds.forEach(id => {
-  document.getElementById(id).addEventListener("input", renderAllCovers);
-});
+  function _0xGetTuner() {
+    const _0xv = {};
+    _0xTF[_0x1a2b[70]](_0xk => { _0xv[_0xk] = _0xD[_0x1a2b[26]](_0xk)[_0x1a2b[27]]; });
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[13])[_0x1a2b[72]] = _0xv.tlSize + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[14])[_0x1a2b[72]] = _0xv.tlTop + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[15])[_0x1a2b[72]] = _0xv.tlLeft + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[16])[_0x1a2b[72]] = _0xv.headPad + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[17])[_0x1a2b[72]] = _0xv.wmWidth + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[18])[_0x1a2b[72]] = _0xv.wmHeight + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[19])[_0x1a2b[72]] = _0xv.wmTop + _0x1a2b[74];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[20])[_0x1a2b[72]] = _0xv.wmLeft + _0x1a2b[74];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[21])[_0x1a2b[72]] = _0xv.wmOpacity;
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[22])[_0x1a2b[72]] = _0xv.boxWidth + _0x1a2b[75];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[23])[_0x1a2b[72]] = _0xv.padY + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[24])[_0x1a2b[72]] = _0xv.padX + _0x1a2b[73];
+    _0xD[_0x1a2b[26]](_0x1a2b[71] + _0x1a2b[25])[_0x1a2b[72]] = _0xv.borderW + _0x1a2b[73];
+    return _0xv;
+  }
 
-document.getElementById("copyCount").addEventListener("change", () => {
-  const count = parseInt(document.getElementById("copyCount").value);
-  applyPreset(count);
-  renderAllCovers();
-});
+  function _0xRenderInputs() {
+    const _0xc = _0xD[_0x1a2b[26]](_0x1a2b[76]);
+    _0xc[_0x1a2b[44]] = "";
+    _0xST[_0x1a2b[70]]((_0xs, _0xi) => {
+      _0xc[_0x1a2b[44]] += `<div class="student-row"><input type="text" placeholder="ID No." value="${_0xs.id}" oninput="updateStudentData(${_0xi}, 'id', this.value)"><input type="text" placeholder="Reg. No." value="${_0xs.reg}" oninput="updateStudentData(${_0xi}, 'reg', this.value)">${_0xST[_0x1a2b[33]] > 1 ? `<button class="btn-remove" onclick="removeStudentRow(${_0xi})">X</button>` : ''}</div>`;
+    });
+  }
 
-document.getElementById("borderStyle").addEventListener("change", renderAllCovers);
-document.getElementById("watermarkToggle").addEventListener("change", renderAllCovers);
-window.addEventListener("resize", scalePreviewPages);
+  _0xW.addStudentRow = function() { _0xST.push({ id: "", reg: "" }); _0xRenderInputs(); _0xRenderAll(); };
+  _0xW.removeStudentRow = function(_0xi) { _0xST[_0x1a2b[77]](_0xi, 1); _0xRenderInputs(); _0xRenderAll(); };
+  _0xW.updateStudentData = function(_0xi, _0xf, _0xv) { _0xST[_0xi][_0xf] = _0xv; _0xRenderAll(); };
 
-/* Initialize App with Saved Data */
-loadStateFromStorage();
-renderStudentInputs();
-renderAllCovers();
+  function _0xGetCommon() {
+    return {
+      courseNo: _0xD[_0x1a2b[26]](_0x1a2b[3])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      courseTitle: _0xD[_0x1a2b[26]](_0x1a2b[4])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      group: _0xD[_0x1a2b[26]](_0x1a2b[5])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      section: _0xD[_0x1a2b[26]](_0x1a2b[6])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      session: _0xD[_0x1a2b[26]](_0x1a2b[7])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      degree: _0xD[_0x1a2b[26]](_0x1a2b[8])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      period: _0xD[_0x1a2b[26]](_0x1a2b[9])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[78],
+      borderClass: _0xD[_0x1a2b[26]](_0x1a2b[11])[_0x1a2b[27]],
+      showWatermark: _0xD[_0x1a2b[26]](_0x1a2b[12])[_0x1a2b[27]] === _0x1a2b[79]
+    };
+  }
+
+  function _0xBuildCover(_0xinf, _0xstd, _0xt) {
+    const _0xwm = _0xinf.showWatermark ? `<div class="watermark" style="width:${_0xt.wmWidth}px; height:${_0xt.wmHeight}px; top:${_0xt.wmTop}%; left:${_0xt.wmLeft}%; opacity:${_0xt.wmOpacity};"><img alt="" src="bau-logo.png"></div>` : "";
+    const _0xcs = `min-width:${_0xt.boxWidth}mm; padding:${_0xt.padY}px ${_0xt.padX}px; border-width:${_0xt.borderW}px;`;
+    const _0xls = `width:${_0xt.tlSize}px; height:${_0xt.tlSize}px; top:${_0xt.tlTop}px; left:${_0xt.tlLeft}px;`;
+    const _0xhs = `padding-left:${_0xt.headPad}px; margin-bottom:${Math.max(10, Math.round(_0xt.padY * 0.8))}px;`;
+    return `<div class="cover ${_0xinf.borderClass}" style="${_0xcs}">${_0xwm}<div class="inside"><div class="logo-area" style="${_0xls}"><img alt="BAU logo" src="bau-logo.png"></div><div class="heading-area" style="${_0xhs}"><div class="main-title">PRACTICAL NOTEBOOK</div><div class="academic"><div>${_0xinf.degree}</div><div>${_0xinf.period}</div></div></div><div class="details"><p><span class="label-text">Course No.</span><span class="colon">:</span><span class="value">${_0xinf.courseNo}</span></p><p><span class="label-text">Course Title</span><span class="colon">:</span><span class="value">${_0xinf.courseTitle}</span></p><p><span class="label-text">ID No.</span><span class="colon">:</span><span class="value">${_0xstd.id || " "}</span></p><p><span class="label-text">Reg. No.</span><span class="colon">:</span><span class="value">${_0xstd.reg || " "}</span></p><p><span class="label-text">Group</span><span class="colon">:</span><span class="value">${_0xinf.group}</span></p><p><span class="label-text">Section</span><span class="colon">:</span><span class="value">${_0xinf.section}</span></p><p><span class="label-text">Session</span><span class="colon">:</span><span class="value">${_0xinf.session}</span></p></div></div></div>`;
+  }
+
+  function _0xUpdTitle() {
+    const _0xtv = _0xD[_0x1a2b[26]](_0x1a2b[4])[_0x1a2b[27]][_0x1a2b[54]]() || _0x1a2b[83];
+    _0xD[_0x1a2b[81]] = _0xtv + _0x1a2b[82];
+  }
+
+  function _0xScale() {
+    const _0xwr = _0xD[_0x1a2b[84]](_0x1a2b[85]);
+    const _0xaw = Math.min(_0xW[_0x1a2b[86]] - 40, 850);
+    _0xwr[_0x1a2b[70]](_0xw => {
+      const _0xpg = _0xw.querySelector(_0x1a2b[87]);
+      if (!_0xpg) return;
+      _0xpg[_0x1a2b[88]][_0x1a2b[89]] = _0x1a2b[90];
+      const _0xpw = _0xpg[_0x1a2b[91]], _0xph = _0xpg[_0x1a2b[92]];
+      if (_0xaw < _0xpw) {
+        const _0xsc = _0xaw / _0xpw;
+        _0xpg[_0x1a2b[88]][_0x1a2b[89]] = `scale(${_0xsc})`;
+        _0xw[_0x1a2b[88]][_0x1a2b[93]] = (_0xph * _0xsc) + _0x1a2b[73];
+      } else {
+        _0xw[_0x1a2b[88]][_0x1a2b[93]] = _0xph + _0x1a2b[73];
+      }
+    });
+  }
+
+  function _0xRenderAll() {
+    _0xSave();
+    _0xUpdTitle();
+    const _0xc = _0xD[_0x1a2b[26]](_0x1a2b[80]);
+    const _0xinf = _0xGetCommon(), _0xtn = _0xGetTuner(), _0xpp = parseInt(_0xD[_0x1a2b[26]](_0x1a2b[10])[_0x1a2b[27]]);
+    _0xc[_0x1a2b[44]] = "";
+    for (let _0xi = 0; _0xi < _0xST[_0x1a2b[33]]; _0xi += _0xpp) {
+      const _0xch = _0xST.slice(_0xi, _0xi + _0xpp);
+      const _0xil = (_0xi + _0xpp >= _0xST[_0x1a2b[33]]);
+      let _0xph = `<div class="page-scale-wrapper"><div class="a4-page grid-${_0xpp}">`;
+      _0xch[_0x1a2b[70]](_0xs => { _0xph += _0xBuildCover(_0xinf, _0xs, _0xtn); });
+      if (_0xil) _0xph += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">❤️</span><span>Mohammad Asif</span></div>`;
+      _0xph += `</div></div>`;
+      _0xc[_0x1a2b[44]] += _0xph;
+    }
+    _0xScale();
+  }
+
+  _0xW.printPDF = function() { _0xUpdTitle(); _0xW[_0x1a2b[94]](); };
+
+  [_0x1a2b[3], _0x1a2b[4], _0x1a2b[5], _0x1a2b[6], _0x1a2b[7], _0x1a2b[8], _0x1a2b[9]][_0x1a2b[70]](_0xi => {
+    _0xD[_0x1a2b[26]](_0xi)[_0x1a2b[96]](_0x1a2b[95], _0xRenderAll);
+  });
+  _0xTF[_0x1a2b[70]](_0xi => { _0xD[_0x1a2b[26]](_0xi)[_0x1a2b[96]](_0x1a2b[95], _0xRenderAll); });
+  _0xD[_0x1a2b[26]](_0x1a2b[10])[_0x1a2b[96]](_0x1a2b[97], () => {
+    _0xApplyPreset(parseInt(_0xD[_0x1a2b[26]](_0x1a2b[10])[_0x1a2b[27]]));
+    _0xRenderAll();
+  });
+  _0xD[_0x1a2b[26]](_0x1a2b[11])[_0x1a2b[96]](_0x1a2b[97], _0xRenderAll);
+  _0xD[_0x1a2b[26]](_0x1a2b[12])[_0x1a2b[96]](_0x1a2b[97], _0xRenderAll);
+  _0xW[_0x1a2b[96]](_0x1a2b[98], _0xScale);
+
+  _0xLoad();
+  _0xRenderInputs();
+  _0xRenderAll();
+})(window, document);
 </script>
-
 </body>
 </html>
