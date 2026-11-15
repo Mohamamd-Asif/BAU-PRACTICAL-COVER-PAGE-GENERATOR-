@@ -6,39 +6,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1024">
-<title>Physical and Organic Chemistry cover page - Made by M.Asif</title>
+<meta name="viewport" content="width=860">
+<title>BAU Cover Page Generator | Practical &amp; Assignment Cover Maker</title>
+
+<!-- Primary Google SEO Meta Tags -->
+<meta name="title" content="BAU Cover Page Generator | Practical &amp; Assignment Cover Maker">
+<meta name="description" content="Free online BAU Cover Page Generator for Bangladesh Agricultural University (BAU) students. Auto-fill Name, Registration No., and Session from Student ID to generate Practical Notebook and Assignment cover pages in PDF.">
+<meta name="keywords" content="BAU cover page generator, BAU practical cover page generator, BAU assignment cover page generator, Bangladesh Agricultural University cover page, BAU notebook cover maker, BAU practical khata cover, Mohammad Asif BAU">
+<meta name="author" content="Mohammad Asif">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/">
+
+<!-- Open Graph / Facebook / Messenger Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/">
+<meta property="og:title" content="BAU Cover Page Generator | Practical &amp; Assignment Cover Maker">
+<meta property="og:description" content="Instant Practical Notebook &amp; Assignment cover page generator for Bangladesh Agricultural University (BAU) students with automatic Student ID lookup.">
+<meta property="og:image" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/bau-logo.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/">
+<meta name="twitter:title" content="BAU Cover Page Generator | Practical &amp; Assignment Cover Maker">
+<meta name="twitter:description" content="Generate print-ready A4 Practical &amp; Assignment cover pages for Bangladesh Agricultural University (BAU) in seconds.">
+<meta name="twitter:image" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/bau-logo.png">
+
+<!-- Google Structured Data (JSON-LD Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BAU Cover Page Generator",
+  "alternateName": ["BAU Practical Cover Page Generator", "BAU Assignment Cover Page Generator"],
+  "url": "https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/",
+  "description": "Online batch practical notebook and assignment cover page generator for students of Bangladesh Agricultural University (BAU), Mymensingh.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "author": {
+    "@type": "Person",
+    "name": "Mohammad Asif"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BDT"
+  }
+}
+</script>
+
 <style>
 * { box-sizing: border-box; }
 body {
-  margin: 0; padding: 20px; background: #e9ecef; color: #222;
+  margin: 0; padding: 16px; background: #e9ecef; color: #222;
   font-family: Georgia, "Times New Roman", serif;
   user-select: none; -webkit-user-select: none;
-  min-width: 980px;
+  min-width: 820px;
 }
 input, textarea, select { user-select: text; -webkit-user-select: text; }
-h1, .instructions, h3 { font-family: Arial, sans-serif; }
-h1 { margin-bottom: 8px; color: #176b42; }
+h1, .instructions, h3, .top-nav-bar { font-family: Arial, sans-serif; }
+h1 { margin: 0 0 8px 0; font-size: 26px; color: #176b42; }
+
+/* Top Navigation Tab Switcher */
+.top-nav-bar {
+  max-width: 820px; margin: 0 auto 16px;
+  display: flex; gap: 10px; background: #fff;
+  padding: 8px; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-tab {
+  flex: 1; text-align: center; padding: 11px 14px;
+  border-radius: 7px; text-decoration: none;
+  font-size: 14.5px; font-weight: bold;
+  transition: all 0.2s ease; display: flex;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.nav-tab.active {
+  background: #176b42; color: #ffffff;
+  box-shadow: 0 2px 6px rgba(23, 107, 66, 0.25);
+}
+.nav-tab.inactive {
+  background: #f1f3f5; color: #333; border: 1px solid #dee2e6;
+}
+.nav-tab.inactive:hover {
+  background: #e2e6ea; color: #176b42; border-color: #176b42;
+}
+
+/* Screen-reader / SEO text without affecting layout */
+.seo-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 
 .dev-badge {
   display: inline-block; background: #ffffff; border-left: 4px solid #176b42;
   padding: 9px 15px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  font: 13.5px Arial, sans-serif; font-weight: bold; color: #333; margin-bottom: 16px;
+  font: 14px Arial, sans-serif; font-weight: bold; color: #333; margin-bottom: 12px;
 }
 .dev-badge .author-name { color: #176b42; }
 .dev-badge .heart { color: #e63946; }
 
-.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 18px; }
+.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 16px; }
 .editor {
-  max-width: 850px; margin: 0 auto 25px; background: white;
+  max-width: 820px; margin: 0 auto 24px; background: white;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .editor h2 { font: 20px Arial, sans-serif; margin-top: 0; color: #176b42; }
-.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-label { display: block; font: 13px Arial, sans-serif; font-weight: bold; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+label { display: block; font: 13.5px Arial, sans-serif; font-weight: bold; }
+.label-hint {
+  font-size: 11px; font-weight: normal; color: #0f766e;
+  background: #f0fdfa; border: 1px solid #ccfbf1;
+  padding: 1px 6px; border-radius: 4px; margin-left: 4px;
+}
 input[type="text"], input[type="number"], select, textarea {
-  display: block; width: 100%; margin-top: 5px; padding: 10px;
-  border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
+  display: block; width: 100%; margin-top: 5px; padding: 10px 11px;
+  border: 1px solid #ccc; border-radius: 5px; font-size: 14.5px;
+}
+#courseNo { text-transform: uppercase; }
+
+.course-section {
+  margin-top: 20px; padding-top: 18px; border-top: 2px dashed #ddd;
 }
 
 .adv-toggle-wrap {
@@ -47,7 +134,7 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .btn-adv-toggle {
   background: #343a40; color: white; border: 0; padding: 10px 16px;
-  border-radius: 6px; cursor: pointer; font: 13.5px Arial, sans-serif;
+  border-radius: 6px; cursor: pointer; font: 14px Arial, sans-serif;
   font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
 }
 .btn-adv-toggle:hover { background: #23272b; }
@@ -60,7 +147,7 @@ input[type="text"], input[type="number"], select, textarea {
 .tuner-section.open { display: block; }
 .tuner-section h3 { font-size: 17px; margin: 0 0 6px 0; color: #176b42; }
 .tuner-note { font: 13px Arial, sans-serif; color: #555; margin: 0 0 16px 0; line-height: 1.4; }
-.tuner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.tuner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .tuner-box {
   background: white; padding: 12px; border-radius: 6px;
   border: 1px solid #ddd; display: flex; flex-direction: column;
@@ -92,17 +179,48 @@ input[type="text"], input[type="number"], select, textarea {
 
 .btn-reset {
   background: #6c757d; color: white; border: 0; padding: 9px 16px;
-  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold; margin-top: 14px;
+  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold; margin-top: 14px;
 }
 .btn-reset:hover { background: #5a6268; }
 
-.student-section { margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd; }
-.student-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
-.student-row input { margin-top: 0; }
+.student-section { margin-bottom: 6px; }
+.student-list-scroll {
+  max-height: 360px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
+}
+.student-row { display: flex; gap: 10px; margin-bottom: 8px; align-items: center; }
+.student-row input { margin-top: 0; flex: 1; }
+.student-badge {
+  flex: 1.85; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
+  padding: 10px 12px; font: 13.5px Arial, sans-serif; color: #333;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.student-badge.ok { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.student-badge.err { background: #fef2f2; border-color: #fecaca; color: #dc2626; }
+.student-badge.loading { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.btn-fetch-row {
+  background: #176b42; color: white; border: 0; padding: 10px 13px;
+  border-radius: 5px; cursor: pointer; font: 13.5px Arial, sans-serif; font-weight: bold; white-space: nowrap;
+}
+.btn-fetch-row:hover { background: #125634; }
+.btn-fetch-row:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-remove {
   background: #d9534f; color: white; border: 0; padding: 10px 14px;
   border-radius: 5px; cursor: pointer; font-weight: bold;
 }
+
+.api-status-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px; min-height: 24px;
+}
+.api-status-bar {
+  font: 13.5px Arial, sans-serif; font-weight: bold; color: #0275d8;
+}
+.btn-stop-fetch {
+  display: none; background: #dc2626; color: white; border: 0;
+  padding: 5px 12px; border-radius: 4px; font: 12.5px Arial, sans-serif;
+  font-weight: bold; cursor: pointer;
+}
+.btn-stop-fetch.show { display: inline-block; }
 
 .student-bottom-controls {
   display: flex; justify-content: space-between; align-items: center;
@@ -111,46 +229,54 @@ input[type="text"], input[type="number"], select, textarea {
 .btn-group-left { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn-add {
   background: #0275d8; color: white; border: 0; padding: 10px 16px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13.5px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
 }
 .btn-add:hover { background: #025aa5; }
 
+.btn-fetch-all {
+  background: #0f766e; color: white; border: 0; padding: 10px 16px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
+}
+.btn-fetch-all:hover { background: #115e59; }
+.btn-fetch-all:disabled { opacity: 0.6; cursor: not-allowed; }
+
 .btn-remove-all {
   background: #dc3545; color: white; border: 0; padding: 10px 16px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13.5px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
 }
 .btn-remove-all:hover { background: #b02a37; }
 
-.checkbox-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.checkbox-group { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .check-option {
   display: inline-flex; align-items: center; gap: 7px; background: #f8f9fa;
-  border: 1.5px solid #ced4da; padding: 8px 13px; border-radius: 6px;
+  border: 1.5px solid #ced4da; padding: 8px 12px; border-radius: 6px;
   cursor: pointer; font: 13.5px Arial, sans-serif; font-weight: bold; color: #333; user-select: none;
 }
 .check-option:hover { background: #e9ecef; }
+.check-option.auto-fetch-opt { background: #f0fdf4; border-color: #86efac; color: #166534; }
 .check-option input[type="checkbox"] { width: 17px; height: 17px; margin: 0; cursor: pointer; accent-color: #176b42; }
 
 .tool-drawer { display: none; margin-top: 12px; padding: 15px; border-radius: 8px; }
 .tool-drawer.open { display: block; }
 .bulk-box { background: #f8f5ff; border: 1.5px solid #d6c8f5; }
 .loop-box { background: #fffbeb; border: 1.5px solid #fde68a; }
-.tool-drawer p { margin: 0 0 10px 0; font: 12.5px Arial, sans-serif; color: #444; line-height: 1.45; }
-.bulk-box textarea { font-family: monospace; font-size: 13.5px; min-height: 105px; resize: vertical; }
-.loop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tool-drawer p { margin: 0 0 10px 0; font: 13px Arial, sans-serif; color: #444; line-height: 1.45; }
+.bulk-box textarea { font-family: monospace; font-size: 14px; min-height: 105px; resize: vertical; }
+.loop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .drawer-btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
 .btn-drawer-append {
   background: #176b42; color: white; border: 0; padding: 8px 14px;
-  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold;
+  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold;
 }
 .btn-drawer-replace {
   background: #d9534f; color: white; border: 0; padding: 8px 14px;
-  border-radius: 5px; cursor: pointer; font: 12.5px Arial, sans-serif; font-weight: bold;
+  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold;
 }
 
 .btn-print {
-  width: 100%; margin-top: 20px; padding: 14px; border: 0;
+  width: 100%; margin-top: 20px; padding: 15px; border: 0;
   border-radius: 6px; background: #176b42; color: white;
-  font-size: 16px; font-weight: bold; cursor: pointer;
+  font-size: 16.5px; font-weight: bold; cursor: pointer;
 }
 .btn-print:hover { background: #125634; }
 
@@ -194,23 +320,23 @@ input[type="text"], input[type="number"], select, textarea {
 .grid-1 { justify-content: center; }
 .grid-1 .main-title { font-size: 29pt; }
 .grid-1 .academic { font-size: 17.5pt; }
-.grid-1 .details { font-size: 16pt; line-height: 1.9; }
+.grid-1 .details { font-size: 15.5pt; line-height: 1.8; }
 .grid-1 .details .label-text { width: 165px; }
 
 .grid-2 .main-title { font-size: 25pt; }
 .grid-2 .academic { font-size: 15pt; }
-.grid-2 .details { font-size: 14pt; line-height: 1.8; }
+.grid-2 .details { font-size: 13.5pt; line-height: 1.65; }
 .grid-2 .details .label-text { width: 150px; }
 
 .grid-3 .main-title { font-size: 21.5pt; }
 .grid-3 .academic { font-size: 13.5pt; }
-.grid-3 .details { font-size: 12.5pt; line-height: 1.65; }
+.grid-3 .details { font-size: 12pt; line-height: 1.48; }
 .grid-3 .details .label-text { width: 135px; }
 
 @page { size: A4 portrait; margin: 2mm 5mm; }
 @media print {
   body { margin: 0; padding: 0; background: white; min-width: auto !important; }
-  .editor, h1, .dev-badge, .instructions { display: none !important; }
+  .editor, h1, .dev-badge, .instructions, .seo-sr-only, .top-nav-bar { display: none !important; }
   #previewContainer { gap: 0 !important; display: block !important; }
   .page-scale-wrapper { height: auto !important; display: block !important; }
   .a4-page {
@@ -224,10 +350,22 @@ input[type="text"], input[type="number"], select, textarea {
 </style>
 </head>
 <body>
+<div class="seo-sr-only">
+  <h2>BAU Practical &amp; Assignment Cover Page Generator - Bangladesh Agricultural University</h2>
+  <p>Generate official A4 Practical Notebook and Assignment cover pages for Bangladesh Agricultural University (BAU), Mymensingh. Enter your Student ID to automatically fetch Name, Registration Number, and Academic Session for Faculty of Agriculture and all other BAU faculties.</p>
+</div>
+
+<!-- Top Navigation Tab Switcher -->
+<nav class="top-nav-bar" aria-label="Cover Page Mode Switcher">
+  <a href="index.html" class="nav-tab active">📘 Practical Cover Generator</a>
+  <a href="assignment.html" class="nav-tab inactive">📄 Assignment Cover Generator &rarr;</a>
+</nav>
+
 <div id="__app_root"></div>
 <script>
 (function(_0xW, _0xD){
   "use strict";
+  /* 1. Multi-layer Anti-Inspection & Anti-Debugger Shield */
   const _0xBlk = function(_0xE){ _0xE.preventDefault(); return false; };
   _0xD.addEventListener("contextmenu", _0xBlk);
   _0xD.addEventListener("dragstart", _0xBlk);
@@ -245,195 +383,794 @@ input[type="text"], input[type="number"], select, textarea {
   setInterval(function(){
     const _0xT0 = performance.now();
     (function(){}).constructor("debugger")();
-    if (performance.now() - _0xT0 > 120) {
+    if (performance.now() - _0xT0 > 500) {
       _0xD.body.innerHTML = "<h2 style='font-family:Arial;color:#c00000;text-align:center;margin-top:80px;'>Protected Source: Developer Inspection is Restricted.</h2>";
     }
   }, 1500);
 
-  const _0xB64 = "PGgxPkJBVSBCYXRjaCBQcmFjdGljYWwgQ292ZXIgR2VuZXJhdG9yPC9oMT4KPGRpdiBjbGFzcz0iZGV2LWJhZGdlIj4KICBEZXZlbG9wZWQgYnkgPHNwYW4gY2xhc3M9ImhlYXJ0Ij7in6Q8L3NwYW4+IDxzcGFuIGNsYXNzPSJhdXRob3ItbmFtZSI+TW9oYW1tYWQgQXNpZjwvc3Bhbj4gJmJ1bGw7IEJBVSA2NXRoIEJhdGNoICZidWxsOyBGYWN1bHR5IG9mIEFncmljdWx0dXJlICZidWxsOyBTZXNzaW9uOiAyMDI1LTIwMjYKPC9kaXY+CjxwIGNsYXNzPSJpbnN0cnVjdGlvbnMiPkVudGVyIGFuZCBlZGl0IGFsbCB0aGUgaW5mb3JtYXRpb24gYmVsb3c6PC9wPgoKPHNlY3Rpb24gY2xhc3M9ImVkaXRvciI+CiAgPGgyPjEuIENvbW1vbiBDb3Vyc2UgRGV0YWlsczwvaDI+CiAgPGRpdiBjbGFzcz0iZm9ybS1ncmlkIj4KICAgIDxsYWJlbD5Db3Vyc2UgTm8uPGlucHV0IHR5cGU9InRleHQiIGlkPSJjb3Vyc2VObyIgdmFsdWU9IkFDSEVNIDExMjIiPjwvbGFiZWw+CiAgICA8bGFiZWw+Q291cnNlIFRpdGxlPGlucHV0IHR5cGU9InRleHQiIGlkPSJjb3Vyc2VUaXRsZSIgdmFsdWU9IlBoeXNpY2FsIGFuZCBPcmdhbmljIENoZW1pc3RyeSI+PC9sYWJlbD4KICAgIDxsYWJlbD5Hcm91cDxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0iZ3JvdXAiIHZhbHVlPSJWSSI+PC9sYWJlbD4KICAgIDxsYWJlbD5TZWN0aW9uPGlucHV0IHR5cGU9InRleHQiIGlkPSJzZWN0aW9uIiB2YWx1ZT0iQiI+PC9sYWJlbD4KICAgIDxsYWJlbD5TZXNzaW9uPGlucHV0IHR5cGU9InRleHQiIGlkPSJzZXNzaW9uIiB2YWx1ZT0iMjAyNS0yMDI2Ij48L2xhYmVsPgogICAgPGxhYmVsPkRlZ3JlZSAvIExldmVsIC8gU2VtZXN0ZXI8aW5wdXQgdHlwZT0idGV4dCIgaWQ9ImRlZ3JlZSIgdmFsdWU9IkIuU2MuIEFnLiAoSG9ucy4pIExldmVsLTEsIFNlbWVzdGVyLTEiPjwvbGFiZWw+CiAgICA8bGFiZWw+QWNhZGVtaWMgcGVyaW9kPGlucHV0IHR5cGU9InRleHQiIGlkPSJwZXJpb2QiIHZhbHVlPSIoSmFudWFyeS1KdW5lLzI2KSI+PC9sYWJlbD4KICAgIDxsYWJlbD5Db3ZlcnMgcGVyIEE0IFBhZ2UKICAgICAgPHNlbGVjdCBpZD0iY29weUNvdW50Ij4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIxIj4xIENvdmVyIHBlciBQYWdlIChTaW5nbGUpPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMiI+MiBDb3ZlcnMgcGVyIFBhZ2UgKE1lZGl1bSk8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSIzIiBzZWxlY3RlZD4zIENvdmVycyBwZXIgUGFnZSAoU3RhbmRhcmQpPC9vcHRpb24+CiAgICAgIDwvc2VsZWN0PgogICAgPC9sYWJlbD4KICAgIDxsYWJlbD5Cb3JkZXIgLyBPdXRsaW5lIFN0eWxlCiAgICAgIDxzZWxlY3QgaWQ9ImJvcmRlclN0eWxlIj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSJib3JkZXItcmVkLWlubmVyIiBzZWxlY3RlZD5Eb3VibGUgQm9yZGVyICsgSW5uZXIgT3V0bGluZTwvb3B0aW9uPgogICAgICAgIDxvcHRpb24gdmFsdWU9ImJvcmRlci1yZWQtZG91YmxlIj5DbGFzc2ljIFJlZCBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLWdyZWVuLWRvdWJsZSI+Q2xhc3NpYyBHcmVlbiBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLXJlZC1zb2xpZCI+U29saWQgUmVkIEJvcmRlcjwvb3B0aW9uPgogICAgICA8L3NlbGVjdD4KICAgIDwvbGFiZWw+CiAgICA8bGFiZWw+Q2VudGVyIFdhdGVybWFyawogICAgICA8c2VsZWN0IGlkPSJ3YXRlcm1hcmtUb2dnbGUiPgogICAgICAgIDxvcHRpb24gdmFsdWU9InllcyIgc2VsZWN0ZWQ+WWVzIChTaG93IFdhdGVybWFyayk8L29wdGlvbj4KICAgICAgICA8b3B0aW9uIHZhbHVlPSJubyI+Tm8gKEhpZGUgV2F0ZXJtYXJrKTwvb3B0aW9uPgogICAgICA8L3NlbGVjdD4KICAgIDwvbGFiZWw+CiAgPC9kaXY+CgogIDxkaXYgY2xhc3M9ImFkdi10b2dnbGUtd3JhcCI+CiAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1hZHYtdG9nZ2xlIiBpZD0iYWR2VG9nZ2xlQnRuIiBvbmNsaWNrPSJ0b2dnbGVBZHZhbmNlZE1vZGUoKSI+CiAgICAgIOKal++4jyBBZHZhbmNlZCBFZGl0IE1vZGU6IE9GRgogICAgPC9idXR0b24+CiAgICA8c3BhbiBzdHlsZT0iZm9udDogMTJweCBBcmlhbCwgc2Fucy1zZXJpZjsgY29sb3I6ICM2NjY7Ij5DbGljayB0byBjdXN0b21pemUgbG9nbyBzaXplLCBwb3NpdGlvbiwgY292ZXIgd2lkdGggJiBvdXRsaW5lPC9zcGFuPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJ0dW5lci1zZWN0aW9uIiBpZD0iYWR2YW5jZWRQYW5lbCI+CiAgICA8aDM+QWR2YW5jZWQgTGF5b3V0ICYgTG9nbyBDdXN0b21pemF0aW9uPC9oMz4KICAgIDxwIGNsYXNzPSJ0dW5lci1ub3RlIj5Vc2UgdGhlIDxzdHJvbmc+LTwvc3Ryb25nPiBhbmQgPHN0cm9uZz4rPC9zdHJvbmc+IGJ1dHRvbnMgKG9yIGRyYWcgc2xpZGVycykgdG8gZmluZS10dW5lIHRoZSBsb2dvIHNpemUsIHBvc2l0aW9uLCBjb3ZlciBib3ggd2lkdGgsIGFuZCBib3JkZXIgdGhpY2tuZXNzIGluIHJlYWwgdGltZS48L3A+CiAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ncmlkIj4KICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+VG9wLUxlZnQgTG9nbzwvaDQ+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tbWluaS1yZXNldCIgb25jbGljaz0icmVzZXRTZWN0aW9uKCd0b3BMb2dvJykiPlJlc2V0PC9idXR0b24+PC9kaXY+CiAgICAgICAgPHAgY2xhc3M9ImJveC1kZXNjIj5DaGFuZ2UgdG9wLWxlZnQgbG9nbyBzaXplLCBwb3NpdGlvbiAmIGhlYWRlciBzcGFjaW5nPC9wPgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkxvZ28gU2l6ZSAocHgpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF90bFNpemUiPjg4cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsU2l6ZScsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsU2l6ZSIgbWluPSI0MCIgbWF4PSIxNTAiIHN0ZXA9IjIiIHZhbHVlPSI4OCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsU2l6ZScsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+VmVydGljYWwgUG9zaXRpb24gKFRvcCk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3RsVG9wIj4wcHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0idGxUb3AiIG1pbj0iLTIwIiBtYXg9IjQwIiBzdGVwPSIyIiB2YWx1ZT0iMCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0KTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfdGxMZWZ0Ij44cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsTGVmdCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsTGVmdCIgbWluPSItMTAiIG1heD0iNjAiIHN0ZXA9IjIiIHZhbHVlPSI4Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxMZWZ0JywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5IZWFkZXIgTGVmdCBTcGFjaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9oZWFkUGFkIj45OHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdoZWFkUGFkJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iaGVhZFBhZCIgbWluPSI1MCIgbWF4PSIxNzAiIHN0ZXA9IjIiIHZhbHVlPSI5OCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ2hlYWRQYWQnLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+Q2VudGVyIFdhdGVybWFyayBMb2dvPC9oND48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1taW5pLXJlc2V0IiBvbmNsaWNrPSJyZXNldFNlY3Rpb24oJ3dhdGVybWFyaycpIj5SZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIHdhdGVybWFyayB3aWR0aCwgaGVpZ2h0LCBwb3NpdGlvbiAmIG9wYWNpdHk8L3A+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+V2F0ZXJtYXJrIFdpZHRoPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bVdpZHRoIj4yNDBweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21XaWR0aCcsIC00KSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtV2lkdGgiIG1pbj0iMTAwIiBtYXg9IjQ4MCIgc3RlcD0iNCIgdmFsdWU9IjI0MCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtV2lkdGgnLCA0KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPldhdGVybWFyayBIZWlnaHQ8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtSGVpZ2h0Ij4yNDBweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21IZWlnaHQnLCAtNCkiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJ3bUhlaWdodCIgbWluPSIxMDAiIG1heD0iNDIwIiBzdGVwPSI0IiB2YWx1ZT0iMjQwIj48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21IZWlnaHQnLCA0KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPlZlcnRpY2FsIFBvc2l0aW9uIChUb3AgJSk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtVG9wIj42NiU8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21Ub3AiIG1pbj0iMzAiIG1heD0iODUiIHN0ZXA9IjEiIHZhbHVlPSI2NiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgMSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0ICUpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bUxlZnQiPjUwJTwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21MZWZ0JywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21MZWZ0IiBtaW49IjIwIiBtYXg9IjgwIiBzdGVwPSIxIiB2YWx1ZT0iNTAiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUxlZnQnLCAxKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPldhdGVybWFyayBPcGFjaXR5PC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bU9wYWNpdHkiPjAuMTI8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtT3BhY2l0eScsIC0wLjAyKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtT3BhY2l0eSIgbWluPSIwLjA0IiBtYXg9IjAuMzYiIHN0ZXA9IjAuMDIiIHZhbHVlPSIwLjEyIj48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21PcGFjaXR5JywgMC4wMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveCI+CiAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94LWhlYWRlciI+PGg0PkNvdmVyIEJveCAmIE91dGxpbmU8L2g0PjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLW1pbmktcmVzZXQiIG9uY2xpY2s9InJlc2V0U2VjdGlvbignb3V0bGluZScpIj5SZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIGNvdmVyIHdpZHRoLCBpbm5lciBwYWRkaW5nICYgYm9yZGVyIHRoaWNrbmVzczwvcD4KICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Db3ZlciBCb3ggV2lkdGggKG1tKTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfYm94V2lkdGgiPjE0OG1tPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImJveFdpZHRoIiBtaW49IjEyMCIgbWF4PSIxOTYiIHN0ZXA9IjIiIHZhbHVlPSIxNDgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+VG9wICYgQm90dG9tIFBhZGRpbmc8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3BhZFkiPjE2cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3BhZFknLCAtMikiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJwYWRZIiBtaW49IjYiIG1heD0iNDYiIHN0ZXA9IjIiIHZhbHVlPSIxNiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3BhZFknLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkxlZnQgJiBSaWdodCBQYWRkaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9wYWRYIj4yNnB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdwYWRYJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0icGFkWCIgbWluPSIxMCIgbWF4PSI2MCIgc3RlcD0iMiIgdmFsdWU9IjI2Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+T3V0bGluZSAvIEJvcmRlciBUaGlja25lc3M8L3NwYW4+PHN0cm9uZyBpZD0idmFsX2JvcmRlclciPjVweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIC0wLjUpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iYm9yZGVyVyIgbWluPSIxIiBtYXg9IjEyIiBzdGVwPSIwLjUiIHZhbHVlPSI1Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIDAuNSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXJlc2V0IiBvbmNsaWNrPSJyZXNldFR1bmVyKCkiPk92ZXJhbGwgUmVzZXQgKFJlc3RvcmUgQWxsIERlZmF1bHRzKTwvYnV0dG9uPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJzdHVkZW50LXNlY3Rpb24iPgogICAgPGgyPjIuIFN0dWRlbnRzIExpc3QgKElEICYgUmVnKTwvaDI+CiAgICA8ZGl2IGlkPSJzdHVkZW50SW5wdXRzIj48L2Rpdj4KICAgIDxkaXYgY2xhc3M9InN0dWRlbnQtYm90dG9tLWNvbnRyb2xzIj4KICAgICAgPGRpdiBjbGFzcz0iYnRuLWdyb3VwLWxlZnQiPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWFkZCIgb25jbGljaz0iYWRkU3R1ZGVudFJvdygpIj4rIEFkZCBTdHVkZW50PC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcmVtb3ZlLWFsbCIgb25jbGljaz0icmVtb3ZlQWxsU3R1ZGVudHMoKSI+8J+Xke+4jyBSZW1vdmUgQWxsPC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJjaGVja2JveC1ncm91cCI+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24iPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0J1bGsiIG9uY2hhbmdlPSJ0b2dnbGVDaGVja0RyYXdlciknY2hrQnVsaycsICdidWxrUGFzdGVCb3gnKSI+PHNwYW4+QnVsayBQYXN0ZTwvc3Bhbj48L2xhYmVsPgogICAgICAgIDxsYWJlbCBjbGFzcz0iY2hlY2stb3B0aW9uIj48aW5wdXQgdHlwZT0iY2hlY2tib3giIGlkPSJjaGtMb29wIiBvbmNoYW5nZT0idG9nZ2xlQ2hlY2tEcmF3ZXIoJ2Noa0xvb3AnLCAnbG9vcEdlbkJveCcpIj48c3Bhbj5Mb29wICgrMSk8L3NwYW4+PC9sYWJlbD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBidWxrLWJveCIgaWQ9ImJ1bGtQYXN0ZUJveCI+CiAgICAgIDxwPjxzdHJvbmc+QnVsayBQYXN0ZSAoTnVtZXJpY2FsIElEICYgUmVnKTo8L3N0cm9uZz4gUGFzdGUgbnVtYmVycyBzZXBhcmF0ZWQgYnkgY29tbWEsIHNwYWNlLCBvciBuZXcgbGluZS4gRXh0cmEgc3BhY2VzICYgZW1wdHkgbGluZXMgYXJlIGlnbm9yZWQgYXV0b21hdGljYWxseS48YnI+U3VwcG9ydGVkIGZvcm1hdHM6PGJyPjxjb2RlPjI2MDIxNDksNjEwNDYgMjYwMjE1MCw2MTA0NyAyNjAyMTUxLDYxMDQ4PC9jb2RlPjxicj5vciBsaW5lLWJ5LWxpbmU6PGJyPjxjb2RlPjI2MDIxNDksNjEwNDY8L2NvZGU+PGJyPjxjb2RlPjI2MDIxNTAsNjEwNDc8L2NvZGU+PC9wPgogICAgICA8dGV4dGFyZWEgaWQ9ImJ1bGtUZXh0YXJlYSIgcGxhY2Vob2xkZXI9IjI2MDIxNDksNjEwNDYgMjYwMjE1MCw2MTA0NyYjMTA7MjYwMjE1MSw2MTA0OCI+PC90ZXh0YXJlYT4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NCdWxrUGFzdGUoZmFsc2UpIj5BcHBlbmQgdG8gQ3VycmVudCBMaXN0PC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tZHJhd2VyLXJlcGxhY2UiIG9uY2xpY2s9InByb2Nlc3NCdWxrUGFzdGUodHJ1ZSkiPlJlcGxhY2UgRW50aXJlIExpc3Q8L2J1dHRvbj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBsb29wLWJveCIgaWQ9Imxvb3BHZW5Cb3giPgogICAgICA8cD48c3Ryb25nPkxvb3AgR2VuZXJhdG9yICgrMSBTZXF1ZW5jZSk6PC9zdHJvbmc+IEVudGVyIFN0YXJ0IElELCBTdGFydCBSZWcuIE5vLiwgYW5kIGhvdyBtYW55IGNvbnNlY3V0aXZlIGNvdmVycyB5b3Ugd2FudCB0byBnZW5lcmF0ZSAoKzEgZWFjaCBzdGVwKS48L3A+CiAgICAgIDxkaXYgY2xhc3M9Imxvb3AtZ3JpZCI+CiAgICAgICAgPGxhYmVsPlN0YXJ0IElEIE5vLjxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0ibG9vcFN0YXJ0SWQiIHBsYWNlaG9sZGVyPSJlLmcuIDI2MDIxNDkiPjwvbGFiZWw+CiAgICAgICAgPGxhYmVsPlN0YXJ0IFJlZy4gTm8uPGlucHV0IHR5cGU9InRleHQiIGlkPSJsb29wU3RhcnRSZWciIHBsYWNlaG9sZGVyPSJlLmcuIDYxMDQ2Ij48L2xhYmVsPgogICAgICAgIDxsYWJlbD5Ib3cgTWFueSAoQ291bnQpPGlucHV0IHR5cGU9Im51bWJlciIgaWQ9Imxvb3BDb3VudCIgbWluPSIxIiBtYXg9IjIwMCIgdmFsdWU9IjEwIj48L2xhYmVsPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NMb29wR2VuZXJhdG9yKGZhbHNlKSI+R2VuZXJhdGUgJiBBcHBlbmQ8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItcmVwbGFjZSIgb25jbGljaz0icHJvY2Vzc0xvb3BHZW5lcmF0b3IodHJ1ZSkiPkdlbmVyYXRlICYgUmVwbGFjZSBMaXN0PC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+CgogIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXByaW50IiBvbmNsaWNrPSJwcmludFBERigpIj5QcmludCBQREYgLyBEb3dubG9hZCBQREY8L2J1dHRvbj4KPC9zZWN0aW9uPgoKPGRpdiBpZD0icHJldmlld0NvbnRhaW5lciI+PC9kaXY+";
+  /* 2. Encoded DOM Payload Hydration */
+  const _0xB64 = "PGgxPkJBVSBCYXRjaCBQcmFjdGljYWwgQ292ZXIgR2VuZXJhdG9yPC9oMT4KPGRpdiBjbGFzcz0iZGV2LWJhZGdlIj4KICBEZXZlbG9wZWQgYnkgPHNwYW4gY2xhc3M9ImhlYXJ0Ij7in6Q8L3NwYW4+IDxzcGFuIGNsYXNzPSJhdXRob3ItbmFtZSI+TW9oYW1tYWQgQXNpZjwvc3Bhbj4gJmJ1bGw7IEJBVSA2NXRoIEJhdGNoICZidWxsOyBGYWN1bHR5IG9mIEFncmljdWx0dXJlICZidWxsOyBTZXNzaW9uOiAyMDI1LTIwMjYKPC9kaXY+CjxwIGNsYXNzPSJpbnN0cnVjdGlvbnMiPkZpcnN0IGVudGVyIFN0dWRlbnQgSUQocykgdG8gYXV0by1maWxsIGRldGFpbHMgJiBzZXNzaW9uLCB0aGVuIGVkaXQgY291cnNlIGluZm8gYmVsb3c6PC9wPgoKPHNlY3Rpb24gY2xhc3M9ImVkaXRvciI+CiAgPGRpdiBjbGFzcz0ic3R1ZGVudC1zZWN0aW9uIj4KICAgIDxoMiBpZD0ic3R1ZGVudFNlY3Rpb25UaXRsZSI+MS4gU3R1ZGVudHMgTGlzdCAoVHlwZSBJRCB0byBBdXRvLUZldGNoKTwvaDI+CiAgICA8ZGl2IGNsYXNzPSJhcGktc3RhdHVzLXdyYXAiPgogICAgICA8ZGl2IGNsYXNzPSJhcGktc3RhdHVzLWJhciIgaWQ9ImFwaVN0YXR1cyI+PC9kaXY+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0b3AtZmV0Y2giIGlkPSJzdG9wRmV0Y2hCdG4iIG9uY2xpY2s9InN0b3BBbGxGZXRjaGVzKCkiPlN0b3A8L2J1dHRvbj4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0ic3R1ZGVudC1saXN0LXNjcm9sbCIgaWQ9InN0dWRlbnRJbnB1dHMiPjwvZGl2PgogICAgPGRpdiBjbGFzcz0ic3R1ZGVudC1ib3R0b20tY29udHJvbHMiPgogICAgICA8ZGl2IGNsYXNzPSJidG4tZ3JvdXAtbGVmdCI+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tYWRkIiBvbmNsaWNrPSJhZGRTdHVkZW50Um93KCkiPisgQWRkIFN0dWRlbnQ8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1mZXRjaC1hbGwiIGlkPSJmZXRjaEFsbEJ0biIgb25jbGljaz0iZmV0Y2hBbGxTdHVkZW50cygpIj7ihrsgUmUtRmV0Y2ggQWxsPC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcmVtb3ZlLWFsbCIgb25jbGljaz0icmVtb3ZlQWxsU3R1ZGVudHMoKSI+8J+Xke+4jyBSZW1vdmUgQWxsPC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJjaGVja2JveC1ncm91cCI+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24gYXV0by1mZXRjaC1vcHQiPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0F1dG9GZXRjaCIgY2hlY2tlZCBvbmNoYW5nZT0idG9nZ2xlQXV0b0ZldGNoKHRoaXMuY2hlY2tlZCkiPjxzcGFuPkF1dG8tRmV0Y2g8L3NwYW4+PC9sYWJlbD4KICAgICAgICA8bGFiZWwgY2xhc3M9ImNoZWNrLW9wdGlvbiI+PGlucHV0IHR5cGU9ImNoZWNrYm94IiBpZD0iY2hrQnVsayIgb25jaGFuZ2U9InRvZ2dsZUNoZWNrRHJhd2VyKCdjaGtCdWxrJywgJ2J1bGtQYXN0ZUJveCcpIj48c3Bhbj5CdWxrIFBhc3RlPC9zcGFuPjwvbGFiZWw+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24iPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0xvb3AiIG9uY2hhbmdlPSJ0b2dnbGVDaGVja0RyYXdlcignY2hrTG9vcCcsICdsb29wR2VuQm94JykiPjxzcGFuPkxvb3AgKCsxKTwvc3Bhbj48L2xhYmVsPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9InRvb2wtZHJhd2VyIGJ1bGstYm94IiBpZD0iYnVsa1Bhc3RlQm94Ij4KICAgICAgPHA+PHN0cm9uZz5CdWxrIFBhc3RlIChOdW1lcmljYWwgSUQgT25seSk6PC9zdHJvbmc+IFBhc3RlIFN0dWRlbnQgSURzIHNlcGFyYXRlZCBieSBjb21tYSwgc3BhY2UsIG9yIG5ldyBsaW5lLiBOYW1lICYgUmVnLiBOby4gd2lsbCBiZSBmZXRjaGVkIGF1dG9tYXRpY2FsbHkgaWYgQXV0by1GZXRjaCBpcyBPTi48YnI+U3VwcG9ydGVkIGZvcm1hdHM6PGJyPjxjb2RlPjI2MDIxNDksIDI2MDIxNTAsIDI2MDIxNTE8L2NvZGU+PGJyPm9yIGxpbmUtYnktbGluZTo8YnI+PGNvZGU+MjYwMjE0OTwvY29kZT48YnI+PGNvZGU+MjYwMjE1MDwvY29kZT48L3A+CiAgICAgIDx0ZXh0YXJlYSBpZD0iYnVsa1RleHRhcmVhIiBwbGFjZWhvbGRlcj0iMjYwMjE0OSwgMjYwMjE1MCYjMTA7MjYwMjE1MSI+PC90ZXh0YXJlYT4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NCdWxrUGFzdGUoZmFsc2UpIj5BcHBlbmQgJiBBcHBseTwvYnV0dG9uPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1yZXBsYWNlIiBvbmNsaWNrPSJwcm9jZXNzQnVsa1Bhc3RlKHRydWUpIj5SZXBsYWNlIExpc3QgJiBBcHBseTwvYnV0dG9uPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9InRvb2wtZHJhd2VyIGxvb3AtYm94IiBpZD0ibG9vcEdlbkJveCI+CiAgICAgIDxwPjxzdHJvbmc+TG9vcCBHZW5lcmF0b3IgKCsxIFNlcXVlbmNlIC0gSUQgT25seSk6PC9zdHJvbmc+IEVudGVyIFN0YXJ0IElEIGFuZCBob3cgbWFueSBjb25zZWN1dGl2ZSBjb3ZlcnMgeW91IHdhbnQgdG8gZ2VuZXJhdGUgKCsxIGVhY2ggc3RlcCkuPC9wPgogICAgICA8ZGl2IGNsYXNzPSJsb29wLWdyaWQiPgogICAgICAgIDxsYWJlbD5TdGFydCBJRCBOby48aW5wdXQgdHlwZT0idGV4dCIgaWQ9Imxvb3BTdGFydElkIiBwbGFjZWhvbGRlcj0iZS5nLiAyNjAyMTQ5Ij48L2xhYmVsPgogICAgICAgIDxsYWJlbD5Ib3cgTWFueSAoQ291bnQpPGlucHV0IHR5cGU9Im51bWJlciIgaWQ9Imxvb3BDb3VudCIgbWluPSIxIiBtYXg9IjIwMCIgdmFsdWU9IjEwIj48L2xhYmVsPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0iZHJhd2VyLWJ0bi1yb3ciPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWRyYXdlci1hcHBlbmQiIG9uY2xpY2s9InByb2Nlc3NMb29wR2VuZXJhdG9yKGZhbHNlKSI+R2VuZXJhdGUgJiBBcHBlbmQ8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItcmVwbGFjZSIgb25jbGljaz0icHJvY2Vzc0xvb3BHZW5lcmF0b3IodHJ1ZSkiPkdlbmVyYXRlICYgUmVwbGFjZTwvYnV0dG9uPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJjb3Vyc2Utc2VjdGlvbiI+CiAgICA8aDI+Mi4gQ29tbW9uIENvdXJzZSBEZXRhaWxzPC9oMj4KICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JpZCI+CiAgICAgIDxsYWJlbD5Db3Vyc2UgTm8uIDxzcGFuIGNsYXNzPSJsYWJlbC1oaW50Ij4oQXV0by1VUFBFUkNBU0UpPC9zcGFuPjxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0iY291cnNlTm8iIHZhbHVlPSJBQ0hFTSAxMTIyIiBwbGFjZWhvbGRlcj0iZS5nLiBBQ0hFTSAxMTIyIj48L2xhYmVsPgogICAgICA8bGFiZWw+Q291cnNlIFRpdGxlPGlucHV0IHR5cGU9InRleHQiIGlkPSJjb3Vyc2VUaXRsZSIgdmFsdWU9IlBoeXNpY2FsIGFuZCBPcmdhbmljIENoZW1pc3RyeSIgcGxhY2Vob2xkZXI9ImUuZy4gUGh5c2ljYWwgYW5kIE9yZ2FuaWMgQ2hlbWlzdHJ5Ij48L2xhYmVsPgogICAgICA8bGFiZWw+R3JvdXA8aW5wdXQgdHlwZT0idGV4dCIgaWQ9Imdyb3VwIiB2YWx1ZT0iVkkiIHBsYWNlaG9sZGVyPSJlLmcuIFZJIj48L2xhYmVsPgogICAgICA8bGFiZWw+U2VjdGlvbjxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0ic2VjdGlvbiIgdmFsdWU9IkIiIHBsYWNlaG9sZGVyPSJlLmcuIEIiPjwvbGFiZWw+CiAgICAgIDxsYWJlbD5TZXNzaW9uIDxzcGFuIGNsYXNzPSJsYWJlbC1oaW50IiBpZD0ic2Vzc2lvbkhpbnQiPihXaWxsIGJlIGF1dG8tdXBkYXRlZCBmcm9tIElEKTwvc3Bhbj48aW5wdXQgdHlwZT0idGV4dCIgaWQ9InNlc3Npb24iIHZhbHVlPSIyMDI1LTIwMjYiIHBsYWNlaG9sZGVyPSJlLmcuIDIwMjUtMjAyNiI+PC9sYWJlbD4KICAgICAgPGxhYmVsPkRlZ3JlZSAvIExldmVsIC8gU2VtZXN0ZXI8aW5wdXQgdHlwZT0idGV4dCIgaWQ9ImRlZ3JlZSIgdmFsdWU9IkIuU2MuIEFnLiAoSG9ucy4pIExldmVsLTEsIFNlbWVzdGVyLTEiPjwvbGFiZWw+CiAgICAgIDxsYWJlbD5BY2FkZW1pYyBwZXJpb2Q8aW5wdXQgdHlwZT0idGV4dCIgaWQ9InBlcmlvZCIgdmFsdWU9IihKYW51YXJ5LUp1bmUvMjYpIj48L2xhYmVsPgogICAgICA8bGFiZWw+Q292ZXJzIHBlciBBNCBQYWdlCiAgICAgICAgPHNlbGVjdCBpZD0iY29weUNvdW50Ij4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9IjEiPjEgQ292ZXIgcGVyIFBhZ2UgKFNpbmdsZSk8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9IjIiPjIgQ292ZXJzIHBlciBQYWdlIChNZWRpdW0pPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSIzIiBzZWxlY3RlZD4zIENvdmVycyBwZXIgUGFnZSAoU3RhbmRhcmQpPC9vcHRpb24+CiAgICAgICAgPC9zZWxlY3Q+CiAgICAgIDwvbGFiZWw+CiAgICAgIDxsYWJlbD5Cb3JkZXIgLyBPdXRsaW5lIFN0eWxlCiAgICAgICAgPHNlbGVjdCBpZD0iYm9yZGVyU3R5bGUiPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLXJlZC1pbm5lciIgc2VsZWN0ZWQ+RG91YmxlIEJvcmRlciArIElubmVyIE91dGxpbmU8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9ImJvcmRlci1yZWQtZG91YmxlIj5DbGFzc2ljIFJlZCBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSJib3JkZXItZ3JlZW4tZG91YmxlIj5DbGFzc2ljIEdyZWVuIERvdWJsZSBCb3JkZXI8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9ImJvcmRlci1yZWQtc29saWQiPlNvbGlkIFJlZCBCb3JkZXI8L29wdGlvbj4KICAgICAgICA8L3NlbGVjdD4KICAgICAgPC9sYWJlbD4KICAgICAgPGxhYmVsPkNlbnRlciBXYXRlcm1hcmsKICAgICAgICA8c2VsZWN0IGlkPSJ3YXRlcm1hcmtUb2dnbGUiPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0ieWVzIiBzZWxlY3RlZD5ZZXMgKFNob3cgV2F0ZXJtYXJrKTwvb3B0aW9uPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0ibm8iPk5vIChIaWRlIFdhdGVybWFyayk8L29wdGlvbj4KICAgICAgICA8L3NlbGVjdD4KICAgICAgPC9sYWJlbD4KICAgICAgPGxhYmVsPlNob3cgU3R1ZGVudCBOYW1lIG9uIENvdmVyCiAgICAgICAgPHNlbGVjdCBpZD0ic2hvd05hbWVUb2dnbGUiPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0ieWVzIiBzZWxlY3RlZD5ZZXMgKFNob3cgTmFtZSk8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9Im5vIj5ObyAoSGlkZSBOYW1lKTwvb3B0aW9uPgogICAgICAgIDwvc2VsZWN0PgogICAgICA8L2xhYmVsPgogICAgPC9kaXY+CgogICAgPGRpdiBjbGFzcz0iYWR2LXRvZ2dsZS13cmFwIj4KICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tYWR2LXRvZ2dsZSIgaWQ9ImFkdlRvZ2dsZUJ0biIgb25jbGljaz0idG9nZ2xlQWR2YW5jZWRNb2RlKCkiPgogICAgICAgIOKame+4jyBBZHZhbmNlZCBFZGl0IE1vZGU6IE9GRgogICAgICA8L2J1dHRvbj4KICAgICAgPHNwYW4gc3R5bGU9ImZvbnQ6IDEycHggQXJpYWwsIHNhbnMtc2VyaWY7IGNvbG9yOiAjNjY2OyI+Q2xpY2sgdG8gY3VzdG9taXplIGxvZ28gc2l6ZSwgcG9zaXRpb24sIGNvdmVyIHdpZHRoICYgb3V0bGluZTwvc3Bhbj4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9InR1bmVyLXNlY3Rpb24iIGlkPSJhZHZhbmNlZFBhbmVsIj4KICAgICAgPGgzPkFkdmFuY2VkIExheW91dCAmIExvZ28gQ3VzdG9taXphdGlvbjwvaDM+CiAgICAgIDxwIGNsYXNzPSJ0dW5lci1ub3RlIj5Vc2UgdGhlIDxzdHJvbmc+LTwvc3Ryb25nPiBhbmQgPHN0cm9uZz4rPC9zdHJvbmc+IGJ1dHRvbnMgKG9yIGRyYWcgc2xpZGVycykgdG8gZmluZS10dW5lIHRoZSBsb2dvIHNpemUsIHBvc2l0aW9uLCBjb3ZlciBib3ggd2lkdGgsIGFuZCBib3JkZXIgdGhpY2tuZXNzIGluIHJlYWwgdGltZS48L3A+CiAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWdyaWQiPgogICAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveCI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+VG9wLUxlZnQgTG9nbzwvaDQ+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tbWluaS1yZXNldCIgb25jbGljaz0icmVzZXRTZWN0aW9uKCdjb3BMb2dvJykiPlJlc2V0PC9idXR0b24+PC9kaXY+CiAgICAgICAgICA8cCBjbGFzcz0iYm94LWRlc2MiPkNoYW5nZSB0b3AtbGVmdCBsb2dvIHNpemUsIHBvc2l0aW9uICYgaGVhZGVyIHNwYWNpbmc8L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Mb2dvIFNpemUgKHB4KTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfdGxTaXplIj44OHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd0bFNpemUnLCAtMikiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJ0bFNpemUiIG1pbj0iNDAiIG1heD0iMTUwIiBzdGVwPSIyIiB2YWx1ZT0iODgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd0bFNpemUnLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+VmVydGljYWwgUG9zaXRpb24gKFRvcCk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3RsVG9wIj4wcHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0idGxUb3AiIG1pbj0iLTIwIiBtYXg9IjQwIiBzdGVwPSIyIiB2YWx1ZT0iMCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsVG9wJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkhvcml6b250YWwgUG9zaXRpb24gKExlZnQpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF90bExlZnQiPjhweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxMZWZ0JywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0idGxMZWZ0IiBtaW49Ii0xMCIgbWF4PSI2MCIgc3RlcD0iMiIgdmFsdWU9IjgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd0bExlZnQnLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+SGVhZGVyIExlZnQgU3BhY2luZzwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfaGVhZFBhZCI+OThweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnaGVhZFBhZCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImhlYWRQYWQiIG1pbj0iNTAiIG1heD0iMTcwIiBzdGVwPSIyIiB2YWx1ZT0iOTgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdoZWFkUGFkJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3giPgogICAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94LWhlYWRlciI+PGg0PkNlbnRlciBXYXRlcm1hcmsgTG9nbzwvaDQ+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tbWluaS1yZXNldCIgb25jbGljaz0icmVzZXRTZWN0aW9uKCd3YXRlcm1hcmsnKSI+UmVzZXQ8L2J1dHRvbj48L2Rpdj4KICAgICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIHdhdGVybWFyayB3aWR0aCwgaGVpZ2h0LCBwb3NpdGlvbiAmIG9wYWNpdHk8L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5XYXRlcm1hcmsgV2lkdGg8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtV2lkdGgiPjI0MHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bVdpZHRoJywgLTQpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21XaWR0aCIgbWluPSIxMDAiIG1heD0iNDgwIiBzdGVwPSI0IiB2YWx1ZT0iMjQwIj48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21XaWR0aCcsIDQpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5XYXRlcm1hcmsgSGVpZ2h0PC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bUhlaWdodCI+MjQwcHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtSGVpZ2h0JywgLTQpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21IZWlnaHQiIG1pbj0iMTAwIiBtYXg9IjQyMCIgc3RlcD0iNCIgdmFsdWU9IjI0MCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtSGVpZ2h0JywgNCkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPlZlcnRpY2FsIFBvc2l0aW9uIChUb3AgJSk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtVG9wIj42NiU8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21Ub3AiIG1pbj0iMzAiIG1heD0iODUiIHN0ZXA9IjEiIHZhbHVlPSI2NiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtVG9wJywgMSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkhvcml6b250YWwgUG9zaXRpb24gKExlZnQgJSk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtTGVmdCI+NTAlPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUxlZnQnLCAtMSkiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJ3bUxlZnQiIG1pbj0iMjAiIG1heD0iODAiIHN0ZXA9IjEiIHZhbHVlPSI1MCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtTGVmdCcsIDEpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5XYXRlcm1hcmsgT3BhY2l0eTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfd21PcGFjaXR5Ij4wLjEyPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bU9wYWNpdHknLCAtMC4wMikiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJ3bU9wYWNpdHkiIG1pbj0iMC4wNCIgbWF4PSIwLjM2IiBzdGVwPSIwLjAyIiB2YWx1ZT0iMC4xMiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtT3BhY2l0eScsIDAuMDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveC1oZWFkZXIiPjxoND5Db3ZlciBCb3ggJiBPdXRsaW5lPC9oND48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1taW5pLXJlc2V0IiBvbmNsaWNrPSJyZXNldFNlY3Rpb24oJ291dGxpbmUnKSI+UmVzZXQ8L2J1dHRvbj48L2Rpdj4KICAgICAgICAgIDxwIGNsYXNzPSJib3gtZGVzYyI+Q2hhbmdlIGNvdmVyIHdpZHRoLCBpbm5lciBwYWRkaW5nICYgYm9yZGVyIHRoaWNrbmVzczwvcD4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkNvdmVyIEJveCBXaWR0aCAobW0pPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9ib3hXaWR0aCI+MTQ4bW08L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ2JveFdpZHRoJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iYm94V2lkdGgiIG1pbj0iMTIwIiBtYXg9IjE5NiIgc3RlcD0iMiIgdmFsdWU9IjE0OCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ2JveFdpZHRoJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPlRvcCAmIEJvdHRvbSBQYWRkaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9wYWRZIj4xNnB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdwYWRZJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0icGFkWSIgbWluPSI2IiBtYXg9IjQ2IiBzdGVwPSIyIiB2YWx1ZT0iMTYiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdwYWRZJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkxlZnQgJiBSaWdodCBQYWRkaW5nPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF9wYWRYIj4yNnB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdwYWRYJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0icGFkWCIgbWluPSIxMCIgbWF4PSI2MCIgc3RlcD0iMiIgdmFsdWU9IjI2Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5PdXRsaW5lIC8gQm9yZGVyIFRoaWNrbmVzczwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfYm9yZGVyVyI+NXB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3JkZXJXJywgLTAuNSkiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJib3JkZXJXIiBtaW49IjEiIG1heD0iMTIiIHN0ZXA9IjAuNSIgdmFsdWU9IjUiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3JkZXJXJywgMC41KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcmVzZXQiIG9uY2xpY2s9InJlc2V0VHVuZXIoKSI+T3ZlcmFsbCBSZXNldCAoUmVzdG9yZSBBbGwgRGVmYXVsdHMpPC9idXR0b24+CiAgICA8L2Rpdj4KICA8L2Rpdj4KCiAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcHJpbnQiIG9uY2xpY2s9InByaW50UERGKCkiPlByaW50IFBERiAvIERvd25sb2FkIFBERjwvYnV0dG9uPgo8L3NlY3Rpb24+Cgo8ZGl2IGlkPSJwcmV2aWV3Q29udGFpbmVyIj48L2Rpdj4=";
   const _0xBin = atob(_0xB64);
   const _0xArr = new Uint8Array(_0xBin.length);
   for (let _0xI = 0; _0xI < _0xBin.length; _0xI++) _0xArr[_0xI] = _0xBin.charCodeAt(_0xI);
-  let _0xRawHTML = new TextDecoder("utf-8").decode(_0xArr);
-  _0xRawHTML = _0xRawHTML.replace("toggleCheckDrawer)'chkBulk'", "toggleCheckDrawer('chkBulk'");
-  _0xD.getElementById("__app_root").innerHTML = _0xRawHTML;
+  _0xD.getElementById("__app_root").innerHTML = new TextDecoder("utf-8").decode(_0xArr);
 
-  const _0x1a2b = [
-    "2602149", "61046", "courseNo", "courseTitle", "group", "section", "session",
-    "degree", "period", "copyCount", "borderStyle", "watermarkToggle", "tlSize",
-    "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity",
-    "boxWidth", "padY", "padX", "borderW", "getElementById", "value", "stringify",
-    "parse", "length", "advancedPanel", "advToggleBtn", "classList", "toggle",
-    "open", "active", "innerHTML", "⚙️ Advanced Edit Mode: ON", "⚙️ Advanced Edit Mode: OFF",
-    "checked", "add", "remove", "bulkTextarea", "match", "alert",
-    "Please enter valid numerical ID and Registration pairs (e.g. 2602149,61046 2602150,61047).",
-    "trim", "concat", "chkBulk", "bulkPasteBox", "loopStartId", "loopStartReg", "loopCount",
-    "test", "Start ID and Start Reg. No. must contain numbers only.",
-    "Please enter a valid count between 1 and 200.", "padStart", "chkLoop", "loopGenBox",
-    "min", "max", "keys", "forEach", "val_", "textContent", "px", "%", "mm",
-    "studentInputs", "splice", " ", "yes", "previewContainer", "title",
-    " cover page - Made by M.Asif", "Practical", "querySelectorAll", ".page-scale-wrapper",
-    "innerWidth", ".a4-page", "style", "transform", "none", "offsetWidth", "offsetHeight",
-    "height", "print", "input", "addEventListener", "change", "resize"
-  ];
+  /* 3. Course Code Database & Auto-Suggest Logic */
+  const _0xCOURSE_CATALOG = {
+    "AGRON 1101": { title: "Fundamentals of Agronomy" },
+    "AGRON 1102": { title: "Introductory Agronomic Practices" },
+    "AGRON 1201": { title: "Seed Science and Technology" },
+    "AGRON 1202": { title: "Seed Science and Technology (Practical)" },
+    "AGRON 2101": { title: "Weed Science" },
+    "AGRON 2102": { title: "Weed Science (Practical)" },
+    "AGRON 2201": { title: "Field Crop Production" },
+    "AGRON 2202": { title: "Field Crop Production (Practical)" },
+    "AGRON 3101": { title: "Crop Ecology and Climate Change" },
+    "AGRON 3201": { title: "Crop Husbandry and Farming Systems" },
+    "AGRON 3202": { title: "Crop Husbandry and Farming Systems (Practical)" },
+    "AGRON 4101": { title: "Introductory Cropping Systems" },
+    "AGRON 4102": { title: "Introductory Cropping Systems (Practical)" },
+    "AGRON 4121": { title: "Crop Production under Vulnerable Ecosystem" },
+    "AGRON 4201": { title: "Modern Agronomic Practices and Farm Management" },
+    "AGRON 4203": { title: "Forage Crops and Pasture Management" },
+    "AGRON 4204": { title: "Forage Crops and Pasture Management (Practical)" },
+    "SS 1101": { title: "Introductory Soil Science" },
+    "SS 1102": { title: "Introductory Soil Science (Practical)" },
+    "SS 1201": { title: "Soil Survey, Classification and Conservation" },
+    "SS 1202": { title: "Soil Survey, Classification and Conservation (Practical)" },
+    "SS 2101": { title: "Soil Survey, Classification and Conservation" },
+    "SS 2201": { title: "Soil Physics and Soil Chemistry" },
+    "SS 2202": { title: "Soil Physics and Soil Chemistry (Practical)" },
+    "SS 3101": { title: "Soil Fertility and Plant Nutrition" },
+    "SS 3102": { title: "Soil Fertility and Plant Nutrition (Practical)" },
+    "SS 3201": { title: "Soil Microbiology and Biochemistry" },
+    "SS 4101": { title: "Soil Biology" },
+    "SS 4102": { title: "Soil Biology (Practical)" },
+    "SS 4203": { title: "Soil Pollution" },
+    "SS 4204": { title: "Soil Pollution (Practical)" },
+    "ACHEM 1101": { title: "Agroanalytical, Physical and Organic Chemistry" },
+    "ACHEM 1102": { title: "Agroanalytical, Physical and Organic Chemistry (Practical)" },
+    "ACHEM 1121": { title: "Physical and Organic Chemistry" },
+    "ACHEM 1122": { title: "Physical and Organic Chemistry" },
+    "ACHEM 1123": { title: "Chemistry" },
+    "ACHEM 1125": { title: "Food and Agricultural Chemistry" },
+    "ACHEM 1127": { title: "Fundamentals of Chemistry" },
+    "ACHEM 2201": { title: "Nuclear and Agroindustrial Chemistry" },
+    "ACHEM 2202": { title: "Nuclear and Agroindustrial Chemistry (Practical)" },
+    "ACHEM 2221": { title: "Agroindustrial, Nuclear and Natural Product Chemistry" },
+    "ACHEM 3101": { title: "Plant Nutrition, Pesticide and Environmental Chemistry" },
+    "ACHEM 3102": { title: "Plant Nutrition, Pesticide and Environmental Chemistry (Practical)" },
+    "ACHEM 4101": { title: "Bioenergy-Principles and Practices" },
+    "ACHEM 4102": { title: "Bioenergy-Principles and Practices (Practical)" },
+    "ACHEM 4121": { title: "Plant Nutrition, Pesticide and Environmental Chemistry" },
+    "ACHEM 4201": { title: "Micronutrients in Agriculture" },
+    "ACHEM 4202": { title: "Micronutrients in Agriculture (Practical)" },
+    "HORT 1101": { title: "Introductory Horticulture" },
+    "HORT 1102": { title: "Introductory Horticulture (Practical)" },
+    "HORT 1201": { title: "Fundamentals of Horticulture" },
+    "HORT 1202": { title: "Fundamentals of Horticulture (Practical)" },
+    "HORT 2101": { title: "Ornamental Horticulture and Plantation Crops" },
+    "HORT 2102": { title: "Ornamental Horticulture and Plantation Crops (Practical)" },
+    "HORT 3101": { title: "Vegetable and Spice Crops" },
+    "HORT 3102": { title: "Vegetable and Spice Crops (Practical)" },
+    "HORT 3201": { title: "Pomology (Fruit Science)" },
+    "HORT 3202": { title: "Pomology (Practical)" },
+    "HORT 4101": { title: "Postharvest Management of Horticultural Crops" },
+    "HORT 4102": { title: "Postharvest Management of Horticultural Crops (Practical)" },
+    "HORT 4203": { title: "Commercial Horticulture" },
+    "HORT 4204": { title: "Commercial Horticulture (Practical)" },
+    "CBOT 1101": { title: "Agricultural Botany" },
+    "CBOT 1102": { title: "Agricultural Botany (Practical)" },
+    "CBOT 1201": { title: "Agricultural Botany" },
+    "CBOT 1202": { title: "Agricultural Botany (Practical)" },
+    "CBOT 2101": { title: "Plant Morphology, Embryology and Taxonomy" },
+    "CBOT 2102": { title: "Plant Morphology, Embryology and Taxonomy (Practical)" },
+    "CBOT 2201": { title: "Plant Physiology" },
+    "CBOT 2202": { title: "Plant Physiology (Practical)" },
+    "CBOT 3101": { title: "Plant Ecology and Biodiversity" },
+    "CBOT 4201": { title: "Crop Physiology" },
+    "CBOT 4202": { title: "Crop Physiology (Practical)" },
+    "CBOT 4203": { title: "Plant Biodiversity and Conservation" },
+    "CBOT 4204": { title: "Plant Biodiversity and Conservation (Practical)" },
+    "ENTOM 1101": { title: "Introductory Entomology" },
+    "ENTOM 2201": { title: "Fundamentals of Entomology" },
+    "ENTOM 2202": { title: "Fundamentals of Entomology (Practical)" },
+    "ENTOM 3101": { title: "Insect Ecology and Pest Management" },
+    "ENTOM 3102": { title: "Insect Ecology and Pest Management (Practical)" },
+    "ENTOM 4101": { title: "Economic Entomology and Apiculture" },
+    "PPATH 1101": { title: "Fundamentals of Plant Pathology" },
+    "PPATH 2201": { title: "Fundamentals of Plant Pathology" },
+    "PPATH 2202": { title: "Fundamentals of Plant Pathology (Practical)" },
+    "PPATH 3101": { title: "Principles of Plant Pathology and Disease Management" },
+    "PPATH 4101": { title: "Diseases of Field and Horticultural Crops" },
+    "PPATH 4202": { title: "Plant Disease Clinic (Practical)" },
+    "GPB 1101": { title: "Cytology and Genetics" },
+    "GPB 2201": { title: "Cytology and Genetics" },
+    "GPB 2202": { title: "Cytology and Genetics (Practical)" },
+    "GPB 3101": { title: "Genetics and Cytogenetics" },
+    "GPB 3201": { title: "Principles of Plant Breeding" },
+    "GPB 4101": { title: "Plant Biotechnology and Genetic Engineering" },
+    "GPB 4102": { title: "Plant Biotechnology and Genetic Engineering (Practical)" },
+    "GPB 4203": { title: "Special Plant Breeding" },
+    "GPB 4204": { title: "Special Plant Breeding (Practical)" },
+    "BMB 1103": { title: "Biophysics and Biomolecular Chemistry" },
+    "BMB 1104": { title: "Biophysics and Biomolecular Chemistry (Practical)" },
+    "BMB 1201": { title: "Chemistry of Biomolecules" },
+    "BMB 1211": { title: "Metabolism of Biomolecules" },
+    "BMB 2101": { title: "Metabolism and Human Nutrition" },
+    "BMB 4101": { title: "Fundamentals of Molecular Biochemistry and Biotechnology" },
+    "BMB 4102": { title: "Fundamentals of Molecular Biochemistry and Biotechnology (Practical)" },
+    "AGEXT 1101": { title: "Fundamentals of Agricultural Extension Education" },
+    "AGEXT 2201": { title: "Extension Teaching Methods and Aids" },
+    "AGEXT 3101": { title: "Extension Organization and Management" },
+    "AGEXT 3102": { title: "Data Collection, Processing and Report Writing (Practical)" },
+    "AGEXT 4103": { title: "Extension for Sustainable Agricultural Development" },
+    "AGEXT 4104": { title: "Extension for Sustainable Agricultural Development (Practical)" },
+    "LAN 1001": { title: "English Language" },
+    "LANG 1101": { title: "Communicative English" },
+    "BTECH 1201": { title: "Basic Biotechnology" },
+    "BTECH 1202": { title: "Basic Biotechnology (Practical)" },
+    "BTECH 4001": { title: "Genetic Engineering and Biotechnology" },
+    "BTECH 4002": { title: "Genetic Engineering and Biotechnology (Practical)" },
+    "BIOTECH 3101": { title: "Principles of Agricultural Biotechnology" },
+    "AGROF 3101": { title: "Principles of Agroforestry" },
+    "AGFOR 3101": { title: "Principles of Agroforestry" },
+    "ENVSC 2101": { title: "Introductory Environmental Science" },
+    "ENVSC 4001": { title: "Management of Environment" },
+    "ENVSC 4002": { title: "Management of Environment (Practical)" },
+    "STAT 1201": { title: "Agricultural Statistics" },
+    "STAT 1202": { title: "Agricultural Statistics (Practical)" },
+    "RS 1201": { title: "Rural Sociology" },
+    "AE 1103": { title: "Agricultural Economics" },
+    "FPM 1101": { title: "Farm Mechanics" },
+    "FPM 1102": { title: "Farm Mechanics (Practical)" },
+    "ANAT 1101": { title: "Gross Anatomy" },
+    "VPHYS 1101": { title: "Veterinary Physiology" },
+    "PHARM 2101": { title: "General and Systemic Pharmacology" },
+    "PARA 2101": { title: "Veterinary Helminthology and Protozoology" },
+    "MICRO 2101": { title: "General Bacteriology and Mycology" },
+    "PATH 2101": { title: "General Veterinary Pathology" },
+    "VMED 3101": { title: "Veterinary Clinical Medicine" },
+    "SURG 3101": { title: "General and Anaesthetic Surgery" },
+    "ANSC 1101": { title: "Introduction to Animal Science" },
+    "ABG 1101": { title: "Principles of Animal Genetics" },
+    "ANN 2101": { title: "Fundamentals of Animal Nutrition" },
+    "DSC 2101": { title: "Dairy Chemistry and Microbiology" },
+    "PSC 2101": { title: "Poultry Production and Management" },
+    "AE 1101": { title: "Microeconomics" },
+    "AF 1101": { title: "Principles of Agricultural Finance" },
+    "ABM 1101": { title: "Principles of Agribusiness Management" },
+    "IWM 2101": { title: "Fluid Mechanics and Open Channel Hydraulics" },
+    "FSE 2101": { title: "Strength of Materials" },
+    "FT 1101": { title: "Principles of Food Science and Technology" },
+    "CS 1101": { title: "Computer Programming and Applications" },
+    "FBG 1101": { title: "Ichthyology" },
+    "AQ 1101": { title: "Principles of Aquaculture" },
+    "FM 1101": { title: "Limnology and Aquatic Ecology" },
+    "FFT 2101": { title: "Fish Harvesting and Processing Technology" }
+  };
 
-  const _0xDS = [{ id: _0x1a2b[0], reg: _0x1a2b[1] }];
-  let _0xST = JSON[_0x1a2b[28]](JSON[_0x1a2b[27]](_0xDS));
+  const _0xFACULTY_DEGREE_MAP = {
+    "01": "D.V.M.",
+    "02": "B.Sc. Ag. (Hons.)",
+    "03": "B.Sc. A.H. (Hons.)",
+    "04": "B.Sc. Ag. Econ. (Hons.)",
+    "05": "B.Sc. Agril. Engg.",
+    "06": "B.Sc. Fisheries (Hons.)",
+    "10": "D.V.M."
+  };
+
+  /* Attach Course Code Datalist for Autocomplete */
+  const _0xCourseNoInput = _0xD.getElementById("courseNo");
+  if (_0xCourseNoInput) {
+    const _0xDL = _0xD.createElement("datalist");
+    _0xDL.id = "bauCourseDatalist";
+    Object.keys(_0xCOURSE_CATALOG).forEach(code => {
+      const opt = _0xD.createElement("option");
+      opt.value = code;
+      opt.label = _0xCOURSE_CATALOG[code].title;
+      _0xDL.appendChild(opt);
+    });
+    _0xCourseNoInput.setAttribute("list", "bauCourseDatalist");
+    _0xCourseNoInput.parentNode.appendChild(_0xDL);
+  }
+
+  /* 4. Auto-Fetch Toggle + Manual Reg Entry + Auto-Session & Course Code Detection */
+  const _0xAPI = "https://asif.bdasif321.workers.dev/";
+  let _0xST = [{ id: "2602149", name: "Mohammad Asif", reg: "61046", status: "ok" }];
+  const _0xMemCache = { "2602149": { name: "Mohammad Asif", reg: "61046" } };
+  const _0xDebounceTimers = {};
+  let _0xAbortFlag = false;
+  let _0xIsBulkFetching = false;
+  let _0xSessionManuallyEdited = false;
+  let _0xDegreeManuallyEdited = false;
+  let _0xAutoFetchEnabled = true;
 
   const _0xPR = {
-    1: { tlSize: 108, tlTop: -2, tlLeft: 6, headPad: 116, wmWidth: 332, wmHeight: 332, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 164, padY: 32, padX: 36, borderW: 5 },
-    2: { tlSize: 96,  tlTop: -2, tlLeft: 6, headPad: 104, wmWidth: 284, wmHeight: 284, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 158, padY: 24, padX: 30, borderW: 5 },
-    3: { tlSize: 88,  tlTop: 0,  tlLeft: 8, headPad: 98,  wmWidth: 240, wmHeight: 240, wmTop: 66, wmLeft: 50, wmOpacity: 0.12, boxWidth: 148, padY: 16, padX: 26, borderW: 5 }
+    1: { tlSize: 108, tlTop: -2, tlLeft: 6, headPad: 116, wmWidth: 332, wmHeight: 332, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 164, padY: 28, padX: 36, borderW: 5 },
+    2: { tlSize: 96,  tlTop: -2, tlLeft: 6, headPad: 104, wmWidth: 284, wmHeight: 284, wmTop: 65, wmLeft: 50, wmOpacity: 0.12, boxWidth: 158, padY: 20, padX: 30, borderW: 5 },
+    3: { tlSize: 88,  tlTop: 0,  tlLeft: 8, headPad: 98,  wmWidth: 240, wmHeight: 240, wmTop: 66, wmLeft: 50, wmOpacity: 0.12, boxWidth: 148, padY: 13, padX: 26, borderW: 5 }
   };
 
   const _0xSEC = {
-    topLogo: [_0x1a2b[12], _0x1a2b[13], _0x1a2b[14], _0x1a2b[15]],
-    watermark: [_0x1a2b[16], _0x1a2b[17], _0x1a2b[18], _0x1a2b[19], _0x1a2b[20]],
-    outline: [_0x1a2b[21], _0x1a2b[22], _0x1a2b[23], _0x1a2b[24]]
+    copLogo: ["tlSize", "tlTop", "tlLeft", "headPad"],
+    watermark: ["wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity"],
+    outline: ["boxWidth", "padY", "padX", "borderW"]
   };
 
-  const _0xTF = [_0x1a2b[12], _0x1a2b[13], _0x1a2b[14], _0x1a2b[15], _0x1a2b[16], _0x1a2b[17], _0x1a2b[18], _0x1a2b[19], _0x1a2b[20], _0x1a2b[21], _0x1a2b[22], _0x1a2b[23], _0x1a2b[24]];
+  const _0xTF = ["tlSize", "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity", "boxWidth", "padY", "padX", "borderW"];
+
+  /* Calculate Academic Session & Degree Prefix from BAU Student ID */
+  function _0xAutoDetectSessionFromId(idStr) {
+    const clean = (idStr || "").trim();
+    if (!_0xSessionManuallyEdited && /^\d{2,}/.test(clean)) {
+      const yy = parseInt(clean.slice(0, 2), 10);
+      const endYear = 2000 + yy;
+      const startYear = endYear - 1;
+      const sessionEl = _0xD.getElementById("session");
+      const hintEl = _0xD.getElementById("sessionHint");
+      if (sessionEl) sessionEl.value = `${startYear}-${endYear}`;
+      if (hintEl) hintEl.textContent = "(Auto-updated from ID)";
+    }
+    if (!_0xDegreeManuallyEdited && /^\d{4,}/.test(clean)) {
+      const facCode = clean.slice(2, 4);
+      const degPrefix = _0xFACULTY_DEGREE_MAP[facCode];
+      const degEl = _0xD.getElementById("degree");
+      if (degPrefix && degEl) {
+        const curVal = degEl.value.trim();
+        const lvlMatch = curVal.match(/(Level-\d+,\s*Semester-\d+)/i);
+        const lvlPart = lvlMatch ? lvlMatch[1] : "Level-1, Semester-1";
+        degEl.value = `${degPrefix} ${lvlPart}`;
+      }
+    }
+  }
+
+  /* Auto-update Course Title and Level-Semester from Course No. */
+  function _0xHandleCourseCodeLogic() {
+    const courseNoEl = _0xD.getElementById("courseNo");
+    if (!courseNoEl) return;
+
+    const rawUpper = courseNoEl.value.toUpperCase();
+    if (courseNoEl.value !== rawUpper) {
+      const pos = courseNoEl.selectionStart;
+      courseNoEl.value = rawUpper;
+      if (typeof pos === "number") courseNoEl.setSelectionRange(pos, pos);
+    }
+
+    const cleanCode = rawUpper.trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
+    const compactMatch = cleanCode.match(/^([A-Z]+)\s*(\d+)$/);
+    const lookupKey = compactMatch ? `${compactMatch[1]} ${compactMatch[2]}` : cleanCode;
+    const digits = compactMatch ? compactMatch[2] : (cleanCode.match(/\d+/) || [""])[0];
+
+    /* 1. Auto-detect Level & Semester from first two digits (e.g., 1202 -> Level-1, Semester-2) */
+    if (!_0xDegreeManuallyEdited && digits.length >= 2) {
+      const lvl = parseInt(digits[0], 10);
+      const sem = parseInt(digits[1], 10);
+      if (lvl >= 1 && lvl <= 5 && (sem === 1 || sem === 2)) {
+        const degEl = _0xD.getElementById("degree");
+        if (degEl) {
+          const curVal = degEl.value.trim();
+          const newLvlSem = `Level-${lvl}, Semester-${sem}`;
+          if (/Level-\d+,\s*Semester-\d+/i.test(curVal)) {
+            degEl.value = curVal.replace(/Level-\d+,\s*Semester-\d+/i, newLvlSem);
+          } else {
+            const prefix = curVal ? curVal + " " : "B.Sc. Ag. (Hons.) ";
+            degEl.value = prefix + newLvlSem;
+          }
+        }
+      }
+    }
+
+    /* 2. Auto-fill Course Title from Catalog */
+    const exactCourse = _0xCOURSE_CATALOG[lookupKey];
+    const titleEl = _0xD.getElementById("courseTitle");
+    if (exactCourse && titleEl) {
+      titleEl.value = exactCourse.title;
+    }
+  }
+
+  function _0xSetStatus(msg, color, showStop) {
+    const el = _0xD.getElementById("apiStatus");
+    const stopBtn = _0xD.getElementById("stopFetchBtn");
+    if (el) {
+      el.style.color = color || "#0275d8";
+      el.textContent = msg;
+    }
+    if (stopBtn) {
+      if (showStop) stopBtn.classList.add("show");
+      else stopBtn.classList.remove("show");
+    }
+  }
+
+  /* Toggle between Auto-Fetch Mode and Manual Entry Mode */
+  _0xW.toggleAutoFetch = function(isChecked) {
+    _0xAutoFetchEnabled = !!isChecked;
+    const titleEl = _0xD.getElementById("studentSectionTitle");
+    const fetchAllBtn = _0xD.getElementById("fetchAllBtn");
+    const showNameEl = _0xD.getElementById("showNameToggle");
+
+    if (_0xAutoFetchEnabled) {
+      if (titleEl) titleEl.textContent = "1. Students List (Type ID to Auto-Fetch)";
+      if (fetchAllBtn) fetchAllBtn.style.display = "inline-block";
+      if (showNameEl) showNameEl.value = "yes";
+      _0xRenderInputs();
+      _0xW.fetchAllStudents();
+    } else {
+      _0xAbortFlag = true;
+      Object.keys(_0xDebounceTimers).forEach(k => clearTimeout(_0xDebounceTimers[k]));
+      _0xSetStatus("Manual Mode: Enter Student ID & Reg. No. manually.", "#6c757d", false);
+      if (titleEl) titleEl.textContent = "1. Students List (Manual ID & Reg. No. Entry)";
+      if (fetchAllBtn) fetchAllBtn.style.display = "none";
+      if (showNameEl) showNameEl.value = "no";
+      _0xRenderInputs();
+      _0xRenderAll();
+    }
+  };
 
   _0xW.toggleAdvancedMode = function() {
-    const _0xp = _0xD[_0x1a2b[25]](_0x1a2b[30]);
-    const _0xb = _0xD[_0x1a2b[25]](_0x1a2b[31]);
-    const _0xo = _0xp[_0x1a2b[32]][_0x1a2b[33]](_0x1a2b[34]);
-    _0xb[_0x1a2b[32]][_0x1a2b[33]](_0x1a2b[35], _0xo);
-    _0xb[_0x1a2b[36]] = _0xo ? _0x1a2b[37] : _0x1a2b[38];
+    const _0xp = _0xD.getElementById("advancedPanel");
+    const _0xb = _0xD.getElementById("advToggleBtn");
+    const _0xo = _0xp.classList.toggle("open");
+    _0xb.classList.toggle("active", _0xo);
+    _0xb.innerHTML = _0xo ? "⚙️ Advanced Edit Mode: ON" : "⚙️ Advanced Edit Mode: OFF";
   };
 
   _0xW.toggleCheckDrawer = function(_0xcId, _0xdId) {
-    const _0xc = _0xD[_0x1a2b[25]](_0xcId);
-    const _0xd = _0xD[_0x1a2b[25]](_0xdId);
+    const _0xc = _0xD.getElementById(_0xcId);
+    const _0xd = _0xD.getElementById(_0xdId);
     if (!_0xc || !_0xd) return;
-    if (_0xc[_0x1a2b[39]]) _0xd[_0x1a2b[32]][_0x1a2b[40]](_0x1a2b[34]);
-    else _0xd[_0x1a2b[32]][_0x1a2b[41]](_0x1a2b[34]);
+    if (_0xc.checked) {
+      _0xd.classList.add("open");
+      const firstInput = _0xd.querySelector("textarea, input");
+      if (firstInput) setTimeout(() => firstInput.focus(), 50);
+    } else {
+      _0xd.classList.remove("open");
+    }
+  };
+
+  async function _0xQueryAPIWithRetry(cleanId, retries = 1) {
+    if (_0xMemCache[cleanId]) {
+      return { ok: true, data: _0xMemCache[cleanId] };
+    }
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      if (_0xAbortFlag || !_0xAutoFetchEnabled) return { ok: false, aborted: true };
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 9000);
+      try {
+        const res = await fetch(_0xAPI + "?id=" + encodeURIComponent(cleanId), { signal: controller.signal });
+        clearTimeout(timer);
+        const json = await res.json();
+        if (res.ok && json && json.success && json.data) {
+          const info = {
+            name: (json.data.Name || "").toString().trim(),
+            reg: (json.data.RegistrationNo || "").toString().trim()
+          };
+          _0xMemCache[cleanId] = info;
+          return { ok: true, data: info };
+        }
+      } catch (e) {
+        clearTimeout(timer);
+        if (attempt < retries && !_0xAbortFlag && _0xAutoFetchEnabled) {
+          await new Promise(r => setTimeout(r, 250));
+        }
+      }
+    }
+    return { ok: false };
+  }
+
+  async function _0xFetchOne(index, silent) {
+    if (!_0xAutoFetchEnabled) return false;
+    const item = _0xST[index];
+    if (!item) return false;
+    const cleanId = (item.id || "").trim();
+    if (!/^\d+$/.test(cleanId)) {
+      item.name = "";
+      item.reg = "";
+      item.status = cleanId ? "err" : "";
+      if (!silent) _0xUpdateRowBadge(index);
+      return false;
+    }
+
+    if (!silent) {
+      item.status = "loading";
+      _0xUpdateRowBadge(index);
+    }
+
+    const result = await _0xQueryAPIWithRetry(cleanId, 1);
+
+    if (!_0xAutoFetchEnabled || !_0xST[index] || (_0xST[index].id || "").trim() !== cleanId) {
+      return false;
+    }
+
+    if (result.aborted) {
+      item.status = "";
+      if (!silent) _0xUpdateRowBadge(index);
+      return false;
+    }
+
+    if (result.ok && result.data) {
+      item.name = result.data.name;
+      item.reg = result.data.reg;
+      item.status = "ok";
+      _0xUpdateRowBadge(index);
+      return true;
+    } else {
+      item.name = "";
+      item.reg = "";
+      item.status = "err";
+      _0xUpdateRowBadge(index);
+      return false;
+    }
+  }
+
+  _0xW.stopAllFetches = function() {
+    _0xAbortFlag = true;
+    _0xSetStatus("Stopping remaining requests...", "#dc2626", false);
+  };
+
+  _0xW.fetchStudentRow = async function(index) {
+    if (!_0xAutoFetchEnabled) return;
+    const item = _0xST[index];
+    if (!item || !/^\d+$/.test((item.id || "").trim())) return;
+    _0xAbortFlag = false;
+    await _0xFetchOne(index, false);
+    _0xRenderAll();
+  };
+
+  _0xW.fetchAllStudents = async function() {
+    if (!_0xAutoFetchEnabled || _0xST.length === 0) return;
+
+    if (_0xIsBulkFetching) {
+      _0xAbortFlag = true;
+      await new Promise(r => setTimeout(r, 80));
+    }
+
+    _0xIsBulkFetching = true;
+    _0xAbortFlag = false;
+
+    const firstValid = _0xST.find(s => /^\d{2,}/.test((s.id || "").trim()));
+    if (firstValid) _0xAutoDetectSessionFromId(firstValid.id);
+
+    const total = _0xST.length;
+    let processed = 0;
+    let okCount = 0;
+    let cursor = 0;
+    const CONCURRENCY = 8;
+
+    _0xSetStatus(`Fetching 0 / ${total}...`, "#0275d8", true);
+
+    async function worker() {
+      while (cursor < total && !_0xAbortFlag && _0xAutoFetchEnabled) {
+        const idx = cursor++;
+        const item = _0xST[idx];
+        if (!item) continue;
+        const cleanId = (item.id || "").trim();
+
+        if (item.status === "ok" && item.name && item.reg && _0xMemCache[cleanId]) {
+          processed++;
+          okCount++;
+          continue;
+        }
+
+        const success = await _0xFetchOne(idx, true);
+        processed++;
+        if (success) okCount++;
+        if (processed % 4 === 0 || processed === total) {
+          _0xSetStatus(`Fetching: ${processed} / ${total} (${okCount} found)...`, "#0275d8", true);
+        }
+      }
+    }
+
+    const workers = [];
+    for (let w = 0; w < Math.min(CONCURRENCY, total); w++) {
+      workers.push(worker());
+    }
+    await Promise.all(workers);
+
+    _0xIsBulkFetching = false;
+    _0xRenderInputs();
+    _0xRenderAll();
+
+    if (!_0xAutoFetchEnabled) return;
+
+    if (_0xAbortFlag) {
+      _0xSetStatus(`Stopped at ${processed} / ${total}. Loaded ${okCount} student(s).`, "#d97706", false);
+    } else {
+      _0xSetStatus(`Completed: ${okCount} of ${total} student(s) loaded.`, "#176b42", false);
+    }
   };
 
   _0xW.removeAllStudents = function() {
-    _0xST = [{ id: "", reg: "" }];
+    _0xAbortFlag = true;
+    _0xIsBulkFetching = false;
+    _0xSessionManuallyEdited = false;
+    _0xDegreeManuallyEdited = false;
+    Object.keys(_0xDebounceTimers).forEach(k => clearTimeout(_0xDebounceTimers[k]));
+    _0xST = [{ id: "", name: "", reg: "", status: "" }];
+    const hintEl = _0xD.getElementById("sessionHint");
+    if (hintEl) hintEl.textContent = "(Will be auto-updated from ID)";
+    _0xSetStatus(_0xAutoFetchEnabled ? "" : "Manual Mode: Enter Student ID & Reg. No. manually.", _0xAutoFetchEnabled ? "#0275d8" : "#6c757d", false);
     _0xRenderInputs();
     _0xRenderAll();
   };
 
-  _0xW.processBulkPaste = function(_0xrep) {
-    const _0xraw = _0xD[_0x1a2b[25]](_0x1a2b[42])[_0x1a2b[26]];
-    const _0xnum = _0xraw[_0x1a2b[43]](/\d+/g);
-    if (!_0xnum || _0xnum[_0x1a2b[29]] < 2) { _0xW[_0x1a2b[44]](_0x1a2b[45]); return; }
-    const _0xprs = [];
-    for (let _0xi = 0; _0xi < _0xnum[_0x1a2b[29]]; _0xi += 2) {
-      _0xprs.push({ id: _0xnum[_0xi], reg: _0xnum[_0xi + 1] !== undefined ? _0xnum[_0xi + 1] : "" });
+  /* Fixed Bulk Paste Handler */
+  _0xW.processBulkPaste = async function(_0xrep) {
+    const _0xta = _0xD.getElementById("bulkTextarea");
+    if (!_0xta) return;
+    const _0xraw = (_0xta.value || "").trim();
+    const _0xnum = _0xraw.match(/\d+/g);
+
+    if (!_0xnum || _0xnum.length === 0) {
+      _0xW.alert("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).");
+      _0xta.focus();
+      return;
     }
-    if (_0xrep) _0xST = _0xprs;
-    else if (_0xST[_0x1a2b[29]] === 1 && !_0xST[0].id[_0x1a2b[46]]() && !_0xST[0].reg[_0x1a2b[46]]()) _0xST = _0xprs;
-    else _0xST = _0xST[_0x1a2b[47]](_0xprs);
-    _0xD[_0x1a2b[25]](_0x1a2b[42])[_0x1a2b[26]] = "";
-    _0xD[_0x1a2b[25]](_0x1a2b[48])[_0x1a2b[39]] = false;
-    _0xD[_0x1a2b[25]](_0x1a2b[49])[_0x1a2b[32]][_0x1a2b[41]](_0x1a2b[34]);
+
+    Object.keys(_0xDebounceTimers).forEach(k => clearTimeout(_0xDebounceTimers[k]));
+
+    const _0xprs = _0xnum.map(idStr => {
+      if (_0xAutoFetchEnabled && _0xMemCache[idStr]) {
+        return { id: idStr, name: _0xMemCache[idStr].name, reg: _0xMemCache[idStr].reg, status: "ok" };
+      }
+      return { id: idStr, name: "", reg: "", status: _0xAutoFetchEnabled ? "loading" : "" };
+    });
+
+    if (_0xrep) {
+      _0xSessionManuallyEdited = false;
+      _0xST = _0xprs;
+    } else if (_0xST.length === 1 && !_0xST[0].id.trim()) {
+      _0xSessionManuallyEdited = false;
+      _0xST = _0xprs;
+    } else {
+      _0xST = _0xST.concat(_0xprs);
+    }
+
+    _0xta.value = "";
+    const chkBulk = _0xD.getElementById("chkBulk");
+    const bulkBox = _0xD.getElementById("bulkPasteBox");
+    if (chkBulk) chkBulk.checked = false;
+    if (bulkBox) bulkBox.classList.remove("open");
+
+    const firstValid = _0xST.find(s => /^\d{2,}/.test((s.id || "").trim()));
+    if (firstValid) _0xAutoDetectSessionFromId(firstValid.id);
+
     _0xRenderInputs();
     _0xRenderAll();
+
+    if (_0xAutoFetchEnabled) {
+      await _0xW.fetchAllStudents();
+    }
   };
 
-  _0xW.processLoopGenerator = function(_0xrep) {
-    const _0xsId = _0xD[_0x1a2b[25]](_0x1a2b[50])[_0x1a2b[26]][_0x1a2b[46]]();
-    const _0xsRg = _0xD[_0x1a2b[25]](_0x1a2b[51])[_0x1a2b[26]][_0x1a2b[46]]();
-    const _0xcnt = parseInt(_0xD[_0x1a2b[25]](_0x1a2b[52])[_0x1a2b[26]], 10);
-    if (!/^\d+$/[_0x1a2b[53]](_0xsId) || !/^\d+$/[_0x1a2b[53]](_0xsRg)) { _0xW[_0x1a2b[44]](_0x1a2b[54]); return; }
-    if (isNaN(_0xcnt) || _0xcnt < 1 || _0xcnt > 200) { _0xW[_0x1a2b[44]](_0x1a2b[55]); return; }
-    const _0xidL = _0xsId[_0x1a2b[29]], _0xrgL = _0xsRg[_0x1a2b[29]];
-    const _0xidN = BigInt(_0xsId), _0xrgN = BigInt(_0xsRg);
+  _0xW.processLoopGenerator = async function(_0xrep) {
+    const _0xsId = _0xD.getElementById("loopStartId").value.trim();
+    const _0xcnt = parseInt(_0xD.getElementById("loopCount").value, 10);
+    if (!/^\d+$/.test(_0xsId)) {
+      _0xW.alert("Start ID must contain numbers only.");
+      return;
+    }
+    if (isNaN(_0xcnt) || _0xcnt < 1 || _0xcnt > 200) {
+      _0xW.alert("Please enter a valid count between 1 and 200.");
+      return;
+    }
+
+    Object.keys(_0xDebounceTimers).forEach(k => clearTimeout(_0xDebounceTimers[k]));
+
+    const _0xidL = _0xsId.length;
+    const _0xidN = BigInt(_0xsId);
     const _0xgen = [];
     for (let _0xi = 0; _0xi < _0xcnt; _0xi++) {
-      _0xgen.push({
-        id: (_0xidN + BigInt(_0xi)).toString()[_0x1a2b[56]](_0xidL, "0"),
-        reg: (_0xrgN + BigInt(_0xi)).toString()[_0x1a2b[56]](_0xrgL, "0")
-      });
+      const idStr = (_0xidN + BigInt(_0xi)).toString().padStart(_0xidL, "0");
+      if (_0xAutoFetchEnabled && _0xMemCache[idStr]) {
+        _0xgen.push({ id: idStr, name: _0xMemCache[idStr].name, reg: _0xMemCache[idStr].reg, status: "ok" });
+      } else {
+        _0xgen.push({ id: idStr, name: "", reg: "", status: _0xAutoFetchEnabled ? "loading" : "" });
+      }
     }
-    if (_0xrep) _0xST = _0xgen;
-    else if (_0xST[_0x1a2b[29]] === 1 && !_0xST[0].id[_0x1a2b[46]]() && !_0xST[0].reg[_0x1a2b[46]]()) _0xST = _0xgen;
-    else _0xST = _0xST[_0x1a2b[47]](_0xgen);
-    _0xD[_0x1a2b[25]](_0x1a2b[57])[_0x1a2b[39]] = false;
-    _0xD[_0x1a2b[25]](_0x1a2b[58])[_0x1a2b[32]][_0x1a2b[41]](_0x1a2b[34]);
+    if (_0xrep) {
+      _0xSessionManuallyEdited = false;
+      _0xST = _0xgen;
+    } else if (_0xST.length === 1 && !_0xST[0].id.trim()) {
+      _0xSessionManuallyEdited = false;
+      _0xST = _0xgen;
+    } else {
+      _0xST = _0xST.concat(_0xgen);
+    }
+
+    _0xD.getElementById("chkLoop").checked = false;
+    _0xD.getElementById("loopGenBox").classList.remove("open");
+
+    const firstValid = _0xST.find(s => /^\d{2,}/.test((s.id || "").trim()));
+    if (firstValid) _0xAutoDetectSessionFromId(firstValid.id);
+
     _0xRenderInputs();
     _0xRenderAll();
+
+    if (_0xAutoFetchEnabled) {
+      await _0xW.fetchAllStudents();
+    }
   };
 
   _0xW.stepControl = function(_0xid, _0xdl) {
-    const _0xe = _0xD[_0x1a2b[25]](_0xid);
+    const _0xe = _0xD.getElementById(_0xid);
     if (!_0xe) return;
-    const _0xmn = parseFloat(_0xe[_0x1a2b[59]]), _0xmx = parseFloat(_0xe[_0x1a2b[60]]), _0xcr = parseFloat(_0xe[_0x1a2b[26]]);
+    const _0xmn = parseFloat(_0xe.min), _0xmx = parseFloat(_0xe.max), _0xcr = parseFloat(_0xe.value);
     let _0xnx = Math.round((_0xcr + _0xdl) * 100) / 100;
     if (_0xnx < _0xmn) _0xnx = _0xmn;
     if (_0xnx > _0xmx) _0xnx = _0xmx;
-    _0xe[_0x1a2b[26]] = _0xnx;
+    _0xe.value = _0xnx;
     _0xRenderAll();
   };
 
   function _0xApplyPreset(_0xc) {
     const _0xp = _0xPR[_0xc] || _0xPR[3];
-    Object[_0x1a2b[61]](_0xp)[_0x1a2b[62]](_0xk => {
-      const _0xe = _0xD[_0x1a2b[25]](_0xk);
-      if (_0xe) _0xe[_0x1a2b[26]] = _0xp[_0xk];
+    Object.keys(_0xp).forEach(_0xk => {
+      const _0xe = _0xD.getElementById(_0xk);
+      if (_0xe) _0xe.value = _0xp[_0xk];
     });
   }
 
   _0xW.resetSection = function(_0xsn) {
-    const _0xc = parseInt(_0xD[_0x1a2b[25]](_0x1a2b[9])[_0x1a2b[26]]);
+    const _0xc = parseInt(_0xD.getElementById("copyCount").value);
     const _0xp = _0xPR[_0xc] || _0xPR[3];
-    (_0xSEC[_0xsn] || [])[_0x1a2b[62]](_0xk => {
-      const _0xe = _0xD[_0x1a2b[25]](_0xk);
-      if (_0xe && _0xp[_0xk] !== undefined) _0xe[_0x1a2b[26]] = _0xp[_0xk];
+    (_0xSEC[_0xsn] || []).forEach(_0xk => {
+      const _0xe = _0xD.getElementById(_0xk);
+      if (_0xe && _0xp[_0xk] !== undefined) _0xe.value = _0xp[_0xk];
     });
     _0xRenderAll();
   };
 
   _0xW.resetTuner = function() {
-    _0xApplyPreset(parseInt(_0xD[_0x1a2b[25]](_0x1a2b[9])[_0x1a2b[26]]));
+    _0xApplyPreset(parseInt(_0xD.getElementById("copyCount").value));
     _0xRenderAll();
   };
 
   function _0xGetTuner() {
     const _0xv = {};
-    _0xTF[_0x1a2b[62]](_0xk => { _0xv[_0xk] = _0xD[_0x1a2b[25]](_0xk)[_0x1a2b[26]]; });
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[12])[_0x1a2b[64]] = _0xv.tlSize + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[13])[_0x1a2b[64]] = _0xv.tlTop + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[14])[_0x1a2b[64]] = _0xv.tlLeft + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[15])[_0x1a2b[64]] = _0xv.headPad + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[16])[_0x1a2b[64]] = _0xv.wmWidth + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[17])[_0x1a2b[64]] = _0xv.wmHeight + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[18])[_0x1a2b[64]] = _0xv.wmTop + _0x1a2b[66];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[19])[_0x1a2b[64]] = _0xv.wmLeft + _0x1a2b[66];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[20])[_0x1a2b[64]] = _0xv.wmOpacity;
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[21])[_0x1a2b[64]] = _0xv.boxWidth + _0x1a2b[67];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[22])[_0x1a2b[64]] = _0xv.padY + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[23])[_0x1a2b[64]] = _0xv.padX + _0x1a2b[65];
-    _0xD[_0x1a2b[25]](_0x1a2b[63] + _0x1a2b[24])[_0x1a2b[64]] = _0xv.borderW + _0x1a2b[65];
+    _0xTF.forEach(_0xk => { _0xv[_0xk] = _0xD.getElementById(_0xk).value; });
+    _0xD.getElementById("val_tlSize").textContent = _0xv.tlSize + "px";
+    _0xD.getElementById("val_tlTop").textContent = _0xv.tlTop + "px";
+    _0xD.getElementById("val_tlLeft").textContent = _0xv.tlLeft + "px";
+    _0xD.getElementById("val_headPad").textContent = _0xv.headPad + "px";
+    _0xD.getElementById("val_wmWidth").textContent = _0xv.wmWidth + "px";
+    _0xD.getElementById("val_wmHeight").textContent = _0xv.wmHeight + "px";
+    _0xD.getElementById("val_wmTop").textContent = _0xv.wmTop + "%";
+    _0xD.getElementById("val_wmLeft").textContent = _0xv.wmLeft + "%";
+    _0xD.getElementById("val_wmOpacity").textContent = _0xv.wmOpacity;
+    _0xD.getElementById("val_boxWidth").textContent = _0xv.boxWidth + "mm";
+    _0xD.getElementById("val_padY").textContent = _0xv.padY + "px";
+    _0xD.getElementById("val_padX").textContent = _0xv.padX + "px";
+    _0xD.getElementById("val_borderW").textContent = _0xv.borderW + "px";
     return _0xv;
   }
 
-  function _0xRenderInputs() {
-    const _0xc = _0xD[_0x1a2b[25]](_0x1a2b[68]);
-    _0xc[_0x1a2b[36]] = "";
-    _0xST[_0x1a2b[62]]((_0xs, _0xi) => {
-      _0xc[_0x1a2b[36]] += `<div class="student-row"><input type="text" placeholder="ID No." value="${_0xs.id}" oninput="updateStudentData(${_0xi}, 'id', this.value)"><input type="text" placeholder="Reg. No." value="${_0xs.reg}" oninput="updateStudentData(${_0xi}, 'reg', this.value)">${_0xST[_0x1a2b[29]] > 1 ? `<button class="btn-remove" onclick="removeStudentRow(${_0xi})">X</button>` : ''}</div>`;
-    });
+  function _0xGetBadgeInfo(_0xs) {
+    if (_0xs.status === "loading") return { text: "Fetching...", cls: "student-badge loading" };
+    if (_0xs.status === "ok" || _0xs.name || _0xs.reg) {
+      return { text: `${_0xs.name || "N/A"} | Reg: ${_0xs.reg || "N/A"}`, cls: "student-badge ok" };
+    }
+    if (_0xs.status === "err") return { text: "Not found / Invalid ID", cls: "student-badge err" };
+    return { text: "Type Student ID to auto-fill...", cls: "student-badge" };
   }
 
-  _0xW.addStudentRow = function() { _0xST.push({ id: "", reg: "" }); _0xRenderInputs(); _0xRenderAll(); };
-  _0xW.removeStudentRow = function(_0xi) { _0xST[_0x1a2b[69]](_0xi, 1); _0xRenderInputs(); _0xRenderAll(); };
-  _0xW.updateStudentData = function(_0xi, _0xf, _0xv) { _0xST[_0xi][_0xf] = _0xv; _0xRenderAll(); };
+  function _0xUpdateRowBadge(index) {
+    const badgeEl = _0xD.getElementById("badge_" + index);
+    if (!badgeEl || !_0xST[index]) return;
+    const b = _0xGetBadgeInfo(_0xST[index]);
+    badgeEl.className = b.cls;
+    badgeEl.textContent = b.text;
+    badgeEl.title = b.text;
+  }
+
+  function _0xRenderInputs() {
+    const _0xc = _0xD.getElementById("studentInputs");
+    let html = "";
+    _0xST.forEach((_0xs, _0xi) => {
+      if (_0xAutoFetchEnabled) {
+        const b = _0xGetBadgeInfo(_0xs);
+        html += `
+          <div class="student-row">
+            <input type="text" placeholder="Type Student ID (e.g. 2602149)" value="${_0xs.id}"
+              oninput="updateStudentId(${_0xi}, this.value)">
+            <div id="badge_${_0xi}" class="${b.cls}" title="${b.text}">${b.text}</div>
+            <button type="button" class="btn-fetch-row" title="Re-fetch" onclick="fetchStudentRow(${_0xi})">↻</button>
+            ${_0xST.length > 1 ? `<button type="button" class="btn-remove" onclick="removeStudentRow(${_0xi})">X</button>` : ""}
+          </div>`;
+      } else {
+        html += `
+          <div class="student-row">
+            <input type="text" placeholder="Student ID (e.g. 2602149)" value="${_0xs.id}"
+              oninput="updateStudentId(${_0xi}, this.value)">
+            <input type="text" placeholder="Reg. No. (e.g. 61046)" value="${_0xs.reg}"
+              oninput="updateStudentReg(${_0xi}, this.value)">
+            ${_0xST.length > 1 ? `<button type="button" class="btn-remove" onclick="removeStudentRow(${_0xi})">X</button>` : ""}
+          </div>`;
+      }
+    });
+    _0xc.innerHTML = html;
+  }
+
+  _0xW.addStudentRow = function() {
+    _0xST.push({ id: "", name: "", reg: "", status: "" });
+    _0xRenderInputs();
+    _0xRenderAll();
+  };
+  _0xW.removeStudentRow = function(_0xi) {
+    if (_0xDebounceTimers[_0xi]) clearTimeout(_0xDebounceTimers[_0xi]);
+    _0xST.splice(_0xi, 1);
+    _0xRenderInputs();
+    _0xRenderAll();
+  };
+  _0xW.updateStudentReg = function(_0xi, _0xv) {
+    _0xST[_0xi].reg = _0xv;
+    _0xRenderAll();
+  };
+  _0xW.updateStudentId = function(_0xi, _0xv) {
+    const clean = _0xv.trim();
+    _0xST[_0xi].id = _0xv;
+
+    if (_0xi === 0 && /^\d{2,}/.test(clean)) {
+      _0xAutoDetectSessionFromId(clean);
+    }
+
+    if (!_0xAutoFetchEnabled) {
+      _0xRenderAll();
+      return;
+    }
+
+    _0xST[_0xi].name = "";
+    _0xST[_0xi].reg = "";
+
+    if (_0xDebounceTimers[_0xi]) clearTimeout(_0xDebounceTimers[_0xi]);
+
+    if (!clean) {
+      _0xST[_0xi].status = "";
+      _0xUpdateRowBadge(_0xi);
+      _0xRenderAll();
+      return;
+    }
+
+    if (!/^\d+$/.test(clean)) {
+      _0xST[_0xi].status = "err";
+      _0xUpdateRowBadge(_0xi);
+      _0xRenderAll();
+      return;
+    }
+
+    if (_0xMemCache[clean]) {
+      _0xST[_0xi].name = _0xMemCache[clean].name;
+      _0xST[_0xi].reg = _0xMemCache[clean].reg;
+      _0xST[_0xi].status = "ok";
+      _0xUpdateRowBadge(_0xi);
+      _0xRenderAll();
+      return;
+    }
+
+    _0xST[_0xi].status = "loading";
+    _0xUpdateRowBadge(_0xi);
+    _0xRenderAll();
+
+    const delay = clean.length >= 7 ? 150 : 500;
+    _0xDebounceTimers[_0xi] = setTimeout(() => {
+      _0xW.fetchStudentRow(_0xi);
+    }, delay);
+  };
 
   function _0xGetCommon() {
+    const courseNoEl = _0xD.getElementById("courseNo");
+    const rawCourseNo = courseNoEl ? courseNoEl.value.toUpperCase() : "";
     return {
-      courseNo: _0xD[_0x1a2b[25]](_0x1a2b[2])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      courseTitle: _0xD[_0x1a2b[25]](_0x1a2b[3])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      group: _0xD[_0x1a2b[25]](_0x1a2b[4])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      section: _0xD[_0x1a2b[25]](_0x1a2b[5])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      session: _0xD[_0x1a2b[25]](_0x1a2b[6])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      degree: _0xD[_0x1a2b[25]](_0x1a2b[7])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      period: _0xD[_0x1a2b[25]](_0x1a2b[8])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[70],
-      borderClass: _0xD[_0x1a2b[25]](_0x1a2b[10])[_0x1a2b[26]],
-      showWatermark: _0xD[_0x1a2b[25]](_0x1a2b[11])[_0x1a2b[26]] === _0x1a2b[71]
+      courseNo: rawCourseNo.trim() || " ",
+      courseTitle: _0xD.getElementById("courseTitle").value.trim() || " ",
+      group: _0xD.getElementById("group").value.trim() || " ",
+      section: _0xD.getElementById("section").value.trim() || " ",
+      session: _0xD.getElementById("session").value.trim() || " ",
+      degree: _0xD.getElementById("degree").value.trim() || " ",
+      period: _0xD.getElementById("period").value.trim() || " ",
+      borderClass: _0xD.getElementById("borderStyle").value,
+      showWatermark: _0xD.getElementById("watermarkToggle").value === "yes",
+      showName: _0xD.getElementById("showNameToggle").value === "yes"
     };
   }
 
@@ -441,63 +1178,79 @@ input[type="text"], input[type="number"], select, textarea {
     const _0xwm = _0xinf.showWatermark ? `<div class="watermark" style="width:${_0xt.wmWidth}px; height:${_0xt.wmHeight}px; top:${_0xt.wmTop}%; left:${_0xt.wmLeft}%; opacity:${_0xt.wmOpacity};"><img alt="" src="bau-logo.png"></div>` : "";
     const _0xcs = `min-width:${_0xt.boxWidth}mm; padding:${_0xt.padY}px ${_0xt.padX}px; border-width:${_0xt.borderW}px;`;
     const _0xls = `width:${_0xt.tlSize}px; height:${_0xt.tlSize}px; top:${_0xt.tlTop}px; left:${_0xt.tlLeft}px;`;
-    const _0xhs = `padding-left:${_0xt.headPad}px; margin-bottom:${Math.max(10, Math.round(_0xt.padY * 0.8))}px;`;
-    return `<div class="cover ${_0xinf.borderClass}" style="${_0xcs}">${_0xwm}<div class="inside"><div class="logo-area" style="${_0xls}"><img alt="BAU logo" src="bau-logo.png"></div><div class="heading-area" style="${_0xhs}"><div class="main-title">PRACTICAL NOTEBOOK</div><div class="academic"><div>${_0xinf.degree}</div><div>${_0xinf.period}</div></div></div><div class="details"><p><span class="label-text">Course No.</span><span class="colon">:</span><span class="value">${_0xinf.courseNo}</span></p><p><span class="label-text">Course Title</span><span class="colon">:</span><span class="value">${_0xinf.courseTitle}</span></p><p><span class="label-text">ID No.</span><span class="colon">:</span><span class="value">${_0xstd.id || " "}</span></p><p><span class="label-text">Reg. No.</span><span class="colon">:</span><span class="value">${_0xstd.reg || " "}</span></p><p><span class="label-text">Group</span><span class="colon">:</span><span class="value">${_0xinf.group}</span></p><p><span class="label-text">Section</span><span class="colon">:</span><span class="value">${_0xinf.section}</span></p><p><span class="label-text">Session</span><span class="colon">:</span><span class="value">${_0xinf.session}</span></p></div></div></div>`;
-  }
-
-  function _0xUpdTitle() {
-    const _0xtv = _0xD[_0x1a2b[25]](_0x1a2b[3])[_0x1a2b[26]][_0x1a2b[46]]() || _0x1a2b[75];
-    _0xD[_0x1a2b[73]] = _0xtv + _0x1a2b[74];
+    const _0xhs = `padding-left:${_0xt.headPad}px; margin-bottom:${Math.max(8, Math.round(_0xt.padY * 0.7))}px;`;
+    const _0xnameRow = _0xinf.showName ? `<p><span class="label-text">Name</span><span class="colon">:</span><span class="value">${_0xstd.name || " "}</span></p>` : "";
+    return `<div class="cover ${_0xinf.borderClass}" style="${_0xcs}">${_0xwm}<div class="inside"><div class="logo-area" style="${_0xls}"><img alt="BAU logo" src="bau-logo.png"></div><div class="heading-area" style="${_0xhs}"><div class="main-title">PRACTICAL NOTEBOOK</div><div class="academic"><div>${_0xinf.degree}</div><div>${_0xinf.period}</div></div></div><div class="details"><p><span class="label-text">Course No.</span><span class="colon">:</span><span class="value">${_0xinf.courseNo}</span></p><p><span class="label-text">Course Title</span><span class="colon">:</span><span class="value">${_0xinf.courseTitle}</span></p>${_0xnameRow}<p><span class="label-text">ID No.</span><span class="colon">:</span><span class="value">${_0xstd.id || " "}</span></p><p><span class="label-text">Reg. No.</span><span class="colon">:</span><span class="value">${_0xstd.reg || " "}</span></p><p><span class="label-text">Group</span><span class="colon">:</span><span class="value">${_0xinf.group}</span></p><p><span class="label-text">Section</span><span class="colon">:</span><span class="value">${_0xinf.section}</span></p><p><span class="label-text">Session</span><span class="colon">:</span><span class="value">${_0xinf.session}</span></p></div></div></div>`;
   }
 
   function _0xScale() {
-    const _0xwr = _0xD[_0x1a2b[76]](_0x1a2b[77]);
-    const _0xaw = Math.min(_0xW[_0x1a2b[78]] - 40, 850);
-    _0xwr[_0x1a2b[62]](_0xw => {
-      const _0xpg = _0xw.querySelector(_0x1a2b[79]);
+    const _0xwr = _0xD.querySelectorAll(".page-scale-wrapper");
+    const _0xaw = Math.min(_0xW.innerWidth - 32, 820);
+    _0xwr.forEach(_0xw => {
+      const _0xpg = _0xw.querySelector(".a4-page");
       if (!_0xpg) return;
-      _0xpg[_0x1a2b[80]][_0x1a2b[81]] = _0x1a2b[82];
-      const _0xpw = _0xpg[_0x1a2b[83]], _0xph = _0xpg[_0x1a2b[84]];
+      _0xpg.style.transform = "none";
+      const _0xpw = _0xpg.offsetWidth, _0xph = _0xpg.offsetHeight;
       if (_0xaw < _0xpw) {
         const _0xsc = _0xaw / _0xpw;
-        _0xpg[_0x1a2b[80]][_0x1a2b[81]] = `scale(${_0xsc})`;
-        _0xw[_0x1a2b[80]][_0x1a2b[85]] = (_0xph * _0xsc) + _0x1a2b[65];
+        _0xpg.style.transform = `scale(${_0xsc})`;
+        _0xw.style.height = (_0xph * _0xsc) + "px";
       } else {
-        _0xw[_0x1a2b[80]][_0x1a2b[85]] = _0xph + _0x1a2b[65];
+        _0xw.style.height = _0xph + "px";
       }
     });
   }
 
   function _0xRenderAll() {
-    _0xUpdTitle();
-    const _0xc = _0xD[_0x1a2b[25]](_0x1a2b[72]);
-    const _0xinf = _0xGetCommon(), _0xtn = _0xGetTuner(), _0xpp = parseInt(_0xD[_0x1a2b[25]](_0x1a2b[9])[_0x1a2b[26]]);
-    _0xc[_0x1a2b[36]] = "";
-    for (let _0xi = 0; _0xi < _0xST[_0x1a2b[29]]; _0xi += _0xpp) {
+    const _0xc = _0xD.getElementById("previewContainer");
+    const _0xinf = _0xGetCommon(), _0xtn = _0xGetTuner(), _0xpp = parseInt(_0xD.getElementById("copyCount").value);
+    let outHTML = "";
+    for (let _0xi = 0; _0xi < _0xST.length; _0xi += _0xpp) {
       const _0xch = _0xST.slice(_0xi, _0xi + _0xpp);
-      const _0xil = (_0xi + _0xpp >= _0xST[_0x1a2b[29]]);
+      const _0xil = (_0xi + _0xpp >= _0xST.length);
       let _0xph = `<div class="page-scale-wrapper"><div class="a4-page grid-${_0xpp}">`;
-      _0xch[_0x1a2b[62]](_0xs => { _0xph += _0xBuildCover(_0xinf, _0xs, _0xtn); });
+      _0xch.forEach(_0xs => { _0xph += _0xBuildCover(_0xinf, _0xs, _0xtn); });
       if (_0xil) _0xph += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">❤️</span><span>Mohammad Asif</span></div>`;
       _0xph += `</div></div>`;
-      _0xc[_0x1a2b[36]] += _0xph;
+      outHTML += _0xph;
     }
+    _0xc.innerHTML = outHTML;
     _0xScale();
   }
 
-  _0xW.printPDF = function() { _0xUpdTitle(); _0xW[_0x1a2b[86]](); };
+  _0xW.printPDF = function() {
+    const _0xtv = _0xD.getElementById("courseTitle").value.trim() || "Practical";
+    const _0xprevTitle = _0xD.title;
+    _0xD.title = _0xtv + " cover page - BAU Cover Page Generator";
+    _0xW.print();
+    setTimeout(() => { _0xD.title = _0xprevTitle; }, 500);
+  };
 
-  [_0x1a2b[2], _0x1a2b[3], _0x1a2b[4], _0x1a2b[5], _0x1a2b[6], _0x1a2b[7], _0x1a2b[8]][_0x1a2b[62]](_0xi => {
-    _0xD[_0x1a2b[25]](_0xi)[_0x1a2b[88]](_0x1a2b[87], _0xRenderAll);
+  ["courseNo", "courseTitle", "group", "section", "session", "degree", "period"].forEach(_0xi => {
+    _0xD.getElementById(_0xi).addEventListener("input", () => {
+      if (_0xi === "courseNo") {
+        _0xHandleCourseCodeLogic();
+      }
+      if (_0xi === "session") {
+        _0xSessionManuallyEdited = true;
+        const hintEl = _0xD.getElementById("sessionHint");
+        if (hintEl) hintEl.textContent = "(Manual)";
+      }
+      if (_0xi === "degree") {
+        _0xDegreeManuallyEdited = true;
+      }
+      _0xRenderAll();
+    });
   });
-  _0xTF[_0x1a2b[62]](_0xi => { _0xD[_0x1a2b[25]](_0xi)[_0x1a2b[88]](_0x1a2b[87], _0xRenderAll); });
-  _0xD[_0x1a2b[25]](_0x1a2b[9])[_0x1a2b[88]](_0x1a2b[89], () => {
-    _0xApplyPreset(parseInt(_0xD[_0x1a2b[25]](_0x1a2b[9])[_0x1a2b[26]]));
+  _0xTF.forEach(_0xi => { _0xD.getElementById(_0xi).addEventListener("input", _0xRenderAll); });
+  _0xD.getElementById("copyCount").addEventListener("change", () => {
+    _0xApplyPreset(parseInt(_0xD.getElementById("copyCount").value));
     _0xRenderAll();
   });
-  _0xD[_0x1a2b[25]](_0x1a2b[10])[_0x1a2b[88]](_0x1a2b[89], _0xRenderAll);
-  _0xD[_0x1a2b[25]](_0x1a2b[11])[_0x1a2b[88]](_0x1a2b[89], _0xRenderAll);
-  _0xW[_0x1a2b[88]](_0x1a2b[90], _0xScale);
+  _0xD.getElementById("borderStyle").addEventListener("change", _0xRenderAll);
+  _0xD.getElementById("watermarkToggle").addEventListener("change", _0xRenderAll);
+  _0xD.getElementById("showNameToggle").addEventListener("change", _0xRenderAll);
+  _0xW.addEventListener("resize", _0xScale);
 
   _0xRenderInputs();
   _0xRenderAll();
