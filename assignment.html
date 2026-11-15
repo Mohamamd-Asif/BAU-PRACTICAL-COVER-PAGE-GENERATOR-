@@ -1,0 +1,1636 @@
+<!--
+  Copyright (c) 2026 Mohammad Asif (BAU 65th Batch, Faculty of Agriculture)
+  All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAU Assignment Cover Page Generator | Bangladesh Agricultural University</title>
+<meta name="description" content="Free online BAU Assignment Cover Page Generator for Bangladesh Agricultural University (BAU) students. Batch & single cover page maker with auto ID lookup, course code detection, and teacher directory.">
+<meta name="keywords" content="BAU assignment cover page generator, Bangladesh Agricultural University cover page, BAU batch assignment cover, Mohammad Asif BAU">
+<meta name="author" content="Mohammad Asif">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/assignment.html">
+
+<!-- Open Graph / Facebook / Messenger Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/assignment.html">
+<meta property="og:title" content="BAU Assignment Cover Page Generator | Bangladesh Agricultural University">
+<meta property="og:description" content="Generate print-ready single or batch A4 Assignment cover pages for Bangladesh Agricultural University (BAU) in seconds.">
+<meta property="og:image" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/bau-logo.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/assignment.html">
+<meta name="twitter:title" content="BAU Assignment Cover Page Generator | Bangladesh Agricultural University">
+<meta name="twitter:description" content="Generate print-ready single or batch A4 Assignment cover pages for Bangladesh Agricultural University (BAU) in seconds.">
+<meta name="twitter:image" content="https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/bau-logo.png">
+
+<!-- Google Search Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BAU Assignment Cover Page Generator",
+  "url": "https://mohamamd-asif.github.io/BAU-PRACTICAL-COVER-PAGE-GENERATOR-/assignment.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "author": {
+    "@type": "Person",
+    "name": "Mohammad Asif"
+  },
+  "description": "Generate print-ready single or batch A4 Assignment cover pages for Bangladesh Agricultural University (BAU) with automatic Course Level/Semester detection, Student ID lookup, and BAU Faculty Directory autocomplete.",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Bangladesh Agricultural University",
+    "alternateName": "BAU",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mymensingh",
+      "postalCode": "2202",
+      "addressCountry": "BD"
+    }
+  }
+}
+</script>
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 16px; background: #e9ecef; color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+}
+h1, h2, h3, label, button, .subtitle, .code-hint, .autocomplete-list, .teacher-sync-badge, .student-badge, .api-status-bar, .tool-drawer, .top-nav-bar {
+  font-family: Arial, sans-serif;
+}
+
+/* Top Navigation Tab Switcher */
+.top-nav-bar {
+  max-width: 860px; margin: 0 auto 16px;
+  display: flex; gap: 10px; background: #fff;
+  padding: 8px; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-tab {
+  flex: 1; text-align: center; padding: 11px 14px;
+  border-radius: 7px; text-decoration: none;
+  font-size: 14.5px; font-weight: bold;
+  transition: all 0.2s ease; display: flex;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.nav-tab.active {
+  background: #176b42; color: #ffffff;
+  box-shadow: 0 2px 6px rgba(23, 107, 66, 0.25);
+}
+.nav-tab.inactive {
+  background: #f1f3f5; color: #333; border: 1px solid #dee2e6;
+}
+.nav-tab.inactive:hover {
+  background: #e2e6ea; color: #176b42; border-color: #176b42;
+}
+
+h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
+.subtitle { font-size: 14px; color: #555; margin-bottom: 18px; text-align: center; }
+
+/* Editor Panel */
+.editor {
+  max-width: 860px; margin: 0 auto 25px; background: #fff;
+  padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.section-header-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
+  flex-wrap: wrap; gap: 8px;
+}
+.section-header-row h2 {
+  font-size: 17px; color: #176b42; margin: 0; border: none; padding: 0;
+}
+.editor > h2:first-child {
+  font-size: 17px; color: #176b42; margin: 0 0 12px;
+  padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
+}
+
+.autofill-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #f0fdf4; border: 1.5px solid #bbf7d0;
+  padding: 5px 11px; border-radius: 6px; cursor: pointer;
+  font-size: 12.5px; font-weight: bold; color: #166534; user-select: none;
+}
+.autofill-toggle input[type="checkbox"] {
+  width: 15px; height: 15px; margin: 0; cursor: pointer; accent-color: #176b42;
+}
+
+.teacher-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.teacher-sync-badge {
+  font-size: 11.5px; background: #eff6ff; color: #1d4ed8;
+  border: 1px solid #bfdbfe; padding: 4px 9px; border-radius: 5px; font-weight: bold;
+}
+
+.btn-toggle-teacher {
+  background: #0275d8; color: #fff; border: none;
+  padding: 6px 12px; border-radius: 5px; font-size: 12.5px;
+  font-weight: bold; cursor: pointer;
+}
+.btn-toggle-teacher:hover { background: #025aa5; }
+.btn-toggle-teacher.remove-mode { background: #dc3545; }
+.btn-toggle-teacher.remove-mode:hover { background: #b02a37; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.full-width { grid-column: span 2; }
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
+  .top-nav-bar { flex-direction: column; }
+}
+
+label { display: block; font-size: 13px; font-weight: bold; color: #333; position: relative; }
+input[type="text"], input[type="number"], input[type="date"], select, textarea {
+  display: block; width: 100%; margin-top: 5px; padding: 9px 11px;
+  border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
+}
+#courseCode { text-transform: uppercase; }
+
+.code-hint { font-size: 12px; margin-top: 4px; color: #285c9d; font-weight: normal; }
+
+/* Multi-Student Controls */
+.api-status-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 8px; min-height: 22px;
+}
+.api-status-bar { font-size: 13px; font-weight: bold; color: #0275d8; }
+.btn-stop-fetch {
+  display: none; background: #dc2626; color: white; border: 0;
+  padding: 4px 10px; border-radius: 4px; font-size: 12px;
+  font-weight: bold; cursor: pointer;
+}
+.btn-stop-fetch.show { display: inline-block; }
+
+.student-list-scroll {
+  max-height: 290px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
+}
+.student-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+.student-row input { margin-top: 0; flex: 1; }
+.student-badge {
+  flex: 1.85; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
+  padding: 9px 11px; font-size: 13px; color: #333;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.student-badge.ok { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.student-badge.err { background: #fef2f2; border-color: #fecaca; color: #dc2626; }
+.student-badge.loading { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+
+.btn-fetch-row {
+  background: #176b42; color: white; border: 0; padding: 9px 12px;
+  border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: bold;
+}
+.btn-fetch-row:hover { background: #125634; }
+.btn-remove {
+  background: #d9534f; color: white; border: 0; padding: 9px 12px;
+  border-radius: 5px; cursor: pointer; font-weight: bold;
+}
+
+.student-bottom-controls {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px; margin-top: 8px; margin-bottom: 14px;
+}
+.btn-group-left { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-add {
+  background: #0275d8; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
+}
+.btn-add:hover { background: #025aa5; }
+.btn-fetch-all {
+  background: #0f766e; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
+}
+.btn-fetch-all:hover { background: #115e59; }
+.btn-remove-all {
+  background: #dc3545; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
+}
+.btn-remove-all:hover { background: #b02a37; }
+
+.checkbox-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.check-option {
+  display: inline-flex; align-items: center; gap: 6px; background: #f8f9fa;
+  border: 1.5px solid #ced4da; padding: 6px 10px; border-radius: 6px;
+  cursor: pointer; font-size: 12.5px; font-weight: bold; color: #333; user-select: none;
+}
+.check-option input[type="checkbox"] { width: 15px; height: 15px; margin: 0; cursor: pointer; accent-color: #176b42; }
+
+.tool-drawer { display: none; margin-bottom: 14px; padding: 13px; border-radius: 8px; }
+.tool-drawer.open { display: block; }
+.bulk-box { background: #f8f5ff; border: 1.5px solid #d6c8f5; }
+.loop-box { background: #fffbeb; border: 1.5px solid #fde68a; }
+.tool-drawer p { margin: 0 0 8px 0; font-size: 12.5px; color: #444; line-height: 1.4; }
+.bulk-box textarea { font-family: monospace; font-size: 13.5px; min-height: 90px; resize: vertical; }
+.loop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.drawer-btn-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.btn-drawer-append {
+  background: #176b42; color: white; border: 0; padding: 7px 13px;
+  border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold;
+}
+.btn-drawer-replace {
+  background: #d9534f; color: white; border: 0; padding: 7px 13px;
+  border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold;
+}
+
+/* Teacher Autocomplete Dropdown */
+.autocomplete-wrap { position: relative; }
+.autocomplete-list {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 999;
+  background: #fff; border: 1.5px solid #176b42; border-top: none;
+  border-radius: 0 0 6px 6px; box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+  max-height: 240px; overflow-y: auto; display: none;
+}
+.autocomplete-list.open { display: block; }
+.ac-item {
+  padding: 8px 11px; border-bottom: 1px solid #eee; cursor: pointer; text-align: left;
+}
+.ac-item:last-child { border-bottom: none; }
+.ac-item:hover { background: #f0fdf4; }
+.ac-name { font-size: 13.5px; font-weight: bold; color: #176b42; }
+.ac-meta { font-size: 11.5px; color: #555; margin-top: 2px; }
+
+.teacher-2-box {
+  display: none; margin-top: 14px; padding: 14px;
+  background: #f8f9fa; border: 1.5px dashed #ced4da; border-radius: 8px;
+}
+.teacher-2-box.open { display: block; }
+.teacher-2-title {
+  font: bold 13.5px Arial, sans-serif; color: #a52c51; margin: 0 0 10px 0;
+}
+
+.btn-print {
+  width: 100%; margin-top: 22px; padding: 14px; border: 0;
+  border-radius: 6px; background: #176b42; color: white;
+  font-size: 16px; font-weight: bold; cursor: pointer;
+}
+.btn-print:hover { background: #125634; }
+
+/* Multi-Page Responsive A4 Preview Container */
+#previewContainer {
+  display: flex; flex-direction: column; gap: 24px; align-items: center;
+  width: 100%; overflow: hidden;
+}
+.page-scale-wrapper {
+  display: flex; justify-content: center; align-items: flex-start; width: 100%;
+}
+.a4-page {
+  width: 210mm; height: 297mm; background: white;
+  padding: 12mm; box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  border: 1px solid #ccc; display: flex;
+  transform-origin: top center; flex-shrink: 0;
+}
+
+/* Cover Border & Layout */
+.cover-frame {
+  width: 100%; height: 100%;
+  border: 5px double #176b42;
+  outline: 1.5px solid #176b42;
+  outline-offset: -9px;
+  padding: 14mm 14mm 12mm 14mm;
+  display: flex; flex-direction: column;
+  justify-content: space-between; align-items: center;
+  text-align: center; background: #fffdfc; position: relative;
+}
+
+/* Top Section: Assignment On & Topic */
+.top-section { width: 100%; margin-top: 3mm; }
+.assignment-label {
+  font-size: 24pt; font-weight: bold; color: #a52c51;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: underline; text-underline-offset: 6px;
+}
+.topic-text {
+  margin-top: 15px; font-size: 16.5pt; font-weight: bold;
+  color: #1a1a1a; line-height: 1.4; padding: 0 10px;
+}
+
+/* Center Logo */
+.logo-section { margin: 6mm 0; }
+.logo-section img { width: 130px; height: 130px; object-fit: contain; }
+
+/* Course Info */
+.course-section { width: 100%; margin-bottom: 6mm; }
+.course-code {
+  font-size: 18pt; font-weight: bold; color: #176b42; letter-spacing: 0.5px;
+}
+.course-title {
+  margin-top: 6px; font-size: 15.5pt; font-weight: bold;
+  color: #285c9d; line-height: 1.35;
+}
+
+/* Submitted By (Left) & Submitted To (Right) */
+.submission-grid {
+  width: 100%; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; text-align: left; margin-top: 3mm;
+  border-top: 1.5px solid #ccc; border-bottom: 1.5px solid #ccc;
+  padding: 14px 4px; align-items: stretch;
+}
+.sub-col { padding: 4px 8px; display: flex; flex-direction: column; }
+.sub-col:first-child { border-right: 1.5px solid #ccc; padding-right: 14px; }
+.sub-col:last-child { padding-left: 14px; }
+
+/* Top-aligned & well-spaced teacher column to eliminate awkward bottom gap */
+.teacher-col-body {
+  flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
+}
+.teacher-block + .teacher-block {
+  margin-top: 10px; padding-top: 9px; border-top: 1px dashed #bbb;
+}
+
+.sub-heading {
+  font-size: 14pt; font-weight: bold; color: #a52c51;
+  text-decoration: underline; margin-bottom: 10px;
+}
+.sub-details p {
+  margin: 4.5px 0; font-size: 11.8pt; line-height: 1.42; color: #222;
+}
+.sub-details.single-teacher p {
+  margin: 8px 0; font-size: 12.2pt; line-height: 1.55;
+}
+.sub-details.single-teacher .teacher-name-line {
+  font-size: 13pt; margin-top: 2px;
+}
+.sub-details .st-name-bold {
+  font-size: 12.6pt; font-weight: bold; color: #000;
+}
+.sub-details .st-val-bold {
+  font-weight: bold; color: #111;
+}
+.sub-details.dual-teachers p {
+  margin: 2.5px 0; font-size: 10.8pt; line-height: 1.32;
+}
+.sub-details strong { color: #111; }
+
+/* Bottom Date & University Name */
+.bottom-section { width: 100%; margin-top: 5mm; }
+.sub-date {
+  font-size: 13.5pt; font-weight: bold; color: #333; margin-bottom: 12mm;
+}
+.univ-name {
+  font-size: 17pt; font-weight: bold; color: #176b42; letter-spacing: 0.4px;
+}
+.univ-sub {
+  font-size: 12.5pt; font-weight: bold; color: #444; margin-top: 3px;
+}
+
+/* Print Settings */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { margin: 0; padding: 0; background: white; }
+  .editor, h1, .subtitle, .top-nav-bar { display: none !important; }
+  #previewContainer { gap: 0 !important; display: block !important; }
+  .page-scale-wrapper { height: auto !important; display: block !important; overflow: visible !important; }
+  .a4-page {
+    width: 210mm !important; height: 297mm !important; padding: 10mm !important;
+    box-shadow: none !important; border: none !important; transform: none !important;
+    page-break-after: always !important; break-after: page !important;
+  }
+  .cover-frame { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation Tab Switcher -->
+<nav class="top-nav-bar" aria-label="Cover Page Mode Switcher">
+  <a href="index.html" class="nav-tab inactive">&larr; 📘 Practical Cover Generator</a>
+  <a href="assignment.html" class="nav-tab active">📄 Assignment Cover Generator</a>
+</nav>
+
+<h1>BAU Assignment Cover Page Generator</h1>
+<div class="subtitle">Generate single or batch A4 assignment cover pages with automatic Student ID, Course &amp; Teacher lookup.</div>
+
+<section class="editor">
+  <h2>1. Assignment &amp; Course Details</h2>
+  <div class="form-grid">
+    <label class="full-width">Assignment Topic
+      <input type="text" id="topic" value="Role of Organic Matter in Soil Fertility and Sustainable Crop Production">
+    </label>
+    <label>Course Code
+      <input type="text" id="courseCode" list="bauCourseList" value="SS 1101" placeholder="e.g. SS 1201, AGRON 2101">
+      <datalist id="bauCourseList"></datalist>
+      <div class="code-hint" id="courseHint">Auto-updates Title, Dept. &amp; Level-Semester (e.g. 1201 &rarr; L-1, S-2)</div>
+    </label>
+    <label>Course Title
+      <input type="text" id="courseTitle" value="Introductory Soil Science">
+    </label>
+    <label>Date of Submission
+      <input type="date" id="subDate">
+    </label>
+    <label>Border Style
+      <select id="borderStyle">
+        <option value="green">BAU Green Double Border</option>
+        <option value="red">Classic Maroon Double Border</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="section-header-row">
+    <h2 id="studentSectionTitle">2. Submitted By (Students List — Auto-Fetch from ID)</h2>
+    <label class="autofill-toggle" title="Toggle between Auto-Fetch from ID and Manual ID & Reg. entry">
+      <input type="checkbox" id="autoFillCheck" checked onchange="toggleAutoFetchMode(this.checked)">
+      <span>Auto-Fetch from ID</span>
+    </label>
+  </div>
+
+  <div class="api-status-wrap">
+    <div class="api-status-bar" id="apiStatus"></div>
+    <button type="button" class="btn-stop-fetch" id="stopFetchBtn" onclick="stopAllFetches()">Stop</button>
+  </div>
+
+  <div class="student-list-scroll" id="studentInputs"></div>
+
+  <div class="student-bottom-controls">
+    <div class="btn-group-left">
+      <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
+      <button type="button" class="btn-fetch-all" id="fetchAllBtn" onclick="fetchAllStudents()">↻ Re-Fetch All</button>
+      <button type="button" class="btn-remove-all" onclick="removeAllStudents()">✕ Remove All</button>
+    </div>
+    <div class="checkbox-group">
+      <label class="check-option"><input type="checkbox" id="chkBulk" onchange="toggleToolDrawer('chkBulk','bulkPasteBox')"><span>Bulk Paste</span></label>
+      <label class="check-option"><input type="checkbox" id="chkLoop" onchange="toggleToolDrawer('chkLoop','loopGenBox')"><span>Loop (+1)</span></label>
+    </div>
+  </div>
+
+  <div class="tool-drawer bulk-box" id="bulkPasteBox">
+    <p><strong>Bulk Paste (Numerical IDs):</strong> Paste multiple Student IDs separated by comma, space, or new line. Other course/teacher info stays unchanged; each student gets their own cover page.</p>
+    <textarea id="bulkTextarea" placeholder="2602149, 2602150&#10;2602151"></textarea>
+    <div class="drawer-btn-row">
+      <button type="button" class="btn-drawer-append" onclick="processBulkPaste(false)">Append &amp; Apply</button>
+      <button type="button" class="btn-drawer-replace" onclick="processBulkPaste(true)">Replace List &amp; Apply</button>
+    </div>
+  </div>
+
+  <div class="tool-drawer loop-box" id="loopGenBox">
+    <p><strong>Loop Generator (+1 Sequence):</strong> Enter Start Student ID and count to generate consecutive cover pages automatically.</p>
+    <div class="loop-grid">
+      <label>Start ID No.<input type="text" id="loopStartId" placeholder="e.g. 2602149"></label>
+      <label>How Many (Count)<input type="number" id="loopCount" min="1" max="200" value="5"></label>
+    </div>
+    <div class="drawer-btn-row">
+      <button type="button" class="btn-drawer-append" onclick="processLoopGenerator(false)">Generate &amp; Append</button>
+      <button type="button" class="btn-drawer-replace" onclick="processLoopGenerator(true)">Generate &amp; Replace</button>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <label>Session <span class="code-hint" id="sessionHint">(Auto-updated from ID)</span>
+      <input type="text" id="stSession" value="2025-2026">
+    </label>
+    <label>Level &amp; Semester
+      <input type="text" id="stLevel" value="Level-1, Semester-1">
+    </label>
+    <label>Group &amp; Section
+      <input type="text" id="stGroupSec" value="Group: VI, Section: B">
+    </label>
+    <label>Faculty
+      <input type="text" id="stFaculty" value="Faculty of Agriculture">
+    </label>
+  </div>
+
+  <div class="section-header-row">
+    <h2>3. Submitted To (Teacher Details)</h2>
+    <div class="teacher-actions">
+      <span class="teacher-sync-badge" id="teacherSyncBadge">BAU Teachers DB Ready</span>
+      <button type="button" class="btn-toggle-teacher" id="toggleTeacher2Btn" onclick="toggleSecondTeacher()">+ Add 2nd Teacher</button>
+    </div>
+  </div>
+  <div class="form-grid">
+    <label class="autocomplete-wrap">Teacher's Name (Type any part to search BAU teachers)
+      <input type="text" id="tName" value="Dr. Abu Zofar Md. Moslehuddin" autocomplete="off" placeholder="Type name e.g. Moslehuddin, Anamul, Sumon...">
+      <div class="autocomplete-list" id="t1AcList"></div>
+    </label>
+    <label>Designation
+      <input type="text" id="tDesig" value="Professor">
+    </label>
+    <label>Department
+      <input type="text" id="tDept" value="Department of Soil Science">
+    </label>
+    <label>Faculty / University
+      <input type="text" id="tFaculty" value="Faculty of Agriculture, BAU">
+    </label>
+  </div>
+
+  <div class="teacher-2-box" id="teacher2Box">
+    <div class="teacher-2-title">2nd Course Teacher Details</div>
+    <div class="form-grid">
+      <label class="autocomplete-wrap">2nd Teacher's Name (Type any part to search)
+        <input type="text" id="t2Name" autocomplete="off" placeholder="Type teacher's name...">
+        <div class="autocomplete-list" id="t2AcList"></div>
+      </label>
+      <label>Designation
+        <input type="text" id="t2Desig" value="Professor">
+      </label>
+      <label>Department
+        <input type="text" id="t2Dept" value="Department of Soil Science">
+      </label>
+      <label>Faculty / University
+        <input type="text" id="t2Faculty" value="Faculty of Agriculture, BAU">
+      </label>
+    </div>
+  </div>
+
+  <button type="button" class="btn-print" onclick="printAssignmentPDF()">Print / Save as PDF</button>
+</section>
+
+<div id="previewContainer"></div>
+
+<!-- Embedded Search-Engine-Friendly JSON Dataset for BAU Teachers -->
+<script type="application/json" id="bauTeachersEmbedded">
+[
+  {"name":"Dr. Abu Zofar Md. Moslehuddin","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Anamul Hoque","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Mahmud Hossain Sumon","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Mohammad Mofizur Rahman Jahangir","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Tahsina Sharmin Hoque","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Rafiqul Islam","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Joinul Abedin","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Abdul Kader","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Romij Uddin","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Uttam Kumer Sarker","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Parvez Anwar","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Abdus Salam","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Ahmed Khairul Hasan","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. M. Wahid-U-Zzaman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Zakir Hossen","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Mokhlesur Rahman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Quazi Forhad Quadir","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Atiqur Rahman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. A.K.M. Azad-ud-doula Prodhan","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Alamgir Hossain","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Solaiman Ali Fakir","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Habibur Rahman Pramanik","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Mokter Hossain","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Kamrul Hassan","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Ashraful Islam","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Azizul Haque","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Khandakar Shariful Islam","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Gopal Das","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Mohammad Mahir Uddin","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Bahadur Meah","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Rashidul Islam","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Mohammad Shahjahan Monjil","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Lutful Hassan","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. A. K. M. Aminul Islam","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Ashraful Haque","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Ujjal Kumar Nath","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. M. Zulfikar Rahman","desig":"Professor","dept":"Department of Agricultural Extension Education","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Mahbubul Alam","desig":"Professor","dept":"Department of Agricultural Extension Education","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Golam Mortuza","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Tofazzal Hossain","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Mohammad Anowar Hossain","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Tahjib-Ul-Arif","desig":"Associate Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Arif Sakil","desig":"Assistant Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. G. M. Mujibar Rahman","desig":"Professor","dept":"Department of Agroforestry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Abdul Wadud","desig":"Professor","dept":"Department of Agroforestry","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Badiuzzaman Khan","desig":"Professor","dept":"Department of Environmental Science","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Md. Shahidul Haque","desig":"Professor","dept":"Department of Biotechnology","fac":"Faculty of Agriculture, BAU"},
+  {"name":"Dr. Abdul Awal","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
+  {"name":"Dr. Shonkor Kumar Das","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
+  {"name":"Dr. Ziaul Haque","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
+  {"name":"Prof. Dr. Nasrin Sultana","desig":"Associate Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
+  {"name":"Dr. MD Hasanuzzaman Talukder","desig":"Professor","dept":"Department of Parasitology","fac":"Faculty of Veterinary Science, BAU"},
+  {"name":"Dr. M. A. M. Yahia Khandoker","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
+  {"name":"Dr. Mohammad Shamsul Alam Bhuiyan","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
+  {"name":"Dr. Auvijit Saha Apu","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
+  {"name":"Dr. Mohammad Ashiqul Islam","desig":"Professor","dept":"Department of Dairy Science","fac":"Faculty of Animal Husbandry, BAU"},
+  {"name":"Dr. Md. Bazlur Rahman Mollah","desig":"Professor","dept":"Department of Poultry Science","fac":"Faculty of Animal Husbandry, BAU"},
+  {"name":"Dr. Mohammad Jahangir Alam","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"Dr. Mohammad Ismail Hossain","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"Prof. Dr. Sarah Yasmin","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"Dr. Dilshad Zahan Ethen","desig":"Associate Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"ASM Golam Hafeez","desig":"Professor","dept":"Department of Agricultural Finance and Banking","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"Dr. Mohammad Ataur Rahman","desig":"Professor","dept":"Department of Agricultural Finance and Banking","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
+  {"name":"Dr. Md. Rakib Hassan","desig":"Professor","dept":"Department of Computer Science and Mathematics","fac":"Faculty of Agricultural Engineering & Technology, BAU"},
+  {"name":"Dr. Mohd Golam Quader Khan","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Dr. Nahid Sultana Lucky","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Dr. Mohammad Matiur Rahman","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Prof. Dr. A. K. Shakur Ahammad","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Dr. Taslima Khanam","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Dr. Md. Rafiqul Islam Sarder","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
+  {"name":"Dr. Md. Abdus Salam","desig":"Professor","dept":"Department of Aquaculture","fac":"Faculty of Fisheries, BAU"}
+]
+</script>
+
+<script>
+const API_URL = "https://asif.bdasif321.workers.dev/";
+const TEACHERS_API_URL = "https://asif.bdasif321.workers.dev/teachers";
+
+let STUDENTS = [{ id: "2602149", name: "Mohammad Asif", reg: "61046", status: "ok" }];
+const MEM_CACHE = { "2602149": { name: "Mohammad Asif", reg: "61046" } };
+const DEBOUNCE_TIMERS = {};
+
+let abortFlag = false;
+let isBulkFetching = false;
+let autoFetchEnabled = true;
+let hasSecondTeacher = false;
+let levelManuallyEdited = false;
+let sessionManuallyEdited = false;
+let facultyManuallyEdited = false;
+
+const FACULTY_MAP = {
+  "01": "Faculty of Veterinary Science",
+  "02": "Faculty of Agriculture",
+  "03": "Faculty of Animal Husbandry",
+  "04": "Faculty of Agricultural Economics & Rural Sociology",
+  "05": "Faculty of Agricultural Engineering & Technology",
+  "06": "Faculty of Fisheries",
+  "10": "School of Veterinary Science & Animal Husbandry"
+};
+
+const DEPT_PREFIX_MAP = {
+  "AGRON":   { dept: "Department of Agronomy", fac: "Faculty of Agriculture, BAU" },
+  "SS":      { dept: "Department of Soil Science", fac: "Faculty of Agriculture, BAU" },
+  "ENTOM":   { dept: "Department of Entomology", fac: "Faculty of Agriculture, BAU" },
+  "HORT":    { dept: "Department of Horticulture", fac: "Faculty of Agriculture, BAU" },
+  "PPATH":   { dept: "Department of Plant Pathology", fac: "Faculty of Agriculture, BAU" },
+  "CBOT":    { dept: "Department of Crop Botany", fac: "Faculty of Agriculture, BAU" },
+  "GPB":     { dept: "Department of Genetics and Plant Breeding", fac: "Faculty of Agriculture, BAU" },
+  "AGEXT":   { dept: "Department of Agricultural Extension Education", fac: "Faculty of Agriculture, BAU" },
+  "ACHEM":   { dept: "Department of Agricultural Chemistry", fac: "Faculty of Agriculture, BAU" },
+  "BMB":     { dept: "Department of Biochemistry and Molecular Biology", fac: "Faculty of Agriculture, BAU" },
+  "BIOTECH": { dept: "Department of Biotechnology", fac: "Faculty of Agriculture, BAU" },
+  "BTECH":   { dept: "Department of Biotechnology", fac: "Faculty of Agriculture, BAU" },
+  "ENVSC":   { dept: "Department of Environmental Science", fac: "Faculty of Agriculture, BAU" },
+  "AGFOR":   { dept: "Department of Agroforestry", fac: "Faculty of Agriculture, BAU" },
+  "AGROF":   { dept: "Department of Agroforestry", fac: "Faculty of Agriculture, BAU" },
+  "AGMET":   { dept: "Department of Agrometeorology", fac: "Faculty of Agriculture, BAU" },
+  "SEED":    { dept: "Seed Science and Technology", fac: "Faculty of Agriculture, BAU" },
+  "LANG":    { dept: "Department of Languages", fac: "Faculty of Agriculture, BAU" },
+  "LAN":     { dept: "Department of Languages", fac: "Faculty of Agriculture, BAU" },
+  "PHYS":    { dept: "Department of Physics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "CHEM":    { dept: "Department of Chemistry", fac: "Faculty of Agriculture, BAU" },
+  "ANAT":    { dept: "Department of Anatomy and Histology", fac: "Faculty of Veterinary Science, BAU" },
+  "VPHYS":   { dept: "Department of Physiology", fac: "Faculty of Veterinary Science, BAU" },
+  "PHARM":   { dept: "Department of Pharmacology", fac: "Faculty of Veterinary Science, BAU" },
+  "PARA":    { dept: "Department of Parasitology", fac: "Faculty of Veterinary Science, BAU" },
+  "MICRO":   { dept: "Department of Microbiology and Hygiene", fac: "Faculty of Veterinary Science, BAU" },
+  "PATH":    { dept: "Department of Pathology", fac: "Faculty of Veterinary Science, BAU" },
+  "VMED":    { dept: "Department of Medicine", fac: "Faculty of Veterinary Science, BAU" },
+  "MED":     { dept: "Department of Medicine", fac: "Faculty of Veterinary Science, BAU" },
+  "SURG":    { dept: "Department of Surgery and Obstetrics", fac: "Faculty of Veterinary Science, BAU" },
+  "ANSC":    { dept: "Department of Animal Science", fac: "Faculty of Animal Husbandry, BAU" },
+  "AS":      { dept: "Department of Animal Science", fac: "Faculty of Animal Husbandry, BAU" },
+  "ABG":     { dept: "Department of Animal Breeding and Genetics", fac: "Faculty of Animal Husbandry, BAU" },
+  "ANN":     { dept: "Department of Animal Nutrition", fac: "Faculty of Animal Husbandry, BAU" },
+  "DSC":     { dept: "Department of Dairy Science", fac: "Faculty of Animal Husbandry, BAU" },
+  "PSC":     { dept: "Department of Poultry Science", fac: "Faculty of Animal Husbandry, BAU" },
+  "AE":      { dept: "Department of Agricultural Economics", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
+  "AF":      { dept: "Department of Agricultural Finance and Banking", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
+  "ABM":     { dept: "Department of Agribusiness and Marketing", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
+  "RS":      { dept: "Department of Rural Sociology", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
+  "STAT":    { dept: "Department of Agricultural Statistics", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
+  "FPM":     { dept: "Department of Farm Power and Machinery", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "IWM":     { dept: "Department of Irrigation and Water Management", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "FSE":     { dept: "Department of Farm Structure and Environmental Engineering", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "FT":      { dept: "Department of Food Technology and Rural Industries", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "CS":      { dept: "Department of Computer Science and Mathematics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "CSM":     { dept: "Department of Computer Science and Mathematics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
+  "FBG":     { dept: "Department of Fisheries Biology and Genetics", fac: "Faculty of Fisheries, BAU" },
+  "AQ":      { dept: "Department of Aquaculture", fac: "Faculty of Fisheries, BAU" },
+  "FM":      { dept: "Department of Fisheries Management", fac: "Faculty of Fisheries, BAU" },
+  "FFT":     { dept: "Department of Fisheries Technology", fac: "Faculty of Fisheries, BAU" },
+  "MF":      { dept: "Department of Marine Fisheries Science", fac: "Faculty of Fisheries, BAU" }
+};
+
+const COURSE_CATALOG = {
+  "AGRON 1101": { title: "Fundamentals of Agronomy", dept: "Department of Agronomy" },
+  "AGRON 1102": { title: "Introductory Agronomic Practices", dept: "Department of Agronomy" },
+  "AGRON 1201": { title: "Seed Science and Technology", dept: "Department of Agronomy" },
+  "AGRON 1202": { title: "Seed Science and Technology (Practical)", dept: "Department of Agronomy" },
+  "AGRON 2101": { title: "Weed Science", dept: "Department of Agronomy" },
+  "AGRON 2102": { title: "Weed Science (Practical)", dept: "Department of Agronomy" },
+  "AGRON 2201": { title: "Field Crop Production", dept: "Department of Agronomy" },
+  "AGRON 2202": { title: "Field Crop Production (Practical)", dept: "Department of Agronomy" },
+  "AGRON 3101": { title: "Crop Ecology and Climate Change", dept: "Department of Agronomy" },
+  "AGRON 3201": { title: "Crop Husbandry and Farming Systems", dept: "Department of Agronomy" },
+  "AGRON 3202": { title: "Crop Husbandry and Farming Systems (Practical)", dept: "Department of Agronomy" },
+  "AGRON 4101": { title: "Introductory Cropping Systems", dept: "Department of Agronomy" },
+  "AGRON 4102": { title: "Introductory Cropping Systems (Practical)", dept: "Department of Agronomy" },
+  "AGRON 4121": { title: "Crop Production under Vulnerable Ecosystem", dept: "Department of Agronomy" },
+  "AGRON 4201": { title: "Modern Agronomic Practices and Farm Management", dept: "Department of Agronomy" },
+  "AGRON 4203": { title: "Forage Crops and Pasture Management", dept: "Department of Agronomy" },
+  "AGRON 4204": { title: "Forage Crops and Pasture Management (Practical)", dept: "Department of Agronomy" },
+  "SS 1101": { title: "Introductory Soil Science", dept: "Department of Soil Science" },
+  "SS 1102": { title: "Introductory Soil Science (Practical)", dept: "Department of Soil Science" },
+  "SS 1201": { title: "Soil Survey, Classification and Conservation", dept: "Department of Soil Science" },
+  "SS 1202": { title: "Soil Survey, Classification and Conservation (Practical)", dept: "Department of Soil Science" },
+  "SS 2101": { title: "Soil Survey, Classification and Conservation", dept: "Department of Soil Science" },
+  "SS 2201": { title: "Soil Physics and Soil Chemistry", dept: "Department of Soil Science" },
+  "SS 2202": { title: "Soil Physics and Soil Chemistry (Practical)", dept: "Department of Soil Science" },
+  "SS 3101": { title: "Soil Fertility and Plant Nutrition", dept: "Department of Soil Science" },
+  "SS 3102": { title: "Soil Fertility and Plant Nutrition (Practical)", dept: "Department of Soil Science" },
+  "SS 3201": { title: "Soil Microbiology and Biochemistry", dept: "Department of Soil Science" },
+  "SS 4101": { title: "Soil Biology", dept: "Department of Soil Science" },
+  "SS 4102": { title: "Soil Biology (Practical)", dept: "Department of Soil Science" },
+  "SS 4203": { title: "Soil Pollution", dept: "Department of Soil Science" },
+  "SS 4204": { title: "Soil Pollution (Practical)", dept: "Department of Soil Science" },
+  "ACHEM 1101": { title: "Agroanalytical, Physical and Organic Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1102": { title: "Agroanalytical, Physical and Organic Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1121": { title: "Physical and Organic Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1122": { title: "Physical and Organic Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1123": { title: "Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1125": { title: "Food and Agricultural Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 1127": { title: "Fundamentals of Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 2201": { title: "Nuclear and Agroindustrial Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 2202": { title: "Nuclear and Agroindustrial Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 2221": { title: "Agroindustrial, Nuclear and Natural Product Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 3101": { title: "Plant Nutrition, Pesticide and Environmental Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 3102": { title: "Plant Nutrition, Pesticide and Environmental Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 4101": { title: "Bioenergy-Principles and Practices", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 4102": { title: "Bioenergy-Principles and Practices (Practical)", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 4121": { title: "Plant Nutrition, Pesticide and Environmental Chemistry", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 4201": { title: "Micronutrients in Agriculture", dept: "Department of Agricultural Chemistry" },
+  "ACHEM 4202": { title: "Micronutrients in Agriculture (Practical)", dept: "Department of Agricultural Chemistry" },
+  "HORT 1101": { title: "Introductory Horticulture", dept: "Department of Horticulture" },
+  "HORT 1102": { title: "Introductory Horticulture (Practical)", dept: "Department of Horticulture" },
+  "HORT 1201": { title: "Fundamentals of Horticulture", dept: "Department of Horticulture" },
+  "HORT 1202": { title: "Fundamentals of Horticulture (Practical)", dept: "Department of Horticulture" },
+  "HORT 2101": { title: "Ornamental Horticulture and Plantation Crops", dept: "Department of Horticulture" },
+  "HORT 2102": { title: "Ornamental Horticulture and Plantation Crops (Practical)", dept: "Department of Horticulture" },
+  "HORT 3101": { title: "Vegetable and Spice Crops", dept: "Department of Horticulture" },
+  "HORT 3102": { title: "Vegetable and Spice Crops (Practical)", dept: "Department of Horticulture" },
+  "HORT 3201": { title: "Pomology (Fruit Science)", dept: "Department of Horticulture" },
+  "HORT 3202": { title: "Pomology (Practical)", dept: "Department of Horticulture" },
+  "HORT 4101": { title: "Postharvest Management of Horticultural Crops", dept: "Department of Horticulture" },
+  "HORT 4102": { title: "Postharvest Management of Horticultural Crops (Practical)", dept: "Department of Horticulture" },
+  "HORT 4203": { title: "Commercial Horticulture", dept: "Department of Horticulture" },
+  "HORT 4204": { title: "Commercial Horticulture (Practical)", dept: "Department of Horticulture" },
+  "CBOT 1101": { title: "Agricultural Botany", dept: "Department of Crop Botany" },
+  "CBOT 1102": { title: "Agricultural Botany (Practical)", dept: "Department of Crop Botany" },
+  "CBOT 1201": { title: "Agricultural Botany", dept: "Department of Crop Botany" },
+  "CBOT 1202": { title: "Agricultural Botany (Practical)", dept: "Department of Crop Botany" },
+  "CBOT 2101": { title: "Plant Morphology, Embryology and Taxonomy", dept: "Department of Crop Botany" },
+  "CBOT 2102": { title: "Plant Morphology, Embryology and Taxonomy (Practical)", dept: "Department of Crop Botany" },
+  "CBOT 2201": { title: "Plant Physiology", dept: "Department of Crop Botany" },
+  "CBOT 2202": { title: "Plant Physiology (Practical)", dept: "Department of Crop Botany" },
+  "CBOT 3101": { title: "Plant Ecology and Biodiversity", dept: "Department of Crop Botany" },
+  "CBOT 4201": { title: "Crop Physiology", dept: "Department of Crop Botany" },
+  "CBOT 4202": { title: "Crop Physiology (Practical)", dept: "Department of Crop Botany" },
+  "CBOT 4203": { title: "Plant Biodiversity and Conservation", dept: "Department of Crop Botany" },
+  "CBOT 4204": { title: "Plant Biodiversity and Conservation (Practical)", dept: "Department of Crop Botany" },
+  "ENTOM 1101": { title: "Introductory Entomology", dept: "Department of Entomology" },
+  "ENTOM 2201": { title: "Fundamentals of Entomology", dept: "Department of Entomology" },
+  "ENTOM 2202": { title: "Fundamentals of Entomology (Practical)", dept: "Department of Entomology" },
+  "ENTOM 3101": { title: "Insect Ecology and Pest Management", dept: "Department of Entomology" },
+  "ENTOM 3102": { title: "Insect Ecology and Pest Management (Practical)", dept: "Department of Entomology" },
+  "ENTOM 4101": { title: "Economic Entomology and Apiculture", dept: "Department of Entomology" },
+  "PPATH 1101": { title: "Fundamentals of Plant Pathology", dept: "Department of Plant Pathology" },
+  "PPATH 2201": { title: "Fundamentals of Plant Pathology", dept: "Department of Plant Pathology" },
+  "PPATH 2202": { title: "Fundamentals of Plant Pathology (Practical)", dept: "Department of Plant Pathology" },
+  "PPATH 3101": { title: "Principles of Plant Pathology and Disease Management", dept: "Department of Plant Pathology" },
+  "PPATH 4101": { title: "Diseases of Field and Horticultural Crops", dept: "Department of Plant Pathology" },
+  "PPATH 4202": { title: "Plant Disease Clinic (Practical)", dept: "Department of Plant Pathology" },
+  "GPB 1101": { title: "Cytology and Genetics", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 2201": { title: "Cytology and Genetics", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 2202": { title: "Cytology and Genetics (Practical)", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 3101": { title: "Genetics and Cytogenetics", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 3201": { title: "Principles of Plant Breeding", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 4101": { title: "Plant Biotechnology and Genetic Engineering", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 4102": { title: "Plant Biotechnology and Genetic Engineering (Practical)", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 4203": { title: "Special Plant Breeding", dept: "Department of Genetics and Plant Breeding" },
+  "GPB 4204": { title: "Special Plant Breeding (Practical)", dept: "Department of Genetics and Plant Breeding" },
+  "BMB 1103": { title: "Biophysics and Biomolecular Chemistry", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 1104": { title: "Biophysics and Biomolecular Chemistry (Practical)", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 1201": { title: "Chemistry of Biomolecules", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 1211": { title: "Metabolism of Biomolecules", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 2101": { title: "Metabolism and Human Nutrition", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 4101": { title: "Fundamentals of Molecular Biochemistry and Biotechnology", dept: "Department of Biochemistry and Molecular Biology" },
+  "BMB 4102": { title: "Fundamentals of Molecular Biochemistry and Biotechnology (Practical)", dept: "Department of Biochemistry and Molecular Biology" },
+  "AGEXT 1101": { title: "Fundamentals of Agricultural Extension Education", dept: "Department of Agricultural Extension Education" },
+  "AGEXT 2201": { title: "Extension Teaching Methods and Aids", dept: "Department of Agricultural Extension Education" },
+  "AGEXT 3101": { title: "Extension Organization and Management", dept: "Department of Agricultural Extension Education" },
+  "AGEXT 3102": { title: "Data Collection, Processing and Report Writing (Practical)", dept: "Department of Agricultural Extension Education" },
+  "AGEXT 4103": { title: "Extension for Sustainable Agricultural Development", dept: "Department of Agricultural Extension Education" },
+  "AGEXT 4104": { title: "Extension for Sustainable Agricultural Development (Practical)", dept: "Department of Agricultural Extension Education" },
+  "LAN 1001":   { title: "English Language", dept: "Department of Languages" },
+  "LANG 1101":  { title: "Communicative English", dept: "Department of Languages" },
+  "BTECH 1201": { title: "Basic Biotechnology", dept: "Department of Biotechnology" },
+  "BTECH 1202": { title: "Basic Biotechnology (Practical)", dept: "Department of Biotechnology" },
+  "BTECH 4001": { title: "Genetic Engineering and Biotechnology", dept: "Department of Biotechnology" },
+  "BTECH 4002": { title: "Genetic Engineering and Biotechnology (Practical)", dept: "Department of Biotechnology" },
+  "BIOTECH 3101": { title: "Principles of Agricultural Biotechnology", dept: "Department of Biotechnology" },
+  "AGROF 3101": { title: "Principles of Agroforestry", dept: "Department of Agroforestry" },
+  "AGFOR 3101": { title: "Principles of Agroforestry", dept: "Department of Agroforestry" },
+  "ENVSC 2101": { title: "Introductory Environmental Science", dept: "Department of Environmental Science" },
+  "ENVSC 4001": { title: "Management of Environment", dept: "Department of Environmental Science" },
+  "ENVSC 4002": { title: "Management of Environment (Practical)", dept: "Department of Environmental Science" },
+  "STAT 1201":  { title: "Agricultural Statistics", dept: "Department of Agricultural Statistics" },
+  "STAT 1202":  { title: "Agricultural Statistics (Practical)", dept: "Department of Agricultural Statistics" },
+  "RS 1201":    { title: "Rural Sociology", dept: "Department of Rural Sociology" },
+  "AE 1103":    { title: "Agricultural Economics", dept: "Department of Agricultural Economics" },
+  "FPM 1101":   { title: "Farm Mechanics", dept: "Department of Farm Power and Machinery" },
+  "FPM 1102":   { title: "Farm Mechanics (Practical)", dept: "Department of Farm Power and Machinery" },
+  "ANAT 1101":  { title: "Gross Anatomy", dept: "Department of Anatomy and Histology" },
+  "VPHYS 1101": { title: "Veterinary Physiology", dept: "Department of Physiology" },
+  "PHARM 2101": { title: "General and Systemic Pharmacology", dept: "Department of Pharmacology" },
+  "PARA 2101":  { title: "Veterinary Helminthology and Protozoology", dept: "Department of Parasitology" },
+  "MICRO 2101": { title: "General Bacteriology and Mycology", dept: "Department of Microbiology and Hygiene" },
+  "PATH 2101":  { title: "General Veterinary Pathology", dept: "Department of Pathology" },
+  "VMED 3101":  { title: "Veterinary Clinical Medicine", dept: "Department of Medicine" },
+  "SURG 3101":  { title: "General and Anaesthetic Surgery", dept: "Department of Surgery and Obstetrics" },
+  "ANSC 1101":  { title: "Introduction to Animal Science", dept: "Department of Animal Science" },
+  "ABG 1101":   { title: "Principles of Animal Genetics", dept: "Department of Animal Breeding and Genetics" },
+  "ANN 2101":   { title: "Fundamentals of Animal Nutrition", dept: "Department of Animal Nutrition" },
+  "DSC 2101":   { title: "Dairy Chemistry and Microbiology", dept: "Department of Dairy Science" },
+  "PSC 2101":   { title: "Poultry Production and Management", dept: "Department of Poultry Science" },
+  "AE 1101":    { title: "Microeconomics", dept: "Department of Agricultural Economics" },
+  "AF 1101":    { title: "Principles of Agricultural Finance", dept: "Department of Agricultural Finance and Banking" },
+  "ABM 1101":   { title: "Principles of Agribusiness Management", dept: "Department of Agribusiness and Marketing" },
+  "IWM 2101":   { title: "Fluid Mechanics and Open Channel Hydraulics", dept: "Department of Irrigation and Water Management" },
+  "FSE 2101":   { title: "Strength of Materials", dept: "Department of Farm Structure and Environmental Engineering" },
+  "FT 1101":    { title: "Principles of Food Science and Technology", dept: "Department of Food Technology and Rural Industries" },
+  "CS 1101":    { title: "Computer Programming and Applications", dept: "Department of Computer Science and Mathematics" },
+  "FBG 1101":   { title: "Ichthyology", dept: "Department of Fisheries Biology and Genetics" },
+  "AQ 1101":    { title: "Principles of Aquaculture", dept: "Department of Aquaculture" },
+  "FM 1101":    { title: "Limnology and Aquatic Ecology", dept: "Department of Fisheries Management" },
+  "FFT 2101":   { title: "Fish Harvesting and Processing Technology", dept: "Department of Fisheries Technology" }
+};
+
+let BAU_TEACHERS = [];
+try {
+  const embeddedEl = document.getElementById("bauTeachersEmbedded");
+  if (embeddedEl) BAU_TEACHERS = JSON.parse(embeddedEl.textContent);
+} catch (e) {}
+
+async function loadBauTeachersDirectory() {
+  const badge = document.getElementById("teacherSyncBadge");
+  function mergeTeachers(newList) {
+    const map = new Map();
+    BAU_TEACHERS.forEach(t => map.set((t.name + "|" + t.dept).toLowerCase(), t));
+    newList.forEach(t => {
+      if (t && t.name) map.set((t.name + "|" + (t.dept || "")).toLowerCase(), t);
+    });
+    BAU_TEACHERS = Array.from(map.values());
+    if (badge) badge.textContent = `${BAU_TEACHERS.length} BAU Teachers Loaded`;
+  }
+  mergeTeachers([]);
+  try {
+    const cached = localStorage.getItem("bau_teachers_cache_v3");
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) mergeTeachers(parsed);
+    }
+    const res = await fetch(TEACHERS_API_URL);
+    if (res.ok) {
+      const json = await res.json();
+      const list = Array.isArray(json) ? json : (json.teachers || json.data || []);
+      if (Array.isArray(list) && list.length > 0) {
+        mergeTeachers(list);
+        localStorage.setItem("bau_teachers_cache_v3", JSON.stringify(BAU_TEACHERS));
+      }
+    }
+  } catch (e) {}
+}
+loadBauTeachersDirectory();
+
+const courseDatalist = document.getElementById("bauCourseList");
+Object.keys(COURSE_CATALOG).forEach(code => {
+  const opt = document.createElement("option");
+  opt.value = code;
+  opt.label = COURSE_CATALOG[code].title;
+  courseDatalist.appendChild(opt);
+});
+
+const dateInput = document.getElementById("subDate");
+dateInput.valueAsDate = new Date();
+
+function formatPrettyDate(isoStr) {
+  if (!isoStr) return "....................";
+  const [y, m, d] = isoStr.split("-");
+  const months = ["January", "February", "March", "April", "May", "June",
+                  "July", "August", "September", "October", "November", "December"];
+  return `${parseInt(d, 10)} ${months[parseInt(m, 10) - 1]}, ${y}`;
+}
+
+function escapeHtml(str) {
+  return (str || "").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+  }[ch]));
+}
+
+function parseBauIdMeta(cleanId) {
+  const result = { session: null, faculty: null };
+  if (/^\d{2,}/.test(cleanId)) {
+    const yy = parseInt(cleanId.slice(0, 2), 10);
+    const endYear = 2000 + yy;
+    const startYear = endYear - 1;
+    result.session = `${startYear}-${endYear}`;
+  }
+  if (/^\d{4,}/.test(cleanId)) {
+    const facCode = cleanId.slice(2, 4);
+    if (FACULTY_MAP[facCode]) {
+      result.faculty = FACULTY_MAP[facCode];
+    }
+  }
+  return result;
+}
+
+function applyIdMetaToForm(cleanId) {
+  const meta = parseBauIdMeta(cleanId);
+  if (!sessionManuallyEdited && meta.session) {
+    document.getElementById("stSession").value = meta.session;
+    const hint = document.getElementById("sessionHint");
+    if (hint) hint.textContent = "(Auto-updated from ID)";
+  }
+  if (!facultyManuallyEdited && meta.faculty) {
+    document.getElementById("stFaculty").value = meta.faculty;
+  }
+}
+
+/* Multi-Student Management */
+function setApiStatus(msg, color, showStop) {
+  const el = document.getElementById("apiStatus");
+  const stopBtn = document.getElementById("stopFetchBtn");
+  if (el) {
+    el.style.color = color || "#0275d8";
+    el.textContent = msg;
+  }
+  if (stopBtn) {
+    if (showStop) stopBtn.classList.add("show");
+    else stopBtn.classList.remove("show");
+  }
+}
+
+function getBadgeInfo(st) {
+  if (st.status === "loading") return { text: "Fetching...", cls: "student-badge loading" };
+  if (st.status === "ok" || st.name || st.reg) {
+    return { text: `${st.name || "N/A"} | Reg: ${st.reg || "N/A"}`, cls: "student-badge ok" };
+  }
+  if (st.status === "err") return { text: "Not found / Invalid ID", cls: "student-badge err" };
+  return { text: "Type Student ID to auto-fill...", cls: "student-badge" };
+}
+
+function updateRowBadge(index) {
+  const badgeEl = document.getElementById("badge_" + index);
+  if (!badgeEl || !STUDENTS[index]) return;
+  const b = getBadgeInfo(STUDENTS[index]);
+  badgeEl.className = b.cls;
+  badgeEl.textContent = b.text;
+  badgeEl.title = b.text;
+}
+
+function renderStudentInputs() {
+  const container = document.getElementById("studentInputs");
+  let html = "";
+  STUDENTS.forEach((st, idx) => {
+    if (autoFetchEnabled) {
+      const b = getBadgeInfo(st);
+      html += `
+        <div class="student-row">
+          <input type="text" placeholder="Student ID (e.g. 2602149)" value="${escapeHtml(st.id)}"
+            oninput="updateStudentId(${idx}, this.value)">
+          <div id="badge_${idx}" class="${b.cls}" title="${escapeHtml(b.text)}">${escapeHtml(b.text)}</div>
+          <button type="button" class="btn-fetch-row" title="Re-fetch" onclick="fetchStudentRow(${idx})">↻</button>
+          ${STUDENTS.length > 1 ? `<button type="button" class="btn-remove" onclick="removeStudentRow(${idx})">X</button>` : ""}
+        </div>`;
+    } else {
+      html += `
+        <div class="student-row">
+          <input type="text" placeholder="Student ID (e.g. 2602149)" value="${escapeHtml(st.id)}"
+            oninput="updateStudentId(${idx}, this.value)">
+          <input type="text" placeholder="Student Name" value="${escapeHtml(st.name)}"
+            oninput="updateStudentField(${idx}, 'name', this.value)">
+          <input type="text" placeholder="Reg. No." value="${escapeHtml(st.reg)}"
+            oninput="updateStudentField(${idx}, 'reg', this.value)">
+          ${STUDENTS.length > 1 ? `<button type="button" class="btn-remove" onclick="removeStudentRow(${idx})">X</button>` : ""}
+        </div>`;
+    }
+  });
+  container.innerHTML = html;
+}
+
+window.toggleAutoFetchMode = function(checked) {
+  autoFetchEnabled = !!checked;
+  const titleEl = document.getElementById("studentSectionTitle");
+  const fetchAllBtn = document.getElementById("fetchAllBtn");
+  if (autoFetchEnabled) {
+    titleEl.textContent = "2. Submitted By (Students List — Auto-Fetch from ID)";
+    fetchAllBtn.style.display = "inline-block";
+    renderStudentInputs();
+    fetchAllStudents();
+  } else {
+    abortFlag = true;
+    Object.keys(DEBOUNCE_TIMERS).forEach(k => clearTimeout(DEBOUNCE_TIMERS[k]));
+    setApiStatus("Manual Mode: Enter ID, Name & Reg. No. manually.", "#6c757d", false);
+    titleEl.textContent = "2. Submitted By (Manual Student Entry)";
+    fetchAllBtn.style.display = "none";
+    renderStudentInputs();
+    updatePreview();
+  }
+};
+
+window.addStudentRow = function() {
+  STUDENTS.push({ id: "", name: "", reg: "", status: "" });
+  renderStudentInputs();
+  updatePreview();
+};
+
+window.removeStudentRow = function(idx) {
+  if (DEBOUNCE_TIMERS[idx]) clearTimeout(DEBOUNCE_TIMERS[idx]);
+  STUDENTS.splice(idx, 1);
+  renderStudentInputs();
+  updatePreview();
+};
+
+window.removeAllStudents = function() {
+  abortFlag = true;
+  isBulkFetching = false;
+  sessionManuallyEdited = false;
+  facultyManuallyEdited = false;
+  Object.keys(DEBOUNCE_TIMERS).forEach(k => clearTimeout(DEBOUNCE_TIMERS[k]));
+  STUDENTS = [{ id: "", name: "", reg: "", status: "" }];
+  setApiStatus(autoFetchEnabled ? "" : "Manual Mode: Enter ID, Name & Reg. No. manually.", "#6c757d", false);
+  renderStudentInputs();
+  updatePreview();
+};
+
+window.updateStudentField = function(idx, key, val) {
+  if (STUDENTS[idx]) {
+    STUDENTS[idx][key] = val;
+    updatePreview();
+  }
+};
+
+async function queryApiWithRetry(cleanId, retries = 1) {
+  if (MEM_CACHE[cleanId]) return { ok: true, data: MEM_CACHE[cleanId] };
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    if (abortFlag || !autoFetchEnabled) return { ok: false, aborted: true };
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 9000);
+    try {
+      const res = await fetch(API_URL + "?id=" + encodeURIComponent(cleanId), { signal: controller.signal });
+      clearTimeout(timer);
+      const json = await res.json();
+      if (res.ok && json && json.success && json.data) {
+        const info = {
+          name: (json.data.Name || "").toString().trim(),
+          reg: (json.data.RegistrationNo || "").toString().trim()
+        };
+        MEM_CACHE[cleanId] = info;
+        return { ok: true, data: info };
+      }
+    } catch (e) {
+      clearTimeout(timer);
+      if (attempt < retries && !abortFlag && autoFetchEnabled) {
+        await new Promise(r => setTimeout(r, 250));
+      }
+    }
+  }
+  return { ok: false };
+}
+
+async function fetchOneStudent(index, silent) {
+  if (!autoFetchEnabled) return false;
+  const item = STUDENTS[index];
+  if (!item) return false;
+  const cleanId = (item.id || "").trim();
+  if (!/^\d+$/.test(cleanId)) {
+    item.name = "";
+    item.reg = "";
+    item.status = cleanId ? "err" : "";
+    if (!silent) updateRowBadge(index);
+    return false;
+  }
+
+  if (!silent) {
+    item.status = "loading";
+    updateRowBadge(index);
+  }
+
+  const result = await queryApiWithRetry(cleanId, 1);
+  if (!autoFetchEnabled || !STUDENTS[index] || (STUDENTS[index].id || "").trim() !== cleanId) return false;
+
+  if (result.aborted) {
+    item.status = "";
+    if (!silent) updateRowBadge(index);
+    return false;
+  }
+
+  if (result.ok && result.data) {
+    item.name = result.data.name;
+    item.reg = result.data.reg;
+    item.status = "ok";
+    updateRowBadge(index);
+    return true;
+  } else {
+    item.name = "";
+    item.reg = "";
+    item.status = "err";
+    updateRowBadge(index);
+    return false;
+  }
+}
+
+window.stopAllFetches = function() {
+  abortFlag = true;
+  setApiStatus("Stopping remaining requests...", "#dc2626", false);
+};
+
+window.fetchStudentRow = async function(index) {
+  if (!autoFetchEnabled) return;
+  const item = STUDENTS[index];
+  if (!item || !/^\d+$/.test((item.id || "").trim())) return;
+  abortFlag = false;
+  await fetchOneStudent(index, false);
+  updatePreview();
+};
+
+window.fetchAllStudents = async function() {
+  if (!autoFetchEnabled || STUDENTS.length === 0) return;
+  if (isBulkFetching) {
+    abortFlag = true;
+    await new Promise(r => setTimeout(r, 80));
+  }
+  isBulkFetching = true;
+  abortFlag = false;
+
+  const firstValid = STUDENTS.find(s => /^\d{2,}/.test((s.id || "").trim()));
+  if (firstValid) applyIdMetaToForm(firstValid.id.trim());
+
+  const total = STUDENTS.length;
+  let processed = 0;
+  let okCount = 0;
+  let cursor = 0;
+  const CONCURRENCY = 8;
+
+  setApiStatus(`Fetching 0 / ${total}...`, "#0275d8", true);
+
+  async function worker() {
+    while (cursor < total && !abortFlag && autoFetchEnabled) {
+      const idx = cursor++;
+      const item = STUDENTS[idx];
+      if (!item) continue;
+      const cleanId = (item.id || "").trim();
+
+      if (item.status === "ok" && item.name && item.reg && MEM_CACHE[cleanId]) {
+        processed++;
+        okCount++;
+        continue;
+      }
+      const ok = await fetchOneStudent(idx, true);
+      processed++;
+      if (ok) okCount++;
+      if (processed % 4 === 0 || processed === total) {
+        setApiStatus(`Fetching: ${processed} / ${total} (${okCount} found)...`, "#0275d8", true);
+      }
+    }
+  }
+
+  const workers = [];
+  for (let w = 0; w < Math.min(CONCURRENCY, total); w++) workers.push(worker());
+  await Promise.all(workers);
+
+  isBulkFetching = false;
+  renderStudentInputs();
+  updatePreview();
+
+  if (!autoFetchEnabled) return;
+  if (abortFlag) {
+    setApiStatus(`Stopped at ${processed} / ${total}. Loaded ${okCount} student(s).`, "#d97706", false);
+  } else {
+    setApiStatus(`Completed: ${okCount} of ${total} student(s) loaded.`, "#176b42", false);
+  }
+};
+
+window.updateStudentId = function(idx, val) {
+  const clean = val.trim();
+  STUDENTS[idx].id = val;
+
+  if (idx === 0 && /^\d{2,}/.test(clean)) {
+    applyIdMetaToForm(clean);
+  }
+
+  if (!autoFetchEnabled) {
+    updatePreview();
+    return;
+  }
+
+  STUDENTS[idx].name = "";
+  STUDENTS[idx].reg = "";
+  if (DEBOUNCE_TIMERS[idx]) clearTimeout(DEBOUNCE_TIMERS[idx]);
+
+  if (!clean) {
+    STUDENTS[idx].status = "";
+    updateRowBadge(idx);
+    updatePreview();
+    return;
+  }
+
+  if (!/^\d+$/.test(clean)) {
+    STUDENTS[idx].status = "err";
+    updateRowBadge(idx);
+    updatePreview();
+    return;
+  }
+
+  if (MEM_CACHE[clean]) {
+    STUDENTS[idx].name = MEM_CACHE[clean].name;
+    STUDENTS[idx].reg = MEM_CACHE[clean].reg;
+    STUDENTS[idx].status = "ok";
+    updateRowBadge(idx);
+    updatePreview();
+    return;
+  }
+
+  STUDENTS[idx].status = "loading";
+  updateRowBadge(idx);
+  updatePreview();
+
+  const delay = clean.length >= 7 ? 150 : 500;
+  DEBOUNCE_TIMERS[idx] = setTimeout(() => fetchStudentRow(idx), delay);
+};
+
+window.toggleToolDrawer = function(chkId, boxId) {
+  const chk = document.getElementById(chkId);
+  const box = document.getElementById(boxId);
+  if (!chk || !box) return;
+  if (chk.checked) {
+    box.classList.add("open");
+    const inp = box.querySelector("textarea, input");
+    if (inp) setTimeout(() => inp.focus(), 50);
+  } else {
+    box.classList.remove("open");
+  }
+};
+
+window.processBulkPaste = async function(replace) {
+  const ta = document.getElementById("bulkTextarea");
+  const nums = (ta.value || "").trim().match(/\d+/g);
+  if (!nums || nums.length === 0) {
+    alert("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).");
+    ta.focus();
+    return;
+  }
+
+  Object.keys(DEBOUNCE_TIMERS).forEach(k => clearTimeout(DEBOUNCE_TIMERS[k]));
+  const parsed = nums.map(idStr => {
+    if (autoFetchEnabled && MEM_CACHE[idStr]) {
+      return { id: idStr, name: MEM_CACHE[idStr].name, reg: MEM_CACHE[idStr].reg, status: "ok" };
+    }
+    return { id: idStr, name: "", reg: "", status: autoFetchEnabled ? "loading" : "" };
+  });
+
+  if (replace || (STUDENTS.length === 1 && !STUDENTS[0].id.trim())) {
+    sessionManuallyEdited = false;
+    facultyManuallyEdited = false;
+    STUDENTS = parsed;
+  } else {
+    STUDENTS = STUDENTS.concat(parsed);
+  }
+
+  ta.value = "";
+  document.getElementById("chkBulk").checked = false;
+  document.getElementById("bulkPasteBox").classList.remove("open");
+
+  const firstValid = STUDENTS.find(s => /^\d{2,}/.test((s.id || "").trim()));
+  if (firstValid) applyIdMetaToForm(firstValid.id.trim());
+
+  renderStudentInputs();
+  updatePreview();
+  if (autoFetchEnabled) await fetchAllStudents();
+};
+
+window.processLoopGenerator = async function(replace) {
+  const startId = document.getElementById("loopStartId").value.trim();
+  const count = parseInt(document.getElementById("loopCount").value, 10);
+  if (!/^\d+$/.test(startId)) {
+    alert("Start ID must contain numbers only.");
+    return;
+  }
+  if (isNaN(count) || count < 1 || count > 200) {
+    alert("Please enter a valid count between 1 and 200.");
+    return;
+  }
+
+  Object.keys(DEBOUNCE_TIMERS).forEach(k => clearTimeout(DEBOUNCE_TIMERS[k]));
+  const len = startId.length;
+  const startNum = BigInt(startId);
+  const generated = [];
+  for (let i = 0; i < count; i++) {
+    const idStr = (startNum + BigInt(i)).toString().padStart(len, "0");
+    if (autoFetchEnabled && MEM_CACHE[idStr]) {
+      generated.push({ id: idStr, name: MEM_CACHE[idStr].name, reg: MEM_CACHE[idStr].reg, status: "ok" });
+    } else {
+      generated.push({ id: idStr, name: "", reg: "", status: autoFetchEnabled ? "loading" : "" });
+    }
+  }
+
+  if (replace || (STUDENTS.length === 1 && !STUDENTS[0].id.trim())) {
+    sessionManuallyEdited = false;
+    facultyManuallyEdited = false;
+    STUDENTS = generated;
+  } else {
+    STUDENTS = STUDENTS.concat(generated);
+  }
+
+  document.getElementById("chkLoop").checked = false;
+  document.getElementById("loopGenBox").classList.remove("open");
+
+  const firstValid = STUDENTS.find(s => /^\d{2,}/.test((s.id || "").trim()));
+  if (firstValid) applyIdMetaToForm(firstValid.id.trim());
+
+  renderStudentInputs();
+  updatePreview();
+  if (autoFetchEnabled) await fetchAllStudents();
+};
+
+function handleCourseCodeAutoSuggest() {
+  const codeEl = document.getElementById("courseCode");
+  const hintEl = document.getElementById("courseHint");
+  const rawUpper = codeEl.value.toUpperCase();
+  if (codeEl.value !== rawUpper) {
+    const pos = codeEl.selectionStart;
+    codeEl.value = rawUpper;
+    if (typeof pos === "number") codeEl.setSelectionRange(pos, pos);
+  }
+
+  const cleanCode = rawUpper.trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
+  const compactMatch = cleanCode.match(/^([A-Z]+)\s*(\d+)$/);
+  const lookupKey = compactMatch ? `${compactMatch[1]} ${compactMatch[2]}` : cleanCode;
+  const prefix = compactMatch ? compactMatch[1] : (cleanCode.match(/^[A-Z]+/) || [""])[0];
+  const digits = compactMatch ? compactMatch[2] : (cleanCode.match(/\d+/) || [""])[0];
+
+  let levelText = "";
+  if (!levelManuallyEdited && digits.length >= 2) {
+    const lvl = parseInt(digits[0], 10);
+    const sem = parseInt(digits[1], 10);
+    if (lvl >= 1 && lvl <= 5 && (sem === 1 || sem === 2)) {
+      levelText = `Level-${lvl}, Semester-${sem}`;
+      document.getElementById("stLevel").value = levelText;
+    }
+  }
+
+  const exactCourse = COURSE_CATALOG[lookupKey];
+  const deptInfo = DEPT_PREFIX_MAP[prefix];
+  const hintParts = [];
+
+  if (exactCourse) {
+    document.getElementById("courseTitle").value = exactCourse.title;
+    document.getElementById("tDept").value = exactCourse.dept;
+    if (deptInfo) document.getElementById("tFaculty").value = deptInfo.fac;
+    if (hasSecondTeacher) {
+      document.getElementById("t2Dept").value = exactCourse.dept;
+      if (deptInfo) document.getElementById("t2Faculty").value = deptInfo.fac;
+    }
+    hintParts.push(exactCourse.dept);
+    if (levelText) hintParts.push(levelText);
+    hintEl.textContent = `Auto-filled: ${hintParts.join(" | ")}`;
+    hintEl.style.color = "#176b42";
+  } else if (deptInfo) {
+    document.getElementById("tDept").value = deptInfo.dept;
+    document.getElementById("tFaculty").value = deptInfo.fac;
+    if (hasSecondTeacher) {
+      document.getElementById("t2Dept").value = deptInfo.dept;
+      document.getElementById("t2Faculty").value = deptInfo.fac;
+    }
+    hintParts.push(deptInfo.dept);
+    if (levelText) hintParts.push(levelText);
+    hintEl.textContent = `Detected: ${hintParts.join(" | ")}`;
+    hintEl.style.color = "#0f766e";
+  } else if (levelText) {
+    hintEl.textContent = `Detected: ${levelText}`;
+    hintEl.style.color = "#0f766e";
+  } else {
+    hintEl.textContent = "Auto-updates Title, Dept. & Level-Semester (e.g. 1201 → L-1, S-2)";
+    hintEl.style.color = "#285c9d";
+  }
+  updatePreview();
+}
+
+function setupTeacherAutocomplete(inputId, listId, desigId, deptId, facId) {
+  const inputEl = document.getElementById(inputId);
+  const listEl = document.getElementById(listId);
+
+  inputEl.addEventListener("input", () => {
+    const query = inputEl.value.trim().toLowerCase();
+    if (query.length < 2) {
+      listEl.classList.remove("open");
+      listEl.innerHTML = "";
+      return;
+    }
+    const matches = BAU_TEACHERS.filter(t =>
+      (t.name && t.name.toLowerCase().includes(query)) ||
+      (t.dept && t.dept.toLowerCase().includes(query))
+    ).slice(0, 15);
+
+    if (matches.length === 0) {
+      listEl.classList.remove("open");
+      listEl.innerHTML = "";
+      return;
+    }
+
+    listEl.innerHTML = matches.map((t, idx) => `
+      <div class="ac-item" data-idx="${idx}">
+        <div class="ac-name">${escapeHtml(t.name)}</div>
+        <div class="ac-meta">${escapeHtml(t.desig)} &bull; ${escapeHtml(t.dept)} &bull; ${escapeHtml(t.fac)}</div>
+      </div>
+    `).join("");
+
+    listEl.querySelectorAll(".ac-item").forEach((itemEl, idx) => {
+      itemEl.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        const chosen = matches[idx];
+        inputEl.value = chosen.name;
+        document.getElementById(desigId).value = chosen.desig;
+        document.getElementById(deptId).value = chosen.dept;
+        document.getElementById(facId).value = chosen.fac;
+        listEl.classList.remove("open");
+        updatePreview();
+      });
+    });
+
+    listEl.classList.add("open");
+  });
+
+  inputEl.addEventListener("blur", () => {
+    setTimeout(() => listEl.classList.remove("open"), 150);
+  });
+}
+
+setupTeacherAutocomplete("tName", "t1AcList", "tDesig", "tDept", "tFaculty");
+setupTeacherAutocomplete("t2Name", "t2AcList", "t2Desig", "t2Dept", "t2Faculty");
+
+window.toggleSecondTeacher = function() {
+  hasSecondTeacher = !hasSecondTeacher;
+  const box = document.getElementById("teacher2Box");
+  const btn = document.getElementById("toggleTeacher2Btn");
+  if (hasSecondTeacher) {
+    box.classList.add("open");
+    btn.textContent = "✕ Remove 2nd Teacher";
+    btn.classList.add("remove-mode");
+    if (!document.getElementById("t2Dept").value.trim()) {
+      document.getElementById("t2Dept").value = document.getElementById("tDept").value;
+    }
+    if (!document.getElementById("t2Faculty").value.trim()) {
+      document.getElementById("t2Faculty").value = document.getElementById("tFaculty").value;
+    }
+  } else {
+    box.classList.remove("open");
+    btn.textContent = "+ Add 2nd Teacher";
+    btn.classList.remove("remove-mode");
+  }
+  updatePreview();
+};
+
+function updatePreview() {
+  const container = document.getElementById("previewContainer");
+  const topicVal = document.getElementById("topic").value;
+  const codeVal = document.getElementById("courseCode").value.toUpperCase();
+  const titleVal = document.getElementById("courseTitle").value;
+  const groupSecVal = document.getElementById("stGroupSec").value;
+  const levelVal = document.getElementById("stLevel").value;
+  const defaultSessionVal = document.getElementById("stSession").value;
+  const defaultFacultyVal = document.getElementById("stFaculty").value;
+  const subDateFormatted = formatPrettyDate(document.getElementById("subDate").value);
+  const borderColor = document.getElementById("borderStyle").value === "red" ? "#a52c51" : "#176b42";
+
+  const t1Html = `
+    <div class="teacher-block">
+      <p class="teacher-name-line"><strong>${escapeHtml(document.getElementById("tName").value)}</strong></p>
+      <p>${escapeHtml(document.getElementById("tDesig").value)}</p>
+      <p>${escapeHtml(document.getElementById("tDept").value)}</p>
+      <p>${escapeHtml(document.getElementById("tFaculty").value)}</p>
+    </div>`;
+
+  let t2Html = "";
+  const t2NameVal = document.getElementById("t2Name").value.trim();
+  const isDual = hasSecondTeacher && t2NameVal;
+  if (isDual) {
+    t2Html = `
+      <div class="teacher-block">
+        <p class="teacher-name-line"><strong>${escapeHtml(document.getElementById("t2Name").value)}</strong></p>
+        <p>${escapeHtml(document.getElementById("t2Desig").value)}</p>
+        <p>${escapeHtml(document.getElementById("t2Dept").value)}</p>
+        <p>${escapeHtml(document.getElementById("t2Faculty").value)}</p>
+      </div>`;
+  }
+  const teachersClass = isDual ? "sub-details dual-teachers" : "sub-details single-teacher";
+
+  let pagesHtml = "";
+  STUDENTS.forEach(st => {
+    const cleanId = (st.id || "").trim();
+    const idMeta = parseBauIdMeta(cleanId);
+    const stSession = sessionManuallyEdited ? defaultSessionVal : (idMeta.session || defaultSessionVal);
+    const stFaculty = facultyManuallyEdited ? defaultFacultyVal : (idMeta.faculty || defaultFacultyVal);
+
+    pagesHtml += `
+      <div class="page-scale-wrapper">
+        <div class="a4-page">
+          <div class="cover-frame" style="border-color:${borderColor}; outline-color:${borderColor};">
+            <div class="top-section">
+              <div class="assignment-label">Assignment On</div>
+              <div class="topic-text">${escapeHtml(topicVal)}</div>
+            </div>
+
+            <div class="logo-section">
+              <img src="bau-logo.png" alt="BAU Logo">
+            </div>
+
+            <div class="course-section">
+              <div class="course-code">Course Code: ${escapeHtml(codeVal)}</div>
+              <div class="course-title">Course Title: ${escapeHtml(titleVal)}</div>
+            </div>
+
+            <div class="submission-grid">
+              <div class="sub-col">
+                <div class="sub-heading">Submitted By:</div>
+                <div class="sub-details">
+                  <p><span class="st-name-bold">${escapeHtml(st.name || " ")}</span></p>
+                  <p><strong>ID No.:</strong> <span class="st-val-bold">${escapeHtml(st.id || " ")}</span></p>
+                  <p><strong>Reg. No.:</strong> <span class="st-val-bold">${escapeHtml(st.reg || " ")}</span></p>
+                  <p>${escapeHtml(groupSecVal)}</p>
+                  <p><span class="st-val-bold">${escapeHtml(levelVal)}</span></p>
+                  <p><strong>Session:</strong> <span class="st-val-bold">${escapeHtml(stSession)}</span></p>
+                  <p>${escapeHtml(stFaculty)}</p>
+                </div>
+              </div>
+
+              <div class="sub-col">
+                <div class="sub-heading">Submitted To:</div>
+                <div class="teacher-col-body">
+                  <div class="${teachersClass}">
+                    ${t1Html}${t2Html}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-section">
+              <div class="sub-date">Date of Submission: ${escapeHtml(subDateFormatted)}</div>
+              <div class="univ-name">Bangladesh Agricultural University</div>
+              <div class="univ-sub">Mymensingh-2202</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  container.innerHTML = pagesHtml;
+  scalePreview();
+}
+
+function scalePreview() {
+  const wrappers = document.querySelectorAll(".page-scale-wrapper");
+  const availWidth = Math.min(window.innerWidth - 32, 860);
+  wrappers.forEach(wrapper => {
+    const page = wrapper.querySelector(".a4-page");
+    if (!page) return;
+    page.style.transform = "none";
+    const pageWidth = page.offsetWidth;
+    const pageHeight = page.offsetHeight;
+    if (availWidth < pageWidth) {
+      const scale = availWidth / pageWidth;
+      page.style.transform = `scale(${scale})`;
+      wrapper.style.height = (pageHeight * scale) + "px";
+    } else {
+      wrapper.style.height = pageHeight + "px";
+    }
+  });
+}
+
+window.printAssignmentPDF = function() {
+  const firstId = STUDENTS.length > 0 ? (STUDENTS[0].id || "").trim() : "";
+  const cCode = document.getElementById("courseCode").value.trim().toUpperCase();
+  const cTitle = document.getElementById("courseTitle").value.trim();
+  const prevTitle = document.title;
+
+  const titleParts = [];
+  if (firstId) titleParts.push(STUDENTS.length > 1 ? `${firstId}_Batch(${STUDENTS.length})` : firstId);
+  if (cCode) titleParts.push(cCode);
+  else if (cTitle) titleParts.push(cTitle);
+  titleParts.push("Assignment Cover");
+
+  document.title = titleParts.join(" - ");
+  window.print();
+  setTimeout(() => { document.title = prevTitle; }, 500);
+};
+
+document.getElementById("courseCode").addEventListener("input", handleCourseCodeAutoSuggest);
+document.getElementById("stLevel").addEventListener("input", () => { levelManuallyEdited = true; updatePreview(); });
+document.getElementById("stSession").addEventListener("input", () => {
+  sessionManuallyEdited = true;
+  const hint = document.getElementById("sessionHint");
+  if (hint) hint.textContent = "(Manual)";
+  updatePreview();
+});
+document.getElementById("stFaculty").addEventListener("input", () => { facultyManuallyEdited = true; updatePreview(); });
+window.addEventListener("resize", scalePreview);
+
+["topic", "courseTitle", "subDate", "borderStyle", "stGroupSec",
+ "tName", "tDesig", "tDept", "tFaculty", "t2Name", "t2Desig", "t2Dept", "t2Faculty"].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener("input", updatePreview);
+});
+
+renderStudentInputs();
+updatePreview();
+</script>
+</body>
+</html>
