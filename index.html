@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=860">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAU Cover Page Generator | Practical &amp; Assignment Cover Maker</title>
 
 <!-- Primary Google SEO Meta Tags -->
@@ -60,15 +60,15 @@ body {
   margin: 0; padding: 16px; background: #e9ecef; color: #222;
   font-family: Georgia, "Times New Roman", serif;
   user-select: none; -webkit-user-select: none;
-  min-width: 820px;
 }
 input, textarea, select { user-select: text; -webkit-user-select: text; }
-h1, .instructions, h3, .top-nav-bar { font-family: Arial, sans-serif; }
-h1 { margin: 0 0 8px 0; font-size: 26px; color: #176b42; }
+h1, h2, h3, h4, label, button, .subtitle, .dev-badge, .student-badge, .api-status-bar, .tool-drawer, .top-nav-bar, .tuner-note, .box-desc, .control-header, .label-hint {
+  font-family: Arial, sans-serif;
+}
 
-/* Top Navigation Tab Switcher */
+/* Top Navigation Tab Switcher (Matches assignment.html) */
 .top-nav-bar {
-  max-width: 820px; margin: 0 auto 16px;
+  max-width: 860px; margin: 0 auto 16px;
   display: flex; gap: 10px; background: #fff;
   padding: 8px; border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -97,80 +97,106 @@ h1 { margin: 0 0 8px 0; font-size: 26px; color: #176b42; }
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
+h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
+.subtitle { font-size: 14px; color: #555; margin-bottom: 12px; text-align: center; }
+
+.dev-badge-wrap { text-align: center; margin-bottom: 18px; }
 .dev-badge {
   display: inline-block; background: #ffffff; border-left: 4px solid #176b42;
-  padding: 9px 15px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  font: 14px Arial, sans-serif; font-weight: bold; color: #333; margin-bottom: 12px;
+  padding: 7px 14px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font-size: 12.5px; font-weight: bold; color: #333;
 }
 .dev-badge .author-name { color: #176b42; }
 .dev-badge .heart { color: #e63946; }
 
-.instructions { font-weight: bold; font-size: 16px; color: #333; margin-bottom: 16px; }
+/* Editor Panel (Matches assignment.html) */
 .editor {
-  max-width: 820px; margin: 0 auto 24px; background: white;
+  max-width: 860px; margin: 0 auto 25px; background: white;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-.editor h2 { font: 20px Arial, sans-serif; margin-top: 0; color: #176b42; }
-.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
-label { display: block; font: 13.5px Arial, sans-serif; font-weight: bold; }
+.section-header-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
+  flex-wrap: wrap; gap: 8px;
+}
+.section-header-row h2 {
+  font-size: 17px; color: #176b42; margin: 0; border: none; padding: 0;
+}
+.course-section {
+  margin-top: 22px; padding-top: 6px;
+}
+.course-section h2 {
+  font-size: 17px; color: #176b42; margin: 0 0 12px;
+  padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
+}
+
+.autofill-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #f0fdf4; border: 1.5px solid #bbf7d0;
+  padding: 5px 11px; border-radius: 6px; cursor: pointer;
+  font-size: 12.5px; font-weight: bold; color: #166534; user-select: none;
+}
+.autofill-toggle input[type="checkbox"] {
+  width: 15px; height: 15px; margin: 0; cursor: pointer; accent-color: #176b42;
+}
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+label { display: block; font-size: 13px; font-weight: bold; color: #333; }
 .label-hint {
   font-size: 11px; font-weight: normal; color: #0f766e;
   background: #f0fdfa; border: 1px solid #ccfbf1;
   padding: 1px 6px; border-radius: 4px; margin-left: 4px;
 }
 input[type="text"], input[type="number"], select, textarea {
-  display: block; width: 100%; margin-top: 5px; padding: 10px 11px;
-  border: 1px solid #ccc; border-radius: 5px; font-size: 14.5px;
+  display: block; width: 100%; margin-top: 5px; padding: 9px 11px;
+  border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
 }
 #courseNo { text-transform: uppercase; }
 
-.course-section {
-  margin-top: 20px; padding-top: 18px; border-top: 2px dashed #ddd;
-}
-
+/* Advanced Layout Tuner */
 .adv-toggle-wrap {
-  margin-top: 18px; padding-top: 15px; border-top: 1px solid #e0e0e0;
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid #e0e0e0;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
 }
 .btn-adv-toggle {
-  background: #343a40; color: white; border: 0; padding: 10px 16px;
-  border-radius: 6px; cursor: pointer; font: 14px Arial, sans-serif;
-  font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
+  background: #343a40; color: white; border: 0; padding: 9px 14px;
+  border-radius: 6px; cursor: pointer; font-size: 13px;
+  font-weight: bold; display: inline-flex; align-items: center; gap: 6px;
 }
 .btn-adv-toggle:hover { background: #23272b; }
 .btn-adv-toggle.active { background: #a52c51; }
 
 .tuner-section {
-  display: none; margin-top: 15px; padding: 18px;
-  background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px;
+  display: none; margin-top: 14px; padding: 16px;
+  background: #f8f9fa; border: 1.5px solid #dee2e6; border-radius: 8px;
 }
 .tuner-section.open { display: block; }
-.tuner-section h3 { font-size: 17px; margin: 0 0 6px 0; color: #176b42; }
-.tuner-note { font: 13px Arial, sans-serif; color: #555; margin: 0 0 16px 0; line-height: 1.4; }
+.tuner-section h3 { font-size: 16px; margin: 0 0 6px 0; color: #176b42; }
+.tuner-note { font-size: 12.5px; color: #555; margin: 0 0 14px 0; line-height: 1.4; }
 .tuner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .tuner-box {
   background: white; padding: 12px; border-radius: 6px;
   border: 1px solid #ddd; display: flex; flex-direction: column;
 }
 .tuner-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.tuner-box-header h4 { margin: 0; font: 14px Arial, sans-serif; color: #a52c51; }
+.tuner-box-header h4 { margin: 0; font-size: 13.5px; color: #a52c51; }
 .btn-mini-reset {
   background: #e9ecef; color: #333; border: 1px solid #ced4da;
-  padding: 3px 8px; border-radius: 4px; cursor: pointer; font: 11px Arial, sans-serif; font-weight: bold;
+  padding: 3px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold;
 }
 .btn-mini-reset:hover { background: #dee2e6; color: #000; }
 .tuner-box .box-desc {
-  font: 11.5px Arial, sans-serif; color: #666;
-  margin: 0 0 12px 0; padding-bottom: 6px; border-bottom: 1px solid #eee;
+  font-size: 11.5px; color: #666;
+  margin: 0 0 10px 0; padding-bottom: 6px; border-bottom: 1px solid #eee;
 }
 
-.control-item { margin-bottom: 11px; }
-.control-header { display: flex; justify-content: space-between; font: 12px Arial, sans-serif; color: #333; margin-bottom: 4px; }
+.control-item { margin-bottom: 10px; }
+.control-header { display: flex; justify-content: space-between; font-size: 12px; color: #333; margin-bottom: 4px; }
 .control-header strong { color: #176b42; }
 .stepper-row { display: flex; align-items: center; gap: 6px; }
 .btn-step {
-  width: 28px; height: 28px; border: 1px solid #ccc; background: #f1f3f5;
-  color: #222; font-size: 16px; font-weight: bold; border-radius: 4px;
+  width: 26px; height: 26px; border: 1px solid #ccc; background: #f1f3f5;
+  color: #222; font-size: 15px; font-weight: bold; border-radius: 4px;
   cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; user-select: none;
 }
 .btn-step:hover { background: #e2e6ea; }
@@ -178,110 +204,120 @@ input[type="text"], input[type="number"], select, textarea {
 .stepper-row input[type="range"] { flex: 1; padding: 0; margin: 0; cursor: pointer; }
 
 .btn-reset {
-  background: #6c757d; color: white; border: 0; padding: 9px 16px;
-  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold; margin-top: 14px;
+  background: #6c757d; color: white; border: 0; padding: 8px 14px;
+  border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold; margin-top: 12px;
 }
 .btn-reset:hover { background: #5a6268; }
 
-.student-section { margin-bottom: 6px; }
-.student-list-scroll {
-  max-height: 360px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
+/* Multi-Student Controls (Matches assignment.html) */
+.api-status-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 8px; min-height: 22px;
 }
-.student-row { display: flex; gap: 10px; margin-bottom: 8px; align-items: center; }
-.student-row input { margin-top: 0; flex: 1; }
+.api-status-bar { font-size: 13px; font-weight: bold; color: #0275d8; }
+.btn-stop-fetch {
+  display: none; background: #dc2626; color: white; border: 0;
+  padding: 4px 10px; border-radius: 4px; font-size: 12px;
+  font-weight: bold; cursor: pointer;
+}
+.btn-stop-fetch.show { display: inline-block; }
+
+.student-list-scroll {
+  max-height: 290px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
+}
+.student-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+.student-row input { margin-top: 0; flex: 1; min-width: 0; }
 .student-badge {
-  flex: 1.85; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
-  padding: 10px 12px; font: 13.5px Arial, sans-serif; color: #333;
+  flex: 1.85; min-width: 0; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
+  padding: 9px 11px; font-size: 13px; color: #333;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .student-badge.ok { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
 .student-badge.err { background: #fef2f2; border-color: #fecaca; color: #dc2626; }
 .student-badge.loading { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+
 .btn-fetch-row {
-  background: #176b42; color: white; border: 0; padding: 10px 13px;
-  border-radius: 5px; cursor: pointer; font: 13.5px Arial, sans-serif; font-weight: bold; white-space: nowrap;
+  background: #176b42; color: white; border: 0; padding: 9px 12px;
+  border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: bold; flex-shrink: 0;
 }
 .btn-fetch-row:hover { background: #125634; }
-.btn-fetch-row:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-remove {
-  background: #d9534f; color: white; border: 0; padding: 10px 14px;
-  border-radius: 5px; cursor: pointer; font-weight: bold;
+  background: #d9534f; color: white; border: 0; padding: 9px 12px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; flex-shrink: 0;
 }
-
-.api-status-wrap {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; margin-bottom: 10px; min-height: 24px;
-}
-.api-status-bar {
-  font: 13.5px Arial, sans-serif; font-weight: bold; color: #0275d8;
-}
-.btn-stop-fetch {
-  display: none; background: #dc2626; color: white; border: 0;
-  padding: 5px 12px; border-radius: 4px; font: 12.5px Arial, sans-serif;
-  font-weight: bold; cursor: pointer;
-}
-.btn-stop-fetch.show { display: inline-block; }
 
 .student-bottom-controls {
   display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 12px; margin-top: 10px;
+  flex-wrap: wrap; gap: 10px; margin-top: 8px;
 }
-.btn-group-left { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-group-left { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn-add {
-  background: #0275d8; color: white; border: 0; padding: 10px 16px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
+  background: #0275d8; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
 }
 .btn-add:hover { background: #025aa5; }
-
 .btn-fetch-all {
-  background: #0f766e; color: white; border: 0; padding: 10px 16px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
+  background: #0f766e; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
 }
 .btn-fetch-all:hover { background: #115e59; }
-.btn-fetch-all:disabled { opacity: 0.6; cursor: not-allowed; }
-
 .btn-remove-all {
-  background: #dc3545; color: white; border: 0; padding: 10px 16px;
-  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;
+  background: #dc3545; color: white; border: 0; padding: 8px 13px;
+  border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
 }
 .btn-remove-all:hover { background: #b02a37; }
 
-.checkbox-group { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.checkbox-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .check-option {
-  display: inline-flex; align-items: center; gap: 7px; background: #f8f9fa;
-  border: 1.5px solid #ced4da; padding: 8px 12px; border-radius: 6px;
-  cursor: pointer; font: 13.5px Arial, sans-serif; font-weight: bold; color: #333; user-select: none;
+  display: inline-flex; align-items: center; gap: 6px; background: #f8f9fa;
+  border: 1.5px solid #ced4da; padding: 6px 10px; border-radius: 6px;
+  cursor: pointer; font-size: 12.5px; font-weight: bold; color: #333; user-select: none;
 }
 .check-option:hover { background: #e9ecef; }
-.check-option.auto-fetch-opt { background: #f0fdf4; border-color: #86efac; color: #166534; }
-.check-option input[type="checkbox"] { width: 17px; height: 17px; margin: 0; cursor: pointer; accent-color: #176b42; }
+.check-option input[type="checkbox"] { width: 15px; height: 15px; margin: 0; cursor: pointer; accent-color: #176b42; }
 
-.tool-drawer { display: none; margin-top: 12px; padding: 15px; border-radius: 8px; }
+.tool-drawer { display: none; margin-top: 12px; padding: 13px; border-radius: 8px; }
 .tool-drawer.open { display: block; }
 .bulk-box { background: #f8f5ff; border: 1.5px solid #d6c8f5; }
 .loop-box { background: #fffbeb; border: 1.5px solid #fde68a; }
-.tool-drawer p { margin: 0 0 10px 0; font: 13px Arial, sans-serif; color: #444; line-height: 1.45; }
-.bulk-box textarea { font-family: monospace; font-size: 14px; min-height: 105px; resize: vertical; }
+.tool-drawer p { margin: 0 0 8px 0; font-size: 12.5px; color: #444; line-height: 1.4; }
+.bulk-box textarea { font-family: monospace; font-size: 13.5px; min-height: 90px; resize: vertical; }
 .loop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.drawer-btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.drawer-btn-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
 .btn-drawer-append {
-  background: #176b42; color: white; border: 0; padding: 8px 14px;
-  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold;
+  background: #176b42; color: white; border: 0; padding: 7px 13px;
+  border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold;
 }
 .btn-drawer-replace {
-  background: #d9534f; color: white; border: 0; padding: 8px 14px;
-  border-radius: 5px; cursor: pointer; font: 13px Arial, sans-serif; font-weight: bold;
+  background: #d9534f; color: white; border: 0; padding: 7px 13px;
+  border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold;
 }
 
 .btn-print {
-  width: 100%; margin-top: 20px; padding: 15px; border: 0;
+  width: 100%; margin-top: 20px; padding: 14px; border: 0;
   border-radius: 6px; background: #176b42; color: white;
-  font-size: 16.5px; font-weight: bold; cursor: pointer;
+  font-size: 16px; font-weight: bold; cursor: pointer;
 }
 .btn-print:hover { background: #125634; }
 
-#previewContainer { display: flex; flex-direction: column; gap: 24px; align-items: center; width: 100%; overflow: hidden; }
-.page-scale-wrapper { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
+/* Responsive Breakpoints (Matches assignment.html) */
+@media (max-width: 768px) {
+  .tuner-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .top-nav-bar { flex-direction: column; }
+  .editor { padding: 16px; }
+}
+
+/* Multi-Page Responsive A4 Preview Container */
+#previewContainer {
+  display: flex; flex-direction: column; gap: 24px; align-items: center;
+  width: 100%; overflow: hidden;
+}
+.page-scale-wrapper {
+  display: flex; justify-content: center; align-items: flex-start; width: 100%;
+}
 
 .a4-page {
   position: relative; width: 210mm; height: 293mm; background: white;
@@ -335,10 +371,10 @@ input[type="text"], input[type="number"], select, textarea {
 
 @page { size: A4 portrait; margin: 2mm 5mm; }
 @media print {
-  body { margin: 0; padding: 0; background: white; min-width: auto !important; }
-  .editor, h1, .dev-badge, .instructions, .seo-sr-only, .top-nav-bar { display: none !important; }
+  body { margin: 0; padding: 0; background: white; }
+  .editor, h1, .subtitle, .dev-badge-wrap, .seo-sr-only, .top-nav-bar { display: none !important; }
   #previewContainer { gap: 0 !important; display: block !important; }
-  .page-scale-wrapper { height: auto !important; display: block !important; }
+  .page-scale-wrapper { height: auto !important; display: block !important; overflow: visible !important; }
   .a4-page {
     width: 100% !important; height: 293mm !important; padding: 3mm 6mm 5mm 0 !important;
     box-shadow: none !important; border: none !important; transform: none !important;
@@ -388,12 +424,151 @@ input[type="text"], input[type="number"], select, textarea {
     }
   }, 1500);
 
-  /* 2. Encoded DOM Payload Hydration */
-  const _0xB64 = "PGgxPkJBVSBCYXRjaCBQcmFjdGljYWwgQ292ZXIgR2VuZXJhdG9yPC9oMT4KPGRpdiBjbGFzcz0iZGV2LWJhZGdlIj4KICBEZXZlbG9wZWQgYnkgPHNwYW4gY2xhc3M9ImhlYXJ0Ij7in6Q8L3NwYW4+IDxzcGFuIGNsYXNzPSJhdXRob3ItbmFtZSI+TW9oYW1tYWQgQXNpZjwvc3Bhbj4gJmJ1bGw7IEJBVSA2NXRoIEJhdGNoICZidWxsOyBGYWN1bHR5IG9mIEFncmljdWx0dXJlICZidWxsOyBTZXNzaW9uOiAyMDI1LTIwMjYKPC9kaXY+CjxwIGNsYXNzPSJpbnN0cnVjdGlvbnMiPkZpcnN0IGVudGVyIFN0dWRlbnQgSUQocykgdG8gYXV0by1maWxsIGRldGFpbHMgJiBzZXNzaW9uLCB0aGVuIGVkaXQgY291cnNlIGluZm8gYmVsb3c6PC9wPgoKPHNlY3Rpb24gY2xhc3M9ImVkaXRvciI+CiAgPGRpdiBjbGFzcz0ic3R1ZGVudC1zZWN0aW9uIj4KICAgIDxoMiBpZD0ic3R1ZGVudFNlY3Rpb25UaXRsZSI+MS4gU3R1ZGVudHMgTGlzdCAoVHlwZSBJRCB0byBBdXRvLUZldGNoKTwvaDI+CiAgICA8ZGl2IGNsYXNzPSJhcGktc3RhdHVzLXdyYXAiPgogICAgICA8ZGl2IGNsYXNzPSJhcGktc3RhdHVzLWJhciIgaWQ9ImFwaVN0YXR1cyI+PC9kaXY+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0b3AtZmV0Y2giIGlkPSJzdG9wRmV0Y2hCdG4iIG9uY2xpY2s9InN0b3BBbGxGZXRjaGVzKCkiPlN0b3A8L2J1dHRvbj4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0ic3R1ZGVudC1saXN0LXNjcm9sbCIgaWQ9InN0dWRlbnRJbnB1dHMiPjwvZGl2PgogICAgPGRpdiBjbGFzcz0ic3R1ZGVudC1ib3R0b20tY29udHJvbHMiPgogICAgICA8ZGl2IGNsYXNzPSJidG4tZ3JvdXAtbGVmdCI+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tYWRkIiBvbmNsaWNrPSJhZGRTdHVkZW50Um93KCkiPisgQWRkIFN0dWRlbnQ8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1mZXRjaC1hbGwiIGlkPSJmZXRjaEFsbEJ0biIgb25jbGljaz0iZmV0Y2hBbGxTdHVkZW50cygpIj7ihrsgUmUtRmV0Y2ggQWxsPC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tcmVtb3ZlLWFsbCIgb25jbGljaz0icmVtb3ZlQWxsU3R1ZGVudHMoKSI+8J+Xke+4jyBSZW1vdmUgQWxsPC9idXR0b24+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJjaGVja2JveC1ncm91cCI+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24gYXV0by1mZXRjaC1vcHQiPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0F1dG9GZXRjaCIgY2hlY2tlZCBvbmNoYW5nZT0idG9nZ2xlQXV0b0ZldGNoKHRoaXMuY2hlY2tlZCkiPjxzcGFuPkF1dG8tRmV0Y2g8L3NwYW4+PC9sYWJlbD4KICAgICAgICA8bGFiZWwgY2xhc3M9ImNoZWNrLW9wdGlvbiI+PGlucHV0IHR5cGU9ImNoZWNrYm94IiBpZD0iY2hrQnVsayIgb25jaGFuZ2U9InRvZ2dsZUNoZWNrRHJhd2VyKCdjaGtCdWxrJywgJ2J1bGtQYXN0ZUJveCcpIj48c3Bhbj5CdWxrIFBhc3RlPC9zcGFuPjwvbGFiZWw+CiAgICAgICAgPGxhYmVsIGNsYXNzPSJjaGVjay1vcHRpb24iPjxpbnB1dCB0eXBlPSJjaGVja2JveCIgaWQ9ImNoa0xvb3AiIG9uY2hhbmdlPSJ0b2dnbGVDaGVja0RyYXdlcnMoJ2Noa0xvb3AnLCAnbG9vcEdlbkJveCcpIj48c3Bhbj5Mb29wICgrMSk8L3NwYW4+PC9sYWJlbD4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBidWxrLWJveCIgaWQ9ImJ1bGtQYXN0ZUJveCI+CiAgICAgIDxwPjxzdHJvbmc+QnVsayBQYXN0ZSAoTnVtZXJpY2FsIElEIE9ubHkpOjwvc3Ryb25nPiBQYXN0ZSBTdHVkZW50IElEcyBzZXBhcmF0ZWQgYnkgY29tbWEsIHNwYWNlLCBvciBuZXcgbGluZS4gTmFtZSAmIFJlZy4gTm8uIHdpbGwgYmUgZmV0Y2hlZCBhdXRvbWF0aWNhbGx5IGlmIEF1dG8tRmV0Y2ggaXMgT04uPGJyPlN1cHBvcnRlZCBmb3JtYXRzOjxicj48Y29kZT4yNjAyMTQ5LCAyNjAyMTUwLCAyNjAyMTUxPC9jb2RlPjxicj5vciBsaW5lLWJ5LWxpbmU6PGJyPjxjb2RlPjI2MDIxNDk8L2NvZGU+PGJyPjxjb2RlPjI2MDIxNTA8L2NvZGU+PC9wPgogICAgICA8dGV4dGFyZWEgaWQ9ImJ1bGtUZXh0YXJlYSIgcGxhY2Vob2xkZXI9IjI2MDIxNDksIDI2MDIxNTAmIzEwOzI2MDIxNTEiPjwvdGV4dGFyZWE+CiAgICAgIDxkaXYgY2xhc3M9ImRyYXdlci1idG4tcm93Ij4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItYXBwZW5kIiBvbmNsaWNrPSJwcm9jZXNzQnVsa1Bhc3RlKGZhbHNlKSI+QXBwZW5kICYgQXBwbHk8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItcmVwbGFjZSIgb25jbGljaz0icHJvY2Vzc0J1bGtQYXN0ZSh0cnVlKSI+UmVwbGFjZSBMaXN0ICYgQXBwbHk8L2J1dHRvbj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0b29sLWRyYXdlciBsb29wLWJveCIgaWQ9Imxvb3BHZW5Cb3giPgogICAgICA8cD48c3Ryb25nPkxvb3AgR2VuZXJhdG9yICgrMSBTZXF1ZW5jZSAtIElEIE9ubHkpOjwvc3Ryb25nPiBFbnRlciBTdGFydCBJRCBhbmQgaG93IG1hbnkgY29uc2VjdXRpdmUgY292ZXJzIHlvdSB3YW50IHRvIGdlbmVyYXRlICgrMSBlYWNoIHN0ZXApLjwvcD4KICAgICAgPGRpdiBjbGFzcz0ibG9vcC1ncmlkIj4KICAgICAgICA8bGFiZWw+U3RhcnQgSUQgTm8uPGlucHV0IHR5cGU9InRleHQiIGlkPSJsb29wU3RhcnRJZCIgcGxhY2Vob2xkZXI9ImUuZy4gMjYwMjE0OSI+PC9sYWJlbD4KICAgICAgICA8bGFiZWw+SG93IE1hbnkgKENvdW50KTxpbnB1dCB0eXBlPSJudW1iZXIiIGlkPSJsb29wQ291bnQiIG1pbj0iMSIgbWF4PSIyMDAiIHZhbHVlPSIxMCI+PC9sYWJlbD4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9ImRyYXdlci1idG4tcm93Ij4KICAgICAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1kcmF3ZXItYXBwZW5kIiBvbmNsaWNrPSJwcm9jZXNzTG9vcEdlbmVyYXRvcihmYWxzZSkiPkdlbmVyYXRlICYgQXBwZW5kPC9idXR0b24+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tZHJhd2VyLXJlcGxhY2UiIG9uY2xpY2s9InByb2Nlc3NMb29wR2VuZXJhdG9yKHRydWUpIj5HZW5lcmF0ZSAmIFJlcGxhY2U8L2J1dHRvbj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBjbGFzcz0iY291cnNlLXNlY3Rpb24iPgogICAgPGgyPjIuIENvbW1vbiBDb3Vyc2UgRGV0YWlsczwvaDI+CiAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyaWQiPgogICAgICA8bGFiZWw+Q291cnNlIE5vLiA8c3BhbiBjbGFzcz0ibGFiZWwtaGludCI+KEF1dG8tVVBQRVJDQVNFKTwvc3Bhbj48aW5wdXQgdHlwZT0idGV4dCIgaWQ9ImNvdXJzZU5vIiB2YWx1ZT0iQUNIRU0gMTEyMiIgcGxhY2Vob2xkZXI9ImUuZy4gQUNIRU0gMTEyMiI+PC9sYWJlbD4KICAgICAgPGxhYmVsPkNvdXJzZSBUaXRsZTxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0iY291cnNlVGl0bGUiIHZhbHVlPSJQaHlzaWNhbCBhbmQgT3JnYW5pYyBDaGVtaXN0cnkiIHBsYWNlaG9sZGVyPSJlLmcuIFBoeXNpY2FsIGFuZCBPcmdhbmljIENoZW1pc3RyeSI+PC9sYWJlbD4KICAgICAgPGxhYmVsPkdyb3VwPGlucHV0IHR5cGU9InRleHQiIGlkPSJncm91cCIgdmFsdWU9IlZJIiBwbGFjZWhvbGRlcj0iZS5nLiBWSSI+PC9sYWJlbD4KICAgICAgPGxhYmVsPlNlY3Rpb248aW5wdXQgdHlwZT0idGV4dCIgaWQ9InNlY3Rpb24iIHZhbHVlPSJCIiBwbGFjZWhvbGRlcj0iZS5nLiBCIj48L2xhYmVsPgogICAgICA8bGFiZWw+U2Vzc2lvbiA8c3BhbiBjbGFzcz0ibGFiZWwtaGludCIgaWQ9InNlc3Npb25IaW50Ij4oV2lsbCBiZSBhdXRvLXVwZGF0ZWQgZnJvbSBJRCk8L3NwYW4+PGlucHV0IHR5cGU9InRleHQiIGlkPSJzZXNzaW9uIiB2YWx1ZT0iMjAyNS0yMDI2IiBwbGFjZWhvbGRlcj0iZS5nLiAyMDI1LTIwMjYiPjwvbGFiZWw+CiAgICAgIDxsYWJlbD5EZWdyZWUgLyBMZXZlbCAvIFNlbWVzdGVyPGlucHV0IHR5cGU9InRleHQiIGlkPSJkZWdyZWUiIHZhbHVlPSJCLlNjLiBBZy4gKEhvbnMuKSBMZXZlbC0xLCBTZW1lc3Rlci0xIj48L2xhYmVsPgogICAgICA8bGFiZWw+QWNhZGVtaWMgcGVyaW9kPGlucHV0IHR5cGU9InRleHQiIGlkPSJwZXJpb2QiIHZhbHVlPSIoSmFudWFyeS1KdW5lLzI2KSI+PC9sYWJlbD4KICAgICAgPGxhYmVsPkNvdmVycyBwZXIgQTQgUGFnZQogICAgICAgIDxzZWxlY3QgaWQ9ImNvcHlDb3VudCI+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSIxIj4xIENvdmVyIHBlciBQYWdlIChTaW5nbGUpPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSIyIj4yIENvdmVycyBwZXIgUGFnZSAoTWVkaXVtKTwvb3B0aW9uPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0iMyIgc2VsZWN0ZWQ+MyBDb3ZlcnMgcGVyIFBhZ2UgKFN0YW5kYXJkKTwvb3B0aW9uPgogICAgICAgIDwvc2VsZWN0PgogICAgICA8L2xhYmVsPgogICAgICA8bGFiZWw+Qm9yZGVyIC8gT3V0bGluZSBTdHlsZQogICAgICAgIDxzZWxlY3QgaWQ9ImJvcmRlclN0eWxlIj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9ImJvcmRlci1yZWQtaW5uZXIiIHNlbGVjdGVkPkRvdWJsZSBCb3JkZXIgKyBJbm5lciBPdXRsaW5lPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSJib3JkZXItcmVkLWRvdWJsZSI+Q2xhc3NpYyBSZWQgRG91YmxlIEJvcmRlcjwvb3B0aW9uPgogICAgICAgICAgPG9wdGlvbiB2YWx1ZT0iYm9yZGVyLWdyZWVuLWRvdWJsZSI+Q2xhc3NpYyBHcmVlbiBEb3VibGUgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSJib3JkZXItcmVkLXNvbGlkIj5Tb2xpZCBSZWQgQm9yZGVyPC9vcHRpb24+CiAgICAgICAgPC9zZWxlY3Q+CiAgICAgIDwvbGFiZWw+CiAgICAgIDxsYWJlbD5DZW50ZXIgV2F0ZXJtYXJrCiAgICAgICAgPHNlbGVjdCBpZD0id2F0ZXJtYXJrVG9nZ2xlIj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9InllcyIgc2VsZWN0ZWQ+WWVzIChTaG93IFdhdGVybWFyayk8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9Im5vIj5ObyAoSGlkZSBXYXRlcm1hcmspPC9vcHRpb24+CiAgICAgICAgPC9zZWxlY3Q+CiAgICAgIDwvbGFiZWw+CiAgICAgIDxsYWJlbD5TaG93IFN0dWRlbnQgTmFtZSBvbiBDb3ZlcgogICAgICAgIDxzZWxlY3QgaWQ9InNob3dOYW1lVG9nZ2xlIj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9InllcyIgc2VsZWN0ZWQ+WWVzIChTaG93IE5hbWUpPC9vcHRpb24+CiAgICAgICAgICA8b3B0aW9uIHZhbHVlPSJubyI+Tm8gKEhpZGUgTmFtZSk8L29wdGlvbj4KICAgICAgICA8L3NlbGVjdD4KICAgICAgPC9sYWJlbD4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9ImFkdi10b2dnbGUtd3JhcCI+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLWFkdi10b2dnbGUiIGlkPSJhZHZUb2dnbGVCdG4iIG9uY2xpY2s9InRvZ2dsZUFkdmFuY2VkTW9kZSgpIj4KICAgICAgICDimpnvuI8gQWR2YW5jZWQgRWRpdCBNb2RlOiBPRkYKICAgICAgPC9idXR0b24+CiAgICAgIDxzcGFuIHN0eWxlPSJmb250OiAxMnB4IEFyaWFsLCBzYW5zLXNlcmlmOyBjb2xvcjogIzY2NjsiPkNsaWNrIHRvIGN1c3RvbWl6ZSBsb2dvIHNpemUsIHBvc2l0aW9uLCBjb3ZlciB3aWR0aCAmIG91dGxpbmU8L3NwYW4+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzPSJ0dW5lci1zZWN0aW9uIiBpZD0iYWR2YW5jZWRQYW5lbCI+CiAgICAgIDxoMz5BZHZhbmNlZCBMYXlvdXQgJiBMb2dvIEN1c3RvbWl6YXRpb248L2gzPgogICAgICA8cCBjbGFzcz0idHVuZXItbm90ZSI+VXNlIHRoZSA8c3Ryb25nPi08L3N0cm9uZz4gYW5kIDxzdHJvbmc+Kzwvc3Ryb25nPiBidXR0b25zIChvciBkcmFnIHNsaWRlcnMpIHRvIGZpbmUtdHVuZSB0aGUgbG9nbyBzaXplLCBwb3NpdGlvbiwgY292ZXIgYm94IHdpZHRoLCBhbmQgYm9yZGVyIHRoaWNrbmVzcyBpbiByZWFsIHRpbWUuPC9wPgogICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ncmlkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3giPgogICAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94LWhlYWRlciI+PGg0PlRvcC1MZWZ0IExvZ288L2g0PjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLW1pbmktcmVzZXQiIG9uY2xpY2s9InJlc2V0U2VjdGlvbignY29wTG9nbycpIj5SZXNldDwvYnV0dG9uPjwvZGl2PgogICAgICAgICAgPHAgY2xhc3M9ImJveC1kZXNjIj5DaGFuZ2UgdG9wLWxlZnQgbG9nbyBzaXplLCBwb3NpdGlvbiAmIGhlYWRlciBzcGFjaW5nPC9wPgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+TG9nbyBTaXplIChweCk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3RsU2l6ZSI+ODhweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxTaXplJywgLTIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0idGxTaXplIiBtaW49IjQwIiBtYXg9IjE1MCIgc3RlcD0iMiIgdmFsdWU9Ijg4Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxTaXplJywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPlZlcnRpY2FsIFBvc2l0aW9uIChUb3ApPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF90bFRvcCI+MHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd0bFRvcCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsVG9wIiBtaW49Ii0yMCIgbWF4PSI0MCIgc3RlcD0iMiIgdmFsdWU9IjAiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd0bFRvcCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0KTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfdGxMZWZ0Ij44cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3RsTGVmdCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InRsTGVmdCIgbWluPSItMTAiIG1heD0iNjAiIHN0ZXA9IjIiIHZhbHVlPSI4Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgndGxMZWZ0JywgMikiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbnRyb2wtaXRlbSI+PGRpdiBjbGFzcz0iY29udHJvbC1oZWFkZXIiPjxzcGFuPkhlYWRlciBMZWZ0IFNwYWNpbmc8L3NwYW4+PHN0cm9uZyBpZD0idmFsX2hlYWRQYWQiPjk4cHg8L3N0cm9uZz48L2Rpdj48ZGl2IGNsYXNzPSJzdGVwcGVyLXJvdyI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ2hlYWRQYWQnLCAtMikiPi08L2J1dHRvbj48aW5wdXQgdHlwZT0icmFuZ2UiIGlkPSJoZWFkUGFkIiBtaW49IjUwIiBtYXg9IjE3MCIgc3RlcD0iMiIgdmFsdWU9Ijk4Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnaGVhZFBhZCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0idHVuZXItYm94Ij4KICAgICAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveC1oZWFkZXIiPjxoND5DZW50ZXIgV2F0ZXJtYXJrIExvZ288L2g0PjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLW1pbmktcmVzZXQiIG9uY2xpY2s9InJlc2V0U2VjdGlvbignd2F0ZXJtYXJrJykiPlJlc2V0PC9idXR0b24+PC9kaXY+CiAgICAgICAgICA8cCBjbGFzcz0iYm94LWRlc2MiPkNoYW5nZSB3YXRlcm1hcmsgd2lkdGgsIGhlaWdodCwgcG9zaXRpb24gJiBvcGFjaXR5PC9wPgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+V2F0ZXJtYXJrIFdpZHRoPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bVdpZHRoIj4yNDBweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21XaWR0aCcsIC00KSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtV2lkdGgiIG1pbj0iMTAwIiBtYXg9IjQ4MCIgc3RlcD0iNCIgdmFsdWU9IjI0MCI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3dtV2lkdGgnLCA0KSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+V2F0ZXJtYXJrIEhlaWdodDwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfd21IZWlnaHQiPjI0MHB4PC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUhlaWdodCcsIC00KSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtSGVpZ2h0IiBtaW49IjEwMCIgbWF4PSI0MjAiIHN0ZXA9IjQiIHZhbHVlPSIyNDAiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUhlaWdodCcsIDQpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5WZXJ0aWNhbCBQb3NpdGlvbiAoVG9wICUpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bVRvcCI+NjYlPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bVRvcCcsIC0xKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9IndtVG9wIiBtaW49IjMwIiBtYXg9Ijg1IiBzdGVwPSIxIiB2YWx1ZT0iNjYiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bVRvcCcsIDEpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ib3Jpem9udGFsIFBvc2l0aW9uIChMZWZ0ICUpPC9zcGFuPjxzdHJvbmcgaWQ9InZhbF93bUxlZnQiPjUwJTwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21MZWZ0JywgLTEpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21MZWZ0IiBtaW49IjIwIiBtYXg9IjgwIiBzdGVwPSIxIiB2YWx1ZT0iNTAiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bUxlZnQnLCAxKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+V2F0ZXJtYXJrIE9wYWNpdHk8L3NwYW4+PHN0cm9uZyBpZD0idmFsX3dtT3BhY2l0eSI+MC4xMjwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnd21PcGFjaXR5JywgLTAuMDIpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0id21PcGFjaXR5IiBtaW49IjAuMDQiIG1heD0iMC4zNiIgc3RlcD0iMC4wMiIgdmFsdWU9IjAuMTIiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCd3bU9wYWNpdHknLCAwLjAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9InR1bmVyLWJveCI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJ0dW5lci1ib3gtaGVhZGVyIj48aDQ+Q292ZXIgQm94ICYgT3V0bGluZTwvaDQ+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tbWluaS1yZXNldCIgb25jbGljaz0icmVzZXRTZWN0aW9uKCdvdXRsaW5lJykiPlJlc2V0PC9idXR0b24+PC9kaXY+CiAgICAgICAgICA8cCBjbGFzcz0iYm94LWRlc2MiPkNoYW5nZSBjb3ZlciB3aWR0aCwgaW5uZXIgcGFkZGluZyAmIGJvcmRlciB0aGlja25lc3M8L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Db3ZlciBCb3ggV2lkdGggKG1tKTwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfYm94V2lkdGgiPjE0OG1tPC9zdHJvbmc+PC9kaXY+PGRpdiBjbGFzcz0ic3RlcHBlci1yb3ciPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9ImJveFdpZHRoIiBtaW49IjEyMCIgbWF4PSIxOTYiIHN0ZXA9IjIiIHZhbHVlPSIxNDgiPjxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXN0ZXAiIG9uY2xpY2s9InN0ZXBDb250cm9sKCdib3hXaWR0aCcsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5Ub3AgJiBCb3R0b20gUGFkZGluZzwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfcGFkWSI+MTZweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWScsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InBhZFkiIG1pbj0iNiIgbWF4PSI0NiIgc3RlcD0iMiIgdmFsdWU9IjE2Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWScsIDIpIj4rPC9idXR0b24+PC9kaXY+PC9kaXY+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjb250cm9sLWl0ZW0iPjxkaXYgY2xhc3M9ImNvbnRyb2wtaGVhZGVyIj48c3Bhbj5MZWZ0ICYgUmlnaHQgUGFkZGluZzwvc3Bhbj48c3Ryb25nIGlkPSJ2YWxfcGFkWCI+MjZweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgncGFkWCcsIC0yKSI+LTwvYnV0dG9uPjxpbnB1dCB0eXBlPSJyYW5nZSIgaWQ9InBhZFgiIG1pbj0iMTAiIG1heD0iNjAiIHN0ZXA9IjIiIHZhbHVlPSIyNiI+PGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4tc3RlcCIgb25jbGljaz0ic3RlcENvbnRyb2woJ3BhZFgnLCAyKSI+KzwvYnV0dG9uPjwvZGl2PjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0iY29udHJvbC1pdGVtIj48ZGl2IGNsYXNzPSJjb250cm9sLWhlYWRlciI+PHNwYW4+T3V0bGluZSAvIEJvcmRlciBUaGlja25lc3M8L3NwYW4+PHN0cm9uZyBpZD0idmFsX2JvcmRlclciPjVweDwvc3Ryb25nPjwvZGl2PjxkaXYgY2xhc3M9InN0ZXBwZXItcm93Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIC0wLjUpIj4tPC9idXR0b24+PGlucHV0IHR5cGU9InJhbmdlIiBpZD0iYm9yZGVyVyIgbWluPSIxIiBtYXg9IjEyIiBzdGVwPSIwLjUiIHZhbHVlPSI1Ij48YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0bi1zdGVwIiBvbmNsaWNrPSJzdGVwQ29udHJvbCgnYm9yZGVyVycsIDAuNSkiPis8L2J1dHRvbj48L2Rpdj48L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXJlc2V0IiBvbmNsaWNrPSJyZXNldFR1bmVyKCkiPk92ZXJhbGwgUmVzZXQgKFJlc3RvcmUgQWxsIERlZmF1bHRzKTwvYnV0dG9uPgogICAgPC9kaXY+CiAgPC9kaXY+CgogIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuLXByaW50IiBvbmNsaWNrPSJwcmludFBERigpIj5QcmludCBQREYgLyBEb3dubG9hZCBQREY8L2J1dHRvbj4KPC9zZWN0aW9uPgoKPGRpdiBpZD0icHJldmlld0NvbnRhaW5lciI+PC9kaXY+";
-  const _0xBin = atob(_0xB64);
-  const _0xArr = new Uint8Array(_0xBin.length);
-  for (let _0xI = 0; _0xI < _0xBin.length; _0xI++) _0xArr[_0xI] = _0xBin.charCodeAt(_0xI);
-  _0xD.getElementById("__app_root").innerHTML = new TextDecoder("utf-8").decode(_0xArr);
+  /* 2. Modernized Responsive DOM Markup (Aligned with assignment.html) */
+  _0xD.getElementById("__app_root").innerHTML = `
+<h1>BAU Batch Practical Cover Generator</h1>
+<div class="subtitle">Enter Student ID(s) to auto-fill details &amp; session, then customize your practical cover page below.</div>
+<div class="dev-badge-wrap">
+  <div class="dev-badge">
+    Developed by <span class="heart">&#9829;</span> <span class="author-name">Mohammad Asif</span> &bull; BAU 65th Batch &bull; Faculty of Agriculture
+  </div>
+</div>
+
+<section class="editor">
+  <div class="student-section">
+    <div class="section-header-row">
+      <h2 id="studentSectionTitle">1. Students List (Type ID to Auto-Fetch)</h2>
+      <label class="autofill-toggle" title="Toggle between Auto-Fetch from ID and Manual ID & Reg. entry">
+        <input type="checkbox" id="chkAutoFetch" checked onchange="toggleAutoFetch(this.checked)">
+        <span>Auto-Fetch from ID</span>
+      </label>
+    </div>
+
+    <div class="api-status-wrap">
+      <div class="api-status-bar" id="apiStatus"></div>
+      <button type="button" class="btn-stop-fetch" id="stopFetchBtn" onclick="stopAllFetches()">Stop</button>
+    </div>
+
+    <div class="student-list-scroll" id="studentInputs"></div>
+
+    <div class="student-bottom-controls">
+      <div class="btn-group-left">
+        <button type="button" class="btn-add" onclick="addStudentRow()">+ Add Student</button>
+        <button type="button" class="btn-fetch-all" id="fetchAllBtn" onclick="fetchAllStudents()">&#8635; Re-Fetch All</button>
+        <button type="button" class="btn-remove-all" onclick="removeAllStudents()">&#10005; Remove All</button>
+      </div>
+      <div class="checkbox-group">
+        <label class="check-option"><input type="checkbox" id="chkBulk" onchange="toggleCheckDrawer('chkBulk', 'bulkPasteBox')"><span>Bulk Paste</span></label>
+        <label class="check-option"><input type="checkbox" id="chkLoop" onchange="toggleCheckDrawer('chkLoop', 'loopGenBox')"><span>Loop (+1)</span></label>
+      </div>
+    </div>
+
+    <div class="tool-drawer bulk-box" id="bulkPasteBox">
+      <p><strong>Bulk Paste (Numerical ID Only):</strong> Paste Student IDs separated by comma, space, or new line. Name &amp; Reg. No. will be fetched automatically if Auto-Fetch is ON.<br>Supported formats: <code>2602149, 2602150, 2602151</code></p>
+      <textarea id="bulkTextarea" placeholder="2602149, 2602150&#10;2602151"></textarea>
+      <div class="drawer-btn-row">
+        <button type="button" class="btn-drawer-append" onclick="processBulkPaste(false)">Append &amp; Apply</button>
+        <button type="button" class="btn-drawer-replace" onclick="processBulkPaste(true)">Replace List &amp; Apply</button>
+      </div>
+    </div>
+
+    <div class="tool-drawer loop-box" id="loopGenBox">
+      <p><strong>Loop Generator (+1 Sequence - ID Only):</strong> Enter Start ID and how many consecutive covers you want to generate (+1 each step).</p>
+      <div class="loop-grid">
+        <label>Start ID No.<input type="text" id="loopStartId" placeholder="e.g. 2602149"></label>
+        <label>How Many (Count)<input type="number" id="loopCount" min="1" max="200" value="10"></label>
+      </div>
+      <div class="drawer-btn-row">
+        <button type="button" class="btn-drawer-append" onclick="processLoopGenerator(false)">Generate &amp; Append</button>
+        <button type="button" class="btn-drawer-replace" onclick="processLoopGenerator(true)">Generate &amp; Replace</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-section">
+    <h2>2. Common Course Details</h2>
+    <div class="form-grid">
+      <label>Course No. <span class="label-hint">(Auto-UPPERCASE)</span><input type="text" id="courseNo" value="ACHEM 1122" placeholder="e.g. ACHEM 1122"></label>
+      <label>Course Title<input type="text" id="courseTitle" value="Physical and Organic Chemistry" placeholder="e.g. Physical and Organic Chemistry"></label>
+      <label>Group<input type="text" id="group" value="VI" placeholder="e.g. VI"></label>
+      <label>Section<input type="text" id="section" value="B" placeholder="e.g. B"></label>
+      <label>Session <span class="label-hint" id="sessionHint">(Auto-updated from ID)</span><input type="text" id="session" value="2025-2026" placeholder="e.g. 2025-2026"></label>
+      <label>Degree / Level / Semester<input type="text" id="degree" value="B.Sc. Ag. (Hons.) Level-1, Semester-1"></label>
+      <label>Academic period<input type="text" id="period" value="(January-June/26)"></label>
+      <label>Covers per A4 Page
+        <select id="copyCount">
+          <option value="1">1 Cover per Page (Single)</option>
+          <option value="2">2 Covers per Page (Medium)</option>
+          <option value="3" selected>3 Covers per Page (Standard)</option>
+        </select>
+      </label>
+      <label>Border / Outline Style
+        <select id="borderStyle">
+          <option value="border-red-inner" selected>Double Border + Inner Outline</option>
+          <option value="border-red-double">Classic Red Double Border</option>
+          <option value="border-green-double">Classic Green Double Border</option>
+          <option value="border-red-solid">Solid Red Border</option>
+        </select>
+      </label>
+      <label>Center Watermark
+        <select id="watermarkToggle">
+          <option value="yes" selected>Yes (Show Watermark)</option>
+          <option value="no">No (Hide Watermark)</option>
+        </select>
+      </label>
+      <label>Show Student Name on Cover
+        <select id="showNameToggle">
+          <option value="yes" selected>Yes (Show Name)</option>
+          <option value="no">No (Hide Name)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="adv-toggle-wrap">
+      <button type="button" class="btn-adv-toggle" id="advToggleBtn" onclick="toggleAdvancedMode()">
+        &#9881;&#65039; Advanced Edit Mode: OFF
+      </button>
+      <span style="font: 12px Arial, sans-serif; color: #666;">Click to customize logo size, position, cover width &amp; outline</span>
+    </div>
+
+    <div class="tuner-section" id="advancedPanel">
+      <h3>Advanced Layout &amp; Logo Customization</h3>
+      <p class="tuner-note">Use the <strong>-</strong> and <strong>+</strong> buttons (or drag sliders) to fine-tune the logo size, position, cover box width, and border thickness in real time.</p>
+      <div class="tuner-grid">
+        <div class="tuner-box">
+          <div class="tuner-box-header"><h4>Top-Left Logo</h4><button type="button" class="btn-mini-reset" onclick="resetSection('copLogo')">Reset</button></div>
+          <p class="box-desc">Change top-left logo size, position &amp; header spacing</p>
+          <div class="control-item"><div class="control-header"><span>Logo Size (px)</span><strong id="val_tlSize">88px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('tlSize', -2)">-</button><input type="range" id="tlSize" min="40" max="150" step="2" value="88"><button type="button" class="btn-step" onclick="stepControl('tlSize', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Vertical Position (Top)</span><strong id="val_tlTop">0px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('tlTop', -2)">-</button><input type="range" id="tlTop" min="-20" max="40" step="2" value="0"><button type="button" class="btn-step" onclick="stepControl('tlTop', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Horizontal Position (Left)</span><strong id="val_tlLeft">8px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('tlLeft', -2)">-</button><input type="range" id="tlLeft" min="-10" max="60" step="2" value="8"><button type="button" class="btn-step" onclick="stepControl('tlLeft', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Header Left Spacing</span><strong id="val_headPad">98px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('headPad', -2)">-</button><input type="range" id="headPad" min="50" max="170" step="2" value="98"><button type="button" class="btn-step" onclick="stepControl('headPad', 2)">+</button></div></div>
+        </div>
+        <div class="tuner-box">
+          <div class="tuner-box-header"><h4>Center Watermark Logo</h4><button type="button" class="btn-mini-reset" onclick="resetSection('watermark')">Reset</button></div>
+          <p class="box-desc">Change watermark width, height, position &amp; opacity</p>
+          <div class="control-item"><div class="control-header"><span>Watermark Width</span><strong id="val_wmWidth">240px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('wmWidth', -4)">-</button><input type="range" id="wmWidth" min="100" max="480" step="4" value="240"><button type="button" class="btn-step" onclick="stepControl('wmWidth', 4)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Watermark Height</span><strong id="val_wmHeight">240px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('wmHeight', -4)">-</button><input type="range" id="wmHeight" min="100" max="420" step="4" value="240"><button type="button" class="btn-step" onclick="stepControl('wmHeight', 4)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Vertical Position (Top %)</span><strong id="val_wmTop">66%</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('wmTop', -1)">-</button><input type="range" id="wmTop" min="30" max="85" step="1" value="66"><button type="button" class="btn-step" onclick="stepControl('wmTop', 1)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Horizontal Position (Left %)</span><strong id="val_wmLeft">50%</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('wmLeft', -1)">-</button><input type="range" id="wmLeft" min="20" max="80" step="1" value="50"><button type="button" class="btn-step" onclick="stepControl('wmLeft', 1)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Watermark Opacity</span><strong id="val_wmOpacity">0.12</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('wmOpacity', -0.02)">-</button><input type="range" id="wmOpacity" min="0.04" max="0.36" step="0.02" value="0.12"><button type="button" class="btn-step" onclick="stepControl('wmOpacity', 0.02)">+</button></div></div>
+        </div>
+        <div class="tuner-box">
+          <div class="tuner-box-header"><h4>Cover Box &amp; Outline</h4><button type="button" class="btn-mini-reset" onclick="resetSection('outline')">Reset</button></div>
+          <p class="box-desc">Change cover width, inner padding &amp; border thickness</p>
+          <div class="control-item"><div class="control-header"><span>Cover Box Width (mm)</span><strong id="val_boxWidth">148mm</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('boxWidth', -2)">-</button><input type="range" id="boxWidth" min="120" max="196" step="2" value="148"><button type="button" class="btn-step" onclick="stepControl('boxWidth', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Top &amp; Bottom Padding</span><strong id="val_padY">16px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('padY', -2)">-</button><input type="range" id="padY" min="6" max="46" step="2" value="16"><button type="button" class="btn-step" onclick="stepControl('padY', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Left &amp; Right Padding</span><strong id="val_padX">26px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('padX', -2)">-</button><input type="range" id="padX" min="10" max="60" step="2" value="26"><button type="button" class="btn-step" onclick="stepControl('padX', 2)">+</button></div></div>
+          <div class="control-item"><div class="control-header"><span>Outline / Border Thickness</span><strong id="val_borderW">5px</strong></div><div class="stepper-row"><button type="button" class="btn-step" onclick="stepControl('borderW', -0.5)">-</button><input type="range" id="borderW" min="1" max="12" step="0.5" value="5"><button type="button" class="btn-step" onclick="stepControl('borderW', 0.5)">+</button></div></div>
+        </div>
+      </div>
+      <button type="button" class="btn-reset" onclick="resetTuner()">Overall Reset (Restore All Defaults)</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn-print" onclick="printPDF()">Print PDF / Download PDF</button>
+</section>
+
+<div id="previewContainer"></div>`;
 
   /* 3. Course Code Database & Auto-Suggest Logic */
   const _0xCOURSE_CATALOG = {
@@ -600,7 +775,6 @@ input[type="text"], input[type="number"], select, textarea {
 
   const _0xTF = ["tlSize", "tlTop", "tlLeft", "headPad", "wmWidth", "wmHeight", "wmTop", "wmLeft", "wmOpacity", "boxWidth", "padY", "padX", "borderW"];
 
-  /* Calculate Academic Session & Degree Prefix from BAU Student ID */
   function _0xAutoDetectSessionFromId(idStr) {
     const clean = (idStr || "").trim();
     if (!_0xSessionManuallyEdited && /^\d{2,}/.test(clean)) {
@@ -625,7 +799,6 @@ input[type="text"], input[type="number"], select, textarea {
     }
   }
 
-  /* Auto-update Course Title and Level-Semester from Course No. */
   function _0xHandleCourseCodeLogic() {
     const courseNoEl = _0xD.getElementById("courseNo");
     if (!courseNoEl) return;
@@ -642,7 +815,6 @@ input[type="text"], input[type="number"], select, textarea {
     const lookupKey = compactMatch ? `${compactMatch[1]} ${compactMatch[2]}` : cleanCode;
     const digits = compactMatch ? compactMatch[2] : (cleanCode.match(/\d+/) || [""])[0];
 
-    /* 1. Auto-detect Level & Semester from first two digits (e.g., 1202 -> Level-1, Semester-2) */
     if (!_0xDegreeManuallyEdited && digits.length >= 2) {
       const lvl = parseInt(digits[0], 10);
       const sem = parseInt(digits[1], 10);
@@ -661,7 +833,6 @@ input[type="text"], input[type="number"], select, textarea {
       }
     }
 
-    /* 2. Auto-fill Course Title from Catalog */
     const exactCourse = _0xCOURSE_CATALOG[lookupKey];
     const titleEl = _0xD.getElementById("courseTitle");
     if (exactCourse && titleEl) {
@@ -682,7 +853,6 @@ input[type="text"], input[type="number"], select, textarea {
     }
   }
 
-  /* Toggle between Auto-Fetch Mode and Manual Entry Mode */
   _0xW.toggleAutoFetch = function(isChecked) {
     _0xAutoFetchEnabled = !!isChecked;
     const titleEl = _0xD.getElementById("studentSectionTitle");
@@ -712,7 +882,7 @@ input[type="text"], input[type="number"], select, textarea {
     const _0xb = _0xD.getElementById("advToggleBtn");
     const _0xo = _0xp.classList.toggle("open");
     _0xb.classList.toggle("active", _0xo);
-    _0xb.innerHTML = _0xo ? "⚙️ Advanced Edit Mode: ON" : "⚙️ Advanced Edit Mode: OFF";
+    _0xb.innerHTML = _0xo ? "&#9881;&#65039; Advanced Edit Mode: ON" : "&#9881;&#65039; Advanced Edit Mode: OFF";
   };
 
   _0xW.toggleCheckDrawer = function(_0xcId, _0xdId) {
@@ -888,13 +1058,12 @@ input[type="text"], input[type="number"], select, textarea {
     Object.keys(_0xDebounceTimers).forEach(k => clearTimeout(_0xDebounceTimers[k]));
     _0xST = [{ id: "", name: "", reg: "", status: "" }];
     const hintEl = _0xD.getElementById("sessionHint");
-    if (hintEl) hintEl.textContent = "(Will be auto-updated from ID)";
+    if (hintEl) hintEl.textContent = "(Auto-updated from ID)";
     _0xSetStatus(_0xAutoFetchEnabled ? "" : "Manual Mode: Enter Student ID & Reg. No. manually.", _0xAutoFetchEnabled ? "#0275d8" : "#6c757d", false);
     _0xRenderInputs();
     _0xRenderAll();
   };
 
-  /* Fixed Bulk Paste Handler */
   _0xW.processBulkPaste = async function(_0xrep) {
     const _0xta = _0xD.getElementById("bulkTextarea");
     if (!_0xta) return;
@@ -1071,10 +1240,10 @@ input[type="text"], input[type="number"], select, textarea {
         const b = _0xGetBadgeInfo(_0xs);
         html += `
           <div class="student-row">
-            <input type="text" placeholder="Type Student ID (e.g. 2602149)" value="${_0xs.id}"
+            <input type="text" placeholder="Student ID (e.g. 2602149)" value="${_0xs.id}"
               oninput="updateStudentId(${_0xi}, this.value)">
             <div id="badge_${_0xi}" class="${b.cls}" title="${b.text}">${b.text}</div>
-            <button type="button" class="btn-fetch-row" title="Re-fetch" onclick="fetchStudentRow(${_0xi})">↻</button>
+            <button type="button" class="btn-fetch-row" title="Re-fetch" onclick="fetchStudentRow(${_0xi})">&#8635;</button>
             ${_0xST.length > 1 ? `<button type="button" class="btn-remove" onclick="removeStudentRow(${_0xi})">X</button>` : ""}
           </div>`;
       } else {
@@ -1185,7 +1354,7 @@ input[type="text"], input[type="number"], select, textarea {
 
   function _0xScale() {
     const _0xwr = _0xD.querySelectorAll(".page-scale-wrapper");
-    const _0xaw = Math.min(_0xW.innerWidth - 32, 820);
+    const _0xaw = Math.min(_0xW.innerWidth - 32, 860);
     _0xwr.forEach(_0xw => {
       const _0xpg = _0xw.querySelector(".a4-page");
       if (!_0xpg) return;
@@ -1210,7 +1379,7 @@ input[type="text"], input[type="number"], select, textarea {
       const _0xil = (_0xi + _0xpp >= _0xST.length);
       let _0xph = `<div class="page-scale-wrapper"><div class="a4-page grid-${_0xpp}">`;
       _0xch.forEach(_0xs => { _0xph += _0xBuildCover(_0xinf, _0xs, _0xtn); });
-      if (_0xil) _0xph += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">❤️</span><span>Mohammad Asif</span></div>`;
+      if (_0xil) _0xph += `<div class="pdf-footer-credit"><span>Made by</span><span class="heart">&#10084;&#65039;</span><span>Mohammad Asif</span></div>`;
       _0xph += `</div></div>`;
       outHTML += _0xph;
     }
