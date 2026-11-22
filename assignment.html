@@ -172,6 +172,11 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   max-height: 290px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
 }
 .student-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+@media (max-width: 640px) {
+  .student-row { flex-wrap: wrap; }
+  .student-row input, .student-badge { flex-basis: 100%; }
+  .student-row .btn-fetch-row, .student-row .btn-remove { flex: 1; }
+}
 .student-row input { margin-top: 0; flex: 1; }
 .student-badge {
   flex: 1.85; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
@@ -440,7 +445,7 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   </div>
 
   <div class="api-status-wrap">
-    <div class="api-status-bar" id="apiStatus"></div>
+    <div class="api-status-bar" id="apiStatus" role="status" aria-live="polite"></div>
     <button type="button" class="btn-stop-fetch" id="stopFetchBtn" onclick="stopAllFetches()">Stop</button>
   </div>
 
