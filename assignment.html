@@ -172,6 +172,11 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   max-height: 290px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px;
 }
 .student-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+@media (max-width: 640px) {
+  .student-row { flex-wrap: wrap; }
+  .student-row input, .student-badge { flex-basis: 100%; }
+  .student-row .btn-fetch-row, .student-row .btn-remove { flex: 1; }
+}
 .student-row input { margin-top: 0; flex: 1; }
 .student-badge {
   flex: 1.85; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;
@@ -440,7 +445,7 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   </div>
 
   <div class="api-status-wrap">
-    <div class="api-status-bar" id="apiStatus"></div>
+    <div class="api-status-bar" id="apiStatus" role="status" aria-live="polite"></div>
     <button type="button" class="btn-stop-fetch" id="stopFetchBtn" onclick="stopAllFetches()">Stop</button>
   </div>
 
@@ -621,6 +626,7 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 <script>
 const API_URL = "https://asif.bdasif321.workers.dev/";
 const TEACHERS_API_URL = "https://asif.bdasif321.workers.dev/teachers";
+const COURSES_API_URL = "https://asif.bdasif321.workers.dev/courses";
 
 let STUDENTS = [{ id: "2602149", name: "Mohammad Asif", reg: "61046", status: "ok" }];
 const MEM_CACHE = { "2602149": { name: "Mohammad Asif", reg: "61046" } };
@@ -872,18 +878,27 @@ async function loadBauTeachersDirectory() {
   }
   mergeTeachers([]);
   try {
-    const cached = localStorage.getItem("bau_teachers_cache_v3");
+    const cached = localStorage.getItem("bau_teachers_cache_v4");
     if (cached) {
       const parsed = JSON.parse(cached);
-      if (Array.isArray(parsed) && parsed.length > 0) mergeTeachers(parsed);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        mergeTeachers(parsed);
+        if (badge) badge.textContent = `${BAU_TEACHERS.length} Cached BAU Teachers`;
+      }
     }
     const res = await fetch(TEACHERS_API_URL);
     if (res.ok) {
       const json = await res.json();
       const list = Array.isArray(json) ? json : (json.teachers || json.data || []);
       if (Array.isArray(list) && list.length > 0) {
-        mergeTeachers(list);
-        localStorage.setItem("bau_teachers_cache_v3", JSON.stringify(BAU_TEACHERS));
+        const normalized = list.map(t => ({
+          name: (t.name || t.Name || t.teacherName || t.teacher_name || "").toString().trim(),
+          desig: (t.desig || t.designation || t.Designation || "").toString().trim(),
+          dept: (t.dept || t.department || t.Department || "").toString().trim(),
+          fac: (t.fac || t.faculty || t.Faculty || "Bangladesh Agricultural University").toString().trim()
+        })).filter(t => t.name);
+        mergeTeachers(normalized);
+        localStorage.setItem("bau_teachers_cache_v4", JSON.stringify(BAU_TEACHERS));
       }
     }
   } catch (e) {}
@@ -891,12 +906,46 @@ async function loadBauTeachersDirectory() {
 loadBauTeachersDirectory();
 
 const courseDatalist = document.getElementById("bauCourseList");
-Object.keys(COURSE_CATALOG).forEach(code => {
-  const opt = document.createElement("option");
-  opt.value = code;
-  opt.label = COURSE_CATALOG[code].title;
-  courseDatalist.appendChild(opt);
-});
+function refreshCourseDatalist() {
+  courseDatalist.innerHTML = "";
+  Object.keys(COURSE_CATALOG).sort().forEach(code => {
+    const opt = document.createElement("option");
+    opt.value = code;
+    opt.label = COURSE_CATALOG[code].title;
+    courseDatalist.appendChild(opt);
+  });
+}
+refreshCourseDatalist();
+
+async function loadLiveCourseCatalog() {
+  const cacheKey = "bau_courses_cache_v2";
+  try {
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) Object.assign(COURSE_CATALOG, JSON.parse(cached));
+  } catch (e) {}
+
+  try {
+    const res = await fetch(COURSES_API_URL, { cache: "no-store" });
+    if (!res.ok) return;
+    const json = await res.json();
+    const list = Array.isArray(json) ? json : (json.courses || json.data || []);
+    const liveCatalog = {};
+    list.forEach(item => {
+      if (!item) return;
+      const code = (item.code || item.courseCode || item.course_code || item.course || "").toString().trim().toUpperCase().replace(/\s+/g, " ");
+      const title = (item.title || item.courseTitle || item.course_title || item.name || "").toString().trim();
+      const dept = (item.dept || item.department || item.Department || "").toString().trim();
+      if (code && title) liveCatalog[code] = { title, dept: dept || COURSE_CATALOG[code]?.dept || "Department of " + (code.split(" ")[0] || "") };
+    });
+    if (Object.keys(liveCatalog).length) {
+      Object.assign(COURSE_CATALOG, liveCatalog);
+      localStorage.setItem(cacheKey, JSON.stringify(liveCatalog));
+      refreshCourseDatalist();
+      handleCourseCodeAutoSuggest();
+    }
+  } catch (e) {}
+}
+loadLiveCourseCatalog();
 
 const dateInput = document.getElementById("subDate");
 dateInput.valueAsDate = new Date();
@@ -1264,7 +1313,7 @@ window.processBulkPaste = async function(replace) {
   const ta = document.getElementById("bulkTextarea");
   const nums = (ta.value || "").trim().match(/\d+/g);
   if (!nums || nums.length === 0) {
-    alert("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).");
+    setApiStatus("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).", "#dc2626", false);
     ta.focus();
     return;
   }
@@ -1301,11 +1350,11 @@ window.processLoopGenerator = async function(replace) {
   const startId = document.getElementById("loopStartId").value.trim();
   const count = parseInt(document.getElementById("loopCount").value, 10);
   if (!/^\d+$/.test(startId)) {
-    alert("Start ID must contain numbers only.");
+    setApiStatus("Start ID must contain numbers only.", "#dc2626", false);
     return;
   }
   if (isNaN(count) || count < 1 || count > 200) {
-    alert("Please enter a valid count between 1 and 200.");
+    setApiStatus("Please enter a valid count between 1 and 200.", "#dc2626", false);
     return;
   }
 
