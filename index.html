@@ -401,29 +401,6 @@ input[type="text"], input[type="number"], select, textarea {
 <script>
 (function(_0xW, _0xD){
   "use strict";
-  /* 1. Multi-layer Anti-Inspection & Anti-Debugger Shield */
-  const _0xBlk = function(_0xE){ _0xE.preventDefault(); return false; };
-  _0xD.addEventListener("contextmenu", _0xBlk);
-  _0xD.addEventListener("dragstart", _0xBlk);
-  _0xD.addEventListener("keydown", function(_0xE){
-    const _0xK = _0xE.keyCode || _0xE.which;
-    if (_0xK === 123 ||
-       ((_0xE.ctrlKey || _0xE.metaKey) && _0xE.shiftKey && (_0xK === 73 || _0xK === 74 || _0xK === 67 || _0xK === 75)) ||
-       ((_0xE.ctrlKey || _0xE.metaKey) && (_0xK === 85 || _0xK === 83))) {
-      _0xE.preventDefault();
-      _0xE.stopPropagation();
-      return false;
-    }
-  }, true);
-
-  setInterval(function(){
-    const _0xT0 = performance.now();
-    (function(){}).constructor("debugger")();
-    if (performance.now() - _0xT0 > 500) {
-      _0xD.body.innerHTML = "<h2 style='font-family:Arial;color:#c00000;text-align:center;margin-top:80px;'>Protected Source: Developer Inspection is Restricted.</h2>";
-    }
-  }, 1500);
-
   /* 2. Modernized Responsive DOM Markup (Aligned with assignment.html) */
   _0xD.getElementById("__app_root").innerHTML = `
 <h1>BAU Batch Practical Cover Generator</h1>
@@ -488,8 +465,8 @@ input[type="text"], input[type="number"], select, textarea {
   <div class="course-section">
     <h2>2. Common Course Details</h2>
     <div class="form-grid">
-      <label>Course No. <span class="label-hint">(Auto-UPPERCASE)</span><input type="text" id="courseNo" value="ACHEM 1122" placeholder="e.g. ACHEM 1122"></label>
-      <label>Course Title<input type="text" id="courseTitle" value="Physical and Organic Chemistry" placeholder="e.g. Physical and Organic Chemistry"></label>
+      <label>Course No. <span class="label-hint">(Auto-UPPERCASE)</span><input type="text" id="courseNo" value="SS 1101" placeholder="e.g. SS 1101"></label>
+      <label>Course Title<input type="text" id="courseTitle" value="Introductory Soil Science" placeholder="e.g. Introductory Soil Science"></label>
       <label>Group<input type="text" id="group" value="VI" placeholder="e.g. VI"></label>
       <label>Section<input type="text" id="section" value="B" placeholder="e.g. B"></label>
       <label>Session <span class="label-hint" id="sessionHint">(Auto-updated from ID)</span><input type="text" id="session" value="2025-2026" placeholder="e.g. 2025-2026"></label>
@@ -746,15 +723,60 @@ input[type="text"], input[type="number"], select, textarea {
   if (_0xCourseNoInput) {
     const _0xDL = _0xD.createElement("datalist");
     _0xDL.id = "bauCourseDatalist";
-    Object.keys(_0xCOURSE_CATALOG).forEach(code => {
-      const opt = _0xD.createElement("option");
-      opt.value = code;
-      opt.label = _0xCOURSE_CATALOG[code].title;
-      _0xDL.appendChild(opt);
-    });
+    function _0xRefreshCourseDatalist() {
+      _0xDL.innerHTML = "";
+      Object.keys(_0xCOURSE_CATALOG).sort().forEach(code => {
+        const opt = _0xD.createElement("option");
+        opt.value = code;
+        opt.label = _0xCOURSE_CATALOG[code].title;
+        _0xDL.appendChild(opt);
+      });
+    }
+    _0xRefreshCourseDatalist();
     _0xCourseNoInput.setAttribute("list", "bauCourseDatalist");
     _0xCourseNoInput.parentNode.appendChild(_0xDL);
   }
+
+  async function _0xLoadLiveCourseCatalog() {
+    const cacheKey = "bau_courses_cache_v2";
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (parsed && typeof parsed === "object") Object.assign(_0xCOURSE_CATALOG, parsed);
+      }
+    } catch (_0xe) {}
+
+    try {
+      const res = await fetch("https://asif.bdasif321.workers.dev/courses", { cache: "no-store" });
+      if (!res.ok) return;
+      const json = await res.json();
+      const list = Array.isArray(json) ? json : (json.courses || json.data || []);
+      const liveCatalog = {};
+      list.forEach(item => {
+        if (!item) return;
+        const code = (item.code || item.courseCode || item.course_code || item.course || "").toString().trim().toUpperCase().replace(/\s+/g, " ");
+        const title = (item.title || item.courseTitle || item.course_title || item.name || "").toString().trim();
+        if (code && title) liveCatalog[code] = { title };
+      });
+      if (Object.keys(liveCatalog).length) {
+        Object.assign(_0xCOURSE_CATALOG, liveCatalog);
+        localStorage.setItem(cacheKey, JSON.stringify(liveCatalog));
+        const datalist = document.getElementById("bauCourseDatalist");
+        if (datalist) {
+          datalist.innerHTML = "";
+          Object.keys(_0xCOURSE_CATALOG).sort().forEach(code => {
+            const opt = document.createElement("option");
+            opt.value = code;
+            opt.label = _0xCOURSE_CATALOG[code].title;
+            datalist.appendChild(opt);
+          });
+        }
+        _0xHandleCourseCodeLogic();
+      }
+    } catch (_0xe) {}
+  }
+  _0xLoadLiveCourseCatalog();
 
   /* 4. Auto-Fetch Toggle + Manual Reg Entry + Auto-Session & Course Code Detection */
   const _0xAPI = "https://asif.bdasif321.workers.dev/";
@@ -1077,7 +1099,7 @@ input[type="text"], input[type="number"], select, textarea {
     const _0xnum = _0xraw.match(/\d+/g);
 
     if (!_0xnum || _0xnum.length === 0) {
-      _0xW.alert("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).");
+      _0xSetStatus("Please paste valid numerical Student IDs (e.g. 2602149, 2602150).", "#dc2626", false);
       _0xta.focus();
       return;
     }
@@ -1122,11 +1144,11 @@ input[type="text"], input[type="number"], select, textarea {
     const _0xsId = _0xD.getElementById("loopStartId").value.trim();
     const _0xcnt = parseInt(_0xD.getElementById("loopCount").value, 10);
     if (!/^\d+$/.test(_0xsId)) {
-      _0xW.alert("Start ID must contain numbers only.");
+      _0xSetStatus("Start ID must contain numbers only.", "#dc2626", false);
       return;
     }
     if (isNaN(_0xcnt) || _0xcnt < 1 || _0xcnt > 200) {
-      _0xW.alert("Please enter a valid count between 1 and 200.");
+      _0xSetStatus("Please enter a valid count between 1 and 200.", "#dc2626", false);
       return;
     }
 
