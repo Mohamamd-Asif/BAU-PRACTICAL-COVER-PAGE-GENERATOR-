@@ -62,11 +62,10 @@ body {
   margin: 0; padding: 16px; background: #e9ecef; color: #222;
   font-family: Georgia, "Times New Roman", serif;
 }
-h1, h2, h3, label, button, .subtitle, .code-hint, .autocomplete-list, .teacher-sync-badge, .student-badge, .api-status-bar, .tool-drawer, .top-nav-bar {
+h1, h2, h3, label, button, .subtitle, .code-hint, .autocomplete-list, .teacher-sync-badge, .student-badge, .api-status-bar, .tool-drawer, .top-nav-bar, .opt-check-label, .assign-card-title {
   font-family: Arial, sans-serif;
 }
 
-/* Top Navigation Tab Switcher */
 .top-nav-bar {
   max-width: 860px; margin: 0 auto 16px;
   display: flex; gap: 10px; background: #fff;
@@ -94,7 +93,6 @@ h1, h2, h3, label, button, .subtitle, .code-hint, .autocomplete-list, .teacher-s
 h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
 .subtitle { font-size: 14px; color: #555; margin-bottom: 18px; text-align: center; }
 
-/* Editor Panel */
 .editor {
   max-width: 860px; margin: 0 auto 25px; background: #fff;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -104,13 +102,42 @@ h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
   margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
   flex-wrap: wrap; gap: 8px;
 }
+.section-header-row.first-sec {
+  margin-top: 0;
+}
 .section-header-row h2 {
   font-size: 17px; color: #176b42; margin: 0; border: none; padding: 0;
 }
-.editor > h2:first-child {
-  font-size: 17px; color: #176b42; margin: 0 0 12px;
-  padding-bottom: 6px; border-bottom: 1.5px solid #e0e0e0;
+
+/* Multi-Assignment Card Styling */
+.assignment-card {
+  background: #fdfdfd; border: 1.5px solid #d1e7dd;
+  border-radius: 8px; padding: 14px; margin-bottom: 12px;
+  position: relative; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
+.assign-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #cbd5e1;
+}
+.assign-card-title {
+  font-size: 13.5px; font-weight: bold; color: #176b42;
+}
+.btn-remove-assign {
+  background: #dc3545; color: #fff; border: none;
+  padding: 4px 10px; border-radius: 4px; font-size: 12px;
+  font-weight: bold; cursor: pointer;
+}
+.btn-remove-assign:hover { background: #b02a37; }
+
+.add-assign-wrap {
+  margin: 4px 0 14px;
+}
+.btn-add-assign {
+  background: #176b42; color: #fff; border: none;
+  padding: 8px 14px; border-radius: 5px; font-size: 13px;
+  font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-add-assign:hover { background: #125634; }
 
 .autofill-toggle {
   display: inline-flex; align-items: center; gap: 7px;
@@ -140,6 +167,26 @@ h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .full-width { grid-column: span 2; }
 
+.opt-field-box {
+  background: #f8fafc; border: 1px solid #dee2e6;
+  padding: 9px 11px; border-radius: 6px;
+}
+.opt-check-label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: bold; color: #176b42;
+  cursor: pointer; user-select: none;
+}
+.opt-check-label input[type="checkbox"] {
+  width: 15px; height: 15px; margin: 0; cursor: pointer; accent-color: #176b42;
+}
+.opt-field-box input[type="text"],
+.opt-field-box input[type="date"] {
+  margin-top: 7px;
+}
+.opt-field-box input:disabled {
+  background: #e9ecef; color: #888; cursor: not-allowed;
+}
+
 @media (max-width: 640px) {
   .form-grid { grid-template-columns: 1fr; }
   .full-width { grid-column: span 1; }
@@ -151,11 +198,10 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   display: block; width: 100%; margin-top: 5px; padding: 9px 11px;
   border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
 }
-#courseCode { text-transform: uppercase; }
+.course-code-input { text-transform: uppercase; }
 
 .code-hint { font-size: 12px; margin-top: 4px; color: #285c9d; font-weight: normal; }
 
-/* Multi-Student Controls */
 .api-status-wrap {
   display: flex; align-items: center; justify-content: space-between;
   gap: 10px; margin-bottom: 8px; min-height: 22px;
@@ -243,7 +289,6 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   border-radius: 5px; cursor: pointer; font-size: 12.5px; font-weight: bold;
 }
 
-/* Teacher Autocomplete Dropdown */
 .autocomplete-wrap { position: relative; }
 .autocomplete-list {
   position: absolute; top: 100%; left: 0; right: 0; z-index: 999;
@@ -276,7 +321,6 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 }
 .btn-print:hover { background: #125634; }
 
-/* Multi-Page Responsive A4 Preview Container */
 #previewContainer {
   display: flex; flex-direction: column; gap: 24px; align-items: center;
   width: 100%; overflow: hidden;
@@ -291,7 +335,6 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   transform-origin: top center; flex-shrink: 0;
 }
 
-/* Cover Border & Layout */
 .cover-frame {
   width: 100%; height: 100%;
   border: 5px double #176b42;
@@ -303,8 +346,11 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   text-align: center; background: #fffdfc; position: relative;
 }
 
-/* Top Section: Assignment On & Topic */
 .top-section { width: 100%; margin-top: 3mm; }
+.assignment-no-text {
+  font-size: 16pt; font-weight: bold; color: #176b42;
+  letter-spacing: 0.8px; margin-bottom: 6px;
+}
 .assignment-label {
   font-size: 24pt; font-weight: bold; color: #a52c51;
   letter-spacing: 1.5px; text-transform: uppercase;
@@ -315,12 +361,10 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   color: #1a1a1a; line-height: 1.4; padding: 0 10px;
 }
 
-/* Center Logo */
-.logo-section { margin: 6mm 0; }
+.logo-section { margin: 5mm 0; }
 .logo-section img { width: 130px; height: 130px; object-fit: contain; }
 
-/* Course Info */
-.course-section { width: 100%; margin-bottom: 6mm; }
+.course-section { width: 100%; margin-bottom: 5mm; }
 .course-code {
   font-size: 18pt; font-weight: bold; color: #176b42; letter-spacing: 0.5px;
 }
@@ -329,18 +373,16 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   color: #285c9d; line-height: 1.35;
 }
 
-/* Submitted By (Left) & Submitted To (Right) */
 .submission-grid {
   width: 100%; display: grid; grid-template-columns: 1fr 1fr;
-  gap: 14px; text-align: left; margin-top: 3mm;
+  gap: 14px; text-align: left; margin-top: 2mm;
   border-top: 1.5px solid #ccc; border-bottom: 1.5px solid #ccc;
-  padding: 14px 4px; align-items: stretch;
+  padding: 13px 4px; align-items: stretch;
 }
 .sub-col { padding: 4px 8px; display: flex; flex-direction: column; }
 .sub-col:first-child { border-right: 1.5px solid #ccc; padding-right: 14px; }
 .sub-col:last-child { padding-left: 14px; }
 
-/* Top-aligned & well-spaced teacher column to eliminate awkward bottom gap */
 .teacher-col-body {
   flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
 }
@@ -372,10 +414,12 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 }
 .sub-details strong { color: #111; }
 
-/* Bottom Date & University Name */
-.bottom-section { width: 100%; margin-top: 5mm; }
+.bottom-section { width: 100%; margin-top: 4mm; }
+.assign-date {
+  font-size: 12.8pt; font-weight: bold; color: #444; margin-bottom: 5px;
+}
 .sub-date {
-  font-size: 13.5pt; font-weight: bold; color: #333; margin-bottom: 12mm;
+  font-size: 13.5pt; font-weight: bold; color: #333; margin-bottom: 11mm;
 }
 .univ-name {
   font-size: 17pt; font-weight: bold; color: #176b42; letter-spacing: 0.4px;
@@ -384,7 +428,6 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   font-size: 12.5pt; font-weight: bold; color: #444; margin-top: 3px;
 }
 
-/* Print Settings */
 @page { size: A4 portrait; margin: 0; }
 @media print {
   body { margin: 0; padding: 0; background: white; }
@@ -402,7 +445,6 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 </head>
 <body>
 
-<!-- Top Navigation Tab Switcher -->
 <nav class="top-nav-bar" aria-label="Cover Page Mode Switcher">
   <a href="index.html" class="nav-tab inactive">&larr; 📘 Practical Cover Generator</a>
   <a href="assignment.html" class="nav-tab active">📄 Assignment Cover Generator</a>
@@ -412,24 +454,20 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 <div class="subtitle">Generate single or batch A4 assignment cover pages with automatic Student ID, Course &amp; Teacher lookup.</div>
 
 <section class="editor">
-  <h2>1. Assignment &amp; Course Details</h2>
+  <div class="section-header-row first-sec">
+    <h2>1. Assignment &amp; Course Details</h2>
+  </div>
+
+  <datalist id="bauCourseList"></datalist>
+  <div id="assignmentsContainer"></div>
+
+  <div class="add-assign-wrap">
+    <button type="button" class="btn-add-assign" onclick="addNewAssignment()">+ Add New Assignment</button>
+  </div>
+
   <div class="form-grid">
-    <label class="full-width">Assignment Topic
-      <input type="text" id="topic" value="Role of Organic Matter in Soil Fertility and Sustainable Crop Production">
-    </label>
-    <label>Course Code
-      <input type="text" id="courseCode" list="bauCourseList" value="SS 1101" placeholder="e.g. SS 1201, AGRON 2101">
-      <datalist id="bauCourseList"></datalist>
-      <div class="code-hint" id="courseHint">Auto-updates Title, Dept. &amp; Level-Semester (e.g. 1201 &rarr; L-1, S-2)</div>
-    </label>
-    <label>Course Title
-      <input type="text" id="courseTitle" value="Introductory Soil Science">
-    </label>
-    <label>Date of Submission
-      <input type="date" id="subDate">
-    </label>
-    <label>Border Style
-      <select id="borderStyle">
+    <label class="full-width">Border Style
+      <select id="borderStyle" onchange="updatePreview()">
         <option value="green">BAU Green Double Border</option>
         <option value="red">Classic Maroon Double Border</option>
       </select>
@@ -494,7 +532,7 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
     <label>Group &amp; Section
       <input type="text" id="stGroupSec" value="Group: VI, Section: B">
     </label>
-    <label>Faculty
+    <label>Faculty / Institute
       <input type="text" id="stFaculty" value="Faculty of Agriculture">
     </label>
   </div>
@@ -546,87 +584,30 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
 
 <div id="previewContainer"></div>
 
-<!-- Embedded Search-Engine-Friendly JSON Dataset for BAU Teachers -->
-<script type="application/json" id="bauTeachersEmbedded">
-[
-  {"name":"Dr. Abu Zofar Md. Moslehuddin","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Anamul Hoque","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Mahmud Hossain Sumon","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Mohammad Mofizur Rahman Jahangir","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Tahsina Sharmin Hoque","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Rafiqul Islam","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Joinul Abedin","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Abdul Kader","desig":"Professor","dept":"Department of Soil Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Romij Uddin","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Uttam Kumer Sarker","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Parvez Anwar","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Abdus Salam","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Ahmed Khairul Hasan","desig":"Professor","dept":"Department of Agronomy","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. M. Wahid-U-Zzaman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Zakir Hossen","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Mokhlesur Rahman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Quazi Forhad Quadir","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Atiqur Rahman","desig":"Professor","dept":"Department of Agricultural Chemistry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. A.K.M. Azad-ud-doula Prodhan","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Alamgir Hossain","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Solaiman Ali Fakir","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Habibur Rahman Pramanik","desig":"Professor","dept":"Department of Crop Botany","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Mokter Hossain","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Kamrul Hassan","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Ashraful Islam","desig":"Professor","dept":"Department of Horticulture","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Azizul Haque","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Khandakar Shariful Islam","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Gopal Das","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Mohammad Mahir Uddin","desig":"Professor","dept":"Department of Entomology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Bahadur Meah","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Rashidul Islam","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Mohammad Shahjahan Monjil","desig":"Professor","dept":"Department of Plant Pathology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Lutful Hassan","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. A. K. M. Aminul Islam","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Ashraful Haque","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Ujjal Kumar Nath","desig":"Professor","dept":"Department of Genetics and Plant Breeding","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. M. Zulfikar Rahman","desig":"Professor","dept":"Department of Agricultural Extension Education","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Mahbubul Alam","desig":"Professor","dept":"Department of Agricultural Extension Education","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Golam Mortuza","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Tofazzal Hossain","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Mohammad Anowar Hossain","desig":"Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Tahjib-Ul-Arif","desig":"Associate Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Arif Sakil","desig":"Assistant Professor","dept":"Department of Biochemistry and Molecular Biology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. G. M. Mujibar Rahman","desig":"Professor","dept":"Department of Agroforestry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Abdul Wadud","desig":"Professor","dept":"Department of Agroforestry","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Badiuzzaman Khan","desig":"Professor","dept":"Department of Environmental Science","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Md. Shahidul Haque","desig":"Professor","dept":"Department of Biotechnology","fac":"Faculty of Agriculture, BAU"},
-  {"name":"Dr. Abdul Awal","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
-  {"name":"Dr. Shonkor Kumar Das","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
-  {"name":"Dr. Ziaul Haque","desig":"Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
-  {"name":"Prof. Dr. Nasrin Sultana","desig":"Associate Professor","dept":"Department of Anatomy and Histology","fac":"Faculty of Veterinary Science, BAU"},
-  {"name":"Dr. MD Hasanuzzaman Talukder","desig":"Professor","dept":"Department of Parasitology","fac":"Faculty of Veterinary Science, BAU"},
-  {"name":"Dr. M. A. M. Yahia Khandoker","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
-  {"name":"Dr. Mohammad Shamsul Alam Bhuiyan","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
-  {"name":"Dr. Auvijit Saha Apu","desig":"Professor","dept":"Department of Animal Breeding and Genetics","fac":"Faculty of Animal Husbandry, BAU"},
-  {"name":"Dr. Mohammad Ashiqul Islam","desig":"Professor","dept":"Department of Dairy Science","fac":"Faculty of Animal Husbandry, BAU"},
-  {"name":"Dr. Md. Bazlur Rahman Mollah","desig":"Professor","dept":"Department of Poultry Science","fac":"Faculty of Animal Husbandry, BAU"},
-  {"name":"Dr. Mohammad Jahangir Alam","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"Dr. Mohammad Ismail Hossain","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"Prof. Dr. Sarah Yasmin","desig":"Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"Dr. Dilshad Zahan Ethen","desig":"Associate Professor","dept":"Department of Agribusiness and Marketing","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"ASM Golam Hafeez","desig":"Professor","dept":"Department of Agricultural Finance and Banking","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"Dr. Mohammad Ataur Rahman","desig":"Professor","dept":"Department of Agricultural Finance and Banking","fac":"Faculty of Agricultural Economics & Rural Sociology, BAU"},
-  {"name":"Dr. Md. Rakib Hassan","desig":"Professor","dept":"Department of Computer Science and Mathematics","fac":"Faculty of Agricultural Engineering & Technology, BAU"},
-  {"name":"Dr. Mohd Golam Quader Khan","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Dr. Nahid Sultana Lucky","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Dr. Mohammad Matiur Rahman","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Prof. Dr. A. K. Shakur Ahammad","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Dr. Taslima Khanam","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Dr. Md. Rafiqul Islam Sarder","desig":"Professor","dept":"Department of Fisheries Biology and Genetics","fac":"Faculty of Fisheries, BAU"},
-  {"name":"Dr. Md. Abdus Salam","desig":"Professor","dept":"Department of Aquaculture","fac":"Faculty of Fisheries, BAU"}
-]
-</script>
-
+<script src="bau-data.js"></script>
 <script>
-const API_URL = "https://asif.bdasif321.workers.dev/";
-const TEACHERS_API_URL = "https://asif.bdasif321.workers.dev/teachers";
-const COURSES_API_URL = "https://asif.bdasif321.workers.dev/courses";
+const DATA = window.BAU_DATA || {};
+const API_URL = DATA.API_URL || "https://asif.bdasif321.workers.dev/";
+const FACULTY_MAP = DATA.FACULTY_MAP || {};
+const DEPT_PREFIX_MAP = DATA.DEPT_PREFIX_MAP || {};
+const COURSE_CATALOG = DATA.COURSE_CATALOG || {};
+
+const todayIso = new Date().toISOString().split("T")[0];
+
+let ASSIGNMENTS = [
+  {
+    showAssignNo: false,
+    assignNo: "Assignment No. 01",
+    topic: "Role of Organic Matter in Soil Fertility and Sustainable Crop Production",
+    courseCode: "SS 1101",
+    courseTitle: "Introductory Soil Science",
+    showAssignDate: false,
+    assignDate: todayIso,
+    subDate: todayIso,
+    hintText: "Auto-updates Title, Dept. & Level-Semester (e.g. 1201 → L-1, S-2)",
+    hintColor: "#285c9d"
+  }
+];
 
 let STUDENTS = [{ id: "2602149", name: "Mohammad Asif", reg: "61046", status: "ok" }];
 const MEM_CACHE = { "2602149": { name: "Mohammad Asif", reg: "61046" } };
@@ -640,270 +621,12 @@ let levelManuallyEdited = false;
 let sessionManuallyEdited = false;
 let facultyManuallyEdited = false;
 
-const FACULTY_MAP = {
-  "01": "Faculty of Veterinary Science",
-  "02": "Faculty of Agriculture",
-  "03": "Faculty of Animal Husbandry",
-  "04": "Faculty of Agricultural Economics & Rural Sociology",
-  "05": "Faculty of Agricultural Engineering & Technology",
-  "06": "Faculty of Fisheries",
-  "10": "School of Veterinary Science & Animal Husbandry"
-};
-
-const DEPT_PREFIX_MAP = {
-  "AGRON":   { dept: "Department of Agronomy", fac: "Faculty of Agriculture, BAU" },
-  "SS":      { dept: "Department of Soil Science", fac: "Faculty of Agriculture, BAU" },
-  "ENTOM":   { dept: "Department of Entomology", fac: "Faculty of Agriculture, BAU" },
-  "HORT":    { dept: "Department of Horticulture", fac: "Faculty of Agriculture, BAU" },
-  "PPATH":   { dept: "Department of Plant Pathology", fac: "Faculty of Agriculture, BAU" },
-  "CBOT":    { dept: "Department of Crop Botany", fac: "Faculty of Agriculture, BAU" },
-  "GPB":     { dept: "Department of Genetics and Plant Breeding", fac: "Faculty of Agriculture, BAU" },
-  "AGEXT":   { dept: "Department of Agricultural Extension Education", fac: "Faculty of Agriculture, BAU" },
-  "ACHEM":   { dept: "Department of Agricultural Chemistry", fac: "Faculty of Agriculture, BAU" },
-  "BMB":     { dept: "Department of Biochemistry and Molecular Biology", fac: "Faculty of Agriculture, BAU" },
-  "BIOTECH": { dept: "Department of Biotechnology", fac: "Faculty of Agriculture, BAU" },
-  "BTECH":   { dept: "Department of Biotechnology", fac: "Faculty of Agriculture, BAU" },
-  "ENVSC":   { dept: "Department of Environmental Science", fac: "Faculty of Agriculture, BAU" },
-  "AGFOR":   { dept: "Department of Agroforestry", fac: "Faculty of Agriculture, BAU" },
-  "AGROF":   { dept: "Department of Agroforestry", fac: "Faculty of Agriculture, BAU" },
-  "AGMET":   { dept: "Department of Agrometeorology", fac: "Faculty of Agriculture, BAU" },
-  "SEED":    { dept: "Seed Science and Technology", fac: "Faculty of Agriculture, BAU" },
-  "LANG":    { dept: "Department of Languages", fac: "Faculty of Agriculture, BAU" },
-  "LAN":     { dept: "Department of Languages", fac: "Faculty of Agriculture, BAU" },
-  "PHYS":    { dept: "Department of Physics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "CHEM":    { dept: "Department of Chemistry", fac: "Faculty of Agriculture, BAU" },
-  "ANAT":    { dept: "Department of Anatomy and Histology", fac: "Faculty of Veterinary Science, BAU" },
-  "VPHYS":   { dept: "Department of Physiology", fac: "Faculty of Veterinary Science, BAU" },
-  "PHARM":   { dept: "Department of Pharmacology", fac: "Faculty of Veterinary Science, BAU" },
-  "PARA":    { dept: "Department of Parasitology", fac: "Faculty of Veterinary Science, BAU" },
-  "MICRO":   { dept: "Department of Microbiology and Hygiene", fac: "Faculty of Veterinary Science, BAU" },
-  "PATH":    { dept: "Department of Pathology", fac: "Faculty of Veterinary Science, BAU" },
-  "VMED":    { dept: "Department of Medicine", fac: "Faculty of Veterinary Science, BAU" },
-  "MED":     { dept: "Department of Medicine", fac: "Faculty of Veterinary Science, BAU" },
-  "SURG":    { dept: "Department of Surgery and Obstetrics", fac: "Faculty of Veterinary Science, BAU" },
-  "ANSC":    { dept: "Department of Animal Science", fac: "Faculty of Animal Husbandry, BAU" },
-  "AS":      { dept: "Department of Animal Science", fac: "Faculty of Animal Husbandry, BAU" },
-  "ABG":     { dept: "Department of Animal Breeding and Genetics", fac: "Faculty of Animal Husbandry, BAU" },
-  "ANN":     { dept: "Department of Animal Nutrition", fac: "Faculty of Animal Husbandry, BAU" },
-  "DSC":     { dept: "Department of Dairy Science", fac: "Faculty of Animal Husbandry, BAU" },
-  "PSC":     { dept: "Department of Poultry Science", fac: "Faculty of Animal Husbandry, BAU" },
-  "AE":      { dept: "Department of Agricultural Economics", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
-  "AF":      { dept: "Department of Agricultural Finance and Banking", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
-  "ABM":     { dept: "Department of Agribusiness and Marketing", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
-  "RS":      { dept: "Department of Rural Sociology", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
-  "STAT":    { dept: "Department of Agricultural Statistics", fac: "Faculty of Agricultural Economics & Rural Sociology, BAU" },
-  "FPM":     { dept: "Department of Farm Power and Machinery", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "IWM":     { dept: "Department of Irrigation and Water Management", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "FSE":     { dept: "Department of Farm Structure and Environmental Engineering", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "FT":      { dept: "Department of Food Technology and Rural Industries", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "CS":      { dept: "Department of Computer Science and Mathematics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "CSM":     { dept: "Department of Computer Science and Mathematics", fac: "Faculty of Agricultural Engineering & Technology, BAU" },
-  "FBG":     { dept: "Department of Fisheries Biology and Genetics", fac: "Faculty of Fisheries, BAU" },
-  "AQ":      { dept: "Department of Aquaculture", fac: "Faculty of Fisheries, BAU" },
-  "FM":      { dept: "Department of Fisheries Management", fac: "Faculty of Fisheries, BAU" },
-  "FFT":     { dept: "Department of Fisheries Technology", fac: "Faculty of Fisheries, BAU" },
-  "MF":      { dept: "Department of Marine Fisheries Science", fac: "Faculty of Fisheries, BAU" }
-};
-
-const COURSE_CATALOG = {
-  "AGRON 1101": { title: "Fundamentals of Agronomy", dept: "Department of Agronomy" },
-  "AGRON 1102": { title: "Introductory Agronomic Practices", dept: "Department of Agronomy" },
-  "AGRON 1201": { title: "Seed Science and Technology", dept: "Department of Agronomy" },
-  "AGRON 1202": { title: "Seed Science and Technology (Practical)", dept: "Department of Agronomy" },
-  "AGRON 2101": { title: "Weed Science", dept: "Department of Agronomy" },
-  "AGRON 2102": { title: "Weed Science (Practical)", dept: "Department of Agronomy" },
-  "AGRON 2201": { title: "Field Crop Production", dept: "Department of Agronomy" },
-  "AGRON 2202": { title: "Field Crop Production (Practical)", dept: "Department of Agronomy" },
-  "AGRON 3101": { title: "Crop Ecology and Climate Change", dept: "Department of Agronomy" },
-  "AGRON 3201": { title: "Crop Husbandry and Farming Systems", dept: "Department of Agronomy" },
-  "AGRON 3202": { title: "Crop Husbandry and Farming Systems (Practical)", dept: "Department of Agronomy" },
-  "AGRON 4101": { title: "Introductory Cropping Systems", dept: "Department of Agronomy" },
-  "AGRON 4102": { title: "Introductory Cropping Systems (Practical)", dept: "Department of Agronomy" },
-  "AGRON 4121": { title: "Crop Production under Vulnerable Ecosystem", dept: "Department of Agronomy" },
-  "AGRON 4201": { title: "Modern Agronomic Practices and Farm Management", dept: "Department of Agronomy" },
-  "AGRON 4203": { title: "Forage Crops and Pasture Management", dept: "Department of Agronomy" },
-  "AGRON 4204": { title: "Forage Crops and Pasture Management (Practical)", dept: "Department of Agronomy" },
-  "SS 1101": { title: "Introductory Soil Science", dept: "Department of Soil Science" },
-  "SS 1102": { title: "Introductory Soil Science (Practical)", dept: "Department of Soil Science" },
-  "SS 1201": { title: "Soil Survey, Classification and Conservation", dept: "Department of Soil Science" },
-  "SS 1202": { title: "Soil Survey, Classification and Conservation (Practical)", dept: "Department of Soil Science" },
-  "SS 2101": { title: "Soil Survey, Classification and Conservation", dept: "Department of Soil Science" },
-  "SS 2201": { title: "Soil Physics and Soil Chemistry", dept: "Department of Soil Science" },
-  "SS 2202": { title: "Soil Physics and Soil Chemistry (Practical)", dept: "Department of Soil Science" },
-  "SS 3101": { title: "Soil Fertility and Plant Nutrition", dept: "Department of Soil Science" },
-  "SS 3102": { title: "Soil Fertility and Plant Nutrition (Practical)", dept: "Department of Soil Science" },
-  "SS 3201": { title: "Soil Microbiology and Biochemistry", dept: "Department of Soil Science" },
-  "SS 4101": { title: "Soil Biology", dept: "Department of Soil Science" },
-  "SS 4102": { title: "Soil Biology (Practical)", dept: "Department of Soil Science" },
-  "SS 4203": { title: "Soil Pollution", dept: "Department of Soil Science" },
-  "SS 4204": { title: "Soil Pollution (Practical)", dept: "Department of Soil Science" },
-  "ACHEM 1101": { title: "Agroanalytical, Physical and Organic Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1102": { title: "Agroanalytical, Physical and Organic Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1121": { title: "Physical and Organic Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1122": { title: "Physical and Organic Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1123": { title: "Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1125": { title: "Food and Agricultural Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 1127": { title: "Fundamentals of Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 2201": { title: "Nuclear and Agroindustrial Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 2202": { title: "Nuclear and Agroindustrial Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 2221": { title: "Agroindustrial, Nuclear and Natural Product Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 3101": { title: "Plant Nutrition, Pesticide and Environmental Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 3102": { title: "Plant Nutrition, Pesticide and Environmental Chemistry (Practical)", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 4101": { title: "Bioenergy-Principles and Practices", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 4102": { title: "Bioenergy-Principles and Practices (Practical)", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 4121": { title: "Plant Nutrition, Pesticide and Environmental Chemistry", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 4201": { title: "Micronutrients in Agriculture", dept: "Department of Agricultural Chemistry" },
-  "ACHEM 4202": { title: "Micronutrients in Agriculture (Practical)", dept: "Department of Agricultural Chemistry" },
-  "HORT 1101": { title: "Introductory Horticulture", dept: "Department of Horticulture" },
-  "HORT 1102": { title: "Introductory Horticulture (Practical)", dept: "Department of Horticulture" },
-  "HORT 1201": { title: "Fundamentals of Horticulture", dept: "Department of Horticulture" },
-  "HORT 1202": { title: "Fundamentals of Horticulture (Practical)", dept: "Department of Horticulture" },
-  "HORT 2101": { title: "Ornamental Horticulture and Plantation Crops", dept: "Department of Horticulture" },
-  "HORT 2102": { title: "Ornamental Horticulture and Plantation Crops (Practical)", dept: "Department of Horticulture" },
-  "HORT 3101": { title: "Vegetable and Spice Crops", dept: "Department of Horticulture" },
-  "HORT 3102": { title: "Vegetable and Spice Crops (Practical)", dept: "Department of Horticulture" },
-  "HORT 3201": { title: "Pomology (Fruit Science)", dept: "Department of Horticulture" },
-  "HORT 3202": { title: "Pomology (Practical)", dept: "Department of Horticulture" },
-  "HORT 4101": { title: "Postharvest Management of Horticultural Crops", dept: "Department of Horticulture" },
-  "HORT 4102": { title: "Postharvest Management of Horticultural Crops (Practical)", dept: "Department of Horticulture" },
-  "HORT 4203": { title: "Commercial Horticulture", dept: "Department of Horticulture" },
-  "HORT 4204": { title: "Commercial Horticulture (Practical)", dept: "Department of Horticulture" },
-  "CBOT 1101": { title: "Agricultural Botany", dept: "Department of Crop Botany" },
-  "CBOT 1102": { title: "Agricultural Botany (Practical)", dept: "Department of Crop Botany" },
-  "CBOT 1201": { title: "Agricultural Botany", dept: "Department of Crop Botany" },
-  "CBOT 1202": { title: "Agricultural Botany (Practical)", dept: "Department of Crop Botany" },
-  "CBOT 2101": { title: "Plant Morphology, Embryology and Taxonomy", dept: "Department of Crop Botany" },
-  "CBOT 2102": { title: "Plant Morphology, Embryology and Taxonomy (Practical)", dept: "Department of Crop Botany" },
-  "CBOT 2201": { title: "Plant Physiology", dept: "Department of Crop Botany" },
-  "CBOT 2202": { title: "Plant Physiology (Practical)", dept: "Department of Crop Botany" },
-  "CBOT 3101": { title: "Plant Ecology and Biodiversity", dept: "Department of Crop Botany" },
-  "CBOT 4201": { title: "Crop Physiology", dept: "Department of Crop Botany" },
-  "CBOT 4202": { title: "Crop Physiology (Practical)", dept: "Department of Crop Botany" },
-  "CBOT 4203": { title: "Plant Biodiversity and Conservation", dept: "Department of Crop Botany" },
-  "CBOT 4204": { title: "Plant Biodiversity and Conservation (Practical)", dept: "Department of Crop Botany" },
-  "ENTOM 1101": { title: "Introductory Entomology", dept: "Department of Entomology" },
-  "ENTOM 2201": { title: "Fundamentals of Entomology", dept: "Department of Entomology" },
-  "ENTOM 2202": { title: "Fundamentals of Entomology (Practical)", dept: "Department of Entomology" },
-  "ENTOM 3101": { title: "Insect Ecology and Pest Management", dept: "Department of Entomology" },
-  "ENTOM 3102": { title: "Insect Ecology and Pest Management (Practical)", dept: "Department of Entomology" },
-  "ENTOM 4101": { title: "Economic Entomology and Apiculture", dept: "Department of Entomology" },
-  "PPATH 1101": { title: "Fundamentals of Plant Pathology", dept: "Department of Plant Pathology" },
-  "PPATH 2201": { title: "Fundamentals of Plant Pathology", dept: "Department of Plant Pathology" },
-  "PPATH 2202": { title: "Fundamentals of Plant Pathology (Practical)", dept: "Department of Plant Pathology" },
-  "PPATH 3101": { title: "Principles of Plant Pathology and Disease Management", dept: "Department of Plant Pathology" },
-  "PPATH 4101": { title: "Diseases of Field and Horticultural Crops", dept: "Department of Plant Pathology" },
-  "PPATH 4202": { title: "Plant Disease Clinic (Practical)", dept: "Department of Plant Pathology" },
-  "GPB 1101": { title: "Cytology and Genetics", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 2201": { title: "Cytology and Genetics", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 2202": { title: "Cytology and Genetics (Practical)", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 3101": { title: "Genetics and Cytogenetics", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 3201": { title: "Principles of Plant Breeding", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 4101": { title: "Plant Biotechnology and Genetic Engineering", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 4102": { title: "Plant Biotechnology and Genetic Engineering (Practical)", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 4203": { title: "Special Plant Breeding", dept: "Department of Genetics and Plant Breeding" },
-  "GPB 4204": { title: "Special Plant Breeding (Practical)", dept: "Department of Genetics and Plant Breeding" },
-  "BMB 1103": { title: "Biophysics and Biomolecular Chemistry", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 1104": { title: "Biophysics and Biomolecular Chemistry (Practical)", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 1201": { title: "Chemistry of Biomolecules", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 1211": { title: "Metabolism of Biomolecules", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 2101": { title: "Metabolism and Human Nutrition", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 4101": { title: "Fundamentals of Molecular Biochemistry and Biotechnology", dept: "Department of Biochemistry and Molecular Biology" },
-  "BMB 4102": { title: "Fundamentals of Molecular Biochemistry and Biotechnology (Practical)", dept: "Department of Biochemistry and Molecular Biology" },
-  "AGEXT 1101": { title: "Fundamentals of Agricultural Extension Education", dept: "Department of Agricultural Extension Education" },
-  "AGEXT 2201": { title: "Extension Teaching Methods and Aids", dept: "Department of Agricultural Extension Education" },
-  "AGEXT 3101": { title: "Extension Organization and Management", dept: "Department of Agricultural Extension Education" },
-  "AGEXT 3102": { title: "Data Collection, Processing and Report Writing (Practical)", dept: "Department of Agricultural Extension Education" },
-  "AGEXT 4103": { title: "Extension for Sustainable Agricultural Development", dept: "Department of Agricultural Extension Education" },
-  "AGEXT 4104": { title: "Extension for Sustainable Agricultural Development (Practical)", dept: "Department of Agricultural Extension Education" },
-  "LAN 1001":   { title: "English Language", dept: "Department of Languages" },
-  "LANG 1101":  { title: "Communicative English", dept: "Department of Languages" },
-  "BTECH 1201": { title: "Basic Biotechnology", dept: "Department of Biotechnology" },
-  "BTECH 1202": { title: "Basic Biotechnology (Practical)", dept: "Department of Biotechnology" },
-  "BTECH 4001": { title: "Genetic Engineering and Biotechnology", dept: "Department of Biotechnology" },
-  "BTECH 4002": { title: "Genetic Engineering and Biotechnology (Practical)", dept: "Department of Biotechnology" },
-  "BIOTECH 3101": { title: "Principles of Agricultural Biotechnology", dept: "Department of Biotechnology" },
-  "AGROF 3101": { title: "Principles of Agroforestry", dept: "Department of Agroforestry" },
-  "AGFOR 3101": { title: "Principles of Agroforestry", dept: "Department of Agroforestry" },
-  "ENVSC 2101": { title: "Introductory Environmental Science", dept: "Department of Environmental Science" },
-  "ENVSC 4001": { title: "Management of Environment", dept: "Department of Environmental Science" },
-  "ENVSC 4002": { title: "Management of Environment (Practical)", dept: "Department of Environmental Science" },
-  "STAT 1201":  { title: "Agricultural Statistics", dept: "Department of Agricultural Statistics" },
-  "STAT 1202":  { title: "Agricultural Statistics (Practical)", dept: "Department of Agricultural Statistics" },
-  "RS 1201":    { title: "Rural Sociology", dept: "Department of Rural Sociology" },
-  "AE 1103":    { title: "Agricultural Economics", dept: "Department of Agricultural Economics" },
-  "FPM 1101":   { title: "Farm Mechanics", dept: "Department of Farm Power and Machinery" },
-  "FPM 1102":   { title: "Farm Mechanics (Practical)", dept: "Department of Farm Power and Machinery" },
-  "ANAT 1101":  { title: "Gross Anatomy", dept: "Department of Anatomy and Histology" },
-  "VPHYS 1101": { title: "Veterinary Physiology", dept: "Department of Physiology" },
-  "PHARM 2101": { title: "General and Systemic Pharmacology", dept: "Department of Pharmacology" },
-  "PARA 2101":  { title: "Veterinary Helminthology and Protozoology", dept: "Department of Parasitology" },
-  "MICRO 2101": { title: "General Bacteriology and Mycology", dept: "Department of Microbiology and Hygiene" },
-  "PATH 2101":  { title: "General Veterinary Pathology", dept: "Department of Pathology" },
-  "VMED 3101":  { title: "Veterinary Clinical Medicine", dept: "Department of Medicine" },
-  "SURG 3101":  { title: "General and Anaesthetic Surgery", dept: "Department of Surgery and Obstetrics" },
-  "ANSC 1101":  { title: "Introduction to Animal Science", dept: "Department of Animal Science" },
-  "ABG 1101":   { title: "Principles of Animal Genetics", dept: "Department of Animal Breeding and Genetics" },
-  "ANN 2101":   { title: "Fundamentals of Animal Nutrition", dept: "Department of Animal Nutrition" },
-  "DSC 2101":   { title: "Dairy Chemistry and Microbiology", dept: "Department of Dairy Science" },
-  "PSC 2101":   { title: "Poultry Production and Management", dept: "Department of Poultry Science" },
-  "AE 1101":    { title: "Microeconomics", dept: "Department of Agricultural Economics" },
-  "AF 1101":    { title: "Principles of Agricultural Finance", dept: "Department of Agricultural Finance and Banking" },
-  "ABM 1101":   { title: "Principles of Agribusiness Management", dept: "Department of Agribusiness and Marketing" },
-  "IWM 2101":   { title: "Fluid Mechanics and Open Channel Hydraulics", dept: "Department of Irrigation and Water Management" },
-  "FSE 2101":   { title: "Strength of Materials", dept: "Department of Farm Structure and Environmental Engineering" },
-  "FT 1101":    { title: "Principles of Food Science and Technology", dept: "Department of Food Technology and Rural Industries" },
-  "CS 1101":    { title: "Computer Programming and Applications", dept: "Department of Computer Science and Mathematics" },
-  "FBG 1101":   { title: "Ichthyology", dept: "Department of Fisheries Biology and Genetics" },
-  "AQ 1101":    { title: "Principles of Aquaculture", dept: "Department of Aquaculture" },
-  "FM 1101":    { title: "Limnology and Aquatic Ecology", dept: "Department of Fisheries Management" },
-  "FFT 2101":   { title: "Fish Harvesting and Processing Technology", dept: "Department of Fisheries Technology" }
-};
-
-let BAU_TEACHERS = [];
-try {
-  const embeddedEl = document.getElementById("bauTeachersEmbedded");
-  if (embeddedEl) BAU_TEACHERS = JSON.parse(embeddedEl.textContent);
-} catch (e) {}
-
-async function loadBauTeachersDirectory() {
-  const badge = document.getElementById("teacherSyncBadge");
-  function mergeTeachers(newList) {
-    const map = new Map();
-    BAU_TEACHERS.forEach(t => map.set((t.name + "|" + t.dept).toLowerCase(), t));
-    newList.forEach(t => {
-      if (t && t.name) map.set((t.name + "|" + (t.dept || "")).toLowerCase(), t);
-    });
-    BAU_TEACHERS = Array.from(map.values());
-    if (badge) badge.textContent = `${BAU_TEACHERS.length} BAU Teachers Loaded`;
-  }
-  mergeTeachers([]);
-  try {
-    const cached = localStorage.getItem("bau_teachers_cache_v4");
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        mergeTeachers(parsed);
-        if (badge) badge.textContent = `${BAU_TEACHERS.length} Cached BAU Teachers`;
-      }
-    }
-    const res = await fetch(TEACHERS_API_URL);
-    if (res.ok) {
-      const json = await res.json();
-      const list = Array.isArray(json) ? json : (json.teachers || json.data || []);
-      if (Array.isArray(list) && list.length > 0) {
-        const normalized = list.map(t => ({
-          name: (t.name || t.Name || t.teacherName || t.teacher_name || "").toString().trim(),
-          desig: (t.desig || t.designation || t.Designation || "").toString().trim(),
-          dept: (t.dept || t.department || t.Department || "").toString().trim(),
-          fac: (t.fac || t.faculty || t.Faculty || "Bangladesh Agricultural University").toString().trim()
-        })).filter(t => t.name);
-        mergeTeachers(normalized);
-        localStorage.setItem("bau_teachers_cache_v4", JSON.stringify(BAU_TEACHERS));
-      }
-    }
-  } catch (e) {}
+const badge = document.getElementById("teacherSyncBadge");
+if (DATA.syncLiveTeachers) {
+  DATA.syncLiveTeachers((count, isCached) => {
+    if (badge) badge.textContent = isCached ? `${count} Cached BAU Teachers` : `${count} BAU Teachers Loaded`;
+  });
 }
-loadBauTeachersDirectory();
 
 const courseDatalist = document.getElementById("bauCourseList");
 function refreshCourseDatalist() {
@@ -917,38 +640,12 @@ function refreshCourseDatalist() {
 }
 refreshCourseDatalist();
 
-async function loadLiveCourseCatalog() {
-  const cacheKey = "bau_courses_cache_v2";
-  try {
-    const cached = localStorage.getItem(cacheKey);
-    if (cached) Object.assign(COURSE_CATALOG, JSON.parse(cached));
-  } catch (e) {}
-
-  try {
-    const res = await fetch(COURSES_API_URL, { cache: "no-store" });
-    if (!res.ok) return;
-    const json = await res.json();
-    const list = Array.isArray(json) ? json : (json.courses || json.data || []);
-    const liveCatalog = {};
-    list.forEach(item => {
-      if (!item) return;
-      const code = (item.code || item.courseCode || item.course_code || item.course || "").toString().trim().toUpperCase().replace(/\s+/g, " ");
-      const title = (item.title || item.courseTitle || item.course_title || item.name || "").toString().trim();
-      const dept = (item.dept || item.department || item.Department || "").toString().trim();
-      if (code && title) liveCatalog[code] = { title, dept: dept || COURSE_CATALOG[code]?.dept || "Department of " + (code.split(" ")[0] || "") };
-    });
-    if (Object.keys(liveCatalog).length) {
-      Object.assign(COURSE_CATALOG, liveCatalog);
-      localStorage.setItem(cacheKey, JSON.stringify(liveCatalog));
-      refreshCourseDatalist();
-      handleCourseCodeAutoSuggest();
-    }
-  } catch (e) {}
+if (DATA.syncLiveCourses) {
+  DATA.syncLiveCourses(() => {
+    refreshCourseDatalist();
+    if (ASSIGNMENTS.length > 0) handleAssignmentCourseInput(0, ASSIGNMENTS[0].courseCode, true);
+  });
 }
-loadLiveCourseCatalog();
-
-const dateInput = document.getElementById("subDate");
-dateInput.valueAsDate = new Date();
 
 function formatPrettyDate(isoStr) {
   if (!isoStr) return "....................";
@@ -963,6 +660,172 @@ function escapeHtml(str) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
   }[ch]));
 }
+
+/* Multi-Assignment Management */
+function renderAssignmentCards() {
+  const container = document.getElementById("assignmentsContainer");
+  let html = "";
+  ASSIGNMENTS.forEach((asg, idx) => {
+    html += `
+      <div class="assignment-card">
+        <div class="assign-card-header">
+          <span class="assign-card-title">Assignment #${idx + 1}</span>
+          ${ASSIGNMENTS.length > 1 ? `<button type="button" class="btn-remove-assign" onclick="removeAssignment(${idx})">✕ Remove</button>` : ""}
+        </div>
+        <div class="form-grid">
+          <div class="opt-field-box full-width">
+            <label class="opt-check-label">
+              <input type="checkbox" ${asg.showAssignNo ? "checked" : ""} onchange="toggleAssignOptional(${idx}, 'showAssignNo', this.checked)">
+              <span>Include Assignment No. (Above "Assignment On")</span>
+            </label>
+            <input type="text" value="${escapeHtml(asg.assignNo)}" placeholder="e.g. Assignment No. 01" ${asg.showAssignNo ? "" : "disabled"} oninput="updateAssignField(${idx}, 'assignNo', this.value)">
+          </div>
+
+          <label class="full-width">Assignment Topic
+            <input type="text" value="${escapeHtml(asg.topic)}" placeholder="Enter assignment topic..." oninput="updateAssignField(${idx}, 'topic', this.value)">
+          </label>
+
+          <label>Course Code
+            <input type="text" class="course-code-input" list="bauCourseList" value="${escapeHtml(asg.courseCode)}" placeholder="e.g. SS 1201, AGRON 2101" oninput="handleAssignmentCourseInput(${idx}, this.value, false, this)">
+            <div class="code-hint" id="courseHint_${idx}" style="color:${asg.hintColor}">${escapeHtml(asg.hintText)}</div>
+          </label>
+
+          <label>Course Title
+            <input type="text" id="courseTitle_${idx}" value="${escapeHtml(asg.courseTitle)}" oninput="updateAssignField(${idx}, 'courseTitle', this.value)">
+          </label>
+
+          <div class="opt-field-box">
+            <label class="opt-check-label">
+              <input type="checkbox" ${asg.showAssignDate ? "checked" : ""} onchange="toggleAssignOptional(${idx}, 'showAssignDate', this.checked)">
+              <span>Include Date of Assignment</span>
+            </label>
+            <input type="date" value="${escapeHtml(asg.assignDate)}" ${asg.showAssignDate ? "" : "disabled"} oninput="updateAssignField(${idx}, 'assignDate', this.value)">
+          </div>
+
+          <label>Date of Submission
+            <input type="date" value="${escapeHtml(asg.subDate)}" oninput="updateAssignField(${idx}, 'subDate', this.value)">
+          </label>
+        </div>
+      </div>`;
+  });
+  container.innerHTML = html;
+}
+
+window.addNewAssignment = function() {
+  const last = ASSIGNMENTS[ASSIGNMENTS.length - 1];
+  const nextNum = String(ASSIGNMENTS.length + 1).padStart(2, "0");
+  ASSIGNMENTS.push({
+    showAssignNo: last ? last.showAssignNo : false,
+    assignNo: `Assignment No. ${nextNum}`,
+    topic: "",
+    courseCode: last ? last.courseCode : "SS 1101",
+    courseTitle: last ? last.courseTitle : "Introductory Soil Science",
+    showAssignDate: last ? last.showAssignDate : false,
+    assignDate: last ? last.assignDate : todayIso,
+    subDate: last ? last.subDate : todayIso,
+    hintText: "Auto-updates Title, Dept. & Level-Semester (e.g. 1201 → L-1, S-2)",
+    hintColor: "#285c9d"
+  });
+  renderAssignmentCards();
+  updatePreview();
+};
+
+window.removeAssignment = function(idx) {
+  if (ASSIGNMENTS.length <= 1) return;
+  ASSIGNMENTS.splice(idx, 1);
+  renderAssignmentCards();
+  updatePreview();
+};
+
+window.toggleAssignOptional = function(idx, key, isChecked) {
+  if (!ASSIGNMENTS[idx]) return;
+  ASSIGNMENTS[idx][key] = !!isChecked;
+  renderAssignmentCards();
+  updatePreview();
+};
+
+window.updateAssignField = function(idx, key, val) {
+  if (!ASSIGNMENTS[idx]) return;
+  ASSIGNMENTS[idx][key] = val;
+  updatePreview();
+};
+
+window.handleAssignmentCourseInput = function(idx, rawVal, silentSync, inputEl) {
+  const asg = ASSIGNMENTS[idx];
+  if (!asg) return;
+
+  const rawUpper = (rawVal || "").toUpperCase();
+  if (inputEl && inputEl.value !== rawUpper) {
+    const pos = inputEl.selectionStart;
+    inputEl.value = rawUpper;
+    if (typeof pos === "number") inputEl.setSelectionRange(pos, pos);
+  }
+  asg.courseCode = rawUpper;
+
+  const cleanCode = rawUpper.trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
+  const compactMatch = cleanCode.match(/^([A-Z]+)\s*(\d+)$/);
+  const lookupKey = compactMatch ? `${compactMatch[1]} ${compactMatch[2]}` : cleanCode;
+  const prefix = compactMatch ? compactMatch[1] : (cleanCode.match(/^[A-Z]+/) || [""])[0];
+  const digits = compactMatch ? compactMatch[2] : (cleanCode.match(/\d+/) || [""])[0];
+
+  let levelText = "";
+  if (!levelManuallyEdited && digits.length >= 2) {
+    const lvl = parseInt(digits[0], 10);
+    const sem = parseInt(digits[1], 10);
+    if (lvl >= 1 && lvl <= 5 && (sem === 1 || sem === 2)) {
+      levelText = `Level-${lvl}, Semester-${sem}`;
+      document.getElementById("stLevel").value = levelText;
+    }
+  }
+
+  const exactCourse = COURSE_CATALOG[lookupKey];
+  const deptInfo = DEPT_PREFIX_MAP[prefix];
+  const hintParts = [];
+  const titleEl = document.getElementById(`courseTitle_${idx}`);
+  const hintEl = document.getElementById(`courseHint_${idx}`);
+
+  if (exactCourse) {
+    asg.courseTitle = exactCourse.title;
+    if (titleEl) titleEl.value = exactCourse.title;
+    if (idx === 0) {
+      document.getElementById("tDept").value = exactCourse.dept;
+      if (deptInfo) document.getElementById("tFaculty").value = deptInfo.fac;
+      if (hasSecondTeacher) {
+        document.getElementById("t2Dept").value = exactCourse.dept;
+        if (deptInfo) document.getElementById("t2Faculty").value = deptInfo.fac;
+      }
+    }
+    hintParts.push(exactCourse.dept);
+    if (levelText) hintParts.push(levelText);
+    asg.hintText = `Auto-filled: ${hintParts.join(" | ")}`;
+    asg.hintColor = "#176b42";
+  } else if (deptInfo) {
+    if (idx === 0) {
+      document.getElementById("tDept").value = deptInfo.dept;
+      document.getElementById("tFaculty").value = deptInfo.fac;
+      if (hasSecondTeacher) {
+        document.getElementById("t2Dept").value = deptInfo.dept;
+        document.getElementById("t2Faculty").value = deptInfo.fac;
+      }
+    }
+    hintParts.push(deptInfo.dept);
+    if (levelText) hintParts.push(levelText);
+    asg.hintText = `Detected: ${hintParts.join(" | ")}`;
+    asg.hintColor = "#0f766e";
+  } else if (levelText) {
+    asg.hintText = `Detected: ${levelText}`;
+    asg.hintColor = "#0f766e";
+  } else {
+    asg.hintText = "Auto-updates Title, Dept. & Level-Semester (e.g. 1201 → L-1, S-2)";
+    asg.hintColor = "#285c9d";
+  }
+
+  if (hintEl) {
+    hintEl.textContent = asg.hintText;
+    hintEl.style.color = asg.hintColor;
+  }
+  if (!silentSync) updatePreview();
+};
 
 function parseBauIdMeta(cleanId) {
   const result = { session: null, faculty: null };
@@ -1390,69 +1253,6 @@ window.processLoopGenerator = async function(replace) {
   if (autoFetchEnabled) await fetchAllStudents();
 };
 
-function handleCourseCodeAutoSuggest() {
-  const codeEl = document.getElementById("courseCode");
-  const hintEl = document.getElementById("courseHint");
-  const rawUpper = codeEl.value.toUpperCase();
-  if (codeEl.value !== rawUpper) {
-    const pos = codeEl.selectionStart;
-    codeEl.value = rawUpper;
-    if (typeof pos === "number") codeEl.setSelectionRange(pos, pos);
-  }
-
-  const cleanCode = rawUpper.trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
-  const compactMatch = cleanCode.match(/^([A-Z]+)\s*(\d+)$/);
-  const lookupKey = compactMatch ? `${compactMatch[1]} ${compactMatch[2]}` : cleanCode;
-  const prefix = compactMatch ? compactMatch[1] : (cleanCode.match(/^[A-Z]+/) || [""])[0];
-  const digits = compactMatch ? compactMatch[2] : (cleanCode.match(/\d+/) || [""])[0];
-
-  let levelText = "";
-  if (!levelManuallyEdited && digits.length >= 2) {
-    const lvl = parseInt(digits[0], 10);
-    const sem = parseInt(digits[1], 10);
-    if (lvl >= 1 && lvl <= 5 && (sem === 1 || sem === 2)) {
-      levelText = `Level-${lvl}, Semester-${sem}`;
-      document.getElementById("stLevel").value = levelText;
-    }
-  }
-
-  const exactCourse = COURSE_CATALOG[lookupKey];
-  const deptInfo = DEPT_PREFIX_MAP[prefix];
-  const hintParts = [];
-
-  if (exactCourse) {
-    document.getElementById("courseTitle").value = exactCourse.title;
-    document.getElementById("tDept").value = exactCourse.dept;
-    if (deptInfo) document.getElementById("tFaculty").value = deptInfo.fac;
-    if (hasSecondTeacher) {
-      document.getElementById("t2Dept").value = exactCourse.dept;
-      if (deptInfo) document.getElementById("t2Faculty").value = deptInfo.fac;
-    }
-    hintParts.push(exactCourse.dept);
-    if (levelText) hintParts.push(levelText);
-    hintEl.textContent = `Auto-filled: ${hintParts.join(" | ")}`;
-    hintEl.style.color = "#176b42";
-  } else if (deptInfo) {
-    document.getElementById("tDept").value = deptInfo.dept;
-    document.getElementById("tFaculty").value = deptInfo.fac;
-    if (hasSecondTeacher) {
-      document.getElementById("t2Dept").value = deptInfo.dept;
-      document.getElementById("t2Faculty").value = deptInfo.fac;
-    }
-    hintParts.push(deptInfo.dept);
-    if (levelText) hintParts.push(levelText);
-    hintEl.textContent = `Detected: ${hintParts.join(" | ")}`;
-    hintEl.style.color = "#0f766e";
-  } else if (levelText) {
-    hintEl.textContent = `Detected: ${levelText}`;
-    hintEl.style.color = "#0f766e";
-  } else {
-    hintEl.textContent = "Auto-updates Title, Dept. & Level-Semester (e.g. 1201 → L-1, S-2)";
-    hintEl.style.color = "#285c9d";
-  }
-  updatePreview();
-}
-
 function setupTeacherAutocomplete(inputId, listId, desigId, deptId, facId) {
   const inputEl = document.getElementById(inputId);
   const listEl = document.getElementById(listId);
@@ -1464,7 +1264,8 @@ function setupTeacherAutocomplete(inputId, listId, desigId, deptId, facId) {
       listEl.innerHTML = "";
       return;
     }
-    const matches = BAU_TEACHERS.filter(t =>
+    const teachersList = DATA.TEACHERS || [];
+    const matches = teachersList.filter(t =>
       (t.name && t.name.toLowerCase().includes(query)) ||
       (t.dept && t.dept.toLowerCase().includes(query))
     ).slice(0, 15);
@@ -1530,14 +1331,10 @@ window.toggleSecondTeacher = function() {
 
 function updatePreview() {
   const container = document.getElementById("previewContainer");
-  const topicVal = document.getElementById("topic").value;
-  const codeVal = document.getElementById("courseCode").value.toUpperCase();
-  const titleVal = document.getElementById("courseTitle").value;
   const groupSecVal = document.getElementById("stGroupSec").value;
   const levelVal = document.getElementById("stLevel").value;
   const defaultSessionVal = document.getElementById("stSession").value;
   const defaultFacultyVal = document.getElementById("stFaculty").value;
-  const subDateFormatted = formatPrettyDate(document.getElementById("subDate").value);
   const borderColor = document.getElementById("borderStyle").value === "red" ? "#a52c51" : "#176b42";
 
   const t1Html = `
@@ -1569,56 +1366,70 @@ function updatePreview() {
     const stSession = sessionManuallyEdited ? defaultSessionVal : (idMeta.session || defaultSessionVal);
     const stFaculty = facultyManuallyEdited ? defaultFacultyVal : (idMeta.faculty || defaultFacultyVal);
 
-    pagesHtml += `
-      <div class="page-scale-wrapper">
-        <div class="a4-page">
-          <div class="cover-frame" style="border-color:${borderColor}; outline-color:${borderColor};">
-            <div class="top-section">
-              <div class="assignment-label">Assignment On</div>
-              <div class="topic-text">${escapeHtml(topicVal)}</div>
-            </div>
+    ASSIGNMENTS.forEach(asg => {
+      const assignNoHtml = (asg.showAssignNo && asg.assignNo.trim())
+        ? `<div class="assignment-no-text" style="color:${borderColor};">${escapeHtml(asg.assignNo.trim())}</div>`
+        : "";
 
-            <div class="logo-section">
-              <img src="bau-logo.png" alt="BAU Logo">
-            </div>
+      const assignDateHtml = asg.showAssignDate
+        ? `<div class="assign-date">Date of Assignment: ${escapeHtml(formatPrettyDate(asg.assignDate))}</div>`
+        : "";
 
-            <div class="course-section">
-              <div class="course-code">Course Code: ${escapeHtml(codeVal)}</div>
-              <div class="course-title">Course Title: ${escapeHtml(titleVal)}</div>
-            </div>
+      const subDateFormatted = formatPrettyDate(asg.subDate);
 
-            <div class="submission-grid">
-              <div class="sub-col">
-                <div class="sub-heading">Submitted By:</div>
-                <div class="sub-details">
-                  <p><span class="st-name-bold">${escapeHtml(st.name || " ")}</span></p>
-                  <p><strong>ID No.:</strong> <span class="st-val-bold">${escapeHtml(st.id || " ")}</span></p>
-                  <p><strong>Reg. No.:</strong> <span class="st-val-bold">${escapeHtml(st.reg || " ")}</span></p>
-                  <p>${escapeHtml(groupSecVal)}</p>
-                  <p><span class="st-val-bold">${escapeHtml(levelVal)}</span></p>
-                  <p><strong>Session:</strong> <span class="st-val-bold">${escapeHtml(stSession)}</span></p>
-                  <p>${escapeHtml(stFaculty)}</p>
-                </div>
+      pagesHtml += `
+        <div class="page-scale-wrapper">
+          <div class="a4-page">
+            <div class="cover-frame" style="border-color:${borderColor}; outline-color:${borderColor};">
+              <div class="top-section">
+                ${assignNoHtml}
+                <div class="assignment-label">Assignment On</div>
+                <div class="topic-text">${escapeHtml(asg.topic)}</div>
               </div>
 
-              <div class="sub-col">
-                <div class="sub-heading">Submitted To:</div>
-                <div class="teacher-col-body">
-                  <div class="${teachersClass}">
-                    ${t1Html}${t2Html}
+              <div class="logo-section">
+                <img src="bau-logo.png" alt="BAU Logo">
+              </div>
+
+              <div class="course-section">
+                <div class="course-code">Course Code: ${escapeHtml((asg.courseCode || "").toUpperCase())}</div>
+                <div class="course-title">Course Title: ${escapeHtml(asg.courseTitle)}</div>
+              </div>
+
+              <div class="submission-grid">
+                <div class="sub-col">
+                  <div class="sub-heading">Submitted By:</div>
+                  <div class="sub-details">
+                    <p><span class="st-name-bold">${escapeHtml(st.name || " ")}</span></p>
+                    <p><strong>ID No.:</strong> <span class="st-val-bold">${escapeHtml(st.id || " ")}</span></p>
+                    <p><strong>Reg. No.:</strong> <span class="st-val-bold">${escapeHtml(st.reg || " ")}</span></p>
+                    <p>${escapeHtml(groupSecVal)}</p>
+                    <p><span class="st-val-bold">${escapeHtml(levelVal)}</span></p>
+                    <p><strong>Session:</strong> <span class="st-val-bold">${escapeHtml(stSession)}</span></p>
+                    <p>${escapeHtml(stFaculty)}</p>
+                  </div>
+                </div>
+
+                <div class="sub-col">
+                  <div class="sub-heading">Submitted To:</div>
+                  <div class="teacher-col-body">
+                    <div class="${teachersClass}">
+                      ${t1Html}${t2Html}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="bottom-section">
-              <div class="sub-date">Date of Submission: ${escapeHtml(subDateFormatted)}</div>
-              <div class="univ-name">Bangladesh Agricultural University</div>
-              <div class="univ-sub">Mymensingh-2202</div>
+              <div class="bottom-section">
+                ${assignDateHtml}
+                <div class="sub-date">Date of Submission: ${escapeHtml(subDateFormatted)}</div>
+                <div class="univ-name">Bangladesh Agricultural University</div>
+                <div class="univ-sub">Mymensingh-2202</div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>`;
+        </div>`;
+    });
   });
 
   container.innerHTML = pagesHtml;
@@ -1646,22 +1457,22 @@ function scalePreview() {
 
 window.printAssignmentPDF = function() {
   const firstId = STUDENTS.length > 0 ? (STUDENTS[0].id || "").trim() : "";
-  const cCode = document.getElementById("courseCode").value.trim().toUpperCase();
-  const cTitle = document.getElementById("courseTitle").value.trim();
+  const firstAsg = ASSIGNMENTS.length > 0 ? ASSIGNMENTS[0] : { courseCode: "", courseTitle: "" };
+  const cCode = (firstAsg.courseCode || "").trim().toUpperCase();
+  const cTitle = (firstAsg.courseTitle || "").trim();
   const prevTitle = document.title;
 
   const titleParts = [];
   if (firstId) titleParts.push(STUDENTS.length > 1 ? `${firstId}_Batch(${STUDENTS.length})` : firstId);
   if (cCode) titleParts.push(cCode);
   else if (cTitle) titleParts.push(cTitle);
-  titleParts.push("Assignment Cover");
+  titleParts.push(ASSIGNMENTS.length > 1 ? `Assignments(${ASSIGNMENTS.length})` : "Assignment Cover");
 
   document.title = titleParts.join(" - ");
   window.print();
   setTimeout(() => { document.title = prevTitle; }, 500);
 };
 
-document.getElementById("courseCode").addEventListener("input", handleCourseCodeAutoSuggest);
 document.getElementById("stLevel").addEventListener("input", () => { levelManuallyEdited = true; updatePreview(); });
 document.getElementById("stSession").addEventListener("input", () => {
   sessionManuallyEdited = true;
@@ -1672,12 +1483,12 @@ document.getElementById("stSession").addEventListener("input", () => {
 document.getElementById("stFaculty").addEventListener("input", () => { facultyManuallyEdited = true; updatePreview(); });
 window.addEventListener("resize", scalePreview);
 
-["topic", "courseTitle", "subDate", "borderStyle", "stGroupSec",
- "tName", "tDesig", "tDept", "tFaculty", "t2Name", "t2Desig", "t2Dept", "t2Faculty"].forEach(id => {
+["stGroupSec", "tName", "tDesig", "tDept", "tFaculty", "t2Name", "t2Desig", "t2Dept", "t2Faculty"].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener("input", updatePreview);
 });
 
+renderAssignmentCards();
 renderStudentInputs();
 updatePreview();
 </script>
