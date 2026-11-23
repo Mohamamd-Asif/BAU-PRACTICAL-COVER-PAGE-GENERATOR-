@@ -66,7 +66,6 @@ h1, h2, h3, h4, label, button, .subtitle, .dev-badge, .student-badge, .api-statu
   font-family: Arial, sans-serif;
 }
 
-/* Top Navigation Tab Switcher (Matches assignment.html) */
 .top-nav-bar {
   max-width: 860px; margin: 0 auto 16px;
   display: flex; gap: 10px; background: #fff;
@@ -91,7 +90,6 @@ h1, h2, h3, h4, label, button, .subtitle, .dev-badge, .student-badge, .api-statu
   background: #e2e6ea; color: #176b42; border-color: #176b42;
 }
 
-/* Screen-reader / SEO text without affecting layout */
 .seo-sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
@@ -109,7 +107,6 @@ h1 { margin: 0 0 6px 0; color: #176b42; font-size: 24px; text-align: center; }
 .dev-badge .author-name { color: #176b42; }
 .dev-badge .heart { color: #e63946; }
 
-/* Editor Panel (Matches assignment.html) */
 .editor {
   max-width: 860px; margin: 0 auto 25px; background: white;
   padding: 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -153,7 +150,6 @@ input[type="text"], input[type="number"], select, textarea {
 }
 #courseNo { text-transform: uppercase; }
 
-/* Advanced Layout Tuner */
 .adv-toggle-wrap {
   margin-top: 18px; padding-top: 14px; border-top: 1px solid #e0e0e0;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
@@ -209,7 +205,6 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .btn-reset:hover { background: #5a6268; }
 
-/* Multi-Student Controls (Matches assignment.html) */
 .api-status-wrap {
   display: flex; align-items: center; justify-content: space-between;
   gap: 10px; margin-bottom: 8px; min-height: 22px;
@@ -300,7 +295,6 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .btn-print:hover { background: #125634; }
 
-/* Responsive Breakpoints (Matches assignment.html) */
 @media (max-width: 768px) {
   .tuner-grid { grid-template-columns: 1fr; }
 }
@@ -310,7 +304,6 @@ input[type="text"], input[type="number"], select, textarea {
   .editor { padding: 16px; }
 }
 
-/* Multi-Page Responsive A4 Preview Container */
 #previewContainer {
   display: flex; flex-direction: column; gap: 24px; align-items: center;
   width: 100%; overflow: hidden;
@@ -391,17 +384,21 @@ input[type="text"], input[type="number"], select, textarea {
   <p>Generate official A4 Practical Notebook and Assignment cover pages for Bangladesh Agricultural University (BAU), Mymensingh. Enter your Student ID to automatically fetch Name, Registration Number, and Academic Session for Faculty of Agriculture and all other BAU faculties.</p>
 </div>
 
-<!-- Top Navigation Tab Switcher -->
 <nav class="top-nav-bar" aria-label="Cover Page Mode Switcher">
   <a href="index.html" class="nav-tab active">📘 Practical Cover Generator</a>
   <a href="assignment.html" class="nav-tab inactive">📄 Assignment Cover Generator &rarr;</a>
 </nav>
 
 <div id="__app_root"></div>
+<script src="bau-data.js"></script>
 <script>
 (function(_0xW, _0xD){
   "use strict";
-  /* 2. Modernized Responsive DOM Markup (Aligned with assignment.html) */
+  const DATA = _0xW.BAU_DATA || {};
+  const _0xCOURSE_CATALOG = DATA.COURSE_CATALOG || {};
+  const _0xFACULTY_DEGREE_MAP = DATA.FACULTY_DEGREE_MAP || {};
+  const _0xAPI = DATA.API_URL || "https://asif.bdasif321.workers.dev/";
+
   _0xD.getElementById("__app_root").innerHTML = `
 <h1>BAU Batch Practical Cover Generator</h1>
 <div class="subtitle">Enter Student ID(s) to auto-fill details &amp; session, then customize your practical cover page below.</div>
@@ -506,12 +503,12 @@ input[type="text"], input[type="number"], select, textarea {
         &#9881;&#65039; Advanced Edit Mode: OFF
       </button>
       <span style="font: 12px Arial, sans-serif; color: #666;">
-  Click to customize logo size, position, cover width &amp; outline.
-  <br>
-  <span style="color: #2563eb; font-weight: bold;">
-    Turn on Desktop mode for a Better Interface on Mobile.
-  </span>
-</span>
+        Click to customize logo size, position, cover width &amp; outline.
+        <br>
+        <span style="color: #2563eb; font-weight: bold;">
+          Turn on Desktop mode for a Better Interface on Mobile.
+        </span>
+      </span>
     </div>
 
     <div class="tuner-section" id="advancedPanel">
@@ -553,233 +550,32 @@ input[type="text"], input[type="number"], select, textarea {
 
 <div id="previewContainer"></div>`;
 
-  /* 3. Course Code Database & Auto-Suggest Logic */
-  const _0xCOURSE_CATALOG = {
-    "AGRON 1101": { title: "Fundamentals of Agronomy" },
-    "AGRON 1102": { title: "Introductory Agronomic Practices" },
-    "AGRON 1201": { title: "Seed Science and Technology" },
-    "AGRON 1202": { title: "Seed Science and Technology (Practical)" },
-    "AGRON 2101": { title: "Weed Science" },
-    "AGRON 2102": { title: "Weed Science (Practical)" },
-    "AGRON 2201": { title: "Field Crop Production" },
-    "AGRON 2202": { title: "Field Crop Production (Practical)" },
-    "AGRON 3101": { title: "Crop Ecology and Climate Change" },
-    "AGRON 3201": { title: "Crop Husbandry and Farming Systems" },
-    "AGRON 3202": { title: "Crop Husbandry and Farming Systems (Practical)" },
-    "AGRON 4101": { title: "Introductory Cropping Systems" },
-    "AGRON 4102": { title: "Introductory Cropping Systems (Practical)" },
-    "AGRON 4121": { title: "Crop Production under Vulnerable Ecosystem" },
-    "AGRON 4201": { title: "Modern Agronomic Practices and Farm Management" },
-    "AGRON 4203": { title: "Forage Crops and Pasture Management" },
-    "AGRON 4204": { title: "Forage Crops and Pasture Management (Practical)" },
-    "SS 1101": { title: "Introductory Soil Science" },
-    "SS 1102": { title: "Introductory Soil Science (Practical)" },
-    "SS 1201": { title: "Soil Survey, Classification and Conservation" },
-    "SS 1202": { title: "Soil Survey, Classification and Conservation (Practical)" },
-    "SS 2101": { title: "Soil Survey, Classification and Conservation" },
-    "SS 2201": { title: "Soil Physics and Soil Chemistry" },
-    "SS 2202": { title: "Soil Physics and Soil Chemistry (Practical)" },
-    "SS 3101": { title: "Soil Fertility and Plant Nutrition" },
-    "SS 3102": { title: "Soil Fertility and Plant Nutrition (Practical)" },
-    "SS 3201": { title: "Soil Microbiology and Biochemistry" },
-    "SS 4101": { title: "Soil Biology" },
-    "SS 4102": { title: "Soil Biology (Practical)" },
-    "SS 4203": { title: "Soil Pollution" },
-    "SS 4204": { title: "Soil Pollution (Practical)" },
-    "ACHEM 1101": { title: "Agroanalytical, Physical and Organic Chemistry" },
-    "ACHEM 1102": { title: "Agroanalytical, Physical and Organic Chemistry (Practical)" },
-    "ACHEM 1121": { title: "Physical and Organic Chemistry" },
-    "ACHEM 1122": { title: "Physical and Organic Chemistry" },
-    "ACHEM 1123": { title: "Chemistry" },
-    "ACHEM 1125": { title: "Food and Agricultural Chemistry" },
-    "ACHEM 1127": { title: "Fundamentals of Chemistry" },
-    "ACHEM 2201": { title: "Nuclear and Agroindustrial Chemistry" },
-    "ACHEM 2202": { title: "Nuclear and Agroindustrial Chemistry (Practical)" },
-    "ACHEM 2221": { title: "Agroindustrial, Nuclear and Natural Product Chemistry" },
-    "ACHEM 3101": { title: "Plant Nutrition, Pesticide and Environmental Chemistry" },
-    "ACHEM 3102": { title: "Plant Nutrition, Pesticide and Environmental Chemistry (Practical)" },
-    "ACHEM 4101": { title: "Bioenergy-Principles and Practices" },
-    "ACHEM 4102": { title: "Bioenergy-Principles and Practices (Practical)" },
-    "ACHEM 4121": { title: "Plant Nutrition, Pesticide and Environmental Chemistry" },
-    "ACHEM 4201": { title: "Micronutrients in Agriculture" },
-    "ACHEM 4202": { title: "Micronutrients in Agriculture (Practical)" },
-    "HORT 1101": { title: "Introductory Horticulture" },
-    "HORT 1102": { title: "Introductory Horticulture (Practical)" },
-    "HORT 1201": { title: "Fundamentals of Horticulture" },
-    "HORT 1202": { title: "Fundamentals of Horticulture (Practical)" },
-    "HORT 2101": { title: "Ornamental Horticulture and Plantation Crops" },
-    "HORT 2102": { title: "Ornamental Horticulture and Plantation Crops (Practical)" },
-    "HORT 3101": { title: "Vegetable and Spice Crops" },
-    "HORT 3102": { title: "Vegetable and Spice Crops (Practical)" },
-    "HORT 3201": { title: "Pomology (Fruit Science)" },
-    "HORT 3202": { title: "Pomology (Practical)" },
-    "HORT 4101": { title: "Postharvest Management of Horticultural Crops" },
-    "HORT 4102": { title: "Postharvest Management of Horticultural Crops (Practical)" },
-    "HORT 4203": { title: "Commercial Horticulture" },
-    "HORT 4204": { title: "Commercial Horticulture (Practical)" },
-    "CBOT 1101": { title: "Agricultural Botany" },
-    "CBOT 1102": { title: "Agricultural Botany (Practical)" },
-    "CBOT 1201": { title: "Agricultural Botany" },
-    "CBOT 1202": { title: "Agricultural Botany (Practical)" },
-    "CBOT 2101": { title: "Plant Morphology, Embryology and Taxonomy" },
-    "CBOT 2102": { title: "Plant Morphology, Embryology and Taxonomy (Practical)" },
-    "CBOT 2201": { title: "Plant Physiology" },
-    "CBOT 2202": { title: "Plant Physiology (Practical)" },
-    "CBOT 3101": { title: "Plant Ecology and Biodiversity" },
-    "CBOT 4201": { title: "Crop Physiology" },
-    "CBOT 4202": { title: "Crop Physiology (Practical)" },
-    "CBOT 4203": { title: "Plant Biodiversity and Conservation" },
-    "CBOT 4204": { title: "Plant Biodiversity and Conservation (Practical)" },
-    "ENTOM 1101": { title: "Introductory Entomology" },
-    "ENTOM 2201": { title: "Fundamentals of Entomology" },
-    "ENTOM 2202": { title: "Fundamentals of Entomology (Practical)" },
-    "ENTOM 3101": { title: "Insect Ecology and Pest Management" },
-    "ENTOM 3102": { title: "Insect Ecology and Pest Management (Practical)" },
-    "ENTOM 4101": { title: "Economic Entomology and Apiculture" },
-    "PPATH 1101": { title: "Fundamentals of Plant Pathology" },
-    "PPATH 2201": { title: "Fundamentals of Plant Pathology" },
-    "PPATH 2202": { title: "Fundamentals of Plant Pathology (Practical)" },
-    "PPATH 3101": { title: "Principles of Plant Pathology and Disease Management" },
-    "PPATH 4101": { title: "Diseases of Field and Horticultural Crops" },
-    "PPATH 4202": { title: "Plant Disease Clinic (Practical)" },
-    "GPB 1101": { title: "Cytology and Genetics" },
-    "GPB 2201": { title: "Cytology and Genetics" },
-    "GPB 2202": { title: "Cytology and Genetics (Practical)" },
-    "GPB 3101": { title: "Genetics and Cytogenetics" },
-    "GPB 3201": { title: "Principles of Plant Breeding" },
-    "GPB 4101": { title: "Plant Biotechnology and Genetic Engineering" },
-    "GPB 4102": { title: "Plant Biotechnology and Genetic Engineering (Practical)" },
-    "GPB 4203": { title: "Special Plant Breeding" },
-    "GPB 4204": { title: "Special Plant Breeding (Practical)" },
-    "BMB 1103": { title: "Biophysics and Biomolecular Chemistry" },
-    "BMB 1104": { title: "Biophysics and Biomolecular Chemistry (Practical)" },
-    "BMB 1201": { title: "Chemistry of Biomolecules" },
-    "BMB 1211": { title: "Metabolism of Biomolecules" },
-    "BMB 2101": { title: "Metabolism and Human Nutrition" },
-    "BMB 4101": { title: "Fundamentals of Molecular Biochemistry and Biotechnology" },
-    "BMB 4102": { title: "Fundamentals of Molecular Biochemistry and Biotechnology (Practical)" },
-    "AGEXT 1101": { title: "Fundamentals of Agricultural Extension Education" },
-    "AGEXT 2201": { title: "Extension Teaching Methods and Aids" },
-    "AGEXT 3101": { title: "Extension Organization and Management" },
-    "AGEXT 3102": { title: "Data Collection, Processing and Report Writing (Practical)" },
-    "AGEXT 4103": { title: "Extension for Sustainable Agricultural Development" },
-    "AGEXT 4104": { title: "Extension for Sustainable Agricultural Development (Practical)" },
-    "LAN 1001": { title: "English Language" },
-    "LANG 1101": { title: "Communicative English" },
-    "BTECH 1201": { title: "Basic Biotechnology" },
-    "BTECH 1202": { title: "Basic Biotechnology (Practical)" },
-    "BTECH 4001": { title: "Genetic Engineering and Biotechnology" },
-    "BTECH 4002": { title: "Genetic Engineering and Biotechnology (Practical)" },
-    "BIOTECH 3101": { title: "Principles of Agricultural Biotechnology" },
-    "AGROF 3101": { title: "Principles of Agroforestry" },
-    "AGFOR 3101": { title: "Principles of Agroforestry" },
-    "ENVSC 2101": { title: "Introductory Environmental Science" },
-    "ENVSC 4001": { title: "Management of Environment" },
-    "ENVSC 4002": { title: "Management of Environment (Practical)" },
-    "STAT 1201": { title: "Agricultural Statistics" },
-    "STAT 1202": { title: "Agricultural Statistics (Practical)" },
-    "RS 1201": { title: "Rural Sociology" },
-    "AE 1103": { title: "Agricultural Economics" },
-    "FPM 1101": { title: "Farm Mechanics" },
-    "FPM 1102": { title: "Farm Mechanics (Practical)" },
-    "ANAT 1101": { title: "Gross Anatomy" },
-    "VPHYS 1101": { title: "Veterinary Physiology" },
-    "PHARM 2101": { title: "General and Systemic Pharmacology" },
-    "PARA 2101": { title: "Veterinary Helminthology and Protozoology" },
-    "MICRO 2101": { title: "General Bacteriology and Mycology" },
-    "PATH 2101": { title: "General Veterinary Pathology" },
-    "VMED 3101": { title: "Veterinary Clinical Medicine" },
-    "SURG 3101": { title: "General and Anaesthetic Surgery" },
-    "ANSC 1101": { title: "Introduction to Animal Science" },
-    "ABG 1101": { title: "Principles of Animal Genetics" },
-    "ANN 2101": { title: "Fundamentals of Animal Nutrition" },
-    "DSC 2101": { title: "Dairy Chemistry and Microbiology" },
-    "PSC 2101": { title: "Poultry Production and Management" },
-    "AE 1101": { title: "Microeconomics" },
-    "AF 1101": { title: "Principles of Agricultural Finance" },
-    "ABM 1101": { title: "Principles of Agribusiness Management" },
-    "IWM 2101": { title: "Fluid Mechanics and Open Channel Hydraulics" },
-    "FSE 2101": { title: "Strength of Materials" },
-    "FT 1101": { title: "Principles of Food Science and Technology" },
-    "CS 1101": { title: "Computer Programming and Applications" },
-    "FBG 1101": { title: "Ichthyology" },
-    "AQ 1101": { title: "Principles of Aquaculture" },
-    "FM 1101": { title: "Limnology and Aquatic Ecology" },
-    "FFT 2101": { title: "Fish Harvesting and Processing Technology" }
-  };
-
-  const _0xFACULTY_DEGREE_MAP = {
-    "01": "D.V.M.",
-    "02": "B.Sc. Ag. (Hons.)",
-    "03": "B.Sc. A.H. (Hons.)",
-    "04": "B.Sc. Ag. Econ. (Hons.)",
-    "05": "B.Sc. Agril. Engg.",
-    "06": "B.Sc. Fisheries (Hons.)",
-    "10": "D.V.M."
-  };
-
-  /* Attach Course Code Datalist for Autocomplete */
   const _0xCourseNoInput = _0xD.getElementById("courseNo");
+  const _0xDL = _0xD.createElement("datalist");
+  _0xDL.id = "bauCourseDatalist";
+
+  function _0xRefreshCourseDatalist() {
+    _0xDL.innerHTML = "";
+    Object.keys(_0xCOURSE_CATALOG).sort().forEach(code => {
+      const opt = _0xD.createElement("option");
+      opt.value = code;
+      opt.label = _0xCOURSE_CATALOG[code].title;
+      _0xDL.appendChild(opt);
+    });
+  }
   if (_0xCourseNoInput) {
-    const _0xDL = _0xD.createElement("datalist");
-    _0xDL.id = "bauCourseDatalist";
-    function _0xRefreshCourseDatalist() {
-      _0xDL.innerHTML = "";
-      Object.keys(_0xCOURSE_CATALOG).sort().forEach(code => {
-        const opt = _0xD.createElement("option");
-        opt.value = code;
-        opt.label = _0xCOURSE_CATALOG[code].title;
-        _0xDL.appendChild(opt);
-      });
-    }
     _0xRefreshCourseDatalist();
     _0xCourseNoInput.setAttribute("list", "bauCourseDatalist");
     _0xCourseNoInput.parentNode.appendChild(_0xDL);
   }
 
-  async function _0xLoadLiveCourseCatalog() {
-    const cacheKey = "bau_courses_cache_v2";
-    try {
-      const cached = localStorage.getItem(cacheKey);
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (parsed && typeof parsed === "object") Object.assign(_0xCOURSE_CATALOG, parsed);
-      }
-    } catch (_0xe) {}
-
-    try {
-      const res = await fetch("https://asif.bdasif321.workers.dev/courses", { cache: "no-store" });
-      if (!res.ok) return;
-      const json = await res.json();
-      const list = Array.isArray(json) ? json : (json.courses || json.data || []);
-      const liveCatalog = {};
-      list.forEach(item => {
-        if (!item) return;
-        const code = (item.code || item.courseCode || item.course_code || item.course || "").toString().trim().toUpperCase().replace(/\s+/g, " ");
-        const title = (item.title || item.courseTitle || item.course_title || item.name || "").toString().trim();
-        if (code && title) liveCatalog[code] = { title };
-      });
-      if (Object.keys(liveCatalog).length) {
-        Object.assign(_0xCOURSE_CATALOG, liveCatalog);
-        localStorage.setItem(cacheKey, JSON.stringify(liveCatalog));
-        const datalist = document.getElementById("bauCourseDatalist");
-        if (datalist) {
-          datalist.innerHTML = "";
-          Object.keys(_0xCOURSE_CATALOG).sort().forEach(code => {
-            const opt = document.createElement("option");
-            opt.value = code;
-            opt.label = _0xCOURSE_CATALOG[code].title;
-            datalist.appendChild(opt);
-          });
-        }
-        _0xHandleCourseCodeLogic();
-      }
-    } catch (_0xe) {}
+  if (typeof DATA.syncLiveCourses === "function") {
+    DATA.syncLiveCourses(() => {
+      _0xRefreshCourseDatalist();
+      _0xHandleCourseCodeLogic();
+    });
   }
-  _0xLoadLiveCourseCatalog();
 
-  /* 4. Auto-Fetch Toggle + Manual Reg Entry + Auto-Session & Course Code Detection */
-  const _0xAPI = "https://asif.bdasif321.workers.dev/";
   let _0xST = [{ id: "2602149", name: "Mohammad Asif", reg: "61046", status: "ok" }];
   const _0xMemCache = { "2602149": { name: "Mohammad Asif", reg: "61046" } };
   const _0xDebounceTimers = {};
